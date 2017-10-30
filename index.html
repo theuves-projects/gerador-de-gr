@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <title>Devoluções</title>
+  </head>
+  <body
+    data-ng-app="app"
+    data-ng-controller="Main as vm">
+
+    <form data-ng-submit="vm.ler()">
+      <textarea
+        placeholder="Cole os números aqui..."
+        data-ng-model="vm.processos"></textarea>
+      <br>
+
+      <input type="submit">
+    </form>
+
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/clipboard-polyfill.js"></script>
+
+    <script src="app/module.js"></script>
+    <script src="app/controllers.js"></script>
+    <script src="app/services.js"></script>
+  </body>
+</html>
