@@ -3,6 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>Devoluções</title>
+    <style>
+      textarea {
+        width: 256px;
+      }
+
+      input[type="submit"] {
+        margin-bottom: 10px;
+      }
+
+      table,
+      tr,
+      td {
+        font: 14.5px "courier";
+        border: solid 1px black;
+      }
+    </style>
   </head>
   <body
     data-ng-app="app"
@@ -11,11 +27,20 @@
     <form data-ng-submit="vm.ler()">
       <textarea
         placeholder="Cole os números aqui..."
-        data-ng-model="vm.processos"></textarea>
+        data-ng-model="vm.numeros"></textarea>
       <br>
 
       <input type="submit">
     </form>
+
+    <table data-ng-if="vm.processos.length !== 0">
+      <tr data-ng-repeat="processo in vm.processos">
+        <td>{{processo[0]}}</td>
+        <td>PROCESSO</td>
+        <td>{{processo[1]}}</td>
+        <td>{{processo[2]}}</td>
+      </tr>
+    </table>
 
     <script src="libs/angular.min.js"></script>
     <script src="libs/clipboard-polyfill.js"></script>

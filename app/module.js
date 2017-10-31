@@ -3,8 +3,8 @@
 
   angular
     .module("app", [
-      "controllers",
-      "services"
+        "controllers"
+      , "services"
     ])
   ;
 })();
