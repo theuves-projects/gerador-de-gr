@@ -15,7 +15,7 @@
 
     ///
 
-    vm.data = moment(new Date()).format('MM/DD/YYYY HH:mm');
+    vm.data = moment(new Date()).format('DD/MM/YYYY HH:mm');
 
     ///
 
