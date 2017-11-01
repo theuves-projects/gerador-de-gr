@@ -15,6 +15,10 @@
 
     ///
 
+    vm.data = moment(new Date()).format('MM/DD/YYYY HH:mm');
+
+    ///
+
     vm.numeros = "";
     vm.processos = [];
 
