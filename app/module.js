@@ -3,8 +3,22 @@
 
   angular
     .module("app", [
-        "controllers"
-      , "services"
+
+      /**
+       * específicos
+       */
+        "configurar"
+      , "imprimir"
+
+      /**
+       * globais
+       */
+       , "app.services"
+
+      /**
+       * externos
+       */
+      , "ngRoute"
     ])
   ;
 })();

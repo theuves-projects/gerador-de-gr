@@ -1,0 +1,64 @@
+<div id="configurar">
+  <div class="cabecalho">
+    <img class="republica" src="imagens/republica.png">
+    <br>
+    <b>
+      ADVOCACIA-GERAL DA UNIÃO<br>
+      PROCURADORIA-GERAL FEDERAL<br>
+      PROCURADORIA FEDERAL NO ESTADO DE MATO GROSSO DO SUL<br>
+      ESCRITÓRIO DE REPRESENTAÇÂO EM DOURADOS – MS<br>
+      Av. Weimar G. Torres, 3215-C – 1º Andar – Centro – CEP 79800-023<br>
+      Fone: (67) 3423-2591
+    </b>
+  </div>
+
+  <table>
+    <tr class="center">
+      <td colspan="4"><b>GUIA DE REMESSA DE CARGA Nº {{vm.carga}}/2017</b></td>
+    </tr>
+    <tr class="center" data-ng-if="!vm.dourados">
+      <td colspan="2"><b>MALOTE Nº:</b> {{vm.malote}}</td>
+      <td colspan="2"><b>LACRE Nº:</b> {{vm.lacre}}</td>
+    </tr>
+    <tr>
+      <td colspan="4"><b>REMETENTE:</b> AGU/PGF/ER/DOURADOS-MS</td>
+    </tr>
+    <tr>
+      <td colspan="4"><b>DESTINATÁRIO:</b> {{vm.destinatario}}</td>
+    </tr>
+    <tr class="center">
+      <td><b>ITEM</b></td>
+      <td><b>ESPÉCIE</b></td>
+      <td><b>Nº DOCUMENTO</b></td>
+      <td><b>VOLUME</b></td>
+    </tr>
+    <tr class="processo" data-ng-repeat="processo in vm.processos">
+      <td>{{processo[0]}}</td>
+      <td>PROCESSO</td>
+      <td>{{processo[1]}}</td>
+      <td>{{processo[2]}}</td>
+    </tr>
+    <tr class="center">
+      <td class="pra-uso" colspan="2"><b>PARA USO DA EXPEDIÇÃO</b></td>
+      <td class="pra-uso" colspan="2"><b>PARA USO DO DESTINATÁRIO</b></td>
+    </tr>
+    <tr>
+      <td class="pra-uso" colspan="2">
+        <b>DATA: {{vm.data}}</b>
+        <br>
+        <br>
+        <b>RESPONSÁVEL: ______________________________</b>
+      </td>
+      <td class="pra-uso" colspan="2">
+        <b>RECEBIDO EM: _____/_____/2017</b>
+        <br>
+        <br>
+        <b>RESPONSÁVEL: ______________________________</b>
+      </td>
+    </tr>
+  </table>
+  <span class="devolver">
+    FAVOR DEVOLVER UMA VIA RECIBADA
+  </span>
+</div>
+

@@ -2,36 +2,37 @@
   "use strict";
 
   angular
-    .module("controllers", [])
-    .controller("Main", Main)
+    .module("configurar.controller", [])
+    .controller("Configurar", Configurar)
   ;
 
-  function Main(
-        Processo
-      , Utilitarios
-    ) {
-
-    var vm = this;
-
-    ///
-
-    vm.data = moment(new Date()).format('DD/MM/YYYY HH:mm');
-
-    ///
-
-    vm.numeros = "";
-    vm.processos = [];
+  function Configurar(
+      $location
 
     /**
-     * funções.
+     * personalizados
+     */
+    , Guia
+    , Processo
+    , Utilitarios
+  ) {
+    var vm = this;
+
+    vm.destinatario = "VARA DO TRABALHO DE AMAMBAI/MS";
+
+    /**
+     * funções
+     * -------
      */
     vm.ler = ler;
 
-    function ler() {
-      var numeros = vm.numeros;
+    ///
 
-      if (numeros) {
-        numeros = numeros
+    function ler() {
+      var processos = vm.processos;
+
+      if (processos) {
+        processos = processos
           .split("\n")
           .filter(function (numero) {
             return Processo.eh(numero);
@@ -47,7 +48,7 @@
           })
         ;
 
-        numeros = Utilitarios.removerRepetidos(numeros)
+        processos = Utilitarios.removerRepetidos(processos)
           .map(function (array) {
             array[1] = Utilitarios.completarComZeros(array[1]);
 
@@ -60,7 +61,20 @@
           })
         ;
 
-        vm.processos = numeros;
+        Guia.definir(
+            vm.carga
+          , vm.destinatario
+          , vm.lacre
+          , vm.malote
+
+          /**
+           * array com processos
+           * que acabou de ser analisada
+           */
+          , processos
+        );
+
+        $location.url("/imprimir");
       } else {
         alert("Nada informado!");
       }

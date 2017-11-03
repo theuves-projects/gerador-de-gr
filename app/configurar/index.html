@@ -1,0 +1,84 @@
+<div id="configurar">
+  <form data-ng-submit="vm.ler()">
+    <table>
+      <tr>
+        <td>
+          <input data-ng-model="vm.carga" type="text" placeholder="Carga">
+        </td>
+        <td>
+          <input data-ng-model="vm.lacre" type="text" placeholder="Lacre">
+        </td>
+        <td>
+          <input data-ng-model="vm.malote" type="text" placeholder="Malote">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <select data-ng-model="vm.destinatario">
+            <option value="VARA DO TRABALHO DE AMAMBAI/MS">VARA DO TRABALHO DE AMAMBAI/MS</option>
+            <option value="VARA ESTADUAL DE AMANBAI/MS">VARA ESTADUAL DE AMANBAI/MS</option>
+            <option value="VARA DO TRABALHO DE ANGÉLICA/MS">VARA DO TRABALHO DE ANGÉLICA/MS</option>
+            <option value="VARA ESTADUAL DE BELA VISTA/MS">VARA ESTADUAL DE BELA VISTA/MS</option>
+            <option value="VARA DO TRABALHO DE BELA VISTA/MS">VARA DO TRABALHO DE BELA VISTA/MS</option>
+            <option value="VARA ESTADUAL DE BATAYPORÃ/MS">VARA ESTADUAL DE BATAYPORÃ/MS</option>
+            <option value="VARA DO TRABALHO CAARAPÓ/MS">VARA DO TRABALHO CAARAPÓ/MS</option>
+            <option value="VARA DO TRABALHO DE DEODÁPOLIS/MS">VARA DO TRABALHO DE DEODÁPOLIS/MS</option>
+            <option value="1ª VARA FEDERAL DE DOURADOS/MS">1ª VARA FEDERAL DE DOURADOS/MS</option>
+            <option value="2ª VARA FEDERAL DE DOURADOS/MS">2ª VARA FEDERAL DE DOURADOS/MS</option>
+            <option value="1ª VARA DO TRABALHO DE DOURADOS/MS">1ª VARA DO TRABALHO DE DOURADOS/MS</option>
+            <option value="2ª VARA DO TRABALHO DE DOURADOS/MS">2ª VARA DO TRABALHO DE DOURADOS/MS</option>
+            <option value="3ª CÍVEL DE DOURADOS/MS">3ª CÍVEL DE DOURADOS/MS</option>
+            <option value="VARA ESTADUAL DE ELDORADO/MS">VARA ESTADUAL DE ELDORADO/MS</option>
+            <option value="VARA ÚNICA DE FÁTIMA DO SUL/MS">VARA ÚNICA DE FÁTIMA DO SUL/MS</option>
+            <option value="VARA DO TRABALHO DE FÁTIMA DO SUL/MS">VARA DO TRABALHO DE FÁTIMA DO SUL/MS</option>
+            <option value="VARA DO TRABALHO DE GLÓRIA DE DOURADOS/MS">VARA DO TRABALHO DE GLÓRIA DE DOURADOS/MS</option>
+            <option value="VARA ESTADUAL DE GLÓRIA DE DOURADOS/MS">VARA ESTADUAL DE GLÓRIA DE DOURADOS/MS</option>
+            <option value="VARA DO TRABALHO DE IGUATEMI/MS">VARA DO TRABALHO DE IGUATEMI/MS</option>
+            <option value="VARA ESTADUAL DE IGUATEMI/MS">VARA ESTADUAL DE IGUATEMI/MS</option>
+            <option value="VARA  ESTADUAL DE ITAPORÃ/MS">VARA  ESTADUAL DE ITAPORÃ/MS</option>
+            <option value="VARA DO TRABALHO DE ITAPORÃ/MS">VARA DO TRABALHO DE ITAPORÃ/MS</option>
+            <option value="VARA DO TRABALHO DE ITAQUIRAÍ/MS">VARA DO TRABALHO DE ITAQUIRAÍ/MS</option>
+            <option value="VARA DO TRABALHO DE IVINHEMA/MS">VARA DO TRABALHO DE IVINHEMA/MS</option>
+            <option value="VARA DO TRABALHO DE JARDIM/MS">VARA DO TRABALHO DE JARDIM/MS</option>
+            <option value="VARA ESTADUAL DE JARDIM/MS">VARA ESTADUAL DE JARDIM/MS</option>
+            <option value="VARA DO TRABALHO DE MARACAJU/MS">VARA DO TRABALHO DE MARACAJU/MS</option>
+            <option value="VARA ESTADUAL DE MARACAJU/MS">VARA ESTADUAL DE MARACAJU/MS</option>
+            <option value="VARA DO TRABALHO DE MUNDO NOVO/MS">VARA DO TRABALHO DE MUNDO NOVO/MS</option>
+            <option value="VARA ESTADUAL DE MUNDO NOVO/MS">VARA ESTADUAL DE MUNDO NOVO/MS</option>
+            <option value="1ª VARA FEDERAL DE NAVIRAÍ/MS">1ª VARA FEDERAL DE NAVIRAÍ/MS</option>
+            <option value="2ª VARA FEDERAL DE NAVIRAÍ/MS">2ª VARA FEDERAL DE NAVIRAÍ/MS</option>
+            <option value="VARA DO TRABALHO DE NAVIRAÍ/MS">VARA DO TRABALHO DE NAVIRAÍ/MS</option>
+            <option value="VARA ESTADUAL DE NOVA ALVORADA DO SUL/MS">VARA ESTADUAL DE NOVA ALVORADA DO SUL/MS</option>
+            <option value="VARA DO TRABALHO DE NOVA ALVORADA DO SUL/MS">VARA DO TRABALHO DE NOVA ALVORADA DO SUL/MS</option>
+            <option value="2ª VARA ESTADUAL DE NOVA ANDRADINA/MS">2ª VARA ESTADUAL DE NOVA ANDRADINA/MS</option>
+            <option value="VARA DO TRABALHO DE NOVA ANDRADINA/MS">VARA DO TRABALHO DE NOVA ANDRADINA/MS</option>
+            <option value="1ª VARA DO TRABALHO DE PONTA PORÃ/MS">1ª VARA DO TRABALHO DE PONTA PORÃ/MS</option>
+            <option value="1ª VARA FEDERAL DE PONTA PORÃ/MS">1ª VARA FEDERAL DE PONTA PORÃ/MS</option>
+            <option value="2ª VARA FEDERAL DE PONTA PORÃ/MS">2ª VARA FEDERAL DE PONTA PORÃ/MS</option>
+            <option value="VARA ESTADUAL DE RIO BRILHANTE/MS">VARA ESTADUAL DE RIO BRILHANTE/MS</option>
+            <option value="VARA DO TRABALHO DE RIO BRILHANTE/MS">VARA DO TRABALHO DE RIO BRILHANTE/MS</option>
+            <option value="VARA ESTADUAL DE SETE QUEDAS/MS">VARA ESTADUAL DE SETE QUEDAS/MS</option>
+            <option value="VARA DO TRABALHO DE SETE QUEDAS/MS">VARA DO TRABALHO DE SETE QUEDAS/MS</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <textarea  data-ng-model="vm.processos" placeholder="Cole os números aqui..." rows="4"></textarea>
+        </td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td>
+          <input type="submit" value="gerar guia">
+        </td>
+        <td>
+          <input type="reset" value="limpar dados">
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+

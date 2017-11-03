@@ -3,150 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>Devoluções</title>
-    <style>
-      textarea {
-        width: 256px;
-      }
-      input[type="submit"] {
-        margin-bottom: 10px;
-      }
-      body {
-        margin: 2% 6%;
-      }
-      table, th, td {
-        font-size: 12px;
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
-      th, td {
-        padding: 5px;
-        text-align: left;
-      }
-      table {
-        width: 100%;
-      }
-      .center td {
-        text-align: center;
-      }
-      .processo > td {
-        padding: 2px 5px;
-        font-size: 14px;
-        font-family: courier;
-      }
-      .cabecalho {
-        font-family: Arial;
-        font-size: 10px;
-        text-align: center;
-        margin-bottom: 14px;
-      }
-      .pra-uso {
-        padding: 10px;
-      }
-      .devolver {
-        position: fixed;
-        bottom: 0px;
-        right: 0px;
-        color: gray;
-        font-weight: bold;
-      }
-      .republica {
-        width: 50px;
-        height: 45px;
-      }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
   </head>
-  <body
-    data-ng-app="app"
-    data-ng-controller="Main as vm">
+  <body data-ng-app="app">
 
-    <form
-      data-ng-if="vm.processos.length === 0"
-      data-ng-submit="vm.ler()">
-
-      <input type="checkbox" data-ng-model="vm.dourados"> É de Dourados?<br>
-      <input type="text" placeholder="Carga" data-ng-model="vm.carga"><br>
-      <input type="text" placeholder="Destinatário" data-ng-model="vm.destinatario"><br>
-      <input type="text" placeholder="Lacre" data-ng-model="vm.lacre"><br>
-      <input type="text" placeholder="Malote" data-ng-model="vm.malote"><br>
-
-      <textarea
-        placeholder="Cole os números aqui..."
-        data-ng-model="vm.numeros"></textarea>
-      <br>
-
-      <input type="submit">
-    </form>
-
-    <div class="guia" data-ng-if="vm.processos.length !== 0">
-      <div class="cabecalho">
-        <img class="republica" src="./republica.png">
-        <br>
-        <b>
-          ADVOCACIA-GERAL DA UNIÃO<br>
-          PROCURADORIA-GERAL FEDERAL<br>
-          PROCURADORIA FEDERAL NO ESTADO DE MATO GROSSO DO SUL<br>
-          ESCRITÓRIO DE REPRESENTAÇÂO EM DOURADOS – MS<br>
-          Av. Weimar G. Torres, 3215-C – 1º Andar – Centro – CEP 79800-023<br>
-          Fone: (67) 3423-2591
-        </b>
-      </div>
-
-      <table>
-        <tr class="center">
-          <td colspan="4"><b>GUIA DE REMESSA DE CARGA Nº {{vm.carga}}/2017</b></td>
-        </tr>
-        <tr class="center" data-ng-if="!vm.dourados">
-          <td colspan="2"><b>MALOTE Nº:</b> {{vm.malote}}</td>
-          <td colspan="2"><b>LACRE Nº:</b> {{vm.lacre}}</td>
-        </tr>
-        <tr>
-          <td colspan="4"><b>REMETENTE:</b> AGU/PGF/ER/DOURADOS-MS</td>
-        </tr>
-        <tr>
-          <td colspan="4"><b>DESTINATÁRIO:</b> {{vm.destinatario}}</td>
-        </tr>
-        <tr class="center">
-          <td><b>ITEM</b></td>
-          <td><b>ESPÉCIE</b></td>
-          <td><b>Nº DOCUMENTO</b></td>
-          <td><b>VOLUME</b></td>
-        </tr>
-        <tr class="processo" data-ng-repeat="processo in vm.processos">
-          <td>{{processo[0]}}</td>
-          <td>PROCESSO</td>
-          <td>{{processo[1]}}</td>
-          <td>{{processo[2]}}</td>
-        </tr>
-        <tr class="center">
-          <td class="pra-uso" colspan="2"><b>PARA USO DA EXPEDIÇÃO</b></td>
-          <td class="pra-uso" colspan="2"><b>PARA USO DO DESTINATÁRIO</b></td>
-        </tr>
-        <tr>
-          <td class="pra-uso" colspan="2">
-            <b>DATA: {{vm.data}}</b>
-            <br>
-            <br>
-            <b>RESPONSÁVEL: ______________________________</b>
-          </td>
-          <td class="pra-uso" colspan="2">
-            <b>RECEBIDO EM: _____/_____/2017</b>
-            <br>
-            <br>
-            <b>RESPONSÁVEL: ______________________________</b>
-          </td>
-        </tr>
-      </table>
-      <span class="devolver">
-        FAVOR DEVOLVER UMA VIA RECIBADA
-      </span>
-    </div>
+    <ng-view></ng-view>
 
     <script src="libs/angular.min.js"></script>
-    <script src="libs/clipboard-polyfill.js"></script>
-    <script src="libs/moment.js"></script>
+    <script src="libs/angular-route.min.js"></script>
 
     <script src="app/module.js"></script>
-    <script src="app/controllers.js"></script>
+    <script src="app/config.js"></script>
     <script src="app/services.js"></script>
+
+    <script src="app/configurar/module.js"></script>
+    <script src="app/configurar/controller.js"></script>
+    <script src="app/configurar/services.js"></script>
+
+    <script src="app/imprimir/module.js"></script>
+    <script src="app/imprimir/controller.js"></script>
   </body>
 </html>

@@ -2,98 +2,44 @@
   "use strict";
 
   angular
-    .module("services", [])
-    .service("Processo", Processo)
-    .service("Utilitarios", Utilitarios)
+    .module("app.services", [])
+    .service("Guia", Guia)
   ;
 
   /**
-   * funções pra manipular números de um processo.
+   * vai armazenar os dados que serão
+   * usados na guia que está sendo gerada
    */
-  function Processo() {
+  function Guia() {
+    var dados = {};
+
+    this.definir = adicionar;
+    this.obter = obter;
 
     /**
-     * verificar se é um número de processo.
-     *
-     * obs.: não valida.
+     * definir os dados da guia
      */
-    this.eh = function (numero) {
-      return /^\d{20}$/
-        .test(
-          numero.trim()
-        )
-      ;
-    };
+    function adicionar(
+        carga
+      , destinatario
+      , lacre
+      , malote
+      , processos
+    ) {
+      dados = {
+          carga       : carga
+        , destinatario: destinatario
+        , lacre       : lacre
+        , malote      : malote
+        , processos   : processos
+      };
+    }
 
     /**
-     * formatar um número de processo.
+     * obter os dados da guia
      */
-    this.formatar = function (numero) {
-      return numero
-        .toString()
-        .trim()
-        .replace(
-            /^(\d{7})(\d{2})(\d{4})(\d{3})(\d{4})$/
-          , "$1-$2.$3.$4.$5"
-        )
-      ;
-    };
-  }
-
-  /**
-   * apenas funções aleatórias que vão ser úteis.
-   */
-  function Utilitarios() {
-
-    /**
-     * contar quantas vezes um item aparece numa array.
-     */
-    this.contarRepetidos = function (item, array) {
-
-      /**
-       * vai armazenar as vezes que está aparecendo.
-       */
-      var vezes = 0;
-
-      array.forEach(function (itemDaArray) {
-        if (itemDaArray === item) {
-          vezes += 1;
-        }
-      });
-
-      return vezes;
-    };
-
-    /**
-     * remover itens repetidos num array.
-     */
-    this.removerRepetidos = function (array) {
-      return array
-        .map(function (item) {
-          return angular.toJson(item);
-        })
-        .filter(function (item, indice, eu) {
-          return eu.indexOf(item) === indice;
-        })
-        .map(function (item) {
-          return angular.fromJson(item);
-        })
-      ;
-    };
-
-    /**
-     * completar itens com zeros.
-     *
-     * menores que 100 apenas.
-     */
-    this.completarComZeros = function (numero) {
-      numero = numero.toString();
-
-      if (numero < 10) {
-        numero = "0" + numero;
-      }
-
-      return numero;
-    };
+    function obter() {
+      return dados;
+    }
   }
 })();

@@ -1,0 +1,56 @@
+#configurar table {
+  width: 500px;
+}
+
+#configurar table td > * {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+input[type="submit"] {
+  margin-bottom: 10px;
+}
+body {
+  margin: 2% 6%;
+}
+table, th, td {
+  font-size: 12px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+table {
+  width: 100%;
+}
+.center td {
+  text-align: center;
+}
+.processo > td {
+  padding: 2px 5px;
+  font-size: 14px;
+  font-family: courier;
+}
+.cabecalho {
+  font-family: Arial;
+  font-size: 10px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.pra-uso {
+  padding: 10px;
+}
+.devolver {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  color: gray;
+  font-weight: bold;
+}
+.republica {
+  width: 50px;
+  height: 45px;
+}
