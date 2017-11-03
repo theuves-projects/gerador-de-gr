@@ -1,64 +1,68 @@
 <div id="configurar">
+  <header>
+    <h1>GERADOR DE<br>GUIA DE REMESSA</h1>
+  </header>
+
   <form data-ng-submit="vm.ler()">
     <table>
       <tr>
         <td>
-          <input data-ng-model="vm.carga" type="text" placeholder="Carga">
+          <input data-ng-model="vm.carga" type="text" placeholder="nº da carga" autofocus>
         </td>
         <td>
-          <input data-ng-model="vm.lacre" type="text" placeholder="Lacre">
+          <input data-ng-model="vm.lacre" type="text" placeholder="nº do lacre">
         </td>
         <td>
-          <input data-ng-model="vm.malote" type="text" placeholder="Malote">
+          <input data-ng-model="vm.malote" type="text" placeholder="nº do malote" maxlength="5">
         </td>
       </tr>
       <tr>
         <td colspan="3">
           <select data-ng-model="vm.destinatario">
-            <option value="VARA DO TRABALHO DE AMAMBAI/MS">VARA DO TRABALHO DE AMAMBAI/MS</option>
-            <option value="VARA ESTADUAL DE AMANBAI/MS">VARA ESTADUAL DE AMANBAI/MS</option>
-            <option value="VARA DO TRABALHO DE ANGÉLICA/MS">VARA DO TRABALHO DE ANGÉLICA/MS</option>
-            <option value="VARA ESTADUAL DE BELA VISTA/MS">VARA ESTADUAL DE BELA VISTA/MS</option>
-            <option value="VARA DO TRABALHO DE BELA VISTA/MS">VARA DO TRABALHO DE BELA VISTA/MS</option>
-            <option value="VARA ESTADUAL DE BATAYPORÃ/MS">VARA ESTADUAL DE BATAYPORÃ/MS</option>
-            <option value="VARA DO TRABALHO CAARAPÓ/MS">VARA DO TRABALHO CAARAPÓ/MS</option>
-            <option value="VARA DO TRABALHO DE DEODÁPOLIS/MS">VARA DO TRABALHO DE DEODÁPOLIS/MS</option>
-            <option value="1ª VARA FEDERAL DE DOURADOS/MS">1ª VARA FEDERAL DE DOURADOS/MS</option>
-            <option value="2ª VARA FEDERAL DE DOURADOS/MS">2ª VARA FEDERAL DE DOURADOS/MS</option>
-            <option value="1ª VARA DO TRABALHO DE DOURADOS/MS">1ª VARA DO TRABALHO DE DOURADOS/MS</option>
-            <option value="2ª VARA DO TRABALHO DE DOURADOS/MS">2ª VARA DO TRABALHO DE DOURADOS/MS</option>
-            <option value="3ª CÍVEL DE DOURADOS/MS">3ª CÍVEL DE DOURADOS/MS</option>
-            <option value="VARA ESTADUAL DE ELDORADO/MS">VARA ESTADUAL DE ELDORADO/MS</option>
-            <option value="VARA ÚNICA DE FÁTIMA DO SUL/MS">VARA ÚNICA DE FÁTIMA DO SUL/MS</option>
-            <option value="VARA DO TRABALHO DE FÁTIMA DO SUL/MS">VARA DO TRABALHO DE FÁTIMA DO SUL/MS</option>
-            <option value="VARA DO TRABALHO DE GLÓRIA DE DOURADOS/MS">VARA DO TRABALHO DE GLÓRIA DE DOURADOS/MS</option>
-            <option value="VARA ESTADUAL DE GLÓRIA DE DOURADOS/MS">VARA ESTADUAL DE GLÓRIA DE DOURADOS/MS</option>
-            <option value="VARA DO TRABALHO DE IGUATEMI/MS">VARA DO TRABALHO DE IGUATEMI/MS</option>
-            <option value="VARA ESTADUAL DE IGUATEMI/MS">VARA ESTADUAL DE IGUATEMI/MS</option>
-            <option value="VARA  ESTADUAL DE ITAPORÃ/MS">VARA  ESTADUAL DE ITAPORÃ/MS</option>
-            <option value="VARA DO TRABALHO DE ITAPORÃ/MS">VARA DO TRABALHO DE ITAPORÃ/MS</option>
-            <option value="VARA DO TRABALHO DE ITAQUIRAÍ/MS">VARA DO TRABALHO DE ITAQUIRAÍ/MS</option>
-            <option value="VARA DO TRABALHO DE IVINHEMA/MS">VARA DO TRABALHO DE IVINHEMA/MS</option>
-            <option value="VARA DO TRABALHO DE JARDIM/MS">VARA DO TRABALHO DE JARDIM/MS</option>
-            <option value="VARA ESTADUAL DE JARDIM/MS">VARA ESTADUAL DE JARDIM/MS</option>
-            <option value="VARA DO TRABALHO DE MARACAJU/MS">VARA DO TRABALHO DE MARACAJU/MS</option>
-            <option value="VARA ESTADUAL DE MARACAJU/MS">VARA ESTADUAL DE MARACAJU/MS</option>
-            <option value="VARA DO TRABALHO DE MUNDO NOVO/MS">VARA DO TRABALHO DE MUNDO NOVO/MS</option>
-            <option value="VARA ESTADUAL DE MUNDO NOVO/MS">VARA ESTADUAL DE MUNDO NOVO/MS</option>
-            <option value="1ª VARA FEDERAL DE NAVIRAÍ/MS">1ª VARA FEDERAL DE NAVIRAÍ/MS</option>
-            <option value="2ª VARA FEDERAL DE NAVIRAÍ/MS">2ª VARA FEDERAL DE NAVIRAÍ/MS</option>
-            <option value="VARA DO TRABALHO DE NAVIRAÍ/MS">VARA DO TRABALHO DE NAVIRAÍ/MS</option>
-            <option value="VARA ESTADUAL DE NOVA ALVORADA DO SUL/MS">VARA ESTADUAL DE NOVA ALVORADA DO SUL/MS</option>
-            <option value="VARA DO TRABALHO DE NOVA ALVORADA DO SUL/MS">VARA DO TRABALHO DE NOVA ALVORADA DO SUL/MS</option>
-            <option value="2ª VARA ESTADUAL DE NOVA ANDRADINA/MS">2ª VARA ESTADUAL DE NOVA ANDRADINA/MS</option>
-            <option value="VARA DO TRABALHO DE NOVA ANDRADINA/MS">VARA DO TRABALHO DE NOVA ANDRADINA/MS</option>
-            <option value="1ª VARA DO TRABALHO DE PONTA PORÃ/MS">1ª VARA DO TRABALHO DE PONTA PORÃ/MS</option>
-            <option value="1ª VARA FEDERAL DE PONTA PORÃ/MS">1ª VARA FEDERAL DE PONTA PORÃ/MS</option>
-            <option value="2ª VARA FEDERAL DE PONTA PORÃ/MS">2ª VARA FEDERAL DE PONTA PORÃ/MS</option>
-            <option value="VARA ESTADUAL DE RIO BRILHANTE/MS">VARA ESTADUAL DE RIO BRILHANTE/MS</option>
-            <option value="VARA DO TRABALHO DE RIO BRILHANTE/MS">VARA DO TRABALHO DE RIO BRILHANTE/MS</option>
-            <option value="VARA ESTADUAL DE SETE QUEDAS/MS">VARA ESTADUAL DE SETE QUEDAS/MS</option>
-            <option value="VARA DO TRABALHO DE SETE QUEDAS/MS">VARA DO TRABALHO DE SETE QUEDAS/MS</option>
+            <option value="vara do trabalho de amambai/ms">vara do trabalho de amambai/ms</option>
+            <option value="vara estadual de amanbai/ms">vara estadual de amanbai/ms</option>
+            <option value="vara do trabalho de angélica/ms">vara do trabalho de angélica/ms</option>
+            <option value="vara estadual de bela vista/ms">vara estadual de bela vista/ms</option>
+            <option value="vara do trabalho de bela vista/ms">vara do trabalho de bela vista/ms</option>
+            <option value="vara estadual de batayporã/ms">vara estadual de batayporã/ms</option>
+            <option value="vara do trabalho caarapó/ms">vara do trabalho caarapó/ms</option>
+            <option value="vara do trabalho de deodápolis/ms">vara do trabalho de deodápolis/ms</option>
+            <option value="1ª vara federal de dourados/ms">1ª vara federal de dourados/ms</option>
+            <option value="2ª vara federal de dourados/ms">2ª vara federal de dourados/ms</option>
+            <option value="1ª vara do trabalho de dourados/ms">1ª vara do trabalho de dourados/ms</option>
+            <option value="2ª vara do trabalho de dourados/ms">2ª vara do trabalho de dourados/ms</option>
+            <option value="3ª cível de dourados/ms">3ª cível de dourados/ms</option>
+            <option value="vara estadual de eldorado/ms">vara estadual de eldorado/ms</option>
+            <option value="vara única de fátima do sul/ms">vara única de fátima do sul/ms</option>
+            <option value="vara do trabalho de fátima do sul/ms">vara do trabalho de fátima do sul/ms</option>
+            <option value="vara do trabalho de glória de dourados/ms">vara do trabalho de glória de dourados/ms</option>
+            <option value="vara estadual de glória de dourados/ms">vara estadual de glória de dourados/ms</option>
+            <option value="vara do trabalho de iguatemi/ms">vara do trabalho de iguatemi/ms</option>
+            <option value="vara estadual de iguatemi/ms">vara estadual de iguatemi/ms</option>
+            <option value="vara  estadual de itaporã/ms">vara  estadual de itaporã/ms</option>
+            <option value="vara do trabalho de itaporã/ms">vara do trabalho de itaporã/ms</option>
+            <option value="vara do trabalho de itaquiraí/ms">vara do trabalho de itaquiraí/ms</option>
+            <option value="vara do trabalho de ivinhema/ms">vara do trabalho de ivinhema/ms</option>
+            <option value="vara do trabalho de jardim/ms">vara do trabalho de jardim/ms</option>
+            <option value="vara estadual de jardim/ms">vara estadual de jardim/ms</option>
+            <option value="vara do trabalho de maracaju/ms">vara do trabalho de maracaju/ms</option>
+            <option value="vara estadual de maracaju/ms">vara estadual de maracaju/ms</option>
+            <option value="vara do trabalho de mundo novo/ms">vara do trabalho de mundo novo/ms</option>
+            <option value="vara estadual de mundo novo/ms">vara estadual de mundo novo/ms</option>
+            <option value="1ª vara federal de naviraí/ms">1ª vara federal de naviraí/ms</option>
+            <option value="2ª vara federal de naviraí/ms">2ª vara federal de naviraí/ms</option>
+            <option value="vara do trabalho de naviraí/ms">vara do trabalho de naviraí/ms</option>
+            <option value="vara estadual de nova alvorada do sul/ms">vara estadual de nova alvorada do sul/ms</option>
+            <option value="vara do trabalho de nova alvorada do sul/ms">vara do trabalho de nova alvorada do sul/ms</option>
+            <option value="2ª vara estadual de nova andradina/ms">2ª vara estadual de nova andradina/ms</option>
+            <option value="vara do trabalho de nova andradina/ms">vara do trabalho de nova andradina/ms</option>
+            <option value="1ª vara do trabalho de ponta porã/ms">1ª vara do trabalho de ponta porã/ms</option>
+            <option value="1ª vara federal de ponta porã/ms">1ª vara federal de ponta porã/ms</option>
+            <option value="2ª vara federal de ponta porã/ms">2ª vara federal de ponta porã/ms</option>
+            <option value="vara estadual de rio brilhante/ms">vara estadual de rio brilhante/ms</option>
+            <option value="vara do trabalho de rio brilhante/ms">vara do trabalho de rio brilhante/ms</option>
+            <option value="vara estadual de sete quedas/ms">vara estadual de sete quedas/ms</option>
+            <option value="vara do trabalho de sete quedas/ms">vara do trabalho de sete quedas/ms</option>
           </select>
         </td>
       </tr>

@@ -1,22 +1,20 @@
-<div id="configurar">
+<div id="guia">
   <div class="cabecalho">
-    <img class="republica" src="imagens/republica.png">
-    <br>
-    <b>
-      ADVOCACIA-GERAL DA UNIÃO<br>
-      PROCURADORIA-GERAL FEDERAL<br>
-      PROCURADORIA FEDERAL NO ESTADO DE MATO GROSSO DO SUL<br>
-      ESCRITÓRIO DE REPRESENTAÇÂO EM DOURADOS – MS<br>
-      Av. Weimar G. Torres, 3215-C – 1º Andar – Centro – CEP 79800-023<br>
-      Fone: (67) 3423-2591
-    </b>
+    <img class="republica" src="imagens/brasao.gif">
+
+    <p>ADVOCACIA-GERAL DA UNIÃO</p>
+    <p>PROCURADORIA-GERAL FEDERAL</p>
+    <p>PROCURADORIA FEDERAL NO ESTADO DE MATO GROSSO DO SUL</p>
+    <p>ESCRITÓRIO DE REPRESENTAÇÂO EM DOURADOS – MS</p>
+    <p>Av. Weimar G. Torres, 3215-C – 1º Andar – Centro – CEP 79800-023</p>
+    <p>Fone: (67) 3423-2591</p>
   </div>
 
   <table>
-    <tr class="center">
-      <td colspan="4"><b>GUIA DE REMESSA DE CARGA Nº {{vm.carga}}/2017</b></td>
+    <tr class="centralizar">
+      <td colspan="4"><b>GUIA DE REMESSA DE CARGA Nº {{vm.carga}}/{{vm.data | date:"yyyy"}}</b></td>
     </tr>
-    <tr class="center" data-ng-if="!vm.dourados">
+    <tr class="centralizar" data-ng-if="!vm.ehDeDourados">
       <td colspan="2"><b>MALOTE Nº:</b> {{vm.malote}}</td>
       <td colspan="2"><b>LACRE Nº:</b> {{vm.lacre}}</td>
     </tr>
@@ -24,40 +22,41 @@
       <td colspan="4"><b>REMETENTE:</b> AGU/PGF/ER/DOURADOS-MS</td>
     </tr>
     <tr>
-      <td colspan="4"><b>DESTINATÁRIO:</b> {{vm.destinatario}}</td>
-    </tr>
-    <tr class="center">
+      <td colspan="4"><b>DESTINATÁRIO:</b> {{vm.destinatario | uppercase}}</td>
+    </tr>s
+    <tr class="centralizar">
       <td><b>ITEM</b></td>
       <td><b>ESPÉCIE</b></td>
-      <td><b>Nº DOCUMENTO</b></td>
+      <td><b>Nº DO DOCUMENTO</b></td>
       <td><b>VOLUME</b></td>
     </tr>
-    <tr class="processo" data-ng-repeat="processo in vm.processos">
+    <tr class="lista-de-processos" data-ng-repeat="processo in vm.processos">
       <td>{{processo[0]}}</td>
       <td>PROCESSO</td>
       <td>{{processo[1]}}</td>
       <td>{{processo[2]}}</td>
     </tr>
-    <tr class="center">
-      <td class="pra-uso" colspan="2"><b>PARA USO DA EXPEDIÇÃO</b></td>
-      <td class="pra-uso" colspan="2"><b>PARA USO DO DESTINATÁRIO</b></td>
+    <tr class="centralizar">
+      <td class="assinaturas" colspan="2"><b>PARA USO DA EXPEDIÇÃO</b></td>
+      <td class="assinaturas" colspan="2"><b>PARA USO DO DESTINATÁRIO</b></td>
     </tr>
     <tr>
-      <td class="pra-uso" colspan="2">
-        <b>DATA: {{vm.data}}</b>
+      <td class="assinaturas" colspan="2">
+        <b>REMETIDO EM: {{vm.data | date:"dd/MM/yyyy HH:mm"}}</b>
         <br>
         <br>
         <b>RESPONSÁVEL: ______________________________</b>
       </td>
-      <td class="pra-uso" colspan="2">
-        <b>RECEBIDO EM: _____/_____/2017</b>
+      <td class="assinaturas" colspan="2">
+        <b>RECEBIDO EM: _____/_____/{{vm.data | date:"yyyy"}}</b>
         <br>
         <br>
         <b>RESPONSÁVEL: ______________________________</b>
       </td>
     </tr>
   </table>
-  <span class="devolver">
+
+  <span class="devolver-guia">
     FAVOR DEVOLVER UMA VIA RECIBADA
   </span>
 </div>

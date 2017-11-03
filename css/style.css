@@ -1,5 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+/**
+ * configurar
+ * ----------
+ */
+
+#configurar {
+  margin: 80px 0px;
+}
+
+#configurar header {
+  width: 400px;
+  margin: 0px auto;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+#configurar header h1 {
+  font-size: 24px;
+  line-height: 22px;
+  text-align: center;
+  font-family: Verdana, sans-serif;
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
 #configurar table {
   width: 500px;
+  margin: 0px auto;
 }
 
 #configurar table td > * {
@@ -8,49 +39,104 @@
   padding: 0px;
 }
 
-input[type="submit"] {
-  margin-bottom: 10px;
+#configurar table:first-child {
+  margin-bottom: -5px;
 }
-body {
+
+#configurar input,
+#configurar select,
+#configurar textarea {
+  padding: 4px 10px!important;
+  font-size: 14px;
+  font-family: Verdana, sans-serif;
+  text-transform: uppercase;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #bdc3c7;
+}
+
+#configurar textarea {
+  resize: vertical;
+}
+
+#configurar input[type="submit"],
+#configurar input[type="reset"] {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+#configurar input[type="submit"] {
+  background-color: #2ecc71;
+  border-color: #27ae60;
+}
+
+#configurar input[type="reset"] {
+  background-color: #e74c3c;
+  border-color: #c0392b;
+}
+
+/**
+ * imprimir
+ * --------
+ */
+
+#guia {
   margin: 2% 6%;
 }
-table, th, td {
+
+#guia table,
+#guia th,
+#guia td {
   font-size: 12px;
   border: 1px solid black;
   border-collapse: collapse;
 }
-th, td {
+
+#guia th,
+#guia td {
   padding: 5px;
   text-align: left;
 }
-table {
+
+#guia table {
   width: 100%;
 }
-.center td {
+
+#guia .centralizar td {
   text-align: center;
 }
-.processo > td {
+
+#guia .cabecalho {
+  margin-bottom: 14px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  line-height: 25%;
+  font-weight: bold;
+}
+
+#guia .lista-de-processos > td {
+  font-family: Courier, monospace;
   padding: 2px 5px;
   font-size: 14px;
-  font-family: courier;
 }
-.cabecalho {
-  font-family: Arial;
-  font-size: 10px;
-  text-align: center;
-  margin-bottom: 14px;
-}
-.pra-uso {
+
+#guia .assinaturas {
   padding: 10px;
 }
-.devolver {
+
+#guia .devolver-guia {
   position: fixed;
   bottom: 0px;
   right: 0px;
-  color: gray;
+  opacity: 0.6;
   font-weight: bold;
 }
-.republica {
-  width: 50px;
-  height: 45px;
+
+/**/
+
+::selection {
+  color: white;
+  background-color: #2980b9;
 }

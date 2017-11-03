@@ -18,7 +18,10 @@
   ) {
     var vm = this;
 
-    vm.destinatario = "VARA DO TRABALHO DE AMAMBAI/MS";
+    /**
+     * informa a vara padrão (de entrada)
+     */
+    vm.destinatario = "vara do trabalho de amambai/ms";
 
     /**
      * funções
