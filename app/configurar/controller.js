@@ -34,7 +34,13 @@
     function ler() {
       var processos = vm.processos;
 
-      if (processos) {
+      if (
+           processos
+        && vm.carga
+        && vm.lacre
+        && vm.malote
+        && vm.destinatario
+      ) {
         processos = processos
           .split("\n")
           .filter(function (numero) {
@@ -79,7 +85,7 @@
 
         $location.url("/imprimir");
       } else {
-        alert("Nada informado!");
+        alert("Preencha todo o formulário!");
       }
     }
   }

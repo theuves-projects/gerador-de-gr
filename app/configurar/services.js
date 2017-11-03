@@ -37,7 +37,10 @@
     this.formatar = function (numero) {
       return numero
         .toString()
-        .trim()
+        .replace(
+            /[-.\s]/g
+          , ""
+        )
         .replace(
             /^(\d{7})(\d{2})(\d{4})(\d{3})(\d{4})$/
           , "$1-$2.$3.$4.$5"
