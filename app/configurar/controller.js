@@ -71,20 +71,26 @@
           })
         ;
 
-        Guia.definir(
-            vm.carga
-          , vm.destinatario
-          , vm.lacre
-          , vm.malote
+        if (processos.length === 0) {
 
-          /**
-           * array com processos
-           * que acabou de ser analisada
-           */
-          , processos
-        );
+          alert("Nenhum dos dados informados é válido!")
+        } else {
+          Guia.definir(
+              vm.carga
+            , vm.destinatario
+            , vm.lacre
+            , vm.malote
 
-        $location.url("/imprimir");
+            /**
+             * array com processos
+             * que acabou de ser analisada
+             */
+            , processos
+          );
+
+          $location.url("/imprimir");
+        }
+
       } else {
         alert("Preencha todo o formulário!");
       }

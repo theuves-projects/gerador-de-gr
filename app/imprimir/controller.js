@@ -34,6 +34,15 @@
       $location.path("/");
     }
 
+    vm.ehDeDourados = false;
+
+    if (
+         /\bdourados\b/i.test(guia.destinatario)
+      && !/\bglória\b/i.test(guia.destinatario)
+    ) {
+      vm.ehDeDourados = true;
+    }
+
     /**
      * informa a data exata em que foi gerada
      */
