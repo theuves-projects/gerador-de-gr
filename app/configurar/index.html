@@ -7,60 +7,107 @@
     <table>
       <tr>
         <td>
-          <input data-ng-model="vm.carga" type="text" placeholder="nº da carga" autofocus>
+          <input data-ng-model="vm.carga" type="number" placeholder="nº da carga" min="0" autofocus required>
         </td>
         <td>
-          <input data-ng-model="vm.lacre" type="text" placeholder="nº do lacre">
+          <input data-ng-model="vm.lacre" type="number" placeholder="nº do lacre" min="0" required>
         </td>
         <td>
-          <input data-ng-model="vm.malote" type="text" placeholder="nº do malote" maxlength="5">
+          <input data-ng-model="vm.malote" type="number" placeholder="nº do malote" min="0" maxlength="5" required>
         </td>
       </tr>
       <tr>
         <td colspan="3">
-          <select data-ng-model="vm.destinatario">
+          <select data-ng-model="vm.destinatario" required>
+            <option value disabled hidden>escolha aqui o destinatário...</option>
+
+            <option disabled>amambai:</option>
             <option value="vara do trabalho de amambai/ms">vara do trabalho de amambai/ms</option>
             <option value="vara estadual de amanbai/ms">vara estadual de amanbai/ms</option>
+
+            <option disabled>angélica:</option>
             <option value="vara do trabalho de angélica/ms">vara do trabalho de angélica/ms</option>
+
+            <option disabled>bela vista:</option>
             <option value="vara estadual de bela vista/ms">vara estadual de bela vista/ms</option>
             <option value="vara do trabalho de bela vista/ms">vara do trabalho de bela vista/ms</option>
+
+            <option disabled>batayporã:</option>
             <option value="vara estadual de batayporã/ms">vara estadual de batayporã/ms</option>
+
+            <option disabled>caarapó:</option>
             <option value="vara do trabalho caarapó/ms">vara do trabalho caarapó/ms</option>
+
+            <option disabled>deodápolis:</option>
             <option value="vara do trabalho de deodápolis/ms">vara do trabalho de deodápolis/ms</option>
+
+            <option disabled>dourados:</option>
             <option value="1ª vara federal de dourados/ms">1ª vara federal de dourados/ms</option>
             <option value="2ª vara federal de dourados/ms">2ª vara federal de dourados/ms</option>
             <option value="1ª vara do trabalho de dourados/ms">1ª vara do trabalho de dourados/ms</option>
             <option value="2ª vara do trabalho de dourados/ms">2ª vara do trabalho de dourados/ms</option>
             <option value="3ª cível de dourados/ms">3ª cível de dourados/ms</option>
+
+            <option disabled>eldorado:</option>
             <option value="vara estadual de eldorado/ms">vara estadual de eldorado/ms</option>
+
+            <option disabled>fátima do sul:</option>
             <option value="vara única de fátima do sul/ms">vara única de fátima do sul/ms</option>
             <option value="vara do trabalho de fátima do sul/ms">vara do trabalho de fátima do sul/ms</option>
+
+            <option disabled>glória de dourados:</option>
             <option value="vara do trabalho de glória de dourados/ms">vara do trabalho de glória de dourados/ms</option>
             <option value="vara estadual de glória de dourados/ms">vara estadual de glória de dourados/ms</option>
+
+            <option disabled>iguatemi:</option>
             <option value="vara do trabalho de iguatemi/ms">vara do trabalho de iguatemi/ms</option>
             <option value="vara estadual de iguatemi/ms">vara estadual de iguatemi/ms</option>
+
+            <option disabled>itaporã:</option>
             <option value="vara  estadual de itaporã/ms">vara  estadual de itaporã/ms</option>
             <option value="vara do trabalho de itaporã/ms">vara do trabalho de itaporã/ms</option>
+
+            <option disabled>itaquiraí:</option>
             <option value="vara do trabalho de itaquiraí/ms">vara do trabalho de itaquiraí/ms</option>
+
+            <option disabled>ivinhema:</option>
             <option value="vara do trabalho de ivinhema/ms">vara do trabalho de ivinhema/ms</option>
+
+            <option disabled>jardim:</option>
             <option value="vara do trabalho de jardim/ms">vara do trabalho de jardim/ms</option>
             <option value="vara estadual de jardim/ms">vara estadual de jardim/ms</option>
+
+            <option disabled>maracaju:</option>
             <option value="vara do trabalho de maracaju/ms">vara do trabalho de maracaju/ms</option>
             <option value="vara estadual de maracaju/ms">vara estadual de maracaju/ms</option>
+
+            <option disabled>mundo novo:</option>
             <option value="vara do trabalho de mundo novo/ms">vara do trabalho de mundo novo/ms</option>
             <option value="vara estadual de mundo novo/ms">vara estadual de mundo novo/ms</option>
+
+            <option disabled>naviraí:</option>
             <option value="1ª vara federal de naviraí/ms">1ª vara federal de naviraí/ms</option>
             <option value="2ª vara federal de naviraí/ms">2ª vara federal de naviraí/ms</option>
             <option value="vara do trabalho de naviraí/ms">vara do trabalho de naviraí/ms</option>
+
+            <option disabled>nova alvorada do sul:</option>
             <option value="vara estadual de nova alvorada do sul/ms">vara estadual de nova alvorada do sul/ms</option>
             <option value="vara do trabalho de nova alvorada do sul/ms">vara do trabalho de nova alvorada do sul/ms</option>
+
+            <option disabled>nova andradina:</option>
             <option value="2ª vara estadual de nova andradina/ms">2ª vara estadual de nova andradina/ms</option>
             <option value="vara do trabalho de nova andradina/ms">vara do trabalho de nova andradina/ms</option>
+
+            <option disabled>ponta porã:</option>
             <option value="1ª vara do trabalho de ponta porã/ms">1ª vara do trabalho de ponta porã/ms</option>
             <option value="1ª vara federal de ponta porã/ms">1ª vara federal de ponta porã/ms</option>
             <option value="2ª vara federal de ponta porã/ms">2ª vara federal de ponta porã/ms</option>
+
+            <option disabled>rio brilhante:</option>
             <option value="vara estadual de rio brilhante/ms">vara estadual de rio brilhante/ms</option>
             <option value="vara do trabalho de rio brilhante/ms">vara do trabalho de rio brilhante/ms</option>
+
+            <option disabled>sete quedas:</option>
             <option value="vara estadual de sete quedas/ms">vara estadual de sete quedas/ms</option>
             <option value="vara do trabalho de sete quedas/ms">vara do trabalho de sete quedas/ms</option>
           </select>
@@ -68,7 +115,7 @@
       </tr>
       <tr>
         <td colspan="3">
-          <textarea  data-ng-model="vm.processos" placeholder="Cole os números aqui..." rows="4"></textarea>
+          <textarea  data-ng-model="vm.processos" placeholder="Cole os números aqui..." rows="4" required></textarea>
         </td>
       </tr>
     </table>

@@ -19,11 +19,6 @@
     var vm = this;
 
     /**
-     * informa a vara padrão (de entrada)
-     */
-    vm.destinatario = "vara do trabalho de amambai/ms";
-
-    /**
      * funções
      * -------
      */
@@ -44,7 +39,13 @@
         processos = processos
           .split("\n")
           .filter(function (numero) {
-            return Processo.eh(numero);
+            var eh = Processo.eh(numero);
+
+            if (!eh) {
+              alert("O número \"" + numero +  "\" é inválido!");
+            }
+
+            return eh;
           })
           .map(function (numero) {
             return Processo.formatar(numero);

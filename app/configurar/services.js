@@ -19,6 +19,41 @@
   function Processo() {
 
     /**
+     * funções privadas
+     * ----------------
+     */
+
+    /**
+     * desformatar número
+     * e remover itens desnecessários
+     */
+    function limpar(numero) {
+
+      /**
+       * desformatar
+       */
+      numero = numero.replace(/[+-.\s]/g, "");
+
+      /**
+       * remover itens desnecessários
+       *
+       * (em alguns processos [da vara do trabalho]
+       * escaneados foi encontrado alguns números [5]
+       * no final que não são necessários)
+       */
+      if (!/^\d{20}$/.test(numero)) {
+        numero = numero.replace(/\d{5}$/g, "");
+      }
+
+      return numero;
+    }
+
+    /**
+     * funcões públicas
+     * ----------------
+     */
+
+    /**
      * verificar se é um número de processo
      *
      * obs.: não valida
@@ -26,7 +61,7 @@
     this.eh = function (numero) {
       return /^\d{20}$/
         .test(
-          numero.trim()
+          limpar(numero)
         )
       ;
     };
@@ -35,15 +70,11 @@
      * formatar um número de processo
      */
     this.formatar = function (numero) {
-      return numero
+      return limpar(numero)
         .toString()
         .replace(
-            /[-.\s]/g
-          , ""
-        )
-        .replace(
-            /^(\d{7})(\d{2})(\d{4})(\d{3})(\d{4})$/
-          , "$1-$2.$3.$4.$5"
+            /^(\d{7})(\d{2})(\d{4})(\d{1})(\d{2})(\d{4})$/
+          , "$1-$2.$3.$4.$5.$6"
         )
       ;
     };

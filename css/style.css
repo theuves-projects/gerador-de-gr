@@ -55,6 +55,11 @@
   border-color: #bdc3c7;
 }
 
+#configurar option:disabled {
+  color: gray;
+  font-style: italic;
+}
+
 #configurar textarea {
   resize: vertical;
 }
