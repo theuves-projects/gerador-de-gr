@@ -17,12 +17,14 @@
     var vm = this;
     var guia = Guia.obter();
 
+    var ehPraDourados = Guia.ehPraDourados(guia.destinatario);
+
     // pra não gerar uma guia vazia
     if (
          !guia.carga
       || !guia.destinatario
-      || !guia.lacre
-      || !guia.malote
+      || (ehPraDourados ? false : !guia.lacre)
+      || (ehPraDourados ? false : !guia.malote)
       || !guia.processos
     ) {
       alert([
@@ -34,14 +36,11 @@
       $location.path("/");
     }
 
-    vm.ehDeDourados = false;
+    /**
+     * se for de Dourados, o lacre e o malote não vão aparecer
+     */
+    vm.ehPraDourados = ehPraDourados;
 
-    if (
-         /\bdourados\b/i.test(guia.destinatario)
-      && !/\bglória\b/i.test(guia.destinatario)
-    ) {
-      vm.ehDeDourados = true;
-    }
 
     /**
      * informa a data exata em que foi gerada

@@ -3,6 +3,10 @@
 
   angular
     .module("app.services", [])
+
+    /**
+     * services
+     */
     .service("Guia", Guia)
   ;
 
@@ -15,6 +19,7 @@
 
     this.definir = adicionar;
     this.obter = obter;
+    this.ehPraDourados = ehPraDourados;
 
     /**
      * definir os dados da guia
@@ -40,6 +45,22 @@
      */
     function obter() {
       return dados;
+    }
+
+    /**
+     * verificar se o destinatário é de Dourados
+     */
+    function ehPraDourados(destinatario) {
+      var eh = false;
+
+      if (
+           /\bdourados\b/i.test(destinatario)
+        && !/\bglória\b/i.test(destinatario)
+      ) {
+        eh = true;
+      }
+
+      return eh;
     }
   }
 })();

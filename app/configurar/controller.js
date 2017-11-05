@@ -28,12 +28,13 @@
 
     function ler() {
       var processos = vm.processos;
+      var ehPraDourados = Guia.ehPraDourados(vm.destinatario);
 
       if (
            processos
         && vm.carga
-        && vm.lacre
-        && vm.malote
+        && (ehPraDourados ? true : vm.lacre)
+        && (ehPraDourados ? true : vm.malote)
         && vm.destinatario
       ) {
         processos = processos

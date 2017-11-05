@@ -9,7 +9,7 @@ body {
 
 .centralizar,
 .centralizar * {
-  text-align: center;
+  text-align: center!important;
 }
 
 /**
@@ -54,6 +54,10 @@ body {
 
 #configurar table:first-child {
   margin-bottom: -5px;
+}
+
+#configurar input:disabled {
+  text-decoration: line-through;
 }
 
 #configurar input,
@@ -154,6 +158,12 @@ body {
 /**/
 
 ::selection {
-  color: white;
-  background-color: #66a7a7;
+  background-color: #f7d78d;
+}
+
+/**
+ * firefox
+ */
+::-moz-selection {
+  background-color: #f7d78d;
 }
