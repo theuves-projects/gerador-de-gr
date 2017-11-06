@@ -17,16 +17,10 @@
     var vm = this;
     var guia = Guia.obter();
 
-    var ehPraDourados = Guia.ehPraDourados(guia.destinatario);
-
-    // pra não gerar uma guia vazia
-    if (
-         !guia.carga
-      || !guia.destinatario
-      || (ehPraDourados ? false : !guia.lacre)
-      || (ehPraDourados ? false : !guia.malote)
-      || !guia.processos
-    ) {
+    /**
+     * se a página só foi recarregada
+     */
+    if (angular.toJson(guia) === "{}") {
       alert([
           "Houve algum erro!"
         , ""
@@ -39,7 +33,7 @@
     /**
      * se for de Dourados, o lacre e o malote não vão aparecer
      */
-    vm.ehPraDourados = ehPraDourados;
+    vm.ehPraDourados = Guia.ehPraDourados(guia.destinatario);;
 
 
     /**
