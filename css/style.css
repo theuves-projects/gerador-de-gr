@@ -3,10 +3,6 @@
   text-transform: uppercase;
 }
 
-body {
-  background-color: #f6f6f6;
-}
-
 .centralizar,
 .centralizar * {
   text-align: center!important;
