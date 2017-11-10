@@ -41,9 +41,8 @@
      */
     vm.data = (new Date()).valueOf();
 
-    vm.carga        = guia.carga;
+    vm.guia         = guia.guia;
     vm.destinatario = guia.destinatario;
-    vm.lacre        = guia.lacre;
     vm.malote       = guia.malote;
     vm.processos    = guia.processos;
   }

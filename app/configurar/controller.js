@@ -18,71 +18,139 @@
   ) {
     var vm = this;
 
+
+    /**
+     * array que vai armazenar os
+     * processos durante o a escaneamento
+     */
+    var PROCESSSOS = [];
+
     /**
      * funções
      * -------
      */
-    vm.ler = ler;
+    vm.adicionar = adicionar;
+    vm.criar = criar;
+    vm.remover = remover;
 
     ///
 
-    function ler() {
+    function adicionar() {
+
+      var numero = vm.numero;
+
+      /**
+       * se for o código de barra dum malote
+       */
+      if (numero.length === 35) {
+        var malote = Utilitarios.malote(numero);
+
+        if (
+             !vm.malote
+          || (vm.malote && confirm("Trocar o número do malote?"))
+        ) {
+          vm.malote = malote.numero
+        }
+
+        vm.numero = "";
+
+        return;
+      }
+
+      /**
+       * analisar o número do processo
+       */
+      if (!Processo.eh(numero)) {
+        alert("O número \"" + numero +  "\" é inválido!");
+
+        return;
+      }
+
+      /**
+       * formatar número do processo
+       */
+      numero = Processo.formatar(numero);
+
+      PROCESSSOS.push(numero);
+
+      vm.processos = Utilitarios.montarLista(PROCESSSOS);
+
+      /**
+       * limpar pra vir o próximo
+       */
+      vm.numero = "";
+    }
+
+    function criar() {
+      if (
+           !vm.guia
+        || !vm.malote
+        || !vm.destinatario
+        || !vm.processos
+      ) {
+        var oQueFalta;
+
+        if (!vm.guia) {
+          oQueFalta = "o número da guia";
+        } else if (!vm.malote) {
+          oQueFalta = "o número do malote";
+        } else if (!vm.destinatario) {
+          oQueFalta = "o destinatário";
+        } else {
+          oQueFalta = "os processos";
+        }
+
+        alert("Informe " + oQueFalta + ".");
+
+        return;
+      }
+
       var processos = vm.processos;
 
-      processos = processos
-        .split("\n")
-        .filter(function (numero) {
-          var eh = Processo.eh(numero);
-
-          if (!eh) {
-            alert("O número \"" + numero +  "\" é inválido!");
-          }
-
-          return eh;
-        })
-        .map(function (numero) {
-          return Processo.formatar(numero);
-        })
-        .map(function (numero, indice, array) {
-          return [
-              numero
-            , Utilitarios.contarRepetidos(numero, array)
-          ];
-        })
-      ;
-
-      processos = Utilitarios.removerRepetidos(processos)
-        .map(function (array) {
-          array[1] = Utilitarios.completarComZeros(array[1]);
-
-          return array;
-        })
-        .map(function (array, indice) {
-          return [Utilitarios.completarComZeros(indice + 1)]
-            .concat(array)
-          ;
-        })
-      ;
-
       if (processos.length === 0) {
-
         alert("Nenhum dos dados informados é válido!")
       } else {
         Guia.definir(
-            vm.carga
+            vm.guia
           , vm.destinatario
-          , vm.lacre
           , vm.malote
-
-          /**
-           * array com processos
-           * que acabou de ser analisada
-           */
-          , processos
+          , vm.processos
         );
 
         $location.url("/imprimir");
       }
+    }
+
+    function remover(indice) {
+
+      /**
+       * pedir confirmação pra deletar
+       */
+      if (!confirm("Tem certeza?")) {
+        return;
+      }
+
+      var numeroPraRemover = vm.processos[indice].numero;
+
+      /**
+       * remover o item do público
+       */
+      vm.processos = Utilitarios
+        .removerItem(
+            vm.processos.reverse()
+          , indice
+        )
+        .reverse()
+      ;
+
+      /**
+       * remover o item do privado
+       */
+      PROCESSSOS = PROCESSSOS.filter(function (numero) {
+        return numeroPraRemover !== numero;
+      });
+
+      vm.processos = Utilitarios.montarLista(PROCESSSOS);
     }
   }
 })();

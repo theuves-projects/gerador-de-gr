@@ -12,11 +12,14 @@
 
   <table>
     <tr class="centralizar">
-      <td colspan="4"><b>GUIA DE REMESSA DE CARGA Nº {{vm.carga}}/{{vm.data | date:"yyyy"}}</b></td>
-    </tr>
-    <tr class="centralizar" data-ng-if="!vm.ehPraDourados">
-      <td colspan="2"><b>MALOTE Nº:</b> {{vm.malote}}</td>
-      <td colspan="2"><b>LACRE Nº:</b> {{vm.lacre}}</td>
+      <td colspan="4">
+        <b>
+          GUIA DE REMESSA DE CARGA Nº {{vm.guia}}/{{vm.data | date:"yyyy"}}
+          <span data-ng-if="!vm.ehPraDourados">
+            (MALOTE {{vm.malote}})
+          </span>
+        </b>
+      </td>
     </tr>
     <tr>
       <td colspan="4"><b>REMETENTE:</b> AGU/PGF/ER/DOURADOS-MS</td>
@@ -31,10 +34,10 @@
       <td><b>VOLUME</b></td>
     </tr>
     <tr class="lista-de-processos" data-ng-repeat="processo in vm.processos">
-      <td>{{processo[0]}}</td>
+      <td>{{processo.item}}</td>
       <td>PROCESSO</td>
-      <td>{{processo[1]}}</td>
-      <td>{{processo[2]}}</td>
+      <td>{{processo.numero}}</td>
+      <td>{{processo.vol}}</td>
     </tr>
     <tr class="centralizar">
       <td class="assinaturas" colspan="2"><b>PARA USO DA EXPEDIÇÃO</b></td>

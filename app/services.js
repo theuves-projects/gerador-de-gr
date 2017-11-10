@@ -25,16 +25,14 @@
      * definir os dados da guia
      */
     function adicionar(
-        carga
+        guia
       , destinatario
-      , lacre
       , malote
       , processos
     ) {
       dados = {
-          carga       : carga
+          guia        : guia
         , destinatario: destinatario
-        , lacre       : lacre
         , malote      : malote
         , processos   : processos
       };
