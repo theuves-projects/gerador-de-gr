@@ -41,24 +41,7 @@
           return eh;
         })
         .map(function (numero) {
-          var jtr;
-
-          /**
-           * pr'o caso de haver números antigos
-           */
-          if (/\bfederal\b/.test(vm.destinatario)) {
-            jtr = "403";
-          } else if (/\btrabalho\b/.test(vm.destinatario)) {
-            jtr = "524";
-          } else {
-
-            /**
-             * se for estadual
-             */
-            jtr = "812";
-          }
-
-          return Processo.formatar(numero, jtr);
+          return Processo.formatar(numero);
         })
         .map(function (numero, indice, array) {
           return [
