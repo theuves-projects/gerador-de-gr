@@ -52,6 +52,18 @@
           vm.malote = malote.numero
         }
 
+        /**
+         * procura o destinatário
+         */
+        var destinatario = Utilitarios.obterDestinatario(malote.percurso);
+
+        /**
+         * se o destinatário existir
+         */
+        if (destinatario) {
+          vm.destinatario = destinatario;
+        }
+
         vm.numero = "";
 
         return;

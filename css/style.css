@@ -15,7 +15,7 @@
 
 #configurar {
   width: 400px;
-  margin: 80px auto;
+  margin: 90px auto;
 }
 
 #configurar * {
@@ -57,7 +57,7 @@
 
 #configurar input,
 #configurar select {
-  padding: 4px 10px!important;
+  padding: 4px 10px !important;
   box-shadow: none;
   border-width: 2px;
   border-style: solid;
@@ -87,13 +87,20 @@
   border-color: #c54a4a;
 }
 
+#configurar input[type="submit"]:hover,
+#configurar input[type="button"]:hover {
+  opacity: 0.9;
+}
+
+#configurar input[type="submit"]:active,
+#configurar input[type="button"]:active {
+  opacity: 1;
+}
+
 #configurar input[type="submit"] {
   cursor: pointer;
   color: white;
   font-weight: bold;
-}
-
-#configurar input[type="submit"] {
   background-color: #689b60;
   border-color: #5d8b56;
 }
