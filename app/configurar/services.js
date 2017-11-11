@@ -452,11 +452,15 @@
        */
       percurso = percursos[percurso];
 
-      return percurso.vara
-        + " de "
-        + percurso.cidade
-        + "/ms"
-      ;
+      if (percurso) {
+        return percurso.vara
+          + " de "
+          + percurso.cidade
+          + "/ms"
+        ;
+      }
+
+      return false;
     };
   }
 })();

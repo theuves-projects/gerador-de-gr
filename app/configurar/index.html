@@ -8,17 +8,13 @@
       <td>
         <input
           data-ng-model="vm.guia"
-          placeholder="nº da guia"
-          min="0"
-          autofocus>
+          placeholder="nº da guia">
       </td>
       <td>
         <input
           data-ng-model="vm.malote"
           data-ng-disabled="vm.destinatario | ehPraDourados"
-          placeholder="nº do malote"
-          min="0"
-          maxlength="5">
+          placeholder="nº do malote">
       </td>
     </tr>
     <tr>
@@ -279,7 +275,8 @@
             data-ng-model="vm.numero"
             class="centralizar"
             type="text"
-            placeholder="Selecione aqui e escaneie...">
+            placeholder="Selecione aqui e escaneie..."
+            autofocus>
         </td>
       </tr>
     </table>
@@ -325,5 +322,15 @@
   <!-- <p class="centralizar">
     <a href="#">últimas guias geradas</a>
   </p> -->
+
+  <!-- Noticação -->
+  <div
+    data-ng-show="vm.notificar.eh"
+    class="notificacao">
+
+    <span>
+      {{vm.notificar.mensagem}}
+    </span>
+  </div>
 </div>
 

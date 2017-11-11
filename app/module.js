@@ -18,6 +18,7 @@
       /**
        * externos
        */
+      , "ngAnimate"
       , "ngRoute"
     ])
   ;

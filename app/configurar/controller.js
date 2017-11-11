@@ -8,6 +8,7 @@
 
   function Configurar(
       $location
+    , $timeout
 
     /**
      * personalizados
@@ -18,6 +19,22 @@
   ) {
     var vm = this;
 
+    vm.notificar = {
+      eh: false,
+      mensagem: undefined
+    };
+
+    /**
+     * função pra manipular "vm.notificar"
+     */
+    function notificar(mensagem) {
+      vm.notificar.mensagem = mensagem;
+      vm.notificar.eh = true;
+
+      $timeout(function () {
+        vm.notificar.eh = false;
+      }, 1000);
+    }
 
     /**
      * array que vai armazenar os
@@ -40,6 +57,31 @@
       var numero = vm.numero;
 
       /**
+       * se o for o número da guia
+       *
+       * o número da guia deve começar com "g"
+       * pra haver a indentificação
+       */
+      if (/^g\d+$/i.test(numero)) {
+
+        /**
+         * se guia já existir
+         */
+        if (
+             !vm.guia
+          || (vm.guia && confirm("Trocar o número da guia?"))
+        ) {
+          vm.guia = parseInt(vm.numero.replace(/^g/i, "")) + 1;
+
+          notificar("guia adicionada!");
+
+          vm.numero = "";
+        }
+
+        return;
+      }
+
+      /**
        * se for o código de barra dum malote
        */
       if (numero.length === 35) {
@@ -49,7 +91,14 @@
              !vm.malote
           || (vm.malote && confirm("Trocar o número do malote?"))
         ) {
-          vm.malote = malote.numero
+
+          if (vm.malote) {
+            notificar("malote trocado!");
+          } else {
+            notificar("malote adicionado!");
+          }
+
+          vm.malote = malote.numero;
         }
 
         /**
@@ -87,6 +136,8 @@
 
       vm.processos = Utilitarios.montarLista(PROCESSSOS);
 
+      notificar("processo adicionado!")
+
       /**
        * limpar pra vir o próximo
        */
@@ -112,7 +163,7 @@
           oQueFalta = "os processos";
         }
 
-        alert("Informe " + oQueFalta + ".");
+        alert("Informe " + oQueFalta + "!");
 
         return;
       }
@@ -120,7 +171,7 @@
       var processos = vm.processos;
 
       if (processos.length === 0) {
-        alert("Nenhum dos dados informados é válido!")
+        alert("Nenhum dos dados informados é válido!");
       } else {
         Guia.definir(
             vm.guia
