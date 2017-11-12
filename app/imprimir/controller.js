@@ -44,15 +44,15 @@
     /**
      * se a página só foi recarregada
      */
-    // if (angular.toJson(guia) === "{}") {
-    //   alert([
-    //       "Houve algum erro!"
-    //     , ""
-    //     , "Não foi possível obter alguns dados."
-    //   ].join("\n"));
+    if (angular.toJson(guia) === "{}") {
+      alert([
+          "Houve algum erro!"
+        , ""
+        , "Não foi possível obter alguns dados."
+      ].join("\n"));
 
-    //   $location.path("/");
-    // }
+      $location.path("/");
+    }
 
     /**
      * chamando funções
