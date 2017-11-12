@@ -7,7 +7,8 @@
   ;
 
   function Imprimir(
-      $location
+      $window
+    , $location
 
     /**
      * personalizados
@@ -18,16 +19,60 @@
     var guia = Guia.obter();
 
     /**
+     * informa se o código de barras
+     * deve ser exibido
+     *
+     * só pra testes
+     *
+     * 12/11/17
+     */
+    vm.cb = localStorage.cb === 'true';
+
+    if (vm.cb) {
+
+      /**
+       * creio que isso não seja certo
+       * de se fazer, mas é só um teste...
+       */
+      JsBarcode("#barcode", guia.guia, {
+          height: 5
+        , margin: 0
+        , displayValue: false
+      });
+    }
+
+    /**
      * se a página só foi recarregada
      */
-    if (angular.toJson(guia) === "{}") {
-      alert([
-          "Houve algum erro!"
-        , ""
-        , "Não foi possível obter alguns dados."
-      ].join("\n"));
+    // if (angular.toJson(guia) === "{}") {
+    //   alert([
+    //       "Houve algum erro!"
+    //     , ""
+    //     , "Não foi possível obter alguns dados."
+    //   ].join("\n"));
 
-      $location.path("/");
+    //   $location.path("/");
+    // }
+
+    /**
+     * chamando funções
+     * ----------------
+     */
+
+    vm.imprimir = imprimir;
+    vm.voltar = voltar;
+
+    /**
+     * funções
+     * -------
+     */
+
+    function imprimir() {
+      $window.print();
+    }
+
+    function voltar() {
+      $location.url("/");
     }
 
     /**

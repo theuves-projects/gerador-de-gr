@@ -19,6 +19,30 @@
   ) {
     var vm = this;
 
+    /**
+     * quando carregar
+     *
+     * se haver dados em "Guia",
+     * ou seja, se tiver voltando da
+     * página de impressão
+     *
+     * vai ser utilizado somente o número da
+     * guia pra fazer a verificação
+     */
+    if (Guia.obter().guia) {
+
+      /**
+       * restabelecer dados
+       */
+
+      var guia = Guia.obter();
+
+      vm.guia = guia.guia;
+      vm.destinatario = guia.destinatario;
+      vm.malote = guia.malote;
+      vm.processos = guia.processos;
+    }
+
     vm.notificar = {
       eh: false,
       mensagem: undefined
@@ -59,10 +83,11 @@
       /**
        * se o for o número da guia
        *
-       * o número da guia deve começar com "g"
-       * pra haver a indentificação
+       * vou usar 2.000 como referência
+       * de um número de guia praticamente
+       * impossível de se chegar
        */
-      if (/^g\d+$/i.test(numero)) {
+      if (numero < 2000) {
 
         /**
          * se guia já existir

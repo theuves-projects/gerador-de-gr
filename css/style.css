@@ -185,6 +185,46 @@
   font-weight: bold;
 }
 
+#guia .configuracoes {
+  margin: 0px auto 20px auto;
+  /*margin-bottom: 40px;*/
+  width: 400px;
+}
+
+#guia .configuracoes button {
+  width: 100%;
+  padding: 6px 0px;
+  color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #688f8a;
+  background-color: #749f9a;
+  cursor: pointer;
+}
+
+#guia .configuracoes button:hover {
+  opacity: 0.9;
+}
+
+#guia .configuracoes button:active {
+  opacity: 1;
+}
+
+#guia .configuracoes table,
+#guia .configuracoes th,
+#guia .configuracoes td {
+  border: none !important;
+}
+
+/**
+ * esconder botões pra imprimir
+ */
+@media print {
+  #guia .configuracoes {
+    display: none;
+  }
+}
+
 /**/
 
 ::selection {
@@ -197,3 +237,4 @@
 ::-moz-selection {
   background-color: #f7d78d;
 }
+
