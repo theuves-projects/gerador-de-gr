@@ -3,9 +3,9 @@
 
   angular
     .module("configurar", [
-      "configurar.controller",
-      "configurar.services",
-      "configurar.filters"
+        "configurar.controller"
+      , "configurar.filters"
+      , "configurar.services"
     ])
   ;
 })();

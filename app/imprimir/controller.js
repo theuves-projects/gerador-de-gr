@@ -28,19 +28,6 @@
      */
     vm.cb = localStorage.cb === 'true';
 
-    if (vm.cb) {
-
-      /**
-       * creio que isso não seja certo
-       * de se fazer, mas é só um teste...
-       */
-      JsBarcode("#barcode", guia.guia, {
-          height: 5
-        , margin: 0
-        , displayValue: false
-      });
-    }
-
     /**
      * se a página só foi recarregada
      */

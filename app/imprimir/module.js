@@ -3,7 +3,8 @@
 
   angular
     .module("imprimir", [
-      "imprimir.controller"
+        "imprimir.controller"
+      , "imprimir.directives"
     ])
   ;
 })();
