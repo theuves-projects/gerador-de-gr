@@ -13,7 +13,7 @@
       <td>
         <input
           data-ng-model="vm.malote"
-          data-ng-disabled="vm.destinatario | ehPraDourados"
+          data-ng-disabled="vm.destinatario | naoTemMalote"
           placeholder="nº do malote">
       </td>
     </tr>
@@ -26,241 +26,8 @@
             escolha o destinatário aqui...
           </option>
 
-          <!-- AMAMBAI: -->
-          <option disabled>AMAMBAI:</option>
-          <option value="vara estadual de amambai/ms">
-            VARA ESTADUAL DE AMAMBAI/MS
-          </option>
-          <option value="vara do trabalho de amambai/ms">
-            VARA DO TRABALHO DE AMAMBAI/MS
-          </option>
-
-          <!-- ANGÉLICA: -->
-          <option disabled>ANGÉLICA:</option>
-          <option value="vara estadual de angélica/ms">
-            VARA ESTADUAL DE ANGÉLICA/MS
-          </option>
-          <option value="vara do trabalho de angélica/ms">
-            VARA DO TRABALHO DE ANGÉLICA/MS
-          </option>
-
-          <!-- BELA VISTA: -->
-          <option disabled>BELA VISTA:</option>
-          <option value="vara estadual de bela vista/ms">
-            VARA ESTADUAL DE BELA VISTA/MS
-          </option>
-          <option value="vara do trabalho de bela vista/ms">
-            VARA DO TRABALHO DE BELA VISTA/MS
-          </option>
-
-          <!-- BATAYPORÃ: -->
-          <option disabled>BATAYPORÃ:</option>
-          <option value="vara estadual de batayporã/ms">
-            VARA ESTADUAL DE BATAYPORÃ/MS
-          </option>
-          <option value="vara do trabalho de batayporã/ms">
-            VARA DO TRABALHO DE BATAYPORÃ/MS
-          </option>
-
-          <!-- CAARAPÓ: -->
-          <option disabled>CAARAPÓ:</option>
-          <option value="vara estadual de caarapó/ms">
-            VARA ESTADUAL DE CAARAPÓ/MS
-          </option>
-          <option value="vara do trabalho de caarapó/ms">
-            VARA DO TRABALHO DE CAARAPÓ/MS
-          </option>
-
-          <!-- DEODÁPOLIS: -->
-          <option disabled>DEODÁPOLIS:</option>
-          <option value="vara estadual de deodápolis/ms">
-            VARA ESTADUAL DE DEODÁPOLIS/MS
-          </option>
-          <option value="vara do trabalho de deodápolis/ms">
-            VARA DO TRABALHO DE DEODÁPOLIS/MS
-          </option>
-
-          <!-- DOURADOS: -->
-          <option disabled>DOURADOS:</option>
-          <option value="1ª vara federal de dourados/ms">
-            1ª VARA FEDERAL DE DOURADOS/MS
-          </option>
-          <option value="2ª vara federal de dourados/ms">
-            2ª VARA FEDERAL DE DOURADOS/MS
-          </option>
-          <option value="1ª vara do trabalho de dourados/ms">
-            1ª VARA DO TRABALHO DE DOURADOS/MS
-          </option>
-          <option value="2ª vara do trabalho de dourados/ms">
-            2ª VARA DO TRABALHO DE DOURADOS/MS
-          </option>
-          <option value="3ª cível de dourados/ms">
-            3ª CÍVEL DE DOURADOS/MS
-          </option>
-
-          <!-- ELDORADO: -->
-          <option disabled>ELDORADO:</option>
-          <option value="vara estadual de eldorado/ms">
-            VARA ESTADUAL DE ELDORADO/MS
-          </option>
-          <option value="vara do trabalho de eldorado/ms">
-            VARA DO TRABALHO DE ELDORADO/MS
-          </option>
-
-          <!-- FÁTIMA DO SUL: -->
-          <option disabled>FÁTIMA DO SUL:</option>
-          <option value="vara única de fátima do sul/ms">
-            VARA ÚNICA DE FÁTIMA DO SUL/MS
-          </option>
-          <option value="vara estadual de fátima do sul/ms">
-            VARA ESTADUAL DE FÁTIMA DO SUL/MS
-          </option>
-          <option value="vara do trabalho de fátima do sul/ms">
-            VARA DO TRABALHO DE FÁTIMA DO SUL/MS
-          </option>
-
-          <!-- GLÓRIA DE DOURADOS: -->
-          <option disabled>GLÓRIA DE DOURADOS:</option>
-          <option value="vara estadual de glória de dourados/ms">
-            VARA ESTADUAL DE GLÓRIA DE DOURADOS/MS
-          </option>
-          <option value="vara do trabalho de glória de dourados/ms">
-            VARA DO TRABALHO DE GLÓRIA DE DOURADOS/MS
-          </option>
-
-          <!-- IGUATEMI: -->
-          <option disabled>IGUATEMI:</option>
-          <option value="vara estadual de iguatemi/ms">
-            VARA ESTADUAL DE IGUATEMI/MS
-          </option>
-          <option value="vara do trabalho de iguatemi/ms">
-            VARA DO TRABALHO DE IGUATEMI/MS
-          </option>
-
-          <!-- ITAPORÃ: -->
-          <option disabled>ITAPORÃ:</option>
-          <option value="vara estadual de itaporã/ms">
-            VARA ESTADUAL DE ITAPORÃ/MS
-          </option>
-          <option value="vara do trabalho de itaporã/ms">
-            VARA DO TRABALHO DE ITAPORÃ/MS
-          </option>
-
-          <!-- ITAQUIRAÍ: -->
-          <option disabled>ITAQUIRAÍ:</option>
-          <option value="vara estadual de itaquiraí/ms">
-            VARA ESTADUAL DE ITAQUIRAÍ/MS
-          </option>
-          <option value="vara do trabalho de itaquiraí/ms">
-            VARA DO TRABALHO DE ITAQUIRAÍ/MS
-          </option>
-
-          <!-- IVINHEMA: -->
-          <option disabled>IVINHEMA:</option>
-          <option value="vara estadual de ivinhema/ms">
-            VARA ESTADUAL DE IVINHEMA/MS
-          </option>
-          <option value="vara do trabalho de ivinhema/ms">
-            VARA DO TRABALHO DE IVINHEMA/MS
-          </option>
-
-          <!-- JARDIM: -->
-          <option disabled>JARDIM:</option>
-          <option value="vara estadual de jardim/ms">
-            VARA ESTADUAL DE JARDIM/MS
-          </option>
-          <option value="vara do trabalho de jardim/ms">
-            VARA DO TRABALHO DE JARDIM/MS
-          </option>
-
-          <!-- MARACAJU: -->
-          <option disabled>MARACAJU:</option>
-          <option value="vara estadual de maracaju/ms">
-            VARA ESTADUAL DE MARACAJU/MS
-          </option>
-          <option value="vara do trabalho de maracaju/ms">
-            VARA DO TRABALHO DE MARACAJU/MS
-          </option>
-
-          <!-- MUNDO NOVO: -->
-          <option disabled>MUNDO NOVO:</option>
-          <option value="vara estadual de mundo novo/ms">
-            VARA ESTADUAL DE MUNDO NOVO/MS
-          </option>
-          <option value="vara do trabalho de mundo novo/ms">
-            VARA DO TRABALHO DE MUNDO NOVO/MS
-          </option>
-
-          <!-- NAVIRAÍ: -->
-          <option disabled>NAVIRAÍ:</option>
-          <option value="1ª vara federal de naviraí/ms">
-            1ª VARA FEDERAL DE NAVIRAÍ/MS
-          </option>
-          <option value="2ª vara federal de naviraí/ms">
-            2ª VARA FEDERAL DE NAVIRAÍ/MS
-          </option>
-          <option value="vara estadual de naviraí/ms">
-            VARA ESTADUAL DE NAVIRAÍ/MS
-          </option>
-          <option value="vara do trabalho de naviraí/ms">
-            VARA DO TRABALHO DE NAVIRAÍ/MS
-          </option>
-
-          <!-- NOVA ALVORADA DO SUL: -->
-          <option disabled>NOVA ALVORADA DO SUL:</option>
-          <option value="vara estadual de nova alvorada do sul/ms">
-            VARA ESTADUAL DE NOVA ALVORADA DO SUL/MS
-          </option>
-          <option value="vara do trabalho de nova alvorada do sul/ms">
-            VARA DO TRABALHO DE NOVA ALVORADA DO SUL/MS
-          </option>
-
-          <!-- NOVA ANDRADINA: -->
-          <option disabled>NOVA ANDRADINA:</option>
-          <option value="1ª vara estadual de nova andradina/ms">
-            1ª VARA ESTADUAL DE NOVA ANDRADINA/MS
-          </option>
-          <option value="2ª vara estadual de nova andradina/ms">
-            2ª VARA ESTADUAL DE NOVA ANDRADINA/MS
-          </option>
-          <option value="vara do trabalho de nova andradina/ms">
-            VARA DO TRABALHO DE NOVA ANDRADINA/MS
-          </option>
-
-          <!-- PONTA PORÃ: -->
-          <option disabled>PONTA PORÃ:</option>
-          <option value="1ª vara do trabalho de ponta porã/ms">
-            1ª VARA DO TRABALHO DE PONTA PORÃ/MS
-          </option>
-          <option value="2ª vara do trabalho de ponta porã/ms">
-            2ª VARA DO TRABALHO DE PONTA PORÃ/MS
-          </option>
-          <option value="1ª vara federal de ponta porã/ms">
-            1ª VARA FEDERAL DE PONTA PORÃ/MS
-          </option>
-          <option value="2ª vara federal de ponta porã/ms">
-            2ª VARA FEDERAL DE PONTA PORÃ/MS
-          </option>
-          <option value="vara estadual de ponta porã/ms">
-            VARA ESTADUAL DE PONTA PORÃ/MS
-          </option>
-
-          <!-- RIO BRILHANTE: -->
-          <option disabled>RIO BRILHANTE:</option>
-          <option value="vara estadual de rio brilhante/ms">
-            VARA ESTADUAL DE RIO BRILHANTE/MS
-          </option>
-          <option value="vara do trabalho de rio brilhante/ms">
-            VARA DO TRABALHO DE RIO BRILHANTE/MS
-          </option>
-
-          <!-- SETE QUEDAS: -->
-          <option disabled>SETE QUEDAS:</option>
-          <option value="vara estadual de sete quedas/ms">
-            VARA ESTADUAL DE SETE QUEDAS/MS
-          </option>
-          <option value="vara do trabalho de sete quedas/ms">
-            VARA DO TRABALHO DE SETE QUEDAS/MS
+          <option data-ng-repeat="destinatario in vm.destinatarios">
+            {{destinatario}}
           </option>
         </select>
       </td>
@@ -272,7 +39,7 @@
       <tr>
         <td>
           <input
-            data-ng-model="vm.numero"
+            data-ng-model="vm.codigoDeBarras"
             class="centralizar"
             type="text"
             placeholder="Selecione aqui e escaneie..."
@@ -292,7 +59,7 @@
       </th>
     </tr>
     <tr data-ng-repeat="processo in vm.processos | orderBy:'-item'">
-      <td style="color: gray;">
+      <td class="indice">
         <i>{{processo.item}}.</i>
       </td>
       <td>{{processo.numero}}</td>
@@ -307,8 +74,8 @@
   </table>
 
   <form
-    data-ng-submit="vm.criar()"
-    style="margin-top: 5px;">
+    data-ng-submit="vm.gerar()"
+    class="gerar">
 
     <table>
       <tr>
@@ -319,13 +86,9 @@
     </table>
   </form>
 
-  <!-- <p class="centralizar">
-    <a href="#">últimas guias geradas</a>
-  </p> -->
-
   <!-- Noticação -->
   <div
-    data-ng-show="vm.notificar.eh"
+    data-ng-show="vm.notificar.exibir"
     class="notificacao">
 
     <span>

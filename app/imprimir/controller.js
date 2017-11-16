@@ -19,16 +19,6 @@
     var guia = Guia.obter();
 
     /**
-     * informa se o código de barras
-     * deve ser exibido
-     *
-     * só pra testes
-     *
-     * 12/11/17
-     */
-    vm.cb = localStorage.cb === 'true';
-
-    /**
      * se a página só foi recarregada
      */
     if (angular.toJson(guia) === "{}") {
@@ -54,18 +44,26 @@
      * -------
      */
 
+    /**
+     * função pra imprimir guia
+     */
     function imprimir() {
       $window.print();
     }
 
+    /**
+     * função pra voltar pra página inicial
+     */
     function voltar() {
       $location.url("/");
     }
 
     /**
-     * se for de Dourados, o lacre e o malote não vão aparecer
+     * verificar se vai malote,
+     * caso contrário não vai aparecer o
+     * número do malote
      */
-    vm.ehPraDourados = Guia.ehPraDourados(guia.destinatario);;
+    vm.naoTemMalote = Guia.naoTemMalote(guia.destinatario);;
 
 
     /**
@@ -73,6 +71,9 @@
      */
     vm.data = (new Date()).valueOf();
 
+    /**
+     * adiciona os dados
+     */
     vm.guia         = guia.guia;
     vm.destinatario = guia.destinatario;
     vm.malote       = guia.malote;

@@ -3,15 +3,16 @@
 
   angular
     .module("configurar.filters", [])
-    .filter("ehPraDourados", ehPraDourados)
+    .filter("naoTemMalote", naoTemMalote)
   ;
 
   /**
-   * verificar se a carga é pra Dourados
+   * verificar pelo destinatário se
+   * vai ser usado o serviço de malote
    */
-  function ehPraDourados(Guia) {
-    return function ehPraDourados(destinatario) {
-      return Guia.ehPraDourados(destinatario);
+  function naoTemMalote(Guia) {
+    return function (destinatario) {
+      return Guia.naoTemMalote(destinatario);
     }
   }
 })();

@@ -71,8 +71,16 @@
   font-style: italic;
 }
 
+#configurar .gerar {
+  margin-top: 5px;
+}
+
 #configurar .adicionados {
   margin: 12px 0px;
+}
+
+#configurar .adicionados .indice {
+  color: gray;
 }
 
 #configurar .adicionados th {

@@ -40,14 +40,12 @@
       <td colspan="4">
         <b>
           GUIA DE REMESSA DE CARGA Nº {{vm.guia}}/{{vm.data | date:"yyyy"}}
-          <span data-ng-if="!vm.ehPraDourados">
+          <span data-ng-if="!vm.naoTemMalote">
             (MALOTE {{vm.malote}})
           </span>
         </b>
 
-        <div data-ng-show="vm.cb">
-          <codigo-de-barras guia="{{vm.guia}}"></codigo-de-barras>
-        </div>
+        <codigo-de-barras guia="{{vm.guia}}"></codigo-de-barras>
       </td>
     </tr>
     <tr>
