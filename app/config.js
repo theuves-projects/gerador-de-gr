@@ -9,11 +9,8 @@
   function config($routeProvider) {
     $routeProvider
       .when("/", {
-        controller: "Configurar as vm",
-        templateUrl: "app/configurar/index.html"
-      })
-      .when("/configurar", {
-        redirectTo: "/"
+        controller: "Indice as vm",
+        templateUrl: "app/indice/index.html"
       })
       .when("/imprimir", {
         controller: "Imprimir as vm",

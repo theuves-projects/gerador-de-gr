@@ -2,7 +2,7 @@
   "use strict";
 
   angular
-    .module("configurar.filters", [])
+    .module("indice.filters", [])
     .filter("naoTemMalote", naoTemMalote)
   ;
 

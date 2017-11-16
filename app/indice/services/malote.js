@@ -2,7 +2,7 @@
   "use strict";
 
   angular
-    .module("configurar.services")
+    .module("indice.services")
     .service("Malote", Malote)
   ;
 

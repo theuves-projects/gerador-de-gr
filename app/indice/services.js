@@ -2,10 +2,10 @@
   "use strict";
 
   angular
-    .module("configurar.services", [
+    .module("indice.services", [
       /**
        * todos os "services" tão
-       * em "/app/configurar/services"
+       * em "/app/indice/services"
        */
     ])
   ;

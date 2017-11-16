@@ -9,27 +9,27 @@
 }
 
 /**
- * configurar
+ * indice
  * ----------
  */
 
-#configurar {
+#indice {
   width: 500px;
   margin: 90px auto;
 }
 
-#configurar * {
+#indice * {
   font-family: Verdana, sans-serif;
 }
 
-#configurar header {
+#indice header {
   width: 400px;
   margin: 0px auto;
   margin-bottom: 20px;
   border-bottom: 1px solid #ccc;
 }
 
-#configurar header h1 {
+#indice header h1 {
   font-size: 24px;
   line-height: 22px;
   text-align: center;
@@ -38,26 +38,26 @@
   padding: 0px;
 }
 
-#configurar table {
+#indice table {
   width: 100%;
 }
 
-#configurar table td > * {
+#indice table td > * {
   width: 100%;
   margin: 0px;
   padding: 0px;
 }
 
-#configurar table:first-child {
+#indice table:first-child {
   margin-bottom: -5px;
 }
 
-#configurar input:disabled {
+#indice input:disabled {
   text-decoration: line-through;
 }
 
-#configurar input,
-#configurar select {
+#indice input,
+#indice select {
   padding: 4px 10px !important;
   box-shadow: none;
   border-width: 2px;
@@ -66,47 +66,47 @@
   font-size: 14px;
 }
 
-#configurar option:disabled {
+#indice option:disabled {
   color: gray;
   font-style: italic;
 }
 
-#configurar .gerar {
+#indice .gerar {
   margin-top: 5px;
 }
 
-#configurar .adicionados {
+#indice .adicionados {
   margin: 12px 0px;
 }
 
-#configurar .adicionados .indice {
+#indice .adicionados .indice {
   color: gray;
 }
 
-#configurar .adicionados th {
+#indice .adicionados th {
   font-size: 14px;
   text-align: left;
   padding-bottom: 3px;
   text-decoration: underline;
 }
 
-#configurar .adicionados input[type="button"] {
+#indice .adicionados input[type="button"] {
   color: white;
   background-color: #db5353;
   border-color: #c54a4a;
 }
 
-#configurar input[type="submit"]:hover,
-#configurar input[type="button"]:hover {
+#indice input[type="submit"]:hover,
+#indice input[type="button"]:hover {
   opacity: 0.9;
 }
 
-#configurar input[type="submit"]:active,
-#configurar input[type="button"]:active {
+#indice input[type="submit"]:active,
+#indice input[type="button"]:active {
   opacity: 1;
 }
 
-#configurar input[type="submit"] {
+#indice input[type="submit"] {
   cursor: pointer;
   color: white;
   font-weight: bold;
@@ -114,11 +114,11 @@
   border-color: #5d8b56;
 }
 
-#configurar a {
+#indice a {
   color: #34495e;
 }
 
-#configurar .notificacao {
+#indice .notificacao {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -135,7 +135,7 @@
   transition: right 100ms;
 }
 
-#configurar .notificacao.ng-hide {
+#indice .notificacao.ng-hide {
   right: -200px;
 }
 

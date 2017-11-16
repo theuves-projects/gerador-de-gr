@@ -2,11 +2,11 @@
   "use strict";
 
   angular
-    .module("configurar.controller", [])
-    .controller("Configurar", Configurar)
+    .module("indice.controller", [])
+    .controller("Indice", Indice)
   ;
 
-  function Configurar(
+  function Indice(
       $location
     , $timeout
 
@@ -298,7 +298,7 @@
       /**
        * montar lista de processos
        *
-       * (ver: "/app/configurar/services/utilitarios.js")
+       * (ver: "/app/indice/services/utilitarios.js")
        */
       vm.processos = Utilitarios.montarLista(LISTA_DE_PROCESSOS);
 

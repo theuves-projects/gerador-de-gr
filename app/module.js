@@ -7,7 +7,7 @@
       /**
        * específicos
        */
-        "configurar"
+        "indice"
       , "imprimir"
 
       /**
