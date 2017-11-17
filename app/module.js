@@ -8,6 +8,7 @@
        * específicos
        */
         "indice"
+      , "configurar"
       , "imprimir"
 
       /**

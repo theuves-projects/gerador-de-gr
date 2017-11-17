@@ -16,6 +16,10 @@
         controller: "Imprimir as vm",
         templateUrl: "app/imprimir/index.html"
       })
+      .when("/configurar", {
+        controller: "Configurar as vm",
+        templateUrl: "app/configurar/index.html"
+      })
       .otherwise({
         redirectTo: "/"
       })
