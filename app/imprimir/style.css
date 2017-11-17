@@ -100,7 +100,7 @@
  * esconder botões pra imprimir
  */
 @media print {
-  #guia .configuracoes {
+  #imprimir .configuracoes {
     display: none;
   }
 }
