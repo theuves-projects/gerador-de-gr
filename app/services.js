@@ -71,17 +71,17 @@
       ;
 
       /**
-       * verificar se é estadual
+       * verificar se é trabalhista
        *
-       * as varas estaduais USAM o serviço
+       * as varas trabalhista USAM o serviço
        */
-      function ehEstadual(dest)  {
-        return /estadual/i
+      function ehTrabalhista(dest)  {
+        return /do\strabalho/i
           .test(dest)
         ;
       }
 
-      return cidades && !ehEstadual(destinatario);
+      return cidades && !ehTrabalhista(destinatario);
     }
   }
 
@@ -159,7 +159,7 @@
         "2ª vara federal de dourados/ms",
         "1ª vara do trabalho de dourados/ms",
         "2ª vara do trabalho de dourados/ms",
-        "3ª vara cível de dourados/ms",
+        "3ª vara estadual de dourados/ms",
 
         /**
          * eldorado
