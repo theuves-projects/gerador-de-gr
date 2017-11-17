@@ -74,7 +74,7 @@
     /**
      * adiciona os dados
      */
-    vm.guia         = guia.guia;
+    vm.guia         = parseInt(guia.guia);
     vm.destinatario = guia.destinatario;
     vm.malote       = guia.malote;
     vm.processos    = guia.processos;

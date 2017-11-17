@@ -56,14 +56,32 @@
      * verificar se o destinatário não usa malote
      *
      * não usam malotes as cidades de:
+     * - batayporã
      * - dourados
      * - glória de dourados
-     * - (tem outra, mas não lembro...)
      */
     function naoTemMalote(destinatario) {
-      return /\b(dourados|glória\sde\sdourados)\b/
+
+      /**
+       * verificar se a cidade tá entre
+       * que não usam o serviço de malote
+       */
+      var cidades = /(batayporã|(glória\sde\s)?dourados)/i
         .test(destinatario)
       ;
+
+      /**
+       * verificar se é estadual
+       *
+       * as varas estaduais USAM o serviço
+       */
+      function ehEstadual(dest)  {
+        return /estadual/i
+          .test(dest)
+        ;
+      }
+
+      return cidades && !ehEstadual(destinatario);
     }
   }
 

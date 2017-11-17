@@ -1,0 +1,106 @@
+/**
+ * imprimir
+ * --------
+ */
+
+#imprimir {
+  margin: 2% 5%;
+}
+
+/**
+ * botões de opções pr'o usuário
+ */
+#imprimir .configuracoes {
+  margin: 0px auto 20px auto;
+  width: 400px;
+}
+
+#imprimir .configuracoes button {
+  width: 100%;
+  padding: 6px 0px;
+  color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #688f8a;
+  background-color: #749f9a;
+  cursor: pointer;
+}
+
+#imprimir .configuracoes button:hover {
+  opacity: 0.9;
+}
+
+#imprimir .configuracoes button:active {
+  opacity: 1;
+}
+
+#imprimir .configuracoes table,
+#imprimir .configuracoes th,
+#imprimir .configuracoes td {
+  border: none !important;
+}
+
+#imprimir .cabecalho {
+  margin-bottom: 14px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  line-height: 25%;
+  font-weight: bold;
+}
+
+#imprimir table,
+#imprimir th,
+#imprimir td {
+  font-size: 12px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+#imprimir th,
+#imprimir td {
+  padding: 5px;
+  text-align: left;
+}
+
+#imprimir table {
+  width: 100%;
+}
+
+#imprimir .lista-de-processos > td {
+  font-family: Courier, monospace;
+  padding: 2px 5px;
+  font-size: 14px;
+}
+
+#imprimir .assinaturas {
+  padding: 10px;
+}
+
+#imprimir .assinaturas p {
+  margin: 0px;
+}
+
+#imprimir .assinaturas p:first-child {
+  margin-bottom: 10px;
+}
+
+/**
+ * mensagem no canto inferior direito
+ */
+#imprimir .devolver-guia {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  opacity: 0.6;
+  font-weight: bold;
+}
+
+/**
+ * esconder botões pra imprimir
+ */
+@media print {
+  #guia .configuracoes {
+    display: none;
+  }
+}

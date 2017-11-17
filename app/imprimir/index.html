@@ -1,4 +1,6 @@
-<div id="guia">
+<div id="imprimir">
+
+  <!--botões de controle -->
   <div class="configuracoes">
     <table>
       <tr>
@@ -24,8 +26,9 @@
     </table>
   </div>
 
+  <!-- cabeçalho -->
   <div class="cabecalho">
-    <img class="republica" src="imagens/brasao.gif">
+    <img width="50" src="imagens/brasao_da_republica.gif">
 
     <p>ADVOCACIA-GERAL DA UNIÃO</p>
     <p>PROCURADORIA-GERAL FEDERAL</p>
@@ -36,29 +39,31 @@
   </div>
 
   <table>
-    <tr class="centralizar">
+    <tr class="centralizar negrito">
       <td colspan="4">
-        <b>
-          GUIA DE REMESSA DE CARGA Nº {{vm.guia}}/{{vm.data | date:"yyyy"}}
-          <span data-ng-if="!vm.naoTemMalote">
-            (MALOTE {{vm.malote}})
-          </span>
-        </b>
+        GUIA DE REMESSA DE CARGA Nº {{vm.guia}}/{{vm.data | date:"yyyy"}}
+        <span data-ng-if="!vm.naoTemMalote">
+          (MALOTE {{vm.malote}})
+        </span>
 
         <codigo-de-barras guia="{{vm.guia}}"></codigo-de-barras>
       </td>
     </tr>
     <tr>
-      <td colspan="4"><b>REMETENTE:</b> AGU/PGF/ER/DOURADOS-MS</td>
+      <td colspan="4">
+        <span class="negrito">REMETENTE</span>: AGU/PGF/ER/DOURADOS-MS
+      </td>
     </tr>
     <tr>
-      <td colspan="4"><b>DESTINATÁRIO:</b> {{vm.destinatario | uppercase}}</td>
+      <td colspan="4">
+        <span class="negrito">DESTINATÁRIO</span>: {{vm.destinatario | uppercase}}
+      </td>
     </tr>
-    <tr class="centralizar">
-      <td><b>ITEM</b></td>
-      <td><b>ESPÉCIE</b></td>
-      <td><b>Nº DO DOCUMENTO</b></td>
-      <td><b>VOLUME</b></td>
+    <tr class="centralizar negrito">
+      <td>ITEM</td>
+      <td>ESPÉCIE</td>
+      <td>Nº DO DOCUMENTO</td>
+      <td>VOLUME</td>
     </tr>
     <tr class="lista-de-processos" data-ng-repeat="processo in vm.processos">
       <td>{{processo.item}}</td>
@@ -66,26 +71,23 @@
       <td>{{processo.numero}}</td>
       <td>{{processo.vol}}</td>
     </tr>
-    <tr class="centralizar">
-      <td class="assinaturas" colspan="2"><b>PARA USO DA EXPEDIÇÃO</b></td>
-      <td class="assinaturas" colspan="2"><b>PARA USO DO DESTINATÁRIO</b></td>
+    <tr class="centralizar negrito">
+      <td class="assinaturas" colspan="2">PARA USO DA EXPEDIÇÃO</td>
+      <td class="assinaturas" colspan="2">PARA USO DO DESTINATÁRIO</td>
     </tr>
     <tr>
-      <td class="assinaturas" colspan="2">
-        <b>REMETIDO EM: {{vm.data | date:"dd/MM/yyyy HH:mm"}}</b>
-        <br>
-        <br>
-        <b>RESPONSÁVEL: ______________________________</b>
+      <td class="assinaturas negrito" colspan="2">
+        <p>REMETIDO EM: {{vm.data | date:"dd/MM/yyyy HH:mm"}}</p>
+        <p>RESPONSÁVEL: _____________________________</p>
       </td>
-      <td class="assinaturas" colspan="2">
-        <b>RECEBIDO EM: _____/_____/{{vm.data | date:"yyyy"}}</b>
-        <br>
-        <br>
-        <b>RESPONSÁVEL: ______________________________</b>
+      <td class="assinaturas negrito" colspan="2">
+        <p>RECEBIDO EM: _____/_____/{{vm.data | date:"yyyy"}}</p>
+        <p>RESPONSÁVEL: _____________________________</p>
       </td>
     </tr>
   </table>
 
+  <!-- mensagem no canto inferior direito -->
   <span class="devolver-guia">
     FAVOR DEVOLVER UMA VIA RECIBADA
   </span>
