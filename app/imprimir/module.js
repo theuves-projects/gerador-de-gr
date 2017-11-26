@@ -1,10 +1,9 @@
 ;(function () {
   "use strict";
 
-  angular
-    .module("imprimir", [
-        "imprimir.controller"
-      , "imprimir.directives"
-    ])
-  ;
+  (angular)
+  .module("imprimir", [
+      "imprimir.controller"
+    , "imprimir.directives"
+  ]);
 })();

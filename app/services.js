@@ -1,15 +1,12 @@
 ;(function () {
   "use strict";
 
-  angular
-    .module("app.services", [])
+  (angular)
+  .module("app.services", [])
 
-    /**
-     * services
-     */
-    .service("Guia", Guia)
-    .service("Destinatarios", Destinatarios)
-  ;
+  // services
+  .service("Guia", Guia)
+  .service("Destinatarios", Destinatarios);
 
   /**
    * vai armazenar os dados que vão
@@ -22,32 +19,27 @@
     this.obter = obter;
     this.naoTemMalote = naoTemMalote;
 
-    /**
-     * definir os dados da guia
-     */
+    // definir os dados da guia
     function adicionar(
         guia
       , destinatario
       , malote
       , processos
 
-      ////////////////////
-      , LISTA_DE_PROCESSOS
+      //////////////////
+      , listaDeProcessos
     ) {
       dados = {
-          guia        : guia
+          guia: guia
         , destinatario: destinatario
-        , malote      : malote
-        , processos   : processos
+        , malote: malote
+        , processos: processos
 
-        ////////////////////////////////////////
-        , LISTA_DE_PROCESSOS: LISTA_DE_PROCESSOS
+        ////////////////////////////////////
+        , listaDeProcessos: listaDeProcessos
       };
     }
 
-    /**
-     * obter os dados da guia
-     */
     function obter() {
       return dados;
     }
@@ -85,13 +77,7 @@
     }
   }
 
-  /**
-   * organizar os destinatários
-   */
   function Destinatarios() {
-
-    ///
-
     this.adicionar = adicionar;
     this.obter = obter;
 
@@ -99,14 +85,9 @@
       //...
     }
 
-    /**
-     * função pra obter uma lista dos destinatários
-     */
     function obter() {
 
-      /**
-       * lista de destinatários
-       */
+      // lista de destinatários
       var lista = [
 
         /**

@@ -1,94 +1,76 @@
 ;(function () {
   "use strict";
 
-  angular
-    .module("indice.controller", [])
-    .controller("Indice", Indice)
-  ;
+  (angular)
+  .module("indice.controller", [])
+  .controller("Indice", Indice);
 
   function Indice(
       $location
     , $timeout
 
-    /**
-     * personalizados
-     */
-    , Guia
+    // personalizados
     , Destinatarios
+    , Guia
     , Malote
     , Processo
     , Utilitarios
   ) {
     var vm = this;
+    //////////////
 
     vm.destinatarios = Destinatarios.obter();
 
     /**
-     * array que vai armazenar os
-     * processos durante o a escaneamento
+     * array que vai armazenar os números
+     * dos processos DURANTE o escaneamento
      *
-     * (vai conter apenas strings com o
-     * número dos processos)
-     *
-     * não é uma constante, que normalmente
-     * colocam em caixa-alta, mas que se foda
+     * (vai conter apenas strings com os
+     * números dos processos)
      */
-    var LISTA_DE_PROCESSOS = [];
+    var listaDeProcessos = [];
 
     /**
      * checar se há dados já registrados,
      * ou seja, se tá voltando da página "imprimir"
-     *
-     * vai ser utilizado somente o número da
-     * guia pra fazer a verificação
      */
-    if (Guia.obter().guia) {
+    var dadosDaGuia = Guia.obter();
+    var guiaNaoEstahVazia = angular.toJson(dadosDaGuia) !== "{}";
+
+    if (guiaNaoEstahVazia) {
 
       /**
        * restabelecer dados
        * ------------------
        */
 
-      var guia = Guia.obter();
+      vm.guia = dadosDaGuia.guia;
+      vm.destinatario = dadosDaGuia.destinatario;
+      vm.malote = dadosDaGuia.malote;
+      vm.processos = dadosDaGuia.processos;
 
-      vm.guia = guia.guia;
-      vm.destinatario = guia.destinatario;
-      vm.malote = guia.malote;
-      vm.processos = guia.processos;
-
-      LISTA_DE_PROCESSOS = guia.LISTA_DE_PROCESSOS;
+      ////////////////////////////////////////////////
+      listaDeProcessos = dadosDaGuia.listaDeProcessos;
     }
 
-    /**
-     * informações pra <div> da notificação
-     */
     vm.notificar = {
       exibir: false,
       mensagem: undefined
     };
 
-    /**
-     * função pra manipular "vm.notificar"
-     */
     function notificar(mensagem) {
-
-      /**
-       * adicionar mensagem e exibir a notificação
-       */
       vm.notificar.mensagem = mensagem;
       vm.notificar.exibir = true;
 
-      /**
-       * esperar 1,5 segundos e esconder a notificação
-       */
       $timeout(function () {
-
         /**
-         * não vai remover ou trocar a mensagem,
+         * não vai remover a mensagem
          * pois se ela for removida vai causar um
-         * efeito estranho na animação (a mensagem
-         * ia sumir antes da <div>)
+         * efeito estranho na animação
+         *
+         * (a mensagem some antes da <div>)
          */
+
         vm.notificar.exibir = false;
       }, 1500);
     }
@@ -97,30 +79,26 @@
      * funções
      * -------
      */
-    vm.adicionar = adicionar;
-    vm.gerar = gerar;
-    vm.remover = remover;
+    vm.adicionarDados = adicionarDados;
+    vm.gerarGuia = gerarGuia;
+    vm.removerProcesso = removerProcesso;
 
     ///
 
-    /**
-     * função pra gerar a guia
-     */
-    function gerar() {
+    function gerarGuia() {
+      var estahFaltando = {
+          guia: !vm.guia
+        , malote: !vm.malote && !Guia.naoTemMalote(vm.destinatario)
+        , destinatario: !vm.destinatario
+        , processos: !vm.processos
+      };
 
-      /**
-       * se não houver algum dado necessário
-       */
       if (
-           !vm.guia
-        || (!vm.malote && !Guia.naoTemMalote(vm.destinatario))
-        || !vm.destinatario
-        || !vm.processos
+           estahFaltando.guia
+        || estahFaltando.malote
+        || estahFaltando.destinatario
+        || estahFaltando.processos
       ) {
-
-        /**
-         * informa o que falta
-         */
         var oQueFalta;
 
         if (!vm.guia) {
@@ -149,220 +127,102 @@
          * gerar a guia, mas vai ser necessário
          * caso o usuário volte pra página inicial
          */
-        , LISTA_DE_PROCESSOS
+        , listaDeProcessos
       );
 
-      /**
-       * vai pra página de impressão
-       */
       $location.url("/imprimir");
     }
 
-    /**
-     * função pra adicionar processos na lista
-     */
-    function adicionar() {
-      var codigoDeBarras = vm.codigoDeBarras;
+    function adicionarDados(codigoDeBarras) {
+      if (codigoDeBarras) {
+        var Adicionar = {
+          guia: function (numero) {
+            var temGuia = vm.guia;
+            var naoTemGuia = !temGuia;
 
-      if (!codigoDeBarras) {
-        return "";
-      }
+            if (naoTemGuia || (temGuia && confirm("Trocar o número da guia?"))) {
+              vm.guia = parseInt(numero) + 1;
 
-      /**
-       * função pra limpar o conteúdo da
-       * lista de dados escaneados
-       */
-      function limpar() {
-        vm.codigoDeBarras = "";
-      }
+              notificar("guia adicionada!");
+            }
+          },
+          malote: function (numero) {
+            var temMalote = vm.malote;
+            var naoTemMalote = !temMalote;
 
-      if (codigoDeBarras === "GERAR") {
-        gerar();
+            if (naoTemMalote || (temMalote && confirm("Trocar o número do malote?"))) {
+              vm.malote = Malote.numero(numero);
 
-        limpar();
+              notificar("malote adicionado!");
+            }
 
-        return;
-      }
+            /**
+             * (a partir do número do malote, vai ser procurado o número
+             * do percurso pra tentar desconbrir o destinatário do malote)
+             */
+            var destinatario = Malote.destinatario(Malote.percurso(numero));
 
-      /**
-       * se for o número da guia
-       *
-       * vou usar 1.000 como referência
-       * de um número de guia praticamente
-       * impossível de se chegar
-       */
-      if (codigoDeBarras < 1000) {
+            if (destinatario) {
+              vm.destinatario = destinatario;
+            } else {
+              alert("Não foi possível obter o DESTINATÁRIO, desse cartão"
+                + "operacional, portanto você vai precisar inseri-lo"
+                + "manualmente.");
+            }
+          },
+          processo: function (numero) {
+            listaDeProcessos.push(Processo.formatar(numero));
 
-        if (
-             !vm.guia
-          || (vm.guia && confirm("Trocar o número da guia?"))
-        ) {
+            // (ver: "/app/indice/services/utilitarios.js")
+            vm.processos = Utilitarios.montarLista(listaDeProcessos);
 
-          /**
-           * aumentar o número da guia
-           */
-          vm.guia = parseInt(codigoDeBarras) + 1;
-
-          notificar("guia adicionada!");
-
-          limpar();
-        }
-
-        return;
-      }
-
-      /**
-       * se for o código de barra dum malote
-       *
-       * (sempre tem 30 dígitos)
-       */
-      if (codigoDeBarras.length === 35) {
-        if (
-             !vm.malote
-          || (vm.malote && confirm("Trocar o número do malote?"))
-        ) {
-
-          /**
-           * se o número do malote já tinha sido
-           * definido e ele tá sendo trocado
-           */
-          var estahTrocando = vm.malote;
-
-          vm.malote = Malote.numero(codigoDeBarras);
-
-          if (estahTrocando) {
-            notificar("malote trocado!");
-          } else {
-            notificar("malote adicionado!");
+            notificar("processo adicionado!");
           }
+        };
+
+        function limparInput() {
+          vm.codigoDeBarras = undefined;
         }
 
-        /**
-         * a partir do número do malote, vai ser
-         * procurado o número do percurso pra
-         * desconbrir de qual cidade e vara
-         * é o malote
-         *
-         * se o número do percurso, no malote que
-         * tá sendo analisado, já foi registrado,
-         * então ele vai corresponder o destinatário
-         */
-        var destinatario = Malote
-          .destinatario(
-            Malote.percurso(vm.codigoDeBarras)
-          )
-        ;
+        var ehPraGerarGuia = codigoDeBarras === "GERAR";
+        var ehPraAdicionarGuia = codigoDeBarras < 1000;
+        var ehPraAdicionarMalote = codigoDeBarras.length === 35;
 
-        /**
-         * se o destinatário existir
-         */
-        if (destinatario) {
-          vm.destinatario = destinatario;
-
-        /**
-         * ...senão
-         */
+        if (ehPraGerarGuia) {
+          gerarGuia();
+          limparInput();
+        } else if (ehPraAdicionarGuia) {
+          Adicionar.guia(codigoDeBarras);
+          limparInput();
+        } else if (ehPraAdicionarMalote) {
+          Adicionar.malote(codigoDeBarras);
+          limparInput();
+        } else if (Processo.eh(codigoDeBarras)) {
+          Adicionar.processo(codigoDeBarras);
+          limparInput();
         } else {
-          alert(
-              "Não foi possível obter o DESTINATÁRIO"
-            + ", desse cartão operacional"
-            + ", portanto você vai precisar inseri-lo manualmente."
-          );
+          alert("O número '" + codigoDeBarras +  "' é inválido!");
         }
-
-        limpar();
-
-        return;
       }
 
-      /**
-       * se o número do processo for inválido
-       */
-      if (!Processo.eh(codigoDeBarras)) {
-        alert("O número \"" + codigoDeBarras +  "\" é inválido!");
-
-        return;
-      }
-
-      /**
-       * formatar número do processo
-       */
-      codigoDeBarras = Processo.formatar(codigoDeBarras);
-
-      /**
-       * adicionar o número na lista de
-       * processos já adicionados
-       */
-      LISTA_DE_PROCESSOS.push(codigoDeBarras);
-
-      /**
-       * montar lista de processos
-       *
-       * (ver: "/app/indice/services/utilitarios.js")
-       */
-      vm.processos = Utilitarios.montarLista(LISTA_DE_PROCESSOS);
-
-      notificar("processo adicionado!");
-
-      limpar();
+      return;
     }
 
-    /**
-     * função pra remover um processo da lista
-     */
-    function remover(indice) {
+    function removerProcesso(indice) {
+      var remocaoRecusada = !confirm("Tem certeza?");
 
-      /**
-       * pedir confirmação pra deletar
-       *
-       * se não for recusado
-       */
-      if (!confirm("Tem certeza?")) {
-        return;
-      }
+      if (remocaoRecusada) return;
 
-      /**
-       * processo que vai ter que ser removido
-       */
-      var numeroPraRemover = vm
-        .processos[
-          (vm.processos.length - 1) - indice
-        ]
-        .numero
-      ;
+      listaDeProcessos = listaDeProcessos.filter(function (numero) {
+        var numeroPraRemover = vm
+          .processos
+          .reverse()[indice]
+          .numero;
 
-      /**
-       * remover item do público
-       */
-      vm.processos = Utilitarios
-        .removerItem(
-            vm.processos.reverse()
-          , indice
-        )
-        .reverse()
-      ;
+        return numero !== numeroPraRemover;
+      });
 
-      /**
-       * remover o item da
-       * lista de processos adicionados
-       */
-      LISTA_DE_PROCESSOS = LISTA_DE_PROCESSOS
-        .filter(function (numero) {
-
-          /**
-           * retorna somente se o processo
-           * não for o que foi removido
-           */
-          return numeroPraRemover !== numero;
-        })
-      ;
-
-      /**
-       * remonta lista de processos
-       */
-      vm.processos = Utilitarios
-        .montarLista(LISTA_DE_PROCESSOS)
-      ;
+      vm.processos = Utilitarios.montarLista(listaDeProcessos);
     }
   }
 })();

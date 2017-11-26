@@ -1,10 +1,9 @@
 ;(function () {
   "use strict";
 
-  angular
-    .module("indice.filters", [])
-    .filter("naoTemMalote", naoTemMalote)
-  ;
+  (angular)
+  .module("indice.filters", [])
+  .filter("naoTemMalote", naoTemMalote);
 
   /**
    * verificar pelo destinatário se

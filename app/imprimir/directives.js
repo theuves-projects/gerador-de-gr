@@ -1,10 +1,9 @@
 ;(function () {
   "use strict";
 
-  angular
-    .module("imprimir.directives", [])
-    .directive("codigoDeBarras", codigoDeBarras)
-  ;
+  (angular)
+  .module("imprimir.directives", [])
+  .directive("codigoDeBarras", codigoDeBarras);
 
   function codigoDeBarras() {
     return {
@@ -15,11 +14,7 @@
     /**
      * link
      */
-    function link(
-         _
-      , element
-      , attrs
-    ) {
+    function link(_, element, attrs) {
       var elemento = element.find("img")[0];
       var guia = attrs.guia;
 

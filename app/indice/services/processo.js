@@ -1,14 +1,10 @@
 ;(function () {
   "use strict";
 
-  angular
-    .module("indice.services")
-    .service("Processo", Processo)
-  ;
+  (angular)
+  .module("indice.services")
+  .service("Processo", Processo);
 
-  /**
-   * funções pra manipular números de processos
-   */
   function Processo() {
 
     /**
@@ -16,27 +12,16 @@
      * ----------------
      */
 
-    /**
-     * desformatar número
-     * e remover itens desnecessários
-     */
     function limpar(numero) {
-
-      /**
-       * desformatar
-       */
       numero = numero
         .toString()
         .trim()
-        .replace(/[+-.\s]/g, "")
-      ;
+        .replace(/[+-.\s]/g, "");
 
       /**
-       * remover itens desnecessários
-       *
-       * (em alguns processos, da vara do trabalho,
-       * escaneados foi encontrado alguns números
-       * no final que não são necessários)
+       * (em alguns processos, da vara do trabalho, escaneados
+       * foi encontrado alguns números no final que não são
+       * necessários - isso remove-os)
        */
       if (numero.length > 20) {
         numero = numero.replace(/\d{5}$/g, "");
@@ -50,52 +35,42 @@
      * ----------------
      */
 
-    /**
-     * verificar se é um número de processo
-     *
-     * obs.: não valida
-     */
-    this.eh = function (numero) {
-      return /^(\d{12,13}|\d{20})$/
-        .test(
-          limpar(numero)
-        )
-      ;
+    // (obs.: não valida)
+     function eh(numero) {
+      return /^(\d{12,13}|\d{20})$/.test(limpar(numero));
     };
 
-    /**
-     * formatar um número de processo
-     */
-    this.formatar = function (numero) {
-
-      /**
-       * converter em string e limpar
-       */
+    function formatar(numero) {
       numero = limpar(numero);
 
-      /**
-       * se for um processo com 12 ou 13 dígitos
-       */
-      if (numero.length === 12 || numero.length === 13) {
-        return numero
-          .replace(
-              /^(\d{3,4})(\d{2})(\d{6})(\d{1})$/
-            , "$1.$2.$3-$4"
-          )
-        ;
+      var FormatarNumero = {
+        antigo: function(num) {
+          return numero.replace(
+            /^(\d{3,4})(\d{2})(\d{6})(\d{1})$/, "$1.$2.$3-$4"
+          );
+        },
+        novo: function (num) {
+          return numero.replace(
+            /^(\d{7})(\d{2})(\d{4})(\d{1})(\d{2})(\d{4})$/, "$1-$2.$3.$4.$5.$6"
+          );
+        }
       }
 
-      /**
-       * se for um processo com 20 dígitos
-       */
-      if (numero.length === 20) {
-        return numero
-          .replace(
-              /^(\d{7})(\d{2})(\d{4})(\d{1})(\d{2})(\d{4})$/
-            , "$1-$2.$3.$4.$5.$6"
-          )
-        ;
+      var ehNumero = {
+          antigo: numero.length === 12 || numero.length === 13
+        , novo: numero.length === 20
+      };
+
+      if (ehNumero.antigo) {
+        return FormatarNumero.antigo(numero);
+      } else if (ehNumero.novo) {
+        return FormatarNumero.novo(numero);
+      } else {
+        throw new Error("Número de processo inválido");
       }
-    };
+    }
+
+    this.eh = eh;
+    this.formatar = formatar;
   }
 })();

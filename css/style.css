@@ -4,7 +4,6 @@
 
 * {
   box-sizing: border-box;
-  text-transform: uppercase;
 }
 
 .centralizar,
@@ -15,6 +14,11 @@
 .negrito,
 .negrito * {
   font-weight: bold;
+}
+
+.italico,
+.italico * {
+  font-style: italic;
 }
 
 ::selection {

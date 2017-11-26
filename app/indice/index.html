@@ -1,6 +1,8 @@
 <div id="indice">
   <header>
-    <h1>gerador de<br>guia de remessa</h1>
+    <h1>
+      gerador de<br>
+      guia de remessa</h1>
   </header>
 
   <table>
@@ -19,22 +21,24 @@
     </tr>
     <tr>
       <td colspan="2">
-        <select
-          data-ng-model="vm.destinatario">
+        <select data-ng-model="vm.destinatario">
 
-          <option value disabled hidden>
+          <option
+            value
+            disabled
+            hidden>
+
             escolha o destinatário aqui...
           </option>
 
-          <option data-ng-repeat="destinatario in vm.destinatarios">
-            {{destinatario}}
-          </option>
+          <!-- não quebre a linha -->
+          <option data-ng-repeat="destinatario in vm.destinatarios">{{destinatario}}</option>
         </select>
       </td>
     </tr>
   </table>
 
-  <form data-ng-submit="vm.adicionar()">
+  <form data-ng-submit="vm.adicionarDados(vm.codigoDeBarras)">
     <table>
       <tr>
         <td>
@@ -42,7 +46,7 @@
             data-ng-model="vm.codigoDeBarras"
             class="centralizar"
             type="text"
-            placeholder="Selecione aqui e escaneie..."
+            placeholder="escaneie ou dígite aqui..."
             autofocus>
         </td>
       </tr>
@@ -59,14 +63,18 @@
       </th>
     </tr>
     <tr data-ng-repeat="processo in vm.processos | orderBy:'-item'">
-      <td class="indice">
-        <i>{{processo.item}}.</i>
+      <td class="indice italico">
+        {{processo.item}}.
       </td>
-      <td>{{processo.numero}}</td>
-      <td>{{processo.vol}}</td>
+      <td>
+        {{processo.numero}}
+      </td>
+      <td>
+        {{processo.vol}}
+      </td>
       <td>
         <input
-          data-ng-click="vm.remover($index)"
+          data-ng-click="vm.removerProcesso($index)"
           type="button"
           value="remover">
       </td>
@@ -74,13 +82,15 @@
   </table>
 
   <form
-    data-ng-submit="vm.gerar()"
+    data-ng-submit="vm.gerarGuia()"
     class="gerar">
 
     <table>
       <tr>
         <td>
-          <input type="submit" value="gerar guia">
+          <input
+            type="submit"
+            value="gerar guia">
         </td>
       </tr>
     </table>

@@ -9,6 +9,7 @@
 }
 
 #indice * {
+  text-transform: uppercase;
   font-family: Verdana, sans-serif;
 }
 

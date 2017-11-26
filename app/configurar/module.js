@@ -1,9 +1,8 @@
 ;(function () {
   "use strict";
 
-  angular
-    .module("configurar", [
-    	"configurar.controller"
-    ])
-  ;
+  (angular)
+  .module("configurar", [
+    "configurar.controller"
+  ]);
 })();

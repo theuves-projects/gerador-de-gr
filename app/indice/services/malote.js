@@ -1,20 +1,11 @@
 ;(function () {
   "use strict";
 
-  angular
-    .module("indice.services")
-    .service("Malote", Malote)
-  ;
+  (angular)
+  .module("indice.services")
+  .service("Malote", Malote);
 
-  /**
-   * funções pra manipular dados dum malote
-   */
   function Malote() {
-
-    /**
-     * lista de percursos pra
-     * indentificação do destinatário
-     */
     var percursos = {
 
       /**
@@ -260,55 +251,29 @@
       }
     };
 
-    /**
-     * funções que vão ser exportadas
-     * ------------------------------
-     */
+    /// obter o percurso do malote
+    function percurso(codigoDeBarras) {
+      return codigoDeBarras.replace(/^\d{13}(\d{12}).*/, "$1");
+    }
 
-    /**
-     * obter o percurso do malote
-     */
-    this.percurso = function (codigoDeBarras) {
-      return codigoDeBarras.replace(
-        /^\d{13}(\d{12}).*/,
-        "$1"
-      );
-    };
+    // obter o número do malote
+    function numero(codigoDeBarras) {
+      return codigoDeBarras.replace(/^.*(\d{5})$/, "$1");
+    }
 
-    /**
-     * obter o número do malote
-     */
-    this.numero = function (codigoDeBarras) {
-      return codigoDeBarras.replace(
-        /^.*(\d{5})$/,
-        "$1"
-      );
-    };
-
-    /**
-     * obter o destinatário a partir do número do percurso
-     */
-    this.destinatario = function (percurso) {
-
-      /**
-       * converter em número (removendo os zeros)
-       */
-      percurso = parseInt(percurso);
-
-      /**
-       * obter o percurso
-       */
-      percurso = percursos[percurso];
+    // obter o destinatário a partir do número do percurso
+    function destinatario(percurso) {
+      percurso = percursos[parseInt(percurso)];
 
       if (percurso) {
-        return percurso.vara
-          + " de "
-          + percurso.cidade
-          + "/ms"
-        ;
+        return percurso.vara + " de " + percurso.cidade + "/ms";
       }
 
       return false;
-    };
+    }
+
+    this.percurso = percurso;
+    this.numero = numero;
+    this.destinatario = destinatario;
   }
 })();

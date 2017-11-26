@@ -1,3 +1,52 @@
 <div id="configurar">
+  <h1>Configurações</h1>
 
+  <div class="secao">
+    <p class="tipo">Usuário</p>
+
+    <form class="conteudo">
+      <label>
+        <p class="descricao">Seu nome:</p>
+        <input type="text" placeholder="Insira seu nome aqui...">
+      </label>
+
+      <button type="submit">Salvar as alterações</button>
+    </form>
+  </div>
+
+  <div class="secao">
+    <p class="tipo">Destinatários</p>
+
+    <div class="conteudo">
+      <form>
+        <p class="descricao">Gerenciar destinatários:</p>
+        <table>
+          <tr data-ng-repeat="destinatario in vm.destinatarios">
+            <td>{{destinatario}}</td>
+            <td>
+              <button
+                data-ng-click="remover($index)"
+                class="remover">
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <input type="text"
+                placeholder="Adicionar novo destinatário...">
+            </td>
+            <td>
+              <button class="adicionar">
+                <i class="fa fa-plus"></i>
+              </button>
+            </td>
+          </tr>
+        </table>
+
+        <button type="submit">Salvar as alterações</button>
+      </form>
+    </div>
+  </div>
 </div>

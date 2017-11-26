@@ -1,32 +1,26 @@
 ;(function () {
   "use strict";
 
-  angular
-    .module("imprimir.controller", [])
-    .controller("Imprimir", Imprimir)
-  ;
+  (angular)
+  .module("imprimir.controller", [])
+  .controller("Imprimir", Imprimir);
 
   function Imprimir(
-      $window
-    , $location
+      $location
+    , $window
 
-    /**
-     * personalizados
-     */
+    // personalizados
     , Guia
   ) {
     var vm = this;
-    var guia = Guia.obter();
+    //////////////
 
-    /**
-     * se a página só foi recarregada
-     */
-    if (angular.toJson(guia) === "{}") {
-      alert([
-          "Houve algum erro!"
-        , ""
-        , "Não foi possível obter alguns dados."
-      ].join("\n"));
+    var dadosDaGuia = Guia.obter();
+    var naoTemDadosNaGuia = angular.toJson(dadosDaGuia) === "{}";
+
+    if (naoTemDadosNaGuia) {
+      alert("Houve algum erro!\n\n"
+        + "Não foi possível obter alguns dados.");
 
       $location.path("/");
     }
@@ -44,39 +38,22 @@
      * -------
      */
 
-    /**
-     * função pra imprimir guia
-     */
-    function imprimir() {
+    function imprimirGuia() {
       $window.print();
     }
 
-    /**
-     * função pra voltar pra página inicial
-     */
-    function voltar() {
+    function voltarPraPaginaInicial() {
       $location.url("/");
     }
 
-    /**
-     * verificar se vai malote,
-     * caso contrário não vai aparecer o
-     * número do malote
-     */
-    vm.naoTemMalote = Guia.naoTemMalote(guia.destinatario);;
+    vm.naoTemMalote = Guia.naoTemMalote(dadosDaGuia.destinatario);;
 
-
-    /**
-     * informa a data exata em que foi gerada
-     */
+    // (data em que a guia foi gerada)
     vm.data = (new Date()).valueOf();
 
-    /**
-     * adiciona os dados
-     */
-    vm.guia         = parseInt(guia.guia);
-    vm.destinatario = guia.destinatario;
-    vm.malote       = guia.malote;
-    vm.processos    = guia.processos;
+    vm.guia = parseInt(dadosDaGuia.guia);
+    vm.destinatario = dadosDaGuia.destinatario;
+    vm.malote = dadosDaGuia.malote;
+    vm.processos = dadosDaGuia.processos;
   }
 })();

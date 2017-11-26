@@ -1,26 +1,19 @@
 ;(function () {
   "use strict";
 
-  angular
-    .module("app", [
+  (angular)
+  .module("app", [
 
-      /**
-       * específicos
-       */
-        "indice"
-      , "configurar"
-      , "imprimir"
+    // específicos
+      "indice"
+    , "configurar"
+    , "imprimir"
 
-      /**
-       * globais
-       */
-       , "app.services"
+    // globais
+     , "app.services"
 
-      /**
-       * externos
-       */
-      , "ngAnimate"
-      , "ngRoute"
-    ])
-  ;
+    // externos
+    , "ngAnimate"
+    , "ngRoute"
+  ]);
 })();

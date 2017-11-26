@@ -7,6 +7,10 @@
   margin: 2% 5%;
 }
 
+#imprimir * {
+  text-transform: uppercase;
+}
+
 /**
  * botões de opções pr'o usuário
  */

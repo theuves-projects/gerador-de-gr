@@ -1,10 +1,9 @@
 ;(function () {
   "use strict";
 
-  angular
-    .module("indice.directives", [])
-    .directive("autofocus", autofocus)
-  ;
+  (angular)
+  .module("indice.directives", [])
+  .directive("autofocus", autofocus);
 
   /**
    * no firefox, por um motivo que eu
