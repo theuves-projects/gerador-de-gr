@@ -28,7 +28,7 @@
      * -------
      */
     var salvarNovoNomeDoUsuario = function (nome) {
-      Configuracoes.nomeDoUsuario.definir(nome);
+      Configuracoes.NomeDoUsuario.definir(nome);
 
       alert("Salvo!");
 
@@ -36,7 +36,7 @@
     }
 
     vm.destinatarios = Destinatarios.obter();
-    vm.nomeDoUsuario = Configuracoes.nomeDoUsuario.obter();
+    vm.nomeDoUsuario = Configuracoes.NomeDoUsuario.obter();
     vm.salvarNovoNomeDoUsuario = salvarNovoNomeDoUsuario;
   }
 })();

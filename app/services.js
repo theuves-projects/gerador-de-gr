@@ -62,7 +62,7 @@
      * ----------------
      */
 
-    var nomeDoUsuario = {
+    var NomeDoUsuario = {
       obter: function () {
         return LsConfig.obter().nomeDoUsuario;
       },
@@ -75,7 +75,7 @@
       }
     };
 
-    this.nomeDoUsuario = nomeDoUsuario;
+    this.NomeDoUsuario = NomeDoUsuario;
   }
 
   function Destinatarios() {
