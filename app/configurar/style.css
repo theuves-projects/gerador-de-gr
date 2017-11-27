@@ -71,6 +71,10 @@
   margin-bottom: 8px;
 }
 
+#configurar .secao .descricao:after {
+  content: ":";
+}
+
 /**
  * tabela
  */

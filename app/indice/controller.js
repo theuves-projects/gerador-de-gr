@@ -10,6 +10,7 @@
     , $timeout
 
     // personalizados
+    , Configuracoes
     , Destinatarios
     , Guia
     , Malote

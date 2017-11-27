@@ -5,75 +5,47 @@
   .module("app.services", [])
 
   // services
-  .service("Guia", Guia)
-  .service("Destinatarios", Destinatarios);
+  .service("Configuracoes", Configuracoes)
+  .service("Destinatarios", Destinatarios)
+  .service("Guia", Guia);
 
-  /**
-   * vai armazenar os dados que vão
-   * ser usados na guia que tá sendo gerada
-   */
-  function Guia() {
-    var dados = {};
+  function Configuracoes() {
 
-    this.definir = adicionar;
-    this.obter = obter;
-    this.naoTemMalote = naoTemMalote;
+    // (gerenciar as configuracoes)
+    var LsConfig = {
+      obter: function () {
+        return angular.fromJson(localStorage.getItem("configuracoes"));
+      },
+      definir: function (item) {
+        var itemEmJson = angular.toJson(item);
 
-    // definir os dados da guia
-    function adicionar(
-        guia
-      , destinatario
-      , malote
-      , processos
-
-      //////////////////
-      , listaDeProcessos
-    ) {
-      dados = {
-          guia: guia
-        , destinatario: destinatario
-        , malote: malote
-        , processos: processos
-
-        ////////////////////////////////////
-        , listaDeProcessos: listaDeProcessos
-      };
-    }
-
-    function obter() {
-      return dados;
-    }
-
-    /**
-     * verificar se o destinatário não usa malote
-     *
-     * não usam malotes as cidades de:
-     * - batayporã
-     * - dourados
-     * - glória de dourados
-     */
-    function naoTemMalote(destinatario) {
-
-      /**
-       * verificar se a cidade tá entre
-       * que não usam o serviço de malote
-       */
-      var cidades = /(batayporã|(glória\sde\s)?dourados)/i
-        .test(destinatario)
-      ;
-
-      /**
-       * verificar se é trabalhista
-       *
-       * as varas trabalhista USAM o serviço
-       */
-      function ehTrabalhista(dest)  {
-        return /do\strabalho/i
-          .test(dest)
-        ;
+        return localStorage.setItem("configuracoes", itemEmJson);
       }
+    };
 
-      return cidades && !ehTrabalhista(destinatario);
+    var configuracoes = LsConfig.obter();
+    var configuracoesEhIndefinido = !configuracoes;
+
+    if (configuracoesEhIndefinido) {
+      LsConfig.definir({});
+    }
+
+    configuracoes = LsConfig.obter();
+    var nomeDoUsusarioEhIndefinido = !configuracoes.nomeDoUsusario;
+
+    if (nomeDoUsusarioEhIndefinido) {
+      var nomeDoUsusario = prompt("[Configurações]\n\n"
+        + "Insira seu nome, por favor:");
+
+      var nomeDoUsusarioEhValido = nomeDoUsusario && nomeDoUsusario.trim();
+
+      if (nomeDoUsusarioEhValido) {
+        LsConfig.definir({
+          nomeDoUsusario: nomeDoUsusario
+        });
+      } else {
+        alert("Nome inválido!");
+      }
     }
   }
 
@@ -262,7 +234,65 @@
         "vara do trabalho de sete quedas/ms"
       ];
 
+
       return lista;
+    }
+  }
+
+  /**
+   * vai armazenar os dados que vão
+   * ser usados na guia que tá sendo gerada
+   */
+  function Guia() {
+    var dados = {};
+
+    this.definir = adicionar;
+    this.obter = obter;
+    this.naoTemMalote = naoTemMalote;
+
+    // definir os dados da guia
+    function adicionar(
+        guia
+      , destinatario
+      , malote
+      , processos
+
+      //////////////////
+      , listaDeProcessos
+    ) {
+      dados = {
+          guia: guia
+        , destinatario: destinatario
+        , malote: malote
+        , processos: processos
+
+        ////////////////////////////////////
+        , listaDeProcessos: listaDeProcessos
+      };
+    }
+
+    function obter() {
+      return dados;
+    }
+
+    /**
+     * verificar se o destinatário não usa malote
+     *
+     * não usam malotes as cidades de:
+     * - batayporã
+     * - dourados
+     * - glória de dourados
+     */
+    function naoTemMalote(destinatario) {
+      var cidades = /(batayporã|(glória\sde\s)?dourados)/i.test(destinatario);
+
+      function ehTrabalhista(dest)  {
+        return /do\strabalho/i
+          .test(dest)
+        ;
+      }
+
+      return cidades && !ehTrabalhista(destinatario);
     }
   }
 })();

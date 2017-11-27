@@ -13,7 +13,10 @@
    * - novos destinatários
    * - malote do destinatário
    */
-  function Configurar(Destinatarios) {
+  function Configurar(
+      Configuracoes
+    , Destinatarios
+  ) {
     var vm = this;
     //////////////
 
