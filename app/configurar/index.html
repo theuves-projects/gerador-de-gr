@@ -7,10 +7,15 @@
     <form class="conteudo">
       <label>
         <p class="descricao">Seu nome</p>
-        <input type="text" placeholder="Insira seu nome aqui...">
+        <input
+          data-ng-model="vm.nomeDoUsuario"
+          type="text"
+          placeholder="Insira seu nome aqui...">
       </label>
 
-      <button type="submit">Salvar as alterações</button>
+      <button
+        data-ng-click="vm.salvarNovoNomeDoUsuario(vm.nomeDoUsuario)"
+        type="submit">Salvar as alterações</button>
     </form>
   </div>
 
@@ -34,7 +39,8 @@
 
           <tr>
             <td>
-              <input type="text"
+              <input
+                type="text"
                 placeholder="Adicionar novo destinatário...">
             </td>
             <td>

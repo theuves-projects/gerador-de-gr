@@ -14,12 +14,29 @@
    * - malote do destinatário
    */
   function Configurar(
-      Configuracoes
+      $window
+
+      // personalizados
+    , Configuracoes
     , Destinatarios
   ) {
     var vm = this;
     //////////////
 
+    /**
+     * funções
+     * -------
+     */
+    var salvarNovoNomeDoUsuario = function (nome) {
+      Configuracoes.nomeDoUsuario.definir(nome);
+
+      alert("Salvo!");
+
+      $window.location.reload();
+    }
+
     vm.destinatarios = Destinatarios.obter();
+    vm.nomeDoUsuario = Configuracoes.nomeDoUsuario.obter();
+    vm.salvarNovoNomeDoUsuario = salvarNovoNomeDoUsuario;
   }
 })();

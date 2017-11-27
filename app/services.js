@@ -11,7 +11,7 @@
 
   function Configuracoes() {
 
-    // (gerenciar as configuracoes)
+    // (gerenciar as configurações)
     var LsConfig = {
       obter: function () {
         return angular.fromJson(localStorage.getItem("configuracoes"));
@@ -23,30 +23,59 @@
       }
     };
 
-    var configuracoes = LsConfig.obter();
-    var configuracoesEhIndefinido = !configuracoes;
+    var configuracoes;
+    //////////////////
 
-    if (configuracoesEhIndefinido) {
+    function iniciarConfiguracoes() {
       LsConfig.definir({});
     }
 
     configuracoes = LsConfig.obter();
-    var nomeDoUsusarioEhIndefinido = !configuracoes.nomeDoUsusario;
+    /////////////////////////////////
 
-    if (nomeDoUsusarioEhIndefinido) {
-      var nomeDoUsusario = prompt("[Configurações]\n\n"
+    if (!configuracoes) {
+      iniciarConfiguracoes();
+    }
+
+    configuracoes = LsConfig.obter();
+    /////////////////////////////////
+
+    var nomeDoUsuarioNaoExiste = !configuracoes.nomeDoUsuario;
+
+    if (nomeDoUsuarioNaoExiste) {
+      var nomeDoUsuario = prompt("[Configurações]\n\n"
         + "Insira seu nome, por favor:");
 
-      var nomeDoUsusarioEhValido = nomeDoUsusario && nomeDoUsusario.trim();
+      var nomeDoUsuarioEhValido = nomeDoUsuario && nomeDoUsuario.trim();
 
-      if (nomeDoUsusarioEhValido) {
+      if (nomeDoUsuarioEhValido) {
         LsConfig.definir({
-          nomeDoUsusario: nomeDoUsusario
+          nomeDoUsuario: nomeDoUsuario
         });
       } else {
         alert("Nome inválido!");
       }
     }
+
+    /**
+     * dados exportados
+     * ----------------
+     */
+
+    var nomeDoUsuario = {
+      obter: function () {
+        return LsConfig.obter().nomeDoUsuario;
+      },
+      definir: function (nome) {
+        var novasConfiguracoes = LsConfig.obter();
+
+        novasConfiguracoes.nomeDoUsuario = nome;
+
+        LsConfig.definir(novasConfiguracoes);
+      }
+    };
+
+    this.nomeDoUsuario = nomeDoUsuario;
   }
 
   function Destinatarios() {
