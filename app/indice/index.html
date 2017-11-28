@@ -10,11 +10,13 @@
       <td>
         <input
           data-ng-model="vm.guia"
+          data-ng-keypress="vm.adicionarGuia($event)"
           placeholder="nº da guia">
       </td>
       <td>
         <input
           data-ng-model="vm.malote"
+          data-ng-keypress="vm.adicionarGuia($event)"
           data-ng-disabled="vm.destinatario | naoTemMalote"
           placeholder="nº do malote">
       </td>

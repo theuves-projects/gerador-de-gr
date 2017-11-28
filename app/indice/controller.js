@@ -80,8 +80,10 @@
      * funções
      * -------
      */
-    vm.adicionarDados = adicionarDados;
     vm.gerarGuia = gerarGuia;
+    vm.adicionarDados = adicionarDados;
+    vm.adicionarGuia = adicionarGuia;
+    vm.adicionarMalote = adicionarMalote;
     vm.removerProcesso = removerProcesso;
 
     ///
@@ -136,8 +138,11 @@
 
     function adicionarDados(codigoDeBarras) {
       if (codigoDeBarras) {
-        var Adicionar = {
-          guia: function (numero) {
+        function Adicionador(numero) {
+          var adicionar = this;
+          /////////////////////
+
+          function guia() {
             var temGuia = vm.guia;
             var naoTemGuia = !temGuia;
 
@@ -146,8 +151,9 @@
 
               notificar("guia adicionada!");
             }
-          },
-          malote: function (numero) {
+          };
+
+          function malote() {
             var temMalote = vm.malote;
             var naoTemMalote = !temMalote;
 
@@ -170,16 +176,21 @@
                 + "operacional, portanto você vai precisar inseri-lo"
                 + "manualmente.");
             }
-          },
-          processo: function (numero) {
+          };
+
+          function processo() {
             listaDeProcessos.push(Processo.formatar(numero));
 
-            // (ver: "/app/indice/services/utilitarios.js")
+            // (ver: "app/indice/services/utilitarios.js")
             vm.processos = Utilitarios.montarLista(listaDeProcessos);
 
             notificar("processo adicionado!");
-          }
-        };
+          };
+
+          adicionar.guia = guia;
+          adicionar.malote = malote;
+          adicionar.processo = processo;
+        }
 
         function limparInput() {
           vm.codigoDeBarras = undefined;
@@ -189,17 +200,19 @@
         var ehPraAdicionarGuia = codigoDeBarras < 1000;
         var ehPraAdicionarMalote = codigoDeBarras.length === 35;
 
+        var adicionar = new Adicionador(codigoDeBarras);
+
         if (ehPraGerarGuia) {
           gerarGuia();
           limparInput();
         } else if (ehPraAdicionarGuia) {
-          Adicionar.guia(codigoDeBarras);
+          adicionar.guia();
           limparInput();
         } else if (ehPraAdicionarMalote) {
-          Adicionar.malote(codigoDeBarras);
+          adicionar.malote();
           limparInput();
         } else if (Processo.eh(codigoDeBarras)) {
-          Adicionar.processo(codigoDeBarras);
+          adicionar.processo();
           limparInput();
         } else {
           alert("O número '" + codigoDeBarras +  "' é inválido!");
@@ -207,6 +220,21 @@
       }
 
       return;
+    }
+
+    // (privado)
+    function exibirAlerta() {
+      alert("[Atenção]\n\n"
+          + "Não é possível adicionar"
+          + " dados escaeados por aqui...");
+    }
+
+    function adicionarGuia(evento) {
+      if (evento.code === "Enter") exibirAlerta();
+    }
+
+    function adicionarMalote(evento) {
+      if (evento.code === "Enter") exibirAlerta();
     }
 
     function removerProcesso(indice) {
