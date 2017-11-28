@@ -88,7 +88,7 @@
 
     ///
 
-    function gerarGuia() {
+    var gerarGuia = function () {
       var estahFaltando = {
           guia: !vm.guia
         , malote: !vm.malote && !Guia.naoTemMalote(vm.destinatario)
@@ -136,60 +136,51 @@
       $location.url("/imprimir");
     }
 
-    function adicionarDados(codigoDeBarras) {
+    var adicionarDados = function (codigoDeBarras) {
       if (codigoDeBarras) {
-        function Adicionador(numero) {
-          var adicionar = this;
-          /////////////////////
+        function adicionarGuia() {
+          var temGuia = vm.guia;
+          var naoTemGuia = !temGuia;
 
-          function guia() {
-            var temGuia = vm.guia;
-            var naoTemGuia = !temGuia;
+          if (naoTemGuia || (temGuia && confirm("Trocar o número da guia?"))) {
+            vm.guia = parseInt(codigoDeBarras) + 1;
 
-            if (naoTemGuia || (temGuia && confirm("Trocar o número da guia?"))) {
-              vm.guia = parseInt(numero) + 1;
+            notificar("Guia adicionada!");
+          }
+        }
 
-              notificar("guia adicionada!");
-            }
-          };
+        function adicionarMalote() {
+          var temMalote = vm.malote;
+          var naoTemMalote = !temMalote;
 
-          function malote() {
-            var temMalote = vm.malote;
-            var naoTemMalote = !temMalote;
+          if (naoTemMalote || (temMalote && confirm("Trocar o número do malote?"))) {
+            vm.malote = Malote.numero(codigoDeBarras);
 
-            if (naoTemMalote || (temMalote && confirm("Trocar o número do malote?"))) {
-              vm.malote = Malote.numero(numero);
+            notificar("Malote adicionado!");
+          }
 
-              notificar("malote adicionado!");
-            }
+          /**
+           * (a partir do número do malote, vai ser procurado o número
+           * do percurso pra tentar desconbrir o destinatário do malote)
+           */
+          var destinatario = Malote.destinatario(Malote.percurso(codigoDeBarras));
 
-            /**
-             * (a partir do número do malote, vai ser procurado o número
-             * do percurso pra tentar desconbrir o destinatário do malote)
-             */
-            var destinatario = Malote.destinatario(Malote.percurso(numero));
+          if (destinatario) {
+            vm.destinatario = destinatario;
+          } else {
+            alert("Não foi possível obter o DESTINATÁRIO, desse cartão"
+              + "operacional, portanto você vai precisar inseri-lo"
+              + "manualmente.");
+          }
+        }
 
-            if (destinatario) {
-              vm.destinatario = destinatario;
-            } else {
-              alert("Não foi possível obter o DESTINATÁRIO, desse cartão"
-                + "operacional, portanto você vai precisar inseri-lo"
-                + "manualmente.");
-            }
-          };
+        function adicionarProcesso() {
+          listaDeProcessos.push(Processo.formatar(codigoDeBarras));
 
-          function processo() {
-            listaDeProcessos.push(Processo.formatar(numero));
+          // (ver: "app/indice/services/utilitarios.js")
+          vm.processos = Utilitarios.montarLista(listaDeProcessos);
 
-            // (ver: "app/indice/services/utilitarios.js")
-            vm.processos = Utilitarios.montarLista(listaDeProcessos);
-
-            notificar("processo adicionado!");
-          };
-
-          adicionar.guia = guia;
-          adicionar.malote = malote;
-          adicionar.processo = processo;
+          notificar("Processo adicionado!");
         }
 
         function limparInput() {
@@ -200,19 +191,17 @@
         var ehPraAdicionarGuia = codigoDeBarras < 1000;
         var ehPraAdicionarMalote = codigoDeBarras.length === 35;
 
-        var adicionar = new Adicionador(codigoDeBarras);
-
         if (ehPraGerarGuia) {
           gerarGuia();
           limparInput();
         } else if (ehPraAdicionarGuia) {
-          adicionar.guia();
+          adicionarGuia();
           limparInput();
         } else if (ehPraAdicionarMalote) {
-          adicionar.malote();
+          adicionarMalote();
           limparInput();
         } else if (Processo.eh(codigoDeBarras)) {
-          adicionar.processo();
+          adicionarProcesso();
           limparInput();
         } else {
           alert("O número '" + codigoDeBarras +  "' é inválido!");
@@ -229,15 +218,15 @@
           + " dados escaeados por aqui...");
     }
 
-    function adicionarGuia(evento) {
+    var adicionarGuia = function(evento) {
       if (evento.code === "Enter") exibirAlerta();
     }
 
-    function adicionarMalote(evento) {
+    var adicionarMalote = function(evento) {
       if (evento.code === "Enter") exibirAlerta();
     }
 
-    function removerProcesso(indice) {
+    var removerProcesso = function(indice) {
       var remocaoRecusada = !confirm("Tem certeza?");
 
       if (remocaoRecusada) return;
