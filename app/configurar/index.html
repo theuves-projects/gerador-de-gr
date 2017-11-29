@@ -1,6 +1,13 @@
 <div id="configurar">
   <h1>Configurações</h1>
 
+  <button
+    data-ng-click="vm.voltarPraPaginaInicial()"
+    class="voltar-pra-pagina-inicial">
+    <i class="fa fa-home"></i>
+    PÁGINA INICIAL
+  </button>
+
   <div class="secao">
     <p class="tipo">Usuário</p>
 
@@ -30,7 +37,7 @@
             <td>{{destinatario}}</td>
             <td>
               <button
-                data-ng-click="remover($index)"
+                data-ng-click="vm.removerDestinatario($index)"
                 class="remover">
                 <i class="fa fa-trash"></i>
               </button>
@@ -40,18 +47,23 @@
           <tr>
             <td>
               <input
+                data-ng-model="vm.novoDestinatario"
                 type="text"
                 placeholder="Adicionar novo destinatário...">
             </td>
             <td>
-              <button class="adicionar">
+              <button
+                class="adicionar"
+                data-ng-click="vm.adicionarDestinatario(vm.novoDestinatario)">
                 <i class="fa fa-plus"></i>
               </button>
             </td>
           </tr>
         </table>
 
-        <button type="submit">Salvar as alterações</button>
+        <button
+          data-ng-click="vm.salvarDestinatarios(vm.destinatarios)"
+          type="submit">Salvar as alterações</button>
       </form>
     </div>
   </div>

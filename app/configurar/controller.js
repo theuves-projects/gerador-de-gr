@@ -15,6 +15,7 @@
    */
   function Configurar(
       $window
+    , $location
 
       // personalizados
     , Configuracoes
@@ -27,7 +28,7 @@
      * funções
      * -------
      */
-    var salvarNovoNomeDoUsuario = function (nome) {
+    function salvarNovoNomeDoUsuario(nome) {
       Configuracoes.NomeDoUsuario.definir(nome);
 
       alert("Salvo!");
@@ -35,8 +36,34 @@
       $window.location.reload();
     }
 
+    function adicionarDestinatario(novoDestinatario) {
+      vm.destinatarios.push(novoDestinatario);
+    }
+
+    function removerDestinatario(indice) {
+      delete vm.destinatarios[indice];
+
+      vm.destinatarios = vm.destinatarios.filter(function (item) {
+        return item;
+      });
+    }
+
+    function salvarDestinatarios(novosDestinatarios) {
+      Destinatarios.salvar(novosDestinatarios);
+
+      alert("Salvo!");
+    }
+
+    function voltarPraPaginaInicial() {
+      $location.path("/");
+    }
+
     vm.destinatarios = Destinatarios.obter();
     vm.nomeDoUsuario = Configuracoes.NomeDoUsuario.obter();
     vm.salvarNovoNomeDoUsuario = salvarNovoNomeDoUsuario;
+    vm.adicionarDestinatario = adicionarDestinatario;
+    vm.removerDestinatario = removerDestinatario;
+    vm.salvarDestinatarios = salvarDestinatarios;
+    vm.voltarPraPaginaInicial = voltarPraPaginaInicial;
   }
 })();

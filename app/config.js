@@ -9,15 +9,15 @@
     $routeProvider
     .when("/", {
       controller: "Indice as vm",
-      templateUrl: "app/indice/index.html"
+      templateUrl: "app/Indice/index.html"
     })
     .when("/imprimir", {
       controller: "Imprimir as vm",
-      templateUrl: "app/imprimir/index.html"
+      templateUrl: "app/Imprimir/index.html"
     })
     .when("/configurar", {
       controller: "Configurar as vm",
-      templateUrl: "app/configurar/index.html"
+      templateUrl: "app/Configurar/index.html"
     })
     .otherwise({
       redirectTo: "/"

@@ -76,19 +76,7 @@
       }, 1500);
     }
 
-    /**
-     * funções
-     * -------
-     */
-    vm.gerarGuia = gerarGuia;
-    vm.adicionarDados = adicionarDados;
-    vm.adicionarGuia = adicionarGuia;
-    vm.adicionarMalote = adicionarMalote;
-    vm.removerProcesso = removerProcesso;
-
-    ///
-
-    var gerarGuia = function () {
+    function gerarGuia() {
       var estahFaltando = {
           guia: !vm.guia
         , malote: !vm.malote && !Guia.naoTemMalote(vm.destinatario)
@@ -136,7 +124,7 @@
       $location.url("/imprimir");
     }
 
-    var adicionarDados = function (codigoDeBarras) {
+    function adicionarDados(codigoDeBarras) {
       if (codigoDeBarras) {
         function adicionarGuia() {
           var temGuia = vm.guia;
@@ -177,7 +165,7 @@
         function adicionarProcesso() {
           listaDeProcessos.push(Processo.formatar(codigoDeBarras));
 
-          // (ver: "app/indice/services/utilitarios.js")
+          // (ver: "app/Indice/_services/Utilitarios.js")
           vm.processos = Utilitarios.montarLista(listaDeProcessos);
 
           notificar("Processo adicionado!");
@@ -218,15 +206,15 @@
           + " dados escaeados por aqui...");
     }
 
-    var adicionarGuia = function(evento) {
+    function adicionarGuia(evento) {
       if (evento.code === "Enter") exibirAlerta();
     }
 
-    var adicionarMalote = function(evento) {
+    function adicionarMalote(evento) {
       if (evento.code === "Enter") exibirAlerta();
     }
 
-    var removerProcesso = function(indice) {
+    function removerProcesso(indice) {
       var remocaoRecusada = !confirm("Tem certeza?");
 
       if (remocaoRecusada) return;
@@ -242,5 +230,11 @@
 
       vm.processos = Utilitarios.montarLista(listaDeProcessos);
     }
+
+    vm.gerarGuia = gerarGuia;
+    vm.adicionarDados = adicionarDados;
+    vm.adicionarGuia = adicionarGuia;
+    vm.adicionarMalote = adicionarMalote;
+    vm.removerProcesso = removerProcesso;
   }
 })();
