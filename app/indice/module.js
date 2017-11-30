@@ -5,7 +5,6 @@
   .module("indice", [
       "indice.controller"
     , "indice.directives"
-    , "indice.filters"
     , "indice.services"
   ]);
 })();

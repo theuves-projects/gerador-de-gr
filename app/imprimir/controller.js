@@ -26,14 +26,6 @@
     }
 
     /**
-     * chamando funções
-     * ----------------
-     */
-
-    vm.imprimir = imprimir;
-    vm.voltar = voltar;
-
-    /**
      * funções
      * -------
      */
@@ -46,8 +38,6 @@
       $location.url("/");
     }
 
-    vm.naoTemMalote = Guia.naoTemMalote(dadosDaGuia.destinatario);;
-
     // (data em que a guia foi gerada)
     vm.data = (new Date()).valueOf();
 
@@ -55,5 +45,8 @@
     vm.destinatario = dadosDaGuia.destinatario;
     vm.malote = dadosDaGuia.malote;
     vm.processos = dadosDaGuia.processos;
+    vm.naoVaiMalote = !dadosDaGuia.vaiMalote;
+    vm.imprimirGuia = imprimirGuia;
+    vm.voltarPraPaginaInicial = voltarPraPaginaInicial;
   }
 })();

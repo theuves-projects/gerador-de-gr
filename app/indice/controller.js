@@ -21,6 +21,7 @@
     //////////////
 
     vm.destinatarios = Destinatarios.obter();
+    vm.vaiMalote = true;
 
     /**
      * array que vai armazenar os números
@@ -49,6 +50,7 @@
       vm.destinatario = dadosDaGuia.destinatario;
       vm.malote = dadosDaGuia.malote;
       vm.processos = dadosDaGuia.processos;
+      vm.vaiMalote = dadosDaGuia.vaiMalote;
 
       ////////////////////////////////////////////////
       listaDeProcessos = dadosDaGuia.listaDeProcessos;
@@ -79,7 +81,7 @@
     function gerarGuia() {
       var estahFaltando = {
           guia: !vm.guia
-        , malote: !vm.malote && !Guia.naoTemMalote(vm.destinatario)
+        , malote: !vm.malote && vm.vaiMalote
         , destinatario: !vm.destinatario
         , processos: !vm.processos
       };
@@ -112,6 +114,7 @@
         , vm.destinatario
         , vm.malote
         , vm.processos
+        , vm.vaiMalote
 
         /**
          * isso não vai ser usado pra

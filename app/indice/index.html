@@ -3,7 +3,17 @@
     <h1>
       gerador de<br>
       guia de remessa</h1>
+
   </header>
+
+  <p class="checkbox">
+    <label>
+      <input
+        data-ng-model="vm.vaiMalote"
+        type="checkbox">
+      Vai malote?
+    </label>
+  </p>
 
   <table>
     <tr>
@@ -17,7 +27,7 @@
         <input
           data-ng-model="vm.malote"
           data-ng-keypress="vm.adicionarGuia($event)"
-          data-ng-disabled="vm.destinatario | naoTemMalote"
+          data-ng-disabled="!vm.vaiMalote"
           placeholder="nº do malote">
       </td>
     </tr>

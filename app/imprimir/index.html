@@ -5,13 +5,13 @@
     <table>
       <tr>
         <td>
-          <button data-ng-click="vm.voltar()">
+          <button data-ng-click="vm.voltarPraPaginaInicial()">
             <i class="fa fa-arrow-left"></i>
             voltar
           </button>
         </td>
         <td>
-          <button data-ng-click="vm.imprimir()">
+          <button data-ng-click="vm.imprimirGuia()">
             <i class="fa fa-print"></i>
             imprimir
           </button>
@@ -42,7 +42,7 @@
     <tr class="centralizar negrito">
       <td colspan="4">
         GUIA DE REMESSA DE CARGA Nº {{vm.guia}}/{{vm.data | date:"yyyy"}}
-        <span data-ng-if="!vm.naoTemMalote">
+        <span data-ng-if="!vm.naoVaiMalote">
           (MALOTE {{vm.malote}})
         </span>
 

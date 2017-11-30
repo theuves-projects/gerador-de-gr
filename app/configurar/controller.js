@@ -38,6 +38,8 @@
 
     function adicionarDestinatario(novoDestinatario) {
       vm.destinatarios.push(novoDestinatario);
+
+      vm.novoDestinatario = "";
     }
 
     function removerDestinatario(indice) {
