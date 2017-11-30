@@ -168,7 +168,7 @@
         function adicionarProcesso() {
           listaDeProcessos.push(Processo.formatar(codigoDeBarras));
 
-          // (ver: "app/Indice/_services/Utilitarios.js")
+          // (ver: "app/Indice/services/Utilitarios.js")
           vm.processos = Utilitarios.montarLista(listaDeProcessos);
 
           notificar("Processo adicionado!");

@@ -3,6 +3,6 @@
 
   (angular)
   .module("indice.services", [
-    // todos os "services" tão em "app/indice/_services"
+    // todos os "services" tão em "app/indice/services"
   ]);
 })();

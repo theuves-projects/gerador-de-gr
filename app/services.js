@@ -3,6 +3,6 @@
 
   (angular)
   .module("app.services", [
-    // todos os "services" tão em "app/_services"
+    // todos os "services" tão em "app/services"
   ]);
 })();
