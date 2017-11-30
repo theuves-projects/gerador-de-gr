@@ -1,6 +1,6 @@
-@import "../app/indice/style.css";
-@import "../app/configurar/style.css";
-@import "../app/imprimir/style.css";
+@import "../app/Indice/style.css";
+@import "../app/Configurar/style.css";
+@import "../app/Imprimir/style.css";
 
 * {
   box-sizing: border-box;
