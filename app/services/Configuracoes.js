@@ -46,10 +46,7 @@
       }
     }
 
-    /**
-     * dados exportados
-     * ----------------
-     */
+    ///
 
     var NomeDoUsuario = {
       obter: function () {
