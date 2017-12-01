@@ -2,7 +2,7 @@
   "use strict";
 
   (angular)
-  .module("imprimir.directives", [])
+  .module("imprimir")
   .directive("codigoDeBarras", codigoDeBarras);
 
   function codigoDeBarras() {

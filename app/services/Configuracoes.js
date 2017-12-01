@@ -2,7 +2,7 @@
   "use strict";
 
   (angular)
-  .module("app.services")
+  .module("app")
   .service("Configuracoes", Configuracoes);
 
   function Configuracoes() {

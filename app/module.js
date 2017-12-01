@@ -4,13 +4,10 @@
   (angular)
   .module("app", [
 
-    // específicos
+    // modules
       "indice"
     , "configurar"
     , "imprimir"
-
-    // globais
-     , "app.services"
 
     // externos
     , "ngAnimate"

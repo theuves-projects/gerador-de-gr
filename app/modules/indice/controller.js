@@ -2,7 +2,7 @@
   "use strict";
 
   (angular)
-  .module("indice.controller", [])
+  .module("indice")
   .controller("Indice", Indice);
 
   function Indice(
@@ -168,7 +168,6 @@
         function adicionarProcesso() {
           listaDeProcessos.push(Processo.formatar(codigoDeBarras));
 
-          // (ver: "app/Indice/services/Utilitarios.js")
           vm.processos = Utilitarios.montarLista(listaDeProcessos);
 
           notificar("Processo adicionado!");

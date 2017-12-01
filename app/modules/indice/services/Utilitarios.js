@@ -2,7 +2,7 @@
   "use strict";
 
   (angular)
-  .module("indice.services")
+  .module("indice")
   .service("Utilitarios", Utilitarios);
 
   function Utilitarios() {

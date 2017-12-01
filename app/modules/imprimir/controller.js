@@ -2,7 +2,7 @@
   "use strict";
 
   (angular)
-  .module("imprimir.controller", [])
+  .module("imprimir")
   .controller("Imprimir", Imprimir);
 
   function Imprimir(

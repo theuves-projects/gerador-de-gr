@@ -2,7 +2,7 @@
   "use strict";
 
   (angular)
-  .module("configurar.controller", [])
+  .module("configurar")
   .controller("Configurar", Configurar);
 
   /**

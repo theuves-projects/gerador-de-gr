@@ -2,7 +2,7 @@
   "use strict";
 
   (angular)
-  .module("indice.directives", [])
+  .module("indice")
   .directive("autofocus", autofocus);
 
   /**
