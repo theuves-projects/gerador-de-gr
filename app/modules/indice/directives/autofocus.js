@@ -12,8 +12,8 @@
    */
   function autofocus() {
     return {
-        restrict: "A"
-      , link: link
+      restrict: "A",
+      link: link
     };
 
     function link(_, element) {

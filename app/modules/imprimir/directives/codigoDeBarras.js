@@ -7,8 +7,8 @@
 
   function codigoDeBarras() {
     return {
-        template: "<div><img></div>"
-      , link: link
+      template: "<div><img></div>",
+      link: link
     };
 
     /**
