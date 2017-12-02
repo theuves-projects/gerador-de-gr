@@ -24,10 +24,15 @@
     var vm = this;
     //////////////
 
-    /**
-     * criando funções
-     * ---------------
-     */
+    vm.destinatarios = Destinatarios.obter();
+    vm.nomeDoUsuario = Configuracoes.NomeDoUsuario.obter();
+
+    // funções
+    vm.adicionarDestinatario = adicionarDestinatario;
+    vm.removerDestinatario = removerDestinatario;
+    vm.salvarDestinatarios = salvarDestinatarios;
+    vm.salvarNovoNomeDoUsuario = salvarNovoNomeDoUsuario;
+    vm.voltarPraPaginaInicial = voltarPraPaginaInicial;
 
     function adicionarDestinatario(novoDestinatario) {
       vm.destinatarios.push(novoDestinatario);
@@ -60,20 +65,5 @@
     function voltarPraPaginaInicial() {
       $location.path("/");
     }
-
-    ///
-
-    vm.destinatarios = Destinatarios.obter();
-    vm.nomeDoUsuario = Configuracoes.NomeDoUsuario.obter();
-
-    /**
-     * chamando funções
-     * ----------------
-     */
-    vm.adicionarDestinatario = adicionarDestinatario;
-    vm.removerDestinatario = removerDestinatario;
-    vm.salvarDestinatarios = salvarDestinatarios;
-    vm.salvarNovoNomeDoUsuario = salvarNovoNomeDoUsuario;
-    vm.voltarPraPaginaInicial = voltarPraPaginaInicial;
   }
 })();
