@@ -1,11 +1,19 @@
 ;(function () {
   "use strict";
 
-  (angular)
-  .module("indice")
-  .service("Malote", Malote);
+  angular
+    .module("indice")
+    .service("Malote", Malote);
 
   function Malote() {
+
+    // funções
+    this.percurso = percurso;
+    this.numero = numero;
+    this.destinatario = destinatario;
+
+    ///
+
     var percursos = {
 
       /**
@@ -271,9 +279,5 @@
 
       return false;
     }
-
-    this.percurso = percurso;
-    this.numero = numero;
-    this.destinatario = destinatario;
   }
 })();

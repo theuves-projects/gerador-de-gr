@@ -1,15 +1,26 @@
 ;(function () {
   "use strict";
 
-  (angular)
-  .module("indice")
-  .controller("Indice", Indice);
+  angular
+    .module("indice")
+    .controller("Indice", Indice);
+
+  Indice.$inject = [
+      "$location"
+    , "$timeout"
+
+    // personalizados
+    , "Configuracoes"
+    , "Destinatarios"
+    , "Guia"
+    , "Malote"
+    , "Processo"
+    , "Utilitarios"
+  ];
 
   function Indice(
       $location
     , $timeout
-
-    // personalizados
     , Configuracoes
     , Destinatarios
     , Guia
@@ -22,15 +33,6 @@
 
     vm.destinatarios = Destinatarios.obter();
     vm.vaiMalote = true;
-
-    /**
-     * array que vai armazenar os números
-     * dos processos DURANTE o escaneamento
-     *
-     * (vai conter apenas strings com os
-     * números dos processos)
-     */
-    var listaDeProcessos = [];
 
     /**
      * checar se há dados já registrados,
@@ -77,6 +79,22 @@
         vm.notificar.exibir = false;
       }, 1500);
     }
+
+    /**
+     * array que vai armazenar os números
+     * dos processos DURANTE o escaneamento
+     *
+     * (vai conter apenas strings com os
+     * números dos processos)
+     */
+    var listaDeProcessos = [];
+
+    // funções
+    vm.gerarGuia = gerarGuia;
+    vm.adicionarDados = adicionarDados;
+    vm.adicionarGuia = adicionarGuia;
+    vm.adicionarMalote = adicionarMalote;
+    vm.removerProcesso = removerProcesso;
 
     function gerarGuia() {
       var estahFaltando = {
@@ -232,11 +250,5 @@
 
       vm.processos = Utilitarios.montarLista(listaDeProcessos);
     }
-
-    vm.gerarGuia = gerarGuia;
-    vm.adicionarDados = adicionarDados;
-    vm.adicionarGuia = adicionarGuia;
-    vm.adicionarMalote = adicionarMalote;
-    vm.removerProcesso = removerProcesso;
   }
 })();

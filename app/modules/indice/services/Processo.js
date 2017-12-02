@@ -1,17 +1,17 @@
 ;(function () {
   "use strict";
 
-  (angular)
-  .module("indice")
-  .service("Processo", Processo);
+  angular
+    .module("indice")
+    .service("Processo", Processo);
 
   function Processo() {
 
-    /**
-     * funções privadas
-     * ----------------
-     */
+    // funções
+    this.eh = eh;
+    this.formatar = formatar;
 
+    // (privado)
     function limpar(numero) {
       numero = numero
         .toString()
@@ -29,11 +29,6 @@
 
       return numero;
     }
-
-    /**
-     * funcões públicas
-     * ----------------
-     */
 
     // (obs.: não valida)
      function eh(numero) {
@@ -69,8 +64,5 @@
         throw new Error("Número de processo inválido");
       }
     }
-
-    this.eh = eh;
-    this.formatar = formatar;
   }
 })();

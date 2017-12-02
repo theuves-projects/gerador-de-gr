@@ -1,11 +1,14 @@
 ;(function () {
   "use strict";
 
-  (angular)
-  .module("app")
-  .service("Destinatarios", Destinatarios);
+  angular
+    .module("app")
+    .service("Destinatarios", Destinatarios);
 
   function Destinatarios() {
+
+    this.obter = obter;
+    this.salvar = salvar;
 
     if (!localStorage.getItem("destinatarios")) {
       var lista = [
@@ -199,8 +202,5 @@
 
       localStorage.setItem("destinatarios", listaEmJson);
     }
-
-    this.obter = obter;
-    this.salvar = salvar;
   }
 })();

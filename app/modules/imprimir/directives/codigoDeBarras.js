@@ -1,9 +1,9 @@
 ;(function () {
   "use strict";
 
-  (angular)
-  .module("imprimir")
-  .directive("codigoDeBarras", codigoDeBarras);
+  angular
+    .module("imprimir")
+    .directive("codigoDeBarras", codigoDeBarras);
 
   function codigoDeBarras() {
     return {

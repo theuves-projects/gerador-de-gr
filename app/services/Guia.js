@@ -1,14 +1,18 @@
 ;(function () {
   "use strict";
 
-  (angular)
-  .module("app")
-  .service("Guia", Guia);
+  angular
+    .module("app")
+    .service("Guia", Guia);
 
   function Guia() {
+    this.definir = adicionar;
+    this.obter = obter;
+
+    ///
+
     var dados = {};
 
-    // definir os dados da guia
     function adicionar(
         guia
       , destinatario
@@ -34,8 +38,5 @@
     function obter() {
       return dados;
     }
-
-    this.definir = adicionar;
-    this.obter = obter;
   }
 })();

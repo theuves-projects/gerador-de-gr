@@ -1,26 +1,29 @@
 ;(function () {
   "use strict";
 
-  (angular)
-  .module("app")
-  .config(config);
+  angular
+    .module("app")
+    .config(config);
 
   function config($routeProvider) {
     $routeProvider
-    .when("/", {
-      controller: "Indice as vm",
-      templateUrl: "app/modules/indice/web/index.html"
-    })
-    .when("/imprimir", {
-      controller: "Imprimir as vm",
-      templateUrl: "app/modules/imprimir/web/index.html"
-    })
-    .when("/configurar", {
-      controller: "Configurar as vm",
-      templateUrl: "app/modules/configurar/web/index.html"
-    })
-    .otherwise({
-      redirectTo: "/"
-    });
+      .when("/", {
+        templateUrl: "app/modules/indice/web/index.html",
+        controller: "Indice",
+        controllerAs: "vm"
+      })
+      .when("/imprimir", {
+        templateUrl: "app/modules/imprimir/web/index.html",
+        controller: "Imprimir",
+        controllerAs: "vm"
+      })
+      .when("/configurar", {
+        templateUrl: "app/modules/configurar/web/index.html",
+        controller: "Configurar",
+        controllerAs: "vm"
+      })
+      .otherwise({
+        redirectTo: "/"
+      });
   }
 })();

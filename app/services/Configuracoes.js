@@ -1,9 +1,9 @@
 ;(function () {
   "use strict";
 
-  (angular)
-  .module("app")
-  .service("Configuracoes", Configuracoes);
+  angular
+    .module("app")
+    .service("Configuracoes", Configuracoes);
 
   function Configuracoes() {
 

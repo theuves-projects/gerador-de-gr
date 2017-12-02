@@ -1,9 +1,18 @@
 ;(function () {
   "use strict";
 
-  (angular)
-  .module("configurar")
-  .controller("Configurar", Configurar);
+  angular
+    .module("configurar")
+    .controller("Configurar", Configurar);
+
+  Configurar.$inject = [
+      "$window"
+    , "$location"
+
+      // personalizados
+    , "Configuracoes"
+    , "Destinatarios"
+  ];
 
   /**
    * vai fazer as configurações da aplicação
@@ -16,8 +25,6 @@
   function Configurar(
       $window
     , $location
-
-      // personalizados
     , Configuracoes
     , Destinatarios
   ) {
