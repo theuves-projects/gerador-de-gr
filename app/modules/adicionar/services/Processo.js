@@ -2,7 +2,7 @@
   "use strict";
 
   angular
-    .module("indice")
+    .module("adicionar")
     .service("Processo", Processo);
 
   function Processo() {

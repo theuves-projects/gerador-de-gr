@@ -14,24 +14,18 @@
     var dados = {};
 
     function adicionar(
-        guia
+        numero
       , destinatario
       , malote
       , processos
       , vaiMalote
-
-      //////////////////
-      , listaDeProcessos
     ) {
       dados = {
-          guia: guia
+          numero: numero
         , destinatario: destinatario
         , malote: malote
         , processos: processos
         , vaiMalote: vaiMalote
-
-        ////////////////////////////////////
-        , listaDeProcessos: listaDeProcessos
       };
     }
 

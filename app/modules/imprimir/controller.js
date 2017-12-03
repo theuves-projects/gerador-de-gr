@@ -11,12 +11,14 @@
 
     // personalizados
     , "Guia"
+    , "Tela"
   ];
 
   function Imprimir(
       $location
     , $window
     , Guia
+    , Tela
   ) {
     var vm = this;
     //////////////
@@ -28,8 +30,7 @@
     var temDadosNaGuia = angular.toJson(dadosDaGuia) !== "{}";
 
     if (!temDadosNaGuia) {
-      alert("[Erro]\n\n"
-        + "Não foi possível obter alguns dados.");
+      Tela.alertar("Erro", "Não foi possível obter alguns dados.");
 
       $location.path("/");
     }
@@ -38,7 +39,7 @@
     // =======================
 
     // dados da guia
-    vm.guia = parseInt(dadosDaGuia.guia);
+    vm.guia = parseInt(dadosDaGuia.numero);
     vm.destinatario = dadosDaGuia.destinatario;
     vm.malote = dadosDaGuia.malote;
     vm.processos = dadosDaGuia.processos;

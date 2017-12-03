@@ -28,7 +28,9 @@
 
   <!-- cabeçalho -->
   <div class="cabecalho">
-    <img width="50" src="imagens/brasao_da_republica.gif">
+    <img
+      width="50"
+      src="imagens/brasao_da_republica.gif">
 
     <p>ADVOCACIA-GERAL DA UNIÃO</p>
     <p>PROCURADORIA-GERAL FEDERAL</p>
@@ -46,7 +48,9 @@
           (MALOTE {{vm.malote}})
         </span>
 
-        <codigo-de-barras guia="{{vm.guia}}"></codigo-de-barras>
+        <div
+          data-codigo-de-barras
+          data-guia="{{vm.guia}}"></div>
       </td>
     </tr>
     <tr>
@@ -65,22 +69,36 @@
       <td>Nº DO DOCUMENTO</td>
       <td>VOLUME</td>
     </tr>
-    <tr class="lista-de-processos" data-ng-repeat="processo in vm.processos">
+    <tr
+      data-ng-repeat="processo in vm.processos"
+      class="lista-de-processos">
       <td>{{processo.item}}</td>
       <td>PROCESSO</td>
       <td>{{processo.numero}}</td>
       <td>{{processo.vol}}</td>
     </tr>
     <tr class="centralizar negrito">
-      <td class="assinaturas" colspan="2">PARA USO DA EXPEDIÇÃO</td>
-      <td class="assinaturas" colspan="2">PARA USO DO DESTINATÁRIO</td>
+      <td
+        class="assinaturas"
+        colspan="2">
+        PARA USO DA EXPEDIÇÃO
+      </td>
+      <td
+        class="assinaturas"
+        colspan="2">
+        PARA USO DO DESTINATÁRIO
+      </td>
     </tr>
     <tr>
-      <td class="assinaturas negrito" colspan="2">
+      <td
+        class="assinaturas negrito"
+        colspan="2">
         <p>REMETIDO EM: {{vm.data | date:"dd/MM/yyyy HH:mm"}}</p>
         <p>RESPONSÁVEL: _____________________________</p>
       </td>
-      <td class="assinaturas negrito" colspan="2">
+      <td
+        class="assinaturas negrito"
+        colspan="2">
         <p>RECEBIDO EM: _____/_____/{{vm.data | date:"yyyy"}}</p>
         <p>RESPONSÁVEL: _____________________________</p>
       </td>

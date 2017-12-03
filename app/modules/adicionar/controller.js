@@ -2,10 +2,10 @@
   "use strict";
 
   angular
-    .module("indice")
-    .controller("Indice", Indice);
+    .module("adicionar")
+    .controller("Adicionar", Adicionar);
 
-  Indice.$inject = [
+  Adicionar.$inject = [
       "$location"
     , "$timeout"
 
@@ -15,10 +15,11 @@
     , "Guia"
     , "Malote"
     , "Processo"
-    , "Utilitarios"
+    , "Processos"
+    , "Tela"
   ];
 
-  function Indice(
+  function Adicionar(
       $location
     , $timeout
     , Configuracoes
@@ -26,13 +27,16 @@
     , Guia
     , Malote
     , Processo
-    , Utilitarios
+    , Processos
+    , Tela
   ) {
     var vm = this;
     //////////////
 
-    vm.destinatarios = Destinatarios.obter();
-    vm.vaiMalote = true;
+    vm.guia = {};
+
+    vm.listaDeDestinatarios = Destinatarios.obter();
+    vm.guia.vaiMalote = true;
 
     /**
      * checar se há dados já registrados,
@@ -45,17 +49,14 @@
 
       /**
        * restabelecer dados
-       * ------------------
+       * ==================
        */
 
-      vm.guia = dadosDaGuia.guia;
-      vm.destinatario = dadosDaGuia.destinatario;
-      vm.malote = dadosDaGuia.malote;
-      vm.processos = dadosDaGuia.processos;
-      vm.vaiMalote = dadosDaGuia.vaiMalote;
-
-      ////////////////////////////////////////////////
-      listaDeProcessos = dadosDaGuia.listaDeProcessos;
+      vm.guia.numero = dadosDaGuia.numero;
+      vm.guia.destinatario = dadosDaGuia.destinatario;
+      vm.guia.malote = dadosDaGuia.malote;
+      vm.guia.processos = dadosDaGuia.processos;
+      vm.guia.vaiMalote = dadosDaGuia.vaiMalote;
     }
 
     vm.notificar = {
@@ -80,28 +81,21 @@
       }, 1500);
     }
 
-    /**
-     * array que vai armazenar os números
-     * dos processos DURANTE o escaneamento
-     *
-     * (vai conter apenas strings com os
-     * números dos processos)
-     */
-    var listaDeProcessos = [];
-
     // funções
     vm.gerarGuia = gerarGuia;
     vm.adicionarDados = adicionarDados;
     vm.adicionarGuia = adicionarGuia;
     vm.adicionarMalote = adicionarMalote;
     vm.removerProcesso = removerProcesso;
+    vm.aumentarVolume = aumentarVolume;
+    vm.diminuirVolume = diminuirVolume;
 
     function gerarGuia() {
       var estahFaltando = {
-          guia: !vm.guia
-        , malote: !vm.malote && vm.vaiMalote
-        , destinatario: !vm.destinatario
-        , processos: !vm.processos
+          guia: !vm.guia.numero
+        , malote: !vm.guia.malote && vm.guia.vaiMalote
+        , destinatario: !vm.guia.destinatario
+        , processos: !vm.guia.processos
       };
 
       if (
@@ -112,11 +106,11 @@
       ) {
         var oQueFalta;
 
-        if (!vm.guia) {
+        if (!vm.guia.numero) {
           oQueFalta = "o número da guia";
-        } else if (!vm.malote) {
+        } else if (!vm.guia.malote) {
           oQueFalta = "o número do malote";
-        } else if (!vm.destinatario) {
+        } else if (!vm.guia.destinatario) {
           oQueFalta = "o destinatário";
         } else {
           oQueFalta = "os processos";
@@ -128,18 +122,11 @@
       }
 
       Guia.definir(
-          vm.guia
-        , vm.destinatario
-        , vm.malote
-        , vm.processos
-        , vm.vaiMalote
-
-        /**
-         * isso não vai ser usado pra
-         * gerar a guia, mas vai ser necessário
-         * caso o usuário volte pra página inicial
-         */
-        , listaDeProcessos
+          vm.guia.numero
+        , vm.guia.destinatario
+        , vm.guia.malote
+        , vm.guia.processos
+        , vm.guia.vaiMalote
       );
 
       $location.url("/imprimir");
@@ -147,23 +134,21 @@
 
     function adicionarDados(codigoDeBarras) {
       if (codigoDeBarras) {
-        function adicionarGuia() {
-          var temGuia = vm.guia;
-          var naoTemGuia = !temGuia;
+        function adicionarGuia(numeroDoProcesso) {
+          var temGuia = vm.guia.numero;
 
-          if (naoTemGuia || (temGuia && confirm("Trocar o número da guia?"))) {
-            vm.guia = parseInt(codigoDeBarras) + 1;
+          if (!temGuia || (temGuia && Tela.confirmar("Atenção", "Trocar o número da guia?"))) {
+            vm.guia.numero = parseInt(numeroDoProcesso) + 1;
 
             notificar("Guia adicionada!");
           }
         }
 
-        function adicionarMalote() {
-          var temMalote = vm.malote;
-          var naoTemMalote = !temMalote;
+        function adicionarMalote(numeroDoProcesso) {
+          var temMalote = vm.guia.malote;
 
-          if (naoTemMalote || (temMalote && confirm("Trocar o número do malote?"))) {
-            vm.malote = Malote.numero(codigoDeBarras);
+          if (!temMalote || (temMalote && Tela.confirmar("Atenção", "Trocar o número do malote?"))) {
+            vm.guia.malote = Malote.numero(numeroDoProcesso);
 
             notificar("Malote adicionado!");
           }
@@ -172,10 +157,10 @@
            * (a partir do número do malote, vai ser procurado o número
            * do percurso pra tentar desconbrir o destinatário do malote)
            */
-          var destinatario = Malote.destinatario(Malote.percurso(codigoDeBarras));
+          var destinatario = Malote.destinatario(Malote.percurso(numeroDoProcesso));
 
           if (destinatario) {
-            vm.destinatario = destinatario;
+            vm.guia.destinatario = destinatario;
           } else {
             alert("Não foi possível obter o DESTINATÁRIO, desse cartão"
               + "operacional, portanto você vai precisar inseri-lo"
@@ -183,10 +168,11 @@
           }
         }
 
-        function adicionarProcesso() {
-          listaDeProcessos.push(Processo.formatar(codigoDeBarras));
+        function adicionarProcesso(numeroDoProcesso) {
+          numeroDoProcesso = Processo.formatar(numeroDoProcesso);
+          Processos.adicionar(numeroDoProcesso);
 
-          vm.processos = Utilitarios.montarLista(listaDeProcessos);
+          vm.guia.processos = Processos.obter();
 
           notificar("Processo adicionado!");
         }
@@ -203,52 +189,54 @@
           gerarGuia();
           limparInput();
         } else if (ehPraAdicionarGuia) {
-          adicionarGuia();
+          adicionarGuia(codigoDeBarras);
           limparInput();
         } else if (ehPraAdicionarMalote) {
-          adicionarMalote();
+          adicionarMalote(codigoDeBarras);
           limparInput();
         } else if (Processo.eh(codigoDeBarras)) {
-          adicionarProcesso();
+          adicionarProcesso(codigoDeBarras);
           limparInput();
         } else {
           alert("O número '" + codigoDeBarras +  "' é inválido!");
         }
       }
-
-      return;
-    }
-
-    // (privado)
-    function exibirAlerta() {
-      alert("[Atenção]\n\n"
-          + "Não é possível adicionar"
-          + " dados escaeados por aqui...");
     }
 
     function adicionarGuia(evento) {
-      if (evento.code === "Enter") exibirAlerta();
+      if (evento.code === "Enter") {
+        Tela.alertar("Atenção", "Não é possível adicionar dados por aqui...");
+      }
     }
 
     function adicionarMalote(evento) {
-      if (evento.code === "Enter") exibirAlerta();
+      if (evento.code === "Enter") {
+        Tela.alertar("Atenção", "Não é possível adicionar dados por aqui...");
+      }
     }
 
-    function removerProcesso(indice) {
-      var remocaoRecusada = !confirm("Tem certeza?");
+    function removerProcesso(numeroDoProcesso) {
+      if (Tela.confirmar("Atenção", "Tem certeza?")) {
+        Processos.remover(numeroDoProcesso);
 
-      if (remocaoRecusada) return;
+        vm.guia.processos = Processos.obter();
+      }
+    }
 
-      listaDeProcessos = listaDeProcessos.filter(function (numero) {
-        var numeroPraRemover = vm
-          .processos
-          .reverse()[indice]
-          .numero;
+    function aumentarVolume(numeroDoProcesso) {
+      Processos.aumentarVolume(numeroDoProcesso);
 
-        return numero !== numeroPraRemover;
-      });
+      vm.processos = Processos.obter();
+    }
 
-      vm.processos = Utilitarios.montarLista(listaDeProcessos);
+    function diminuirVolume(numeroDoProcesso) {
+      if (Processos.obter(numeroDoProcesso).volume === 1) {
+        Tela.alertar("Erro", "Não é possível diminuir mais que isso.");
+      } else {
+        Processos.diminuirVolume(numeroDoProcesso);
+
+        vm.processos = Processos.obter();
+      }
     }
   }
 })();

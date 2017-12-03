@@ -5,7 +5,9 @@
     .module("app")
     .service("Configuracoes", Configuracoes);
 
-  function Configuracoes() {
+  Configuracoes.$inject = ["Tela"];
+
+  function Configuracoes(Tela) {
 
     // (gerenciar o armazenamento das configurações)
     var Config = {
@@ -22,19 +24,14 @@
       },
       tem: function (item)  {
         return Boolean(this.obter(item));
-      },
-      naoTem: function (item) {
-        return !this.tem(item);
       }
     };
 
     // iniciar configuração (caso seja o primeiro acesso)
     if (Config.obter() === null) Config.definir({});
 
-    if (Config.naoTem("nomeDoUsuario")) {
-      var nomeDoUsuario = prompt("[Configurações]\n\n"
-        + "Insira seu nome, por favor:");
-
+    if (!Config.tem("nomeDoUsuario")) {
+      var nomeDoUsuario = Tela.perguntar("Configurações", "Insira seu nome, por favor:");
       var nomeDoUsuarioEhValido = nomeDoUsuario && nomeDoUsuario.trim();
 
       if (nomeDoUsuarioEhValido) {

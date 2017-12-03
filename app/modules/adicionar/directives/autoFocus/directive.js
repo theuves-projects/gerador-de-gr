@@ -1,16 +1,16 @@
 ;(function () {
   "use strict";
 
-  (angular)
-  .module("indice")
-  .directive("autofocus", autofocus);
+  angular
+    .module("adicionar")
+    .directive("autoFocus", autoFocus);
 
   /**
    * no firefox, por um motivo que eu
    * desconheço, não tava focando o <input>
    * automaticamente ao iniciar a página
    */
-  function autofocus() {
+  function autoFocus() {
     return {
       restrict: "A",
       link: link

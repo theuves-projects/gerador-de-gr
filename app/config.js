@@ -8,8 +8,8 @@
   function config($routeProvider) {
     $routeProvider
       .when("/", {
-        templateUrl: "app/modules/indice/web/index.html",
-        controller: "Indice",
+        templateUrl: "app/modules/adicionar/web/index.html",
+        controller: "Adicionar",
         controllerAs: "vm"
       })
       .when("/imprimir", {

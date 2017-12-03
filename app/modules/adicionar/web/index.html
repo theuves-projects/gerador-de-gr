@@ -1,39 +1,31 @@
-<div id="indice">
+<div id="adicionar">
   <header>
     <h1>
       gerador de<br>
       guia de remessa</h1>
-
   </header>
 
-  <p class="checkbox">
-    <label>
-      <input
-        data-ng-model="vm.vaiMalote"
-        type="checkbox">
-      Vai malote?
-    </label>
-  </p>
+  <div data-check-box></div>
 
   <table>
     <tr>
       <td>
         <input
-          data-ng-model="vm.guia"
+          data-ng-model="vm.guia.numero"
           data-ng-keypress="vm.adicionarGuia($event)"
           placeholder="nº da guia">
       </td>
       <td>
         <input
-          data-ng-model="vm.malote"
+          data-ng-model="vm.guia.malote"
           data-ng-keypress="vm.adicionarGuia($event)"
-          data-ng-disabled="!vm.vaiMalote"
+          data-ng-disabled="!vm.guia.vaiMalote"
           placeholder="nº do malote">
       </td>
     </tr>
     <tr>
       <td colspan="2">
-        <select data-ng-model="vm.destinatario">
+        <select data-ng-model="vm.guia.destinatario">
 
           <option
             value
@@ -44,7 +36,7 @@
           </option>
 
           <!-- não quebre a linha -->
-          <option data-ng-repeat="destinatario in vm.destinatarios">{{destinatario}}</option>
+          <option data-ng-repeat="destinatario in vm.listaDeDestinatarios">{{destinatario}}</option>
         </select>
       </td>
     </tr>
@@ -56,17 +48,17 @@
         <td>
           <input
             data-ng-model="vm.codigoDeBarras"
+            data-auto-focus
             class="centralizar"
             type="text"
-            placeholder="escaneie ou dígite aqui..."
-            autofocus>
+            placeholder="escaneie ou dígite aqui...">
         </td>
       </tr>
     </table>
   </form>
 
   <table
-    data-ng-if="vm.processos.length"
+    data-ng-if="vm.guia.processos.length"
     class="adicionados">
 
     <tr>
@@ -74,21 +66,30 @@
         LISTA DE PROCESSOS JÁ ADICIONADOS:
       </th>
     </tr>
-    <tr data-ng-repeat="processo in vm.processos | orderBy:'-item'">
-      <td class="indice italico">
-        {{processo.item}}.
+    <tr data-ng-repeat="processo in vm.guia.processos | orderBy:'-item'">
+      <td class="indice italico">{{processo.item}}.</td>
+      <td>{{processo.numero}}</td>
+      <td>{{processo.volume}}</td>
+      <td>
+        <button
+          data-ng-click="vm.aumentarVolume(processo.numero)"
+          class="btn mudar-volume">
+          <i class="fa fa-arrow-up"></i>
+        </button>
       </td>
       <td>
-        {{processo.numero}}
+        <button
+          data-ng-click="vm.diminuirVolume(processo.numero)"
+          class="btn mudar-volume">
+          <i class="fa fa-arrow-down"></i>
+        </button>
       </td>
       <td>
-        {{processo.vol}}
-      </td>
-      <td>
-        <input
-          data-ng-click="vm.removerProcesso($index)"
-          type="button"
-          value="remover">
+        <button
+          data-ng-click="vm.removerProcesso(processo.numero)"
+          class="btn remover">
+          <i class="fa fa-trash"></i>
+        </button>
       </td>
     </tr>
   </table>

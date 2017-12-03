@@ -4,7 +4,7 @@
   angular.module("app", [
 
     // modules
-      "indice"
+      "adicionar"
     , "configurar"
     , "imprimir"
 

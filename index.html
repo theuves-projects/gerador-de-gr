@@ -8,7 +8,7 @@
   </head>
   <body data-ng-app="app">
 
-    <ng-view></ng-view>
+    <div data-ng-view></div>
 
     <script src="libs/angular.min.js"></script>
     <script src="libs/angular-route.min.js"></script>
@@ -20,14 +20,16 @@
     <script src="app/services/Configuracoes.js"></script>
     <script src="app/services/Destinatarios.js"></script>
     <script src="app/services/Guia.js"></script>
+    <script src="app/services/Processos.js"></script>
+    <script src="app/services/Tela.js"></script>
 
-    <!-- indice -->
-    <script src="app/modules/indice/module.js"></script>
-    <script src="app/modules/indice/controller.js"></script>
-    <script src="app/modules/indice/directives/autofocus.js"></script>
-    <script src="app/modules/indice/services/Malote.js"></script>
-    <script src="app/modules/indice/services/Processo.js"></script>
-    <script src="app/modules/indice/services/Utilitarios.js"></script>
+    <!-- adicionar -->
+    <script src="app/modules/adicionar/module.js"></script>
+    <script src="app/modules/adicionar/controller.js"></script>
+    <script src="app/modules/adicionar/directives/autoFocus/directive.js"></script>
+    <script src="app/modules/adicionar/directives/checkBox/directive.js"></script>
+    <script src="app/modules/adicionar/services/Malote.js"></script>
+    <script src="app/modules/adicionar/services/Processo.js"></script>
 
     <!-- configurar -->
     <script src="app/modules/configurar/module.js"></script>
@@ -36,6 +38,6 @@
     <!-- imprimir -->
     <script src="app/modules/imprimir/module.js"></script>
     <script src="app/modules/imprimir/controller.js"></script>
-    <script src="app/modules/imprimir/directives/codigoDeBarras.js"></script>
+    <script src="app/modules/imprimir/directives/codigoDeBarras/directive.js"></script>
   </body>
 </html>
