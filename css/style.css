@@ -6,13 +6,18 @@
   box-sizing: border-box;
 }
 
+/**
+ * Textos
+ * ------
+ */
+
 .largura-total {
   width: 100%;
 }
 
 .centralizar,
 .centralizar * {
-  text-align: center!important;
+  text-align: center !important;
 }
 
 .negrito,
@@ -24,6 +29,62 @@
 .italico * {
   font-style: italic;
 }
+
+.texto-cinza {
+  color: gray;
+}
+
+/**
+ * Linhas e colunas
+ * ----------------
+ */
+
+.linha {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.coluna {
+  flex-grow: 1;
+  padding: 2px;
+}
+
+/**
+ * Campos e botões
+ * ---------------
+ */
+
+.campo,
+.botao {
+  padding: 5px 10px;
+  border: solid 2px #bbb;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.botao-verde {
+  color: white;
+  background-color: #689b60;
+  border-color: #5d8b56;
+}
+
+.botao-vermelho {
+  color: white;
+  background-color: #db5353;
+  border-color: #c54a4a;
+}
+
+.botao-azul {
+  color: white;
+  background-color: #688f8a;
+  border-color: #5d807c;
+}
+
+/**
+ * Seleção
+ * -------
+ */
 
 ::selection {
   background-color: #f7d78d;
