@@ -4,7 +4,7 @@
 
     <div
       data-check-box
-      data-ligado="vm.guia.vaiMalote"
+      data-ligado="adic.guia.vaiMalote"
       data-mensagem="VAI MALOTE?"
       class="adic-checkbox"></div>
   </header>
@@ -12,17 +12,17 @@
   <div class="linha">
     <div class="coluna">
       <input
-          data-ng-model="vm.guia.numero"
-          data-ng-keypress="vm.adicionarGuia($event)"
+          data-ng-model="adic.guia.numero"
+          data-ng-keypress="adic.seEnter($event)"
           class="campo largura-total"
           type="text"
           placeholder="NÚMERO DA GUIA">
     </div>
     <div class="coluna">
       <input
-          data-ng-model="vm.guia.malote"
-          data-ng-keypress="vm.adicionarGuia($event)"
-          data-ng-disabled="!vm.guia.vaiMalote"
+          data-ng-model="adic.guia.malote"
+          data-ng-keypress="adic.informarErro($event)"
+          data-ng-disabled="!adic.guia.vaiMalote"
           class="campo largura-total"
           type="text"
           placeholder="NÚMERO DO MALOTE">
@@ -32,7 +32,7 @@
   <div class="linha">
     <div class="coluna">
       <select
-        data-ng-model="vm.guia.destinatario"
+        data-ng-model="adic.guia.destinatario"
         class="campo largura-total">
 
         <option
@@ -44,7 +44,7 @@
         </option>
 
         <!-- por favor, não quebre esta linha -->
-        <option data-ng-repeat="destinatario in vm.listaDeDestinatarios">{{destinatario}}</option>
+        <option data-ng-repeat="destinatario in adic.listaDeDestinatarios">{{destinatario}}</option>
       </select>
     </div>
   </div>
@@ -52,8 +52,8 @@
   <div class="linha">
     <div class="coluna">
       <input
-        data-ng-model="vm.codigoDeBarras"
-        data-ng-keypress="vm.adicionarDados($event)"
+        data-ng-model="adic.codigoDeBarras"
+        data-ng-keypress="adic.adicionarDados($event)"
         data-auto-focus
         class="campo largura-total centralizar"
         type="text"
@@ -62,11 +62,11 @@
   </div>
 
   <!-- 5 de dez.: trocar esta merda por uma tabela -->
-  <div data-ng-if="vm.guia.processos.length">
+  <div data-ng-if="adic.guia.processos.length">
     <p class="negrito">LISTA DE PROCESSOS JÁ ADICIONADOS:</p>
 
     <table class="largura-total">
-      <tr data-ng-repeat="processo in vm.guia.processos | orderBy:'-item'">
+      <tr data-ng-repeat="processo in adic.guia.processos | orderBy:'-item'">
         <td class="coluna italico texto-cinza">{{processo.item}}.</td>
         <td class="coluna" data-selecionar>{{processo.numero}}</td>
         <td class="coluna">{{processo.volume}}</td>
@@ -74,21 +74,21 @@
           <div class="linha">
             <div class="coluna">
               <button
-                data-ng-click="vm.aumentarVolume(processo.numero)"
+                data-ng-click="adic.volume.aumentar(processo.numero)"
                 class="botao botao-azul largura-total">
                 <i class="fa fa-arrow-up"></i>
               </button>
             </div>
             <div class="coluna">
               <button
-                data-ng-click="vm.diminuirVolume(processo.numero)"
+                data-ng-click="adic.volume.diminuir(processo.numero)"
                 class="botao botao-azul largura-total">
                 <i class="fa fa-arrow-down"></i>
               </button>
             </div>
             <div class="coluna">
               <button
-                data-ng-click="vm.removerProcesso(processo.numero)"
+                data-ng-click="adic.removerProcesso(processo.numero)"
                 class="botao botao-vermelho largura-total">
                 <i class="fa fa-times"></i>
               </button>
@@ -102,7 +102,7 @@
   <div class="linha">
     <div class="coluna">
       <button
-        data-ng-click="vm.gerarGuia()"
+        data-ng-click="adic.gerarGuia()"
         class="botao botao-verde largura-total negrito">
 
         GERAR GUIA

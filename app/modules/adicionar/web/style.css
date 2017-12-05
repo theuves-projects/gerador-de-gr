@@ -21,6 +21,10 @@
   margin: 10px 0px 0px 0px;
 }
 
+#adicionar input:disabled {
+  text-decoration: line-through;
+}
+
 /**
  * checkbox
  * --------

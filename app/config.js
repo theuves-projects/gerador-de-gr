@@ -10,7 +10,7 @@
       .when("/", {
         templateUrl: "app/modules/adicionar/web/index.html",
         controller: "Adicionar",
-        controllerAs: "vm"
+        controllerAs: "adic"
       })
       .when("/imprimir", {
         templateUrl: "app/modules/imprimir/web/index.html",
