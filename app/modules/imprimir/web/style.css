@@ -98,6 +98,7 @@
   right: 0px;
   opacity: 0.6;
   font-weight: bold;
+  visibility: hidden;
 }
 
 /**
@@ -106,5 +107,9 @@
 @media print {
   #imprimir .configuracoes {
     display: none;
+  }
+
+  #imprimir .devolver-guia {
+    visibility: visible;
   }
 }
