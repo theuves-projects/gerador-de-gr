@@ -6,44 +6,47 @@
     .service("Processos", Processos);
 
   function Processos() {
-    this.lista = {};
+    var processos = this;
+    /////////////////////
 
-    this.adicionar = function (numero) {
-      var temNumero = this.lista[numero];
+    processos.lista = {};
+
+    processos.adicionar = function (numero) {
+      var temNumero = processos.lista[numero];
 
       if (temNumero) {
         aumentarVolume(numero);
       } else {
-        this.lista[numero] = {
-            item: Object.keys(this.lista).length + 1
+        processos.lista[numero] = {
+            item: Object.keys(processos.lista).length + 1
           , numero: numero
           , volume: 1
         };
       }
     };
 
-    this.aumentarVolume = function (numero) {
-      this.lista[numero].volume = this.lista[numero].volume + 1;
+    processos.aumentarVolume = function (numero) {
+      processos.lista[numero].volume = processos.lista[numero].volume + 1;
     };
 
-    this.diminuirVolume = function (numero) {
-      this.lista[numero].volume = this.lista[numero].volume - 1;
+    processos.diminuirVolume = function (numero) {
+      processos.lista[numero].volume = processos.lista[numero].volume - 1;
     };
 
-    this.obter = function (numero) {
+    processos.obter = function (numero) {
       if (numero) {
-        return this.lista[numero];
+        return processos.lista[numero];
       } else {
-        return Object.values(this.lista);
+        return Object.values(processos.lista);
       }
     };
 
-    this.remover = function (numero) {
-      delete this.lista[numero];
+    processos.remover = function (numero) {
+      delete processos.lista[numero];
 
       // normalizar o número do item
-      Object.keys(this.lista).forEach(function (num, item) {
-        this.lista[num].item = item + 1;
+      Object.keys(processos.lista).forEach(function (num, item) {
+        processos.lista[num].item = item + 1;
       });
     };
   }
