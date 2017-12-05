@@ -22,26 +22,33 @@
 }
 
 /**
- * CheckBox
+ * checkbox
  * --------
  */
 
-#adicionar div[data-check-box] {
+#adicionar .adic-checkbox {
   text-align: center;
   color: gray;
   margin-bottom: 10px;
 }
 
-#adicionar div[data-check-box] p {
+#adicionar .adic-checkbox p {
   margin: 0px;
   padding: 0px;
 }
 
-#adicionar label {
+/**
+ * checkbox
+ * --------
+ *
+ * (dentro da directive)
+ */
+
+#adicionar .cb-label {
   display: inline-block;
 }
 
-#adicionar .check-box {
+#adicionar .cb-interruptor {
   box-sizing: content-box;
   display: inline-block;
   width: 40px;
@@ -51,7 +58,7 @@
   box-shadow: 0px 0px 0px 1px #ddd;
 }
 
-#adicionar .check-box .quadrado {
+#adicionar .cb-botao {
   width: 20px;
   height: 15px;
   background-color: white;
@@ -60,26 +67,26 @@
   box-shadow: inset 0px 0px 0px 1px #ddd;
 }
 
-#adicionar .check-box .quadrado-sombra {
+#adicionar .cb-botao-sombra {
   width: 10px;
   height: 15px;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-#adicionar .check-box.nao-estah-checado {
+#adicionar .cb-desligado {
   opacity: 0.5 !important;
 }
 
-#adicionar .check-box.nao-estah-checado .quadrado {
+#adicionar .cb-desligado .cb-botao {
   margin: 0px !important;
 }
 
-#adicionar .check-box.nao-estah-checado .quadrado-sombra {
+#adicionar .cb-desligado .cb-botao-sombra {
   margin-left: 10px !important;
 }
 
 /**
- * Notificação
+ * notificação
  * -----------
  */
 #adicionar .notificacao {

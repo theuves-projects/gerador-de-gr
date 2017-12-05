@@ -8,7 +8,8 @@
   function checkBox() {
     return {
       scope: {
-        checado: "="
+        ligado: "=",
+        mensagem: "@"
       },
       templateUrl: "app/modules/adicionar/directives/checkBox/directive.html"
     };

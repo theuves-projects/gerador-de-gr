@@ -1,11 +1,18 @@
-<input id="cb-principal"  data-ng-model="checado" type="checkbox" hidden>
+<input
+  data-ng-model="ligado"
+  id="cb-checkbox"
+  type="checkbox"
+  hidden>
 
-<label for="cb-principal">
-  <div ng-class="{'check-box': true, 'nao-estah-checado': !checado}">
-    <div class="quadrado">
-      <div class="quadrado-sombra"></div>
+<label
+  class="cb-label"
+  for="cb-checkbox">
+
+  <div data-ng-class="{'cb-interruptor': true, 'cb-desligado': !ligado}">
+    <div class="cb-botao">
+      <div class="cb-botao-sombra"></div>
     </div>
   </div>
 
-  <p>Vai malote?</p>
+  <p>{{mensagem}}</p>
 </label>
