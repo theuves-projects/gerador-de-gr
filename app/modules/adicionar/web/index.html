@@ -68,7 +68,7 @@
     <table class="largura-total">
       <tr data-ng-repeat="processo in vm.guia.processos | orderBy:'-item'">
         <td class="coluna italico texto-cinza">{{processo.item}}.</td>
-        <td class="coluna">{{processo.numero}}</td>
+        <td class="coluna" data-selecionar>{{processo.numero}}</td>
         <td class="coluna">{{processo.volume}}</td>
         <td class="coluna">
           <div class="linha">
