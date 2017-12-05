@@ -59,28 +59,6 @@
       vm.guia.vaiMalote = dadosDaGuia.vaiMalote;
     }
 
-    vm.notificar = {
-      exibir: false,
-      mensagem: undefined
-    };
-
-    function notificar(mensagem) {
-      vm.notificar.mensagem = mensagem;
-      vm.notificar.exibir = true;
-
-      $timeout(function () {
-        /**
-         * não vai remover a mensagem
-         * pois se ela for removida vai causar um
-         * efeito estranho na animação
-         *
-         * (a mensagem some antes da <div>)
-         */
-
-        vm.notificar.exibir = false;
-      }, 1500);
-    }
-
     // funções
     vm.gerarGuia = gerarGuia;
     vm.adicionarDados = adicionarDados;
@@ -143,8 +121,6 @@
 
           if (!temGuia || (temGuia && Tela.confirmar("Atenção", "Trocar o número da guia?"))) {
             vm.guia.numero = parseInt(numeroDoProcesso) + 1;
-
-            notificar("Guia adicionada!");
           }
         }
 
@@ -153,8 +129,6 @@
 
           if (!temMalote || (temMalote && Tela.confirmar("Atenção", "Trocar o número do malote?"))) {
             vm.guia.malote = Malote.numero(numeroDoProcesso);
-
-            notificar("Malote adicionado!");
           }
 
           /**
@@ -177,8 +151,6 @@
           Processos.adicionar(numeroDoProcesso);
 
           vm.guia.processos = Processos.obter();
-
-          notificar("Processo adicionado!");
         }
 
         function limparInput() {
