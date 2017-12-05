@@ -16,8 +16,10 @@
       link: link
     };
 
-    function link(_, element) {
-      element[0].focus();
+    function link(scope, element) {
+      element.ready(function () {
+        element[0].focus();
+      });
     }
   }
 })();
