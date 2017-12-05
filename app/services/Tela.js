@@ -8,15 +8,18 @@
   Tela.$inject = ["$window"];
 
   function Tela($window) {
-    this.alertar = function (titulo, mensagem) {
+    var tela = this;
+    ////////////////
+
+    tela.alertar = function (titulo, mensagem) {
       return $window.alert("[" + titulo + "]\n\n" + mensagem);
     };
 
-    this.perguntar = function (titulo, mensagem) {
+    tela.perguntar = function (titulo, mensagem) {
       return $window.prompt("[" + titulo + "]\n\n" + mensagem);
     };
 
-    this.confirmar = function (titulo, mensagem) {
+    tela.confirmar = function (titulo, mensagem) {
       return $window.confirm("[" + titulo + "]\n\n" + mensagem);
     };
   }
