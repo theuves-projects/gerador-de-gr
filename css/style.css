@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+.largura-total {
+  width: 100%;
+}
+
 .centralizar,
 .centralizar * {
   text-align: center!important;
@@ -25,9 +29,6 @@
   background-color: #f7d78d;
 }
 
-/**
- * firefox
- */
 ::-moz-selection {
   background-color: #f7d78d;
 }

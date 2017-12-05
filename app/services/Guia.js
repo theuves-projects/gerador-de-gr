@@ -6,31 +6,26 @@
     .service("Guia", Guia);
 
   function Guia() {
-    this.definir = adicionar;
-    this.obter = obter;
+    this.dados = {};
 
-    ///
-
-    var dados = {};
-
-    function adicionar(
+    this.adicionar = function (
         numero
       , destinatario
       , malote
       , processos
       , vaiMalote
     ) {
-      dados = {
+      this.dados = {
           numero: numero
         , destinatario: destinatario
         , malote: malote
         , processos: processos
         , vaiMalote: vaiMalote
       };
-    }
+    };
 
-    function obter() {
-      return dados;
-    }
+    this.obter = function () {
+      return this.dados;
+    };
   }
 })();

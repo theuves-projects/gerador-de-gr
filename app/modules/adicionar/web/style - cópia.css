@@ -1,0 +1,203 @@
+/**
+ * indice
+ * ------
+ */
+
+#adicionar {
+  width: 500px;
+  margin: 90px auto;
+}
+
+#adicionar,
+#adicionar input {
+  font-family: Verdana, sans-serif;
+}
+
+#adicionar * {
+  text-transform: uppercase;
+}
+
+#adicionar header {
+  width: 400px;
+  margin: 0px auto;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+#adicionar header h1 {
+  font-size: 24px;
+  line-height: 22px;
+  text-align: center;
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
+/*#adicionar .checkbox {
+  font-size: 14px;
+  text-align: center;
+}*/
+
+#adicionar table {
+  width: 100%;
+}
+
+#adicionar table td > * {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+#adicionar table:first-child {
+  margin-bottom: -5px;
+}
+
+#adicionar input:disabled {
+  text-decoration: line-through;
+}
+
+#adicionar input,
+#adicionar select,
+#adicionar .adicionados .btn {
+  padding: 4px 10px !important;
+  box-shadow: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #bdc3c7;
+  font-size: 14px;
+}
+
+#adicionar option:disabled {
+  color: gray;
+  font-style: italic;
+}
+
+#adicionar .gerar {
+  margin-top: 5px;
+}
+
+#adicionar .adicionados {
+  margin: 12px 0px;
+}
+
+#adicionar .adicionados .indice {
+  color: gray;
+}
+
+#adicionar .adicionados th {
+  font-size: 14px;
+  text-align: left;
+  padding-bottom: 3px;
+  text-decoration: underline;
+}
+
+#adicionar .adicionados .btn {
+  color: white;
+}
+
+#adicionar .adicionados .remover {
+  background-color: #db5353;
+  border-color: #c54a4a;
+}
+
+#adicionar .adicionados .mudar-volume {
+  border-color: #688f8a;
+  background-color: #749f9a;
+}
+
+#adicionar .adicionados .btn:hover,
+#adicionar input[type="submit"]:hover,
+#adicionar input[type="button"]:hover {
+  opacity: 0.9;
+}
+
+#adicionar .adicionados .btn:active,
+#adicionar input[type="submit"]:active,
+#adicionar input[type="button"]:active {
+  opacity: 1;
+}
+
+#adicionar input[type="submit"] {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  background-color: #689b60;
+  border-color: #5d8b56;
+}
+
+#adicionar a {
+  color: #34495e;
+}
+
+#adicionar .notificacao {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  opacity: 0.8;
+  color: white;
+  font-size: 11px;
+  padding: 5px 12px;
+  text-align: center;
+  font-style: italic;
+  border-style: solid;
+  border-width: 1px;
+  background-color: #689b60;
+  border-color: #5d8b56;
+  transition: right 100ms;
+}
+
+#adicionar .notificacao.ng-hide {
+  right: -200px;
+}
+
+#adicionar div[data-check-box] {
+  text-align: center;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+#adicionar div[data-check-box] p {
+  margin: 0px;
+  padding: 0px;
+}
+
+#adicionar label {
+  display: inline-block;
+}
+
+#adicionar .check-box {
+    box-sizing: content-box;
+    display: inline-block;
+    width: 40px;
+    height: 15px;
+    border: solid 1px #5bc866;
+    background-color: #51b45b;
+    box-shadow: 0px 0px 0px 1px #ddd;
+  }
+
+#adicionar .check-box .quadrado {
+  width: 20px;
+  height: 15px;
+  background-color: white;
+  transition: all 0.1s;
+  margin-left: 20px;
+  box-shadow: inset 0px 0px 0px 1px #ddd;
+}
+
+#adicionar .check-box .quadrado-sombra {
+  width: 10px;
+  height: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#adicionar .check-box.nao-estah-checado {
+  opacity: 0.5 !important;
+}
+
+#adicionar .check-box.nao-estah-checado .quadrado {
+  margin: 0px !important;
+}
+
+#adicionar .check-box.nao-estah-checado .quadrado-sombra {
+  margin-left: 10px !important;
+}

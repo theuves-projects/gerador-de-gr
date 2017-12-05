@@ -1,8 +1,11 @@
-<input type="checkbox" hidden>
-<div class="check-box">
-  <div class="quadrado">
-    <div class="quadrado-sombra"></div>
-  </div>
-</div>
+<input id="cb-principal"  data-ng-model="checado" type="checkbox" hidden>
 
-<p>Vai malote?</p>
+<label for="cb-principal">
+  <div ng-class="{'check-box': true, 'nao-estah-checado': !checado}">
+    <div class="quadrado">
+      <div class="quadrado-sombra"></div>
+    </div>
+  </div>
+
+  <p>Vai malote?</p>
+</label>

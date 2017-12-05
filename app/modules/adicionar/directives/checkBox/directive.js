@@ -7,6 +7,9 @@
 
   function checkBox() {
     return {
+      scope: {
+        checado: "="
+      },
       templateUrl: "app/modules/adicionar/directives/checkBox/directive.html"
     };
   }

@@ -121,7 +121,7 @@
         return;
       }
 
-      Guia.definir(
+      Guia.adicionar(
           vm.guia.numero
         , vm.guia.destinatario
         , vm.guia.malote
@@ -132,7 +132,11 @@
       $location.url("/imprimir");
     }
 
-    function adicionarDados(codigoDeBarras) {
+    function adicionarDados(evento) {
+      if (evento.code !== "Enter") return;
+
+      var codigoDeBarras = vm.codigoDeBarras;
+
       if (codigoDeBarras) {
         function adicionarGuia(numeroDoProcesso) {
           var temGuia = vm.guia.numero;
@@ -162,7 +166,7 @@
           if (destinatario) {
             vm.guia.destinatario = destinatario;
           } else {
-            alert("Não foi possível obter o DESTINATÁRIO, desse cartão"
+            Tela.alertar("Erro", "Não foi possível obter o DESTINATÁRIO, desse cartão"
               + "operacional, portanto você vai precisar inseri-lo"
               + "manualmente.");
           }
