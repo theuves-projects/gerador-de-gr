@@ -63,6 +63,14 @@
   text-transform: uppercase;
 }
 
+.botao:hover {
+  opacity: 0.9;
+}
+
+.botao:active {
+  opacity: 1;
+}
+
 .botao-verde {
   color: white;
   background-color: #689b60;
