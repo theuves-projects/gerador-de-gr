@@ -1,7 +1,3 @@
-@import "../app/modules/adicionar/web/style.css";
-@import "../app/modules/configurar/web/style.css";
-@import "../app/modules/imprimir/web/style.css";
-
 * {
   box-sizing: border-box;
 }

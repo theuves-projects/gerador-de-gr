@@ -3,13 +3,12 @@
 
   angular.module("app", [
 
-    // modules
+    // internos
       "adicionar"
     , "configurar"
     , "imprimir"
 
     // externos
-    , "ngAnimate"
     , "ngRoute"
   ]);
 })();

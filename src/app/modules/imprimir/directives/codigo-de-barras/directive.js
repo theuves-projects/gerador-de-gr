@@ -7,7 +7,7 @@
 
   function codigoDeBarras() {
     return {
-      templateUrl: "app/modules/imprimir/directives/codigoDeBarras/directive.html",
+      templateUrl: "app/modules/imprimir/directives/codigo-de-barras/directive.html",
       link: link
     };
 

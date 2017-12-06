@@ -1,0 +1,23 @@
+{
+  "name": "devolucao",
+  "version": "1.0.0",
+  "description": "devolucao\r =========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theuves/devolucao.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theuves/devolucao/issues"
+  },
+  "homepage": "https://github.com/theuves/devolucao#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^2.0.0"
+  }
+}

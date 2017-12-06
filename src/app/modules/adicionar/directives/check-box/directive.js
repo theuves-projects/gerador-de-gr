@@ -11,7 +11,7 @@
         ligado: "=",
         mensagem: "@"
       },
-      templateUrl: "app/modules/adicionar/directives/checkBox/directive.html"
+      templateUrl: "app/modules/adicionar/directives/check-box/directive.html"
     };
   }
 })();

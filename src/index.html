@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <title>Devoluções</title>
+
+    <!-- build:css -->
+    <link rel="stylesheet" href="css/index.css">
+
+    <link rel="stylesheet" href="css/modules/adicionar.css">
+    <link rel="stylesheet" href="css/modules/configurar.css">
+    <link rel="stylesheet" href="css/modules/imprimir.css">
+    <!-- endbuild -->
+
+    <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css">
+  </head>
+  <body data-ng-app="app">
+    <div data-ng-view></div>
+
+    <script src="https://unpkg.com/angular@1.6.7/angular.min.js"></script>
+    <script src="https://unpkg.com/angular-route@1.6.7/angular-route.min.js"></script>
+    <script src="https://unpkg.com/jsbarcode@3.8.0/dist/barcodes/JsBarcode.code128.min.js"></script>
+    <script src="https://unpkg.com/select@1.1.2/dist/select.js"></script>
+
+    <!-- build:js -->
+    <script src="app/module.js"></script>
+    <script src="app/config.js"></script>
+
+    <script src="app/services/Configuracoes.js"></script>
+    <script src="app/services/Destinatarios.js"></script>
+    <script src="appw/services/Guia.js"></script>
+    <script src="app/services/Processos.js"></script>
+    <script src="app/services/Tela.js"></script>
+
+    <script src="app/modules/adicionar/module.js"></script>
+    <script src="app/modules/adicionar/controller.js"></script>
+    <script src="app/modules/adicionar/services/Malote.js"></script>
+    <script src="app/modules/adicionar/services/Processo.js"></script>
+    <script src="app/modules/adicionar/directives/auto-focus/directive.js"></script>
+    <script src="app/modules/adicionar/directives/check-box/directive.js"></script>
+    <script src="app/modules/adicionar/directives/selecionar/directive.js"></script>
+
+    <script src="app/modules/configurar/module.js"></script>
+    <script src="app/modules/configurar/controller.js"></script>
+
+    <script src="app/modules/imprimir/module.js"></script>
+    <script src="app/modules/imprimir/controller.js"></script>
+    <script src="app/modules/imprimir/directives/codigo-de-barras/directive.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
