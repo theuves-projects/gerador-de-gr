@@ -2,7 +2,7 @@
   "use strict";
 
   angular
-    .module("configurar")
+    .module("app")
     .controller("Configurar", Configurar);
 
   Configurar.$inject = [

@@ -2,7 +2,7 @@
   "use strict";
 
   angular
-    .module("imprimir")
+    .module("app")
     .controller("Imprimir", Imprimir);
 
   Imprimir.$inject = [
