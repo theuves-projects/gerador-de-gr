@@ -8,17 +8,17 @@
   function config($routeProvider) {
     $routeProvider
       .when("/", {
-        templateUrl: "app/modules/adicionar/index.html",
+        templateUrl: "app/constrollers/Adicionar/template.html",
         controller: "Adicionar",
         controllerAs: "adic"
       })
       .when("/imprimir", {
-        templateUrl: "app/modules/imprimir/index.html",
+        templateUrl: "app/constrollers/Imprimir/template.html",
         controller: "Imprimir",
         controllerAs: "vm"
       })
       .when("/configurar", {
-        templateUrl: "app/modules/configurar/index.html",
+        templateUrl: "app/constrollers/Configurar/template.html",
         controller: "Configurar",
         controllerAs: "vm"
       })
