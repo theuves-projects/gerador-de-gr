@@ -2,7 +2,7 @@
   "use strict";
 
   angular
-    .module("adicionar")
+    .module("app")
     .service("Malote", Malote);
 
   function Malote() {
