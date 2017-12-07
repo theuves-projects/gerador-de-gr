@@ -2,7 +2,7 @@
   "use strict";
 
   angular
-    .module("adicionar")
+    .module("app")
     .directive("selecionar", selecionar);
 
   function selecionar($timeout) {

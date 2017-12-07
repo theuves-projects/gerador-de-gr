@@ -2,7 +2,7 @@
   "use strict";
 
   angular
-    .module("adicionar")
+    .module("app")
     .directive("checkBox", checkBox);
 
   function checkBox() {
