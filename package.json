@@ -1,20 +1,14 @@
 {
   "name": "devolucao",
-  "version": "1.0.0",
-  "description": "devolucao\r =========",
+  "version": "0.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/theuves/devolucao.git"
-  },
+  "repository": "theuves/devolucao",
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/theuves/devolucao/issues"
-  },
+  "license": "MIT",
   "homepage": "https://github.com/theuves/devolucao#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
