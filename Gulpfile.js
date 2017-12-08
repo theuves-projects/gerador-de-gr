@@ -56,8 +56,8 @@ gulp.task("injetar:js", function () {
  */
 gulp.task("construir", function () {
   runSequence(
-    "html-css-e-js",
-    "templates"
+    "construir:html-css-e-js",
+    "construir:templates"
   );
 });
 
