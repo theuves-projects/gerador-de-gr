@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <title>Devoluções</title>
 
-    <!-- build:css -->
-    <link rel="stylesheet" href="css/index.css">
-
-    <link rel="stylesheet" href="css/modules/adicionar.css">
-    <link rel="stylesheet" href="css/modules/configurar.css">
-    <link rel="stylesheet" href="css/modules/imprimir.css">
+    <!-- build:css style.css -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="app/controllers/Imprimir/template.css">
+    <link rel="stylesheet" href="app/controllers/Adicionar/template.css">
+    <link rel="stylesheet" href="app/controllers/Configurar/template.css">
+    <!-- endinject -->
     <!-- endbuild -->
 
     <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css">
@@ -22,26 +23,25 @@
     <script src="https://unpkg.com/jsbarcode@3.8.0/dist/barcodes/JsBarcode.code128.min.js"></script>
     <script src="https://unpkg.com/select@1.1.2/dist/select.js"></script>
 
-    <!-- build:js -->
+    <!-- build:js script.js -->
+    <!-- inject:js -->
     <script src="app/module.js"></script>
-    <script src="app/config.js"></script>
-
-    <script src="app/services/Configuracoes.js"></script>
-    <script src="app/services/Destinatarios.js"></script>
-    <script src="app/services/Guia.js"></script>
-    <script src="app/services/Malote.js"></script>
-    <script src="app/services/Processo.js"></script>
-    <script src="app/services/Processos.js"></script>
-    <script src="app/services/Tela.js"></script>
-
-    <script src="app/controllers/Adicionar/controller.js"></script>
-    <script src="app/controllers/Configurar/controller.js"></script>
-    <script src="app/controllers/Imprimir/controller.js"></script>
-
+    <script src="app/directives/selecionar/directive.js"></script>
     <script src="app/directives/focar/directive.js"></script>
     <script src="app/directives/checkBox/directive.js"></script>
+    <script src="app/controllers/Adicionar/controller.js"></script>
+    <script src="app/controllers/Imprimir/controller.js"></script>
     <script src="app/directives/codigoDeBarras/directive.js"></script>
-    <script src="app/directives/selecionar/directive.js"></script>
+    <script src="app/controllers/Configurar/controller.js"></script>
+    <script src="app/services/Processo.js"></script>
+    <script src="app/services/Malote.js"></script>
+    <script src="app/services/Tela.js"></script>
+    <script src="app/services/Processos.js"></script>
+    <script src="app/services/Guia.js"></script>
+    <script src="app/services/Destinatarios.js"></script>
+    <script src="app/services/Configuracoes.js"></script>
+    <script src="app/config.js"></script>
+    <!-- endinject -->
     <!-- endbuild -->
   </body>
 </html>
