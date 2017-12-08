@@ -2,7 +2,7 @@
   <h1>Configurações</h1>
 
   <button
-    data-ng-click="vm.voltarPraPaginaInicial()"
+    data-ng-click="conf.voltarPraPaginaInicial()"
     class="voltar-pra-pagina-inicial">
     <i class="fa fa-home"></i>
     PÁGINA INICIAL
@@ -16,13 +16,13 @@
       <label>
         <p class="descricao">Seu nome</p>
         <input
-          data-ng-model="vm.nomeDoUsuario"
+          data-ng-model="conf.nomeDoUsuario"
           type="text"
           placeholder="Insira seu nome aqui...">
       </label>
 
       <button
-        data-ng-click="vm.salvarNovoNomeDoUsuario(vm.nomeDoUsuario)"
+        data-ng-click="conf.salvarNovoNomeDoUsuario(conf.nomeDoUsuario)"
         type="submit">Salvar as alterações</button>
     </form>
   </div>
@@ -35,11 +35,11 @@
       <form>
         <p class="descricao">Gerenciar destinatários</p>
         <table>
-          <tr data-ng-repeat="destinatario in vm.destinatarios">
+          <tr data-ng-repeat="destinatario in conf.destinatarios">
             <td>{{destinatario}}</td>
             <td>
               <button
-                data-ng-click="vm.removerDestinatario($index)"
+                data-ng-click="conf.removerDestinatario($index)"
                 class="remover">
                 <i class="fa fa-trash"></i>
               </button>
@@ -49,14 +49,14 @@
           <tr>
             <td>
               <input
-                data-ng-model="vm.novoDestinatario"
+                data-ng-model="conf.novoDestinatario"
                 type="text"
                 placeholder="Adicionar novo destinatário...">
             </td>
             <td>
               <button
                 class="adicionar"
-                data-ng-click="vm.adicionarDestinatario(vm.novoDestinatario)">
+                data-ng-click="conf.adicionarDestinatario(conf.novoDestinatario)">
                 <i class="fa fa-plus"></i>
               </button>
             </td>
@@ -64,7 +64,7 @@
         </table>
 
         <button
-          data-ng-click="vm.salvarDestinatarios(vm.destinatarios)"
+          data-ng-click="conf.salvarDestinatarios(conf.destinatarios)"
           type="submit">Salvar as alterações</button>
       </form>
     </div>

@@ -5,8 +5,6 @@
     .module("app")
     .service("Configuracoes", Configuracoes);
 
-  Configuracoes.$inject = ["Tela"];
-
   function Configuracoes(Tela) {
 
     // (gerenciar o armazenamento das configurações)

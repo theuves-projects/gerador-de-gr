@@ -5,20 +5,6 @@
     .module("app")
     .controller("Adicionar", Adicionar);
 
-  Adicionar.$inject = [
-      "$location"
-    , "$timeout"
-
-    // personalizados
-    , "Configuracoes"
-    , "Destinatarios"
-    , "Guia"
-    , "Malote"
-    , "Processo"
-    , "Processos"
-    , "Tela"
-  ];
-
   function Adicionar(
       $location
     , $timeout

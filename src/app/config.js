@@ -20,7 +20,7 @@
       .when("/configurar", {
         templateUrl: "app/controllers/Configurar/template.html",
         controller: "Configurar",
-        controllerAs: "vm"
+        controllerAs: "conf"
       })
       .otherwise({
         redirectTo: "/"

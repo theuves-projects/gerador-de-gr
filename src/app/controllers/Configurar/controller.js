@@ -5,15 +5,6 @@
     .module("app")
     .controller("Configurar", Configurar);
 
-  Configurar.$inject = [
-      "$window"
-    , "$location"
-
-      // personalizados
-    , "Configuracoes"
-    , "Destinatarios"
-  ];
-
   /**
    * vai fazer as configurações da aplicação
    *
@@ -28,49 +19,42 @@
     , Configuracoes
     , Destinatarios
   ) {
-    var vm = this;
-    //////////////
+    var conf = this;
+    ////////////////
 
-    vm.destinatarios = Destinatarios.obter();
-    vm.nomeDoUsuario = Configuracoes.NomeDoUsuario.obter();
+    conf.destinatarios = Destinatarios.obter();
+    conf.nomeDoUsuario = Configuracoes.NomeDoUsuario.obter();
 
-    // funções
-    vm.adicionarDestinatario = adicionarDestinatario;
-    vm.removerDestinatario = removerDestinatario;
-    vm.salvarDestinatarios = salvarDestinatarios;
-    vm.salvarNovoNomeDoUsuario = salvarNovoNomeDoUsuario;
-    vm.voltarPraPaginaInicial = voltarPraPaginaInicial;
+    conf.adicionarDestinatario = function(novoDestinatario) {
+      conf.destinatarios.push(novoDestinatario);
 
-    function adicionarDestinatario(novoDestinatario) {
-      vm.destinatarios.push(novoDestinatario);
+      conf.novoDestinatario = "";
+    };
 
-      vm.novoDestinatario = "";
-    }
+    conf.removerDestinatario = function(indice) {
+      delete conf.destinatarios[indice];
 
-    function removerDestinatario(indice) {
-      delete vm.destinatarios[indice];
-
-      vm.destinatarios = vm.destinatarios.filter(function (item) {
+      conf.destinatarios = conf.destinatarios.filter(function (item) {
         return item;
       });
-    }
+    };
 
-    function salvarDestinatarios(novosDestinatarios) {
+    conf.salvarDestinatarios = function(novosDestinatarios) {
       Destinatarios.salvar(novosDestinatarios);
 
       alert("Salvo!");
-    }
+    };
 
-    function salvarNovoNomeDoUsuario(nome) {
+    conf.salvarNovoNomeDoUsuario = function(nome) {
       Configuracoes.NomeDoUsuario.definir(nome);
 
       alert("Salvo!");
 
       $window.location.reload();
-    }
+    };
 
-    function voltarPraPaginaInicial() {
+    conf.voltarPraPaginaInicial = function() {
       $location.path("/");
-    }
+    };
   }
 })();

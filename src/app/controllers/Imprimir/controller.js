@@ -5,15 +5,6 @@
     .module("app")
     .controller("Imprimir", Imprimir);
 
-  Imprimir.$inject = [
-      "$location"
-    , "$window"
-
-    // personalizados
-    , "Guia"
-    , "Tela"
-  ];
-
   function Imprimir(
       $location
     , $window

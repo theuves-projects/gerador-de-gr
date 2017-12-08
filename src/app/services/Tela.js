@@ -5,8 +5,6 @@
     .module("app")
     .service("Tela", Tela);
 
-  Tela.$inject = ["$window"];
-
   function Tela($window) {
     var tel = this;
     ///////////////

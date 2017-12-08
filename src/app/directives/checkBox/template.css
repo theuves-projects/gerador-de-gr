@@ -1,0 +1,40 @@
+.cb-label {
+  display: inline-block;
+}
+
+.cb-interruptor {
+  box-sizing: content-box;
+  display: inline-block;
+  width: 40px;
+  height: 15px;
+  border: solid 1px #5d8b56;
+  background-color: #689b60;
+  box-shadow: 0px 0px 0px 1px #ddd;
+}
+
+.cb-botao {
+  width: 20px;
+  height: 15px;
+  background-color: white;
+  transition: all 0.1s;
+  margin-left: 20px;
+  box-shadow: inset 0px 0px 0px 1px #ddd;
+}
+
+.cb-botao-sombra {
+  width: 10px;
+  height: 15px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.cb-desligado {
+  opacity: 0.5 !important;
+}
+
+.cb-desligado .cb-botao {
+  margin: 0px !important;
+}
+
+.cb-desligado .cb-botao-sombra {
+  margin-left: 10px !important;
+}
