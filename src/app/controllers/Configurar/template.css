@@ -1,8 +1,3 @@
-/**
- * configurar
- * ----------
- */
-
 #configurar {
   width: 600px;
   margin: 100px auto;
@@ -42,7 +37,7 @@
 }
 
 /**
- * secao
+ * .secao
  */
 
 #configurar .secao {
@@ -96,7 +91,7 @@
 }
 
 /**
- * tabela
+ * .tabela
  */
 #configurar table {
   width: 100%;

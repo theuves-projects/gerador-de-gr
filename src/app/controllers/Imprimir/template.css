@@ -1,8 +1,3 @@
-/**
- * imprimir
- * --------
- */
-
 #imprimir {
   margin: 2% 5%;
 }
@@ -11,9 +6,6 @@
   text-transform: uppercase;
 }
 
-/**
- * botões de opções pr'o usuário
- */
 #imprimir .configuracoes {
   margin: 0px auto 20px auto;
   width: 400px;
