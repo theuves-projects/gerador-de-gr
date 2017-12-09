@@ -49,7 +49,7 @@
     </div>
   </div>
 
-  <div class="linha margin-baixo-10">
+  <div data-ng-class="{'linha': true, 'margin-baixo-10': adic.guia.temProcessos()}">
     <div class="coluna">
       <input
         data-ng-model="adic.codigoDeBarras"
@@ -61,7 +61,7 @@
     </div>
   </div>
 
-  <div data-ng-if="adic.guia.processos.length">
+  <div data-ng-if="adic.guia.temProcessos()">
     <p class="negrito dois-pontos">LISTA DE PROCESSOS JÁ ADICIONADOS</p>
 
     <table class="largura-total">

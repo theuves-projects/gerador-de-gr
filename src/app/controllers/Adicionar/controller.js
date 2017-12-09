@@ -21,15 +21,27 @@
 
     adic.guia = (function () {
       var guiaAntiga = Guia.obter();
+      var guiaNova = {};
 
-      // se, de fato, existir uma guia antiga
       if (angular.equals(guiaAntiga, {})) {
-        return {
-          vaiMalote: true
-        };
+        angular.extend(guiaNova, {
+          vaiMalote: true,
+        });
+      } else {
+        angular.extend(guiaNova, guiaAntiga);
       }
 
-      return Guia.obter();
+      angular.extend(guiaNova, {
+        atualizarProcessos: function () {
+          this.processos = Processos.obter();
+        },
+        temProcessos: function () {
+          return angular.isDefined(this.processos)
+            && !angular.equals(this.processos, []);
+        }
+      });
+
+      return guiaNova;
     })();
 
     adic.listaDeDestinatarios = Destinatarios.obter();
@@ -126,7 +138,7 @@
           numeroDoProcesso = Processo.formatar(numeroDoProcesso);
           Processos.adicionar(numeroDoProcesso);
 
-          adic.guia.processos = Processos.obter();
+          adic.guia.atualizarProcessos();
         }
 
         function limparInput() {
@@ -159,7 +171,7 @@
       if (Tela.confirmar("Atenção", "Tem certeza?")) {
         Processos.remover(numeroDoProcesso);
 
-        adic.guia.processos = Processos.obter();
+        adic.guia.atualizarProcessos();
       }
     };
 
@@ -167,7 +179,7 @@
       aumentar: function (numeroDoProcesso) {
         Processos.aumentarVolume(numeroDoProcesso);
 
-        adic.processos = Processos.obter();
+        adic.guia.atualizarProcessos();
       },
       diminuir: function (numeroDoProcesso) {
         if (Processos.obter(numeroDoProcesso).volume === 1) {
@@ -175,7 +187,7 @@
         } else {
           Processos.diminuirVolume(numeroDoProcesso);
 
-          adic.processos = Processos.obter();
+          adic.guia.atualizarProcessos();
         }
       }
     };
