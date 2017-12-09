@@ -6,15 +6,10 @@
     .service("Malote", Malote);
 
   function Malote() {
+    var mal = this;
+    ///////////////
 
-    // funções
-    this.percurso = percurso;
-    this.numero = numero;
-    this.destinatario = destinatario;
-
-    ///
-
-    var percursos = {
+    mal.percursos = {
 
       /**
        * amambai
@@ -259,25 +254,22 @@
       }
     };
 
-    /// obter o percurso do malote
-    function percurso(codigoDeBarras) {
+    mal.percurso = function(codigoDeBarras) {
       return codigoDeBarras.replace(/^\d{13}(\d{12}).*/, "$1");
-    }
+    };
 
-    // obter o número do malote
-    function numero(codigoDeBarras) {
+    mal.numero = function(codigoDeBarras) {
       return codigoDeBarras.replace(/^.*(\d{5})$/, "$1");
-    }
+    };
 
-    // obter o destinatário a partir do número do percurso
-    function destinatario(percurso) {
-      percurso = percursos[parseInt(percurso)];
+    mal.destinatario = function(percurso) {
+      percurso = mal.percursos[parseInt(percurso)];
 
       if (percurso) {
         return percurso.vara + " de " + percurso.cidade + "/ms";
       }
 
       return false;
-    }
+    };
   }
 })();
