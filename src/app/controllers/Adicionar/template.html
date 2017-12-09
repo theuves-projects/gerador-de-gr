@@ -1,6 +1,6 @@
 <div id="adicionar">
   <header>
-    <h1>GERADOR DE<br>GUIA DE REMESSA</h1>
+    <h1 class="adic-titulo">GERADOR DE<br>GUIA DE REMESSA</h1>
 
     <div
       data-check-box
@@ -49,7 +49,7 @@
     </div>
   </div>
 
-  <div class="linha">
+  <div class="linha margin-baixo-10">
     <div class="coluna">
       <input
         data-ng-model="adic.codigoDeBarras"
@@ -67,7 +67,7 @@
 
     <table class="largura-total">
       <tr data-ng-repeat="processo in adic.guia.processos | orderBy:'-item'">
-        <td class="coluna italico texto-cinza">{{processo.item}}.</td>
+        <td class="coluna italico texto-cinza ponto">{{processo.item}}</td>
         <td class="coluna" data-selecionar>{{processo.numero}}</td>
         <td class="coluna">{{processo.volume}}</td>
         <td class="coluna">
