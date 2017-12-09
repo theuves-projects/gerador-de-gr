@@ -33,7 +33,7 @@
     conf.tem = function (item) {
       var valorEmJson = localStorage.getItem(item);
 
-      return valor !== null;
+      return valorEmJson !== null;
     }
   }
 })();
