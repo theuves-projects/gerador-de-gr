@@ -24,9 +24,7 @@
       var guiaNova = {};
 
       if (angular.equals(guiaAntiga, {})) {
-        angular.extend(guiaNova, {
-          vaiMalote: true,
-        });
+        angular.extend(guiaNova, {vaiMalote: true});
       } else {
         angular.extend(guiaNova, guiaAntiga);
       }
@@ -150,7 +148,7 @@
         var ehPraAdicionarMalote = codigoDeBarras.length === 35;
 
         if (ehPraGerarGuia) {
-          gerarGuia();
+          adic.gerarGuia();
           limparInput();
         } else if (ehPraAdicionarGuia) {
           adicionarGuia(codigoDeBarras);
