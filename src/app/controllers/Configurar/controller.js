@@ -18,23 +18,37 @@
     , $location
     , Configuracoes
     , Destinatarios
+    , Tela
   ) {
     var conf = this;
     ////////////////
 
-    conf.destinatarios = Destinatarios.obter();
-    conf.nomeDoUsuario = Configuracoes.NomeDoUsuario.obter();
+    conf.listaDeDestinatarios = Destinatarios.obter();
+
+    conf.nomeDoUsuario = Configuracoes.obter("nomeDoUsuario");
 
     conf.adicionarDestinatario = function(novoDestinatario) {
-      conf.destinatarios.push(novoDestinatario);
+      if (angular.equals(novoDestinatario.trim(), "")) {
+        Tela.alertar("Erro", "Informe algo!");
+
+        return;
+      }
+
+      if (Destinatarios.tem(novoDestinatario)) {
+        Tela.alertar("Erro", "O destinatário informado já existe!");
+
+        return;
+      }
+
+      conf.listaDeDestinatarios.push(novoDestinatario);
 
       conf.novoDestinatario = "";
     };
 
     conf.removerDestinatario = function(indice) {
-      delete conf.destinatarios[indice];
+      delete conf.listaDeDestinatarios[indice];
 
-      conf.destinatarios = conf.destinatarios.filter(function (item) {
+      conf.listaDeDestinatarios = conf.listaDeDestinatarios.filter(function (item) {
         return item;
       });
     };
@@ -43,10 +57,12 @@
       Destinatarios.salvar(novosDestinatarios);
 
       alert("Salvo!");
+
+      $window.location.reload();
     };
 
     conf.salvarNovoNomeDoUsuario = function(nome) {
-      Configuracoes.NomeDoUsuario.definir(nome);
+      Configuracoes.adicionar("nomeDoUsuario", nome);
 
       alert("Salvo!");
 

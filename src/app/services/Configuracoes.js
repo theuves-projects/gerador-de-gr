@@ -21,7 +21,7 @@
 
     conf.obter = function (item) {
       var valorEmJson = localStorage.getItem(item);
-      var valor = angular.fromJson(valor);
+      var valor = angular.fromJson(valorEmJson);
 
       return valor;
     };

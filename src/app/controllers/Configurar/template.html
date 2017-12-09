@@ -35,7 +35,7 @@
       <form>
         <p class="descricao dois-pontos">Gerenciar destinatários</p>
         <table>
-          <tr data-ng-repeat="destinatario in conf.destinatarios">
+          <tr data-ng-repeat="destinatario in conf.listaDeDestinatarios">
             <td>{{destinatario}}</td>
             <td>
               <button
@@ -64,7 +64,7 @@
         </table>
 
         <button
-          data-ng-click="conf.salvarDestinatarios(conf.destinatarios)"
+          data-ng-click="conf.salvarDestinatarios(conf.listaDeDestinatarios)"
           type="submit">Salvar as alterações</button>
       </form>
     </div>

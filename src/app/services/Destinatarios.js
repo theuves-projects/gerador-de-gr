@@ -16,179 +16,185 @@
          * amambai
          * =======
          */
-        "vara estadual de amambai/ms",
-        "vara do trabalho de amambai/ms",
+        "VARA ESTADUAL DE AMAMBAI/MS",
+        "VARA DO TRABALHO DE AMAMBAI/MS",
 
         /**
          * angélica
          * ========
          */
-        "vara estadual de angélica/ms",
-        "vara do trabalho de angélica/ms",
+        "VARA ESTADUAL DE ANGÉLICA/MS",
+        "VARA DO TRABALHO DE ANGÉLICA/MS",
 
         /**
          * bela vista
          * ==========
          */
-        "vara estadual de bela vista/ms",
-        "vara do trabalho de bela vista/ms",
+        "VARA ESTADUAL DE BELA VISTA/MS",
+        "VARA DO TRABALHO DE BELA VISTA/MS",
 
         /**
          * batayporã
          * =========
          */
-        "vara estadual de batayporã/ms",
-        "vara do trabalho de batayporã/ms",
+        "VARA ESTADUAL DE BATAYPORÃ/MS",
+        "VARA DO TRABALHO DE BATAYPORÃ/MS",
 
         /**
          * caarapó
          * =======
          */
-        "vara estadual de caarapó/ms",
-        "vara do trabalho de caarapó/ms",
+        "VARA ESTADUAL DE CAARAPÓ/MS",
+        "VARA DO TRABALHO DE CAARAPÓ/MS",
 
         /**
          * deodápolis
          * ==========
          */
-        "vara estadual de deodápolis/ms",
-        "vara do trabalho de deodápolis/ms",
+        "VARA ESTADUAL DE DEODÁPOLIS/MS",
+        "VARA DO TRABALHO DE DEODÁPOLIS/MS",
 
         /**
          * dourados
          * ========
          */
-        "1ª vara federal de dourados/ms",
-        "2ª vara federal de dourados/ms",
-        "1ª vara do trabalho de dourados/ms",
-        "2ª vara do trabalho de dourados/ms",
-        "3ª vara estadual de dourados/ms",
+        "1ª VARA FEDERAL DE DOURADOS/MS",
+        "2ª VARA FEDERAL DE DOURADOS/MS",
+        "1ª VARA DO TRABALHO DE DOURADOS/MS",
+        "2ª VARA DO TRABALHO DE DOURADOS/MS",
+        "3ª VARA ESTADUAL DE DOURADOS/MS",
 
         /**
          * eldorado
          * ========
          */
-        "vara estadual de eldorado/ms",
-        "vara do trabalho de eldorado/ms",
+        "VARA ESTADUAL DE ELDORADO/MS",
+        "VARA DO TRABALHO DE ELDORADO/MS",
 
         /**
          * fátima do sul
          * =============
          */
-        "vara única de fátima do sul/ms",
-        "vara estadual de fátima do sul/ms",
-        "vara do trabalho de fátima do sul/ms",
+        "VARA ÚNICA DE FÁTIMA DO SUL/MS",
+        "VARA ESTADUAL DE FÁTIMA DO SUL/MS",
+        "VARA DO TRABALHO DE FÁTIMA DO SUL/MS",
 
         /**
          * glória de dourados
          * ==================
          */
-        "vara estadual de glória de dourados/ms",
-        "vara do trabalho de glória de dourados/ms",
+        "VARA ESTADUAL DE GLÓRIA DE DOURADOS/MS",
+        "VARA DO TRABALHO DE GLÓRIA DE DOURADOS/MS",
 
         /**
          * iguatemi
          * ========
          */
-        "vara estadual de iguatemi/ms",
-        "vara do trabalho de iguatemi/ms",
+        "VARA ESTADUAL DE IGUATEMI/MS",
+        "VARA DO TRABALHO DE IGUATEMI/MS",
 
         /**
          * itaporã
          * =======
          */
-        "vara estadual de itaporã/ms",
-        "vara do trabalho de itaporã/ms",
+        "VARA ESTADUAL DE ITAPORÃ/MS",
+        "VARA DO TRABALHO DE ITAPORÃ/MS",
 
         /**
          * itaquiraí
          * =========
          */
-        "vara estadual de itaquiraí/ms",
-        "vara do trabalho de itaquiraí/ms",
+        "VARA ESTADUAL DE ITAQUIRAÍ/MS",
+        "VARA DO TRABALHO DE ITAQUIRAÍ/MS",
 
         /**
          * ivinhema
          * ========
          */
-        "vara estadual de ivinhema/ms",
-        "vara do trabalho de ivinhema/ms",
+        "VARA ESTADUAL DE IVINHEMA/MS",
+        "VARA DO TRABALHO DE IVINHEMA/MS",
 
         /**
          * jardim
          * ======
          */
-        "vara estadual de jardim/ms",
-        "vara do trabalho de jardim/ms",
+        "VARA ESTADUAL DE JARDIM/MS",
+        "VARA DO TRABALHO DE JARDIM/MS",
 
         /**
          * maracaju
          * ========
          */
-        "vara estadual de maracaju/ms",
-        "vara do trabalho de maracaju/ms",
+        "VARA ESTADUAL DE MARACAJU/MS",
+        "VARA DO TRABALHO DE MARACAJU/MS",
 
         /**
          * mundo novo
          * ==========
          */
-        "vara estadual de mundo novo/ms",
-        "vara do trabalho de mundo novo/ms",
+        "VARA ESTADUAL DE MUNDO NOVO/MS",
+        "VARA DO TRABALHO DE MUNDO NOVO/MS",
 
         /**
          * naviraí
          * =======
          */
-        "1ª vara federal de naviraí/ms",
-        "2ª vara federal de naviraí/ms",
-        "vara estadual de naviraí/ms",
-        "vara do trabalho de naviraí/ms",
+        "1ª VARA FEDERAL DE NAVIRAÍ/MS",
+        "2ª VARA FEDERAL DE NAVIRAÍ/MS",
+        "VARA ESTADUAL DE NAVIRAÍ/MS",
+        "VARA DO TRABALHO DE NAVIRAÍ/MS",
 
         /**
          * nova alvorada do sul
          * ====================
          */
-        "vara estadual de nova alvorada do sul/ms",
-        "vara do trabalho de nova alvorada do sul/ms",
+        "VARA ESTADUAL DE NOVA ALVORADA DO SUL/MS",
+        "VARA DO TRABALHO DE NOVA ALVORADA DO SUL/MS",
 
         /**
          * nova andradina
          * ==============
          */
-        "1ª vara estadual de nova andradina/ms",
-        "2ª vara estadual de nova andradina/ms",
-        "vara do trabalho de nova andradina/ms",
+        "1ª VARA ESTADUAL DE NOVA ANDRADINA/MS",
+        "2ª VARA ESTADUAL DE NOVA ANDRADINA/MS",
+        "VARA DO TRABALHO DE NOVA ANDRADINA/MS",
 
         /**
          * ponta porã
          * ==========
          */
-        "1ª vara do trabalho de ponta porã/ms",
-        "2ª vara do trabalho de ponta porã/ms",
-        "1ª vara federal de ponta porã/ms",
-        "2ª vara federal de ponta porã/ms",
-        "vara estadual de ponta porã/ms",
+        "1ª VARA DO TRABALHO DE PONTA PORÃ/MS",
+        "2ª VARA DO TRABALHO DE PONTA PORÃ/MS",
+        "1ª VARA FEDERAL DE PONTA PORÃ/MS",
+        "2ª VARA FEDERAL DE PONTA PORÃ/MS",
+        "VARA ESTADUAL DE PONTA PORÃ/MS",
 
         /**
          * rio brilhante
          * =============
          */
-        "vara estadual de rio brilhante/ms",
-        "vara do trabalho de rio brilhante/ms",
+        "VARA ESTADUAL DE RIO BRILHANTE/MS",
+        "VARA DO TRABALHO DE RIO BRILHANTE/MS",
 
         /**
          * sete quedas
          * ===========
          */
-        "vara estadual de sete quedas/ms",
-        "vara do trabalho de sete quedas/ms"
+        "VARA ESTADUAL DE SETE QUEDAS/MS",
+        "VARA DO TRABALHO DE SETE QUEDAS/MS"
       ];
 
       Configuracoes.adicionar("listaDeDestinatarios", listaDeDestinatarios);
     }
 
+    dest.tem = function (destinatario) {
+      var lista = dest.obter();
+
+      return lista.includes(destinatario.toUpperCase());
+    }
+
     dest.obter = function () {
-      var listaEmJson = localStorage.getItem("destinatarios");
+      var listaEmJson = localStorage.getItem("listaDeDestinatarios");
       var lista = angular.fromJson(listaEmJson);
 
       return lista;
@@ -197,7 +203,7 @@
     dest.salvar = function (destinatarios) {
       var listaEmJson = angular.toJson(destinatarios);
 
-      localStorage.setItem("destinatarios", listaEmJson);
+      localStorage.setItem("listaDeDestinatarios", listaEmJson);
     }
   }
 })();
