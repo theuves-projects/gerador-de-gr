@@ -11,7 +11,7 @@
     , Destinatarios
     , Tela
     ) {
-      if (Configuracoes.naoTem("destinatarios")) {
+      if (Configuracoes.naoTem("listaDeDestinatarios")) {
         Destinatarios.iniciar();
       }
 

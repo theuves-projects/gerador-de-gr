@@ -23,50 +23,48 @@
     var conf = this;
     ////////////////
 
-    conf.listaDeDestinatarios = Destinatarios.obter();
+    conf.usuario = {
+      nome: Configuracoes.obter("nomeDoUsuario"),
+      salvar: function () {
+        Configuracoes.adicionar("nomeDoUsuario", this.nome);
 
-    conf.nomeDoUsuario = Configuracoes.obter("nomeDoUsuario");
+        alert("Salvo!");
 
-    conf.adicionarDestinatario = function(novoDestinatario) {
-      if (angular.equals(novoDestinatario.trim(), "")) {
-        Tela.alertar("Erro", "Informe algo!");
+        $window.location.reload();
+      },
+    };
 
-        return;
+    conf.destinatarios = {
+      novo: "",
+      lista: Destinatarios.obter(),
+      adicionar: function ()  {
+        if (angular.equals(this.novo.trim(), "")) {
+          Tela.alertar("Erro", "Informe algo!");
+          return;
+        }
+
+        if (Destinatarios.tem(this.novo)) {
+          Tela.alertar("Erro", "O destinatário informado já existe!");
+          return;
+        }
+
+        this.lista.push(this.novo);
+        this.novo = "";
+      },
+      remover: function (indice) {
+        delete this.lista[indice];
+
+        this.lista = this.lista.filter(function (item) {
+          return item;
+        });
+      },
+      salvar: function () {
+        Destinatarios.salvar(this.lista);
+
+        alert("Salvo!");
+
+        $window.location.reload();
       }
-
-      if (Destinatarios.tem(novoDestinatario)) {
-        Tela.alertar("Erro", "O destinatário informado já existe!");
-
-        return;
-      }
-
-      conf.listaDeDestinatarios.push(novoDestinatario);
-
-      conf.novoDestinatario = "";
-    };
-
-    conf.removerDestinatario = function(indice) {
-      delete conf.listaDeDestinatarios[indice];
-
-      conf.listaDeDestinatarios = conf.listaDeDestinatarios.filter(function (item) {
-        return item;
-      });
-    };
-
-    conf.salvarDestinatarios = function(novosDestinatarios) {
-      Destinatarios.salvar(novosDestinatarios);
-
-      alert("Salvo!");
-
-      $window.location.reload();
-    };
-
-    conf.salvarNovoNomeDoUsuario = function(nome) {
-      Configuracoes.adicionar("nomeDoUsuario", nome);
-
-      alert("Salvo!");
-
-      $window.location.reload();
     };
 
     conf.voltarPraPaginaInicial = function() {
