@@ -5,7 +5,7 @@
     .module("app")
     .service("Destinatarios", Destinatarios);
 
-  function Destinatarios() {
+  function Destinatarios(Configuracoes) {
     var dest = this;
     ////////////////
 
