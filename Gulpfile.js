@@ -77,9 +77,9 @@ gulp.task("construir:templates", function () {
       root: "app/"
     }));
 
-  var scriptConstruido = gulp.src("build/script.js");
+  var scriptJahConstruido = gulp.src("build/script.js");
 
-  return $.merge(scriptConstruido, templates)
+  return $.merge(scriptJahConstruido, templates)
     .pipe($.concat("script.js"))
     .pipe($.uglify())
     .pipe(gulp.dest("build"));
