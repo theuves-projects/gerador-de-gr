@@ -254,15 +254,15 @@
       }
     };
 
-    mal.percurso = function(codigoDeBarras) {
+    mal.percurso = function (codigoDeBarras) {
       return codigoDeBarras.replace(/^\d{13}(\d{12}).*/, "$1");
     };
 
-    mal.numero = function(codigoDeBarras) {
+    mal.numero = function (codigoDeBarras) {
       return codigoDeBarras.replace(/^.*(\d{5})$/, "$1");
     };
 
-    mal.destinatario = function(percurso) {
+    mal.destinatario = function (percurso) {
       percurso = mal.percursos[parseInt(percurso)];
 
       if (percurso) {
