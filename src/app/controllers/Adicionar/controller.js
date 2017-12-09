@@ -104,7 +104,7 @@
       var codigoDeBarras = adic.codigoDeBarras;
 
       if (codigoDeBarras) {
-        function adicionarGuia(numeroDoProcesso) {
+        var adicionarGuia = function (numeroDoProcesso) {
           var temGuia = adic.guia.numero;
 
           if (!temGuia || (temGuia && Tela.confirmar("Atenção", "Trocar o número da guia?"))) {
@@ -112,7 +112,7 @@
           }
         }
 
-        function adicionarMalote(numeroDoProcesso) {
+        var adicionarMalote = function (numeroDoProcesso) {
           var temMalote = adic.guia.malote;
 
           if (!temMalote || (temMalote && Tela.confirmar("Atenção", "Trocar o número do malote?"))) {
@@ -132,14 +132,14 @@
           }
         }
 
-        function adicionarProcesso(numeroDoProcesso) {
+        var adicionarProcesso = function (numeroDoProcesso) {
           numeroDoProcesso = Processo.formatar(numeroDoProcesso);
           Processos.adicionar(numeroDoProcesso);
 
           adic.guia.atualizarProcessos();
         }
 
-        function limparInput() {
+        var limparInput = function () {
           adic.codigoDeBarras = angular.noop();
         }
 
