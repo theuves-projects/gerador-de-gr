@@ -51,10 +51,10 @@
     };
 
     adic.gerarGuia = function () {
-      var tahFaltandoNumero = !adic.guia.numero
-      var tahFaltandoMalote = !adic.guia.malote && adic.guia.vaiMalote
-      var tahFaltandoDestinatario = !adic.guia.destinatario
-      var tahFaltandoProcessos = !adic.guia.processos
+      var tahFaltandoNumero = !adic.guia.numero;
+      var tahFaltandoMalote = !adic.guia.malote && adic.guia.vaiMalote;
+      var tahFaltandoDestinatario = !adic.guia.destinatario;
+      var tahFaltandoProcessos = !adic.guia.processos;
 
       if (
            tahFaltandoNumero
