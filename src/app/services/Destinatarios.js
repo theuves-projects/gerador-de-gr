@@ -6,12 +6,11 @@
     .service("Destinatarios", Destinatarios);
 
   function Destinatarios() {
+    var dest = this;
+    ////////////////
 
-    this.obter = obter;
-    this.salvar = salvar;
-
-    if (!localStorage.getItem("destinatarios")) {
-      var lista = [
+    dest.iniciar = function () {
+      var listaDeDestinatarios = [
 
         /**
          * amambai
@@ -185,19 +184,17 @@
         "vara do trabalho de sete quedas/ms"
       ];
 
-      var listaEmJson = angular.toJson(lista);
-
-      localStorage.setItem("destinatarios", listaEmJson);
+      Configuracoes.adicionar("listaDeDestinatarios", listaDeDestinatarios);
     }
 
-    function obter() {
+    dest.obter = function () {
       var listaEmJson = localStorage.getItem("destinatarios");
       var lista = angular.fromJson(listaEmJson);
 
       return lista;
     }
 
-    function salvar(destinatarios) {
+    dest.salvar = function (destinatarios) {
       var listaEmJson = angular.toJson(destinatarios);
 
       localStorage.setItem("destinatarios", listaEmJson);
