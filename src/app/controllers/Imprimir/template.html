@@ -37,7 +37,7 @@
   <table class="g-largura-total">
     <tr class="g-centralizar g-negrito">
       <td colspan="4">
-        GUIA DE REMESSA DE CARGA Nº {{impr.guia.numero}}/{{impr.data | date:"yyyy"}}
+        GUIA DE REMESSA DE CARGA Nº {{impr.guia.numero}}/{{impr.data | date:'yyyy'}}
         <span data-ng-if="impr.guia.vaiMalote">
           (MALOTE {{impr.guia.malote}})
         </span>
@@ -54,7 +54,7 @@
     </tr>
     <tr>
       <td colspan="4">
-        <span class="g-negrito g-dois-pontos">DESTINATÁRIO</span> {{impr.destinatario | uppercase}}
+        <span class="g-negrito g-dois-pontos">DESTINATÁRIO</span> {{impr.guia.destinatario}}
       </td>
     </tr>
     <tr class="g-centralizar g-negrito">
@@ -87,13 +87,13 @@
       <td
         class="g-negrito assinaturas"
         colspan="2">
-        <p class="g-margin-baixo-10">REMETIDO EM: {{impr.data | date:"dd/MM/yyyy HH:mm"}}</p>
+        <p class="g-margin-baixo-10">REMETIDO EM: {{impr.data | date:'dd/MM/yyyy HH:mm'}}</p>
         <p>RESPONSÁVEL: _____________________________</p>
       </td>
       <td
         class="g-negrito assinaturas"
         colspan="2">
-        <p class="g-margin-baixo-10">RECEBIDO EM: _____/_____/{{impr.data | date:"yyyy"}}</p>
+        <p class="g-margin-baixo-10">RECEBIDO EM: _____/_____/{{impr.data | date:'yyyy'}}</p>
         <p>RESPONSÁVEL: _____________________________</p>
       </td>
     </tr>
