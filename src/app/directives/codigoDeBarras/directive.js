@@ -7,16 +7,16 @@
 
   function codigoDeBarras() {
     return {
+      scope: {
+        guia: "="
+      },
       templateUrl: "app/directives/codigoDeBarras/template.html",
       link: link
     };
 
-    /**
-     * link
-     */
-    function link(_, element, attrs) {
+    function link(scope, element, attrs) {
       var elemento = element.find("img")[0];
-      var guia = attrs.guia;
+      var guia = scope.guia;
 
       JsBarcode(elemento, guia, {
           height: 5
