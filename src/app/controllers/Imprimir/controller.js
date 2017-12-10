@@ -30,11 +30,11 @@
 
     impr.data = (new Date()).getTime();
 
-    impr.imprimirGuia = function () {
+    impr.imprimir = function () {
       $window.print();
     }
 
-    impr.voltarPraPaginaInicial = function () {
+    impr.voltar = function () {
       $location.url("/");
     }
   }

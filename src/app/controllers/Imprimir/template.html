@@ -1,30 +1,26 @@
 <div id="imprimir">
-  <div class="configuracoes">
-    <table>
-      <tr>
-        <td>
-          <button data-ng-click="impr.voltarPraPaginaInicial()">
-            <i class="fa fa-arrow-left"></i>
-            voltar
-          </button>
-        </td>
-        <td>
-          <button data-ng-click="impr.imprimirGuia()">
-            <i class="fa fa-print"></i>
-            imprimir
-          </button>
-        </td>
-        <td hidden>
-          <button>
-            <i class="fa fa-clipboard"></i>
-            copiar
-          </button>
-        </td>
-      </tr>
-    </table>
+  <div class="impr-configuracoes linha">
+    <div class="coluna">
+      <button
+        data-ng-click="impr.voltar()"
+        class="botao botao-azul largura-total">
+
+        <i class="fa fa-arrow-left"></i>
+        VOLTAR
+      </button>
+    </div>
+    <div class="coluna">
+      <button
+        data-ng-click="impr.imprimir()"
+        class="botao botao-azul largura-total">
+
+        <i class="fa fa-print"></i>
+        IMPRIMIR
+      </button>
+    </div>
   </div>
 
-  <div class="cabecalho">
+  <div class="impr-cabecalho">
     <img
       class="margin-baixo-5"
       gulp-inline-source
@@ -38,7 +34,7 @@
     <p>Fone: (67) 3423-2591</p>
   </div>
 
-  <table>
+  <table class="largura-total">
     <tr class="centralizar negrito">
       <td colspan="4">
         GUIA DE REMESSA DE CARGA Nº {{impr.guia.numero}}/{{impr.data | date:"yyyy"}}
@@ -69,7 +65,7 @@
     </tr>
     <tr
       data-ng-repeat="processo in impr.guia.processos"
-      class="lista-de-processos">
+      class="impr-processos">
       <td>{{processo.item}}</td>
       <td>PROCESSO</td>
       <td data-selecionar>{{processo.numero}}</td>
@@ -77,27 +73,27 @@
     </tr>
     <tr class="centralizar negrito">
       <td
-        class="assinaturas"
+        class="impr-assinaturas"
         colspan="2">
         PARA USO DA EXPEDIÇÃO
       </td>
       <td
-        class="assinaturas"
+        class="impr-assinaturas"
         colspan="2">
         PARA USO DO DESTINATÁRIO
       </td>
     </tr>
     <tr>
       <td
-        class="assinaturas negrito"
+        class="impr-assinaturas negrito"
         colspan="2">
-        <p>REMETIDO EM: {{impr.data | date:"dd/MM/yyyy HH:mm"}}</p>
+        <p class="margin-baixo-10">REMETIDO EM: {{impr.data | date:"dd/MM/yyyy HH:mm"}}</p>
         <p>RESPONSÁVEL: _____________________________</p>
       </td>
       <td
-        class="assinaturas negrito"
+        class="impr-assinaturas negrito"
         colspan="2">
-        <p>RECEBIDO EM: _____/_____/{{impr.data | date:"yyyy"}}</p>
+        <p class="margin-baixo-10">RECEBIDO EM: _____/_____/{{impr.data | date:"yyyy"}}</p>
         <p>RESPONSÁVEL: _____________________________</p>
       </td>
     </tr>
@@ -105,7 +101,7 @@
 
   <!-- mensagem no canto inferior direito -->
   <!-- vai aparecer somente quando for imprimir -->
-  <span class="devolver-guia">
+  <span class="impr-devolver">
     FAVOR DEVOLVER UMA VIA RECIBADA
   </span>
 </div>
