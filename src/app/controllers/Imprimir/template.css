@@ -2,12 +2,12 @@
   margin: 2% 5%;
 }
 
-#imprimir .impr-configuracoes {
+#imprimir .configuracoes {
   width: 256px;
   margin: 0px auto 10px auto;
 }
 
-#imprimir .impr-cabecalho {
+#imprimir .cabecalho {
   margin-bottom: 15px;
   text-align: center;
   font-family: Arial, sans-serif;
@@ -16,30 +16,28 @@
 }
 
 #imprimir table,
-#imprimir th,
 #imprimir td {
   border: 1px solid black;
   border-collapse: collapse;
   font-size: 12px;
 }
 
-#imprimir th,
 #imprimir td {
   padding: 5px;
   text-align: left;
 }
 
-#imprimir .impr-processos > td {
+#imprimir .processos td {
   padding: 2px 5px;
   font-family: Courier, monospace;
   font-size: 14px;
 }
 
-#imprimir .impr-assinaturas {
+#imprimir .assinaturas {
   padding: 10px;
 }
 
-#imprimir .impr-devolver {
+#imprimir .devolver {
   position: fixed;
   bottom: 0px;
   right: 0px;
@@ -52,11 +50,11 @@
  * esconder botões pra imprimir
  */
 @media print {
-  #imprimir .impr-configuracoes {
+  #imprimir .configuracoes {
     display: none;
   }
 
-  #imprimir .impr-devolver {
+  #imprimir .devolver {
     visibility: visible;
   }
 }

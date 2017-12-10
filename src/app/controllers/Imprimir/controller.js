@@ -18,9 +18,9 @@
       var guia = Guia.obter();
 
       if (Guia.tahVazia()) {
-        Tela.alertar("Erro", "Nenhum dado adicionado.");
+        // Tela.alertar("Erro", "Nenhum dado adicionado.");
 
-        $location.path("/");
+        // $location.path("/");
       }
 
       guia.numero = parseInt(guia.numero);

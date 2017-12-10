@@ -9,26 +9,26 @@
  * ------
  */
 
-.largura-total {
+.g-largura-total {
   width: 100%;
 }
 
-.centralizar,
-.centralizar * {
+.g-centralizar,
+.g-centralizar * {
   text-align: center !important;
 }
 
-.negrito,
-.negrito * {
+.g-negrito,
+.g-negrito * {
   font-weight: bold;
 }
 
-.italico,
-.italico * {
+.g-italico,
+.g-italico * {
   font-style: italic;
 }
 
-.texto-cinza {
+.g-texto-cinza {
   color: gray;
 }
 
@@ -37,13 +37,13 @@
  * ----------------
  */
 
-.linha {
+.g-linha {
   display: flex;
   width: 100%;
   flex-wrap: nowrap;
 }
 
-.coluna {
+.g-coluna {
   flex-grow: 1;
   padding: 2px;
 }
@@ -53,35 +53,35 @@
  * ---------------
  */
 
-.campo,
-.botao {
+.g-campo,
+.g-botao {
   padding: 5px 10px;
   border: solid 2px #bbb;
   font-size: 14px;
   text-transform: uppercase;
 }
 
-.botao:hover {
-  opacity: 0.9;
+.g-botao:hover {
+  opacity: 0.g-9;
 }
 
-.botao:active {
+.g-botao:active {
   opacity: 1;
 }
 
-.botao-verde {
+.g-botao-verde {
   color: white;
   background-color: #689b60;
   border-color: #5d8b56;
 }
 
-.botao-vermelho {
+.g-botao-vermelho {
   color: white;
   background-color: #db5353;
   border-color: #c54a4a;
 }
 
-.botao-azul {
+.g-botao-azul {
   color: white;
   background-color: #688f8a;
   border-color: #5d807c;
@@ -93,23 +93,23 @@
  */
 
 /* Margin: */
-.margin-baixo-5 {margin-bottom: 5px;}
-.margin-baixo-10 {margin-bottom: 10px;}
+.g-margin-baixo-5 {margin-bottom: 5px;}
+.g-margin-baixo-10 {margin-bottom: 10px;}
 
 /* Padding:; */
-.padding-baixo-5 {padding-bottom: 5px;}
-.padding-baixo-10 {padding-bottom: 10px;}
+.g-padding-baixo-5 {padding-bottom: 5px;}
+.g-padding-baixo-10 {padding-bottom: 10px;}
 
 /**
  * Complementos
  * ------------
  */
 
-.dois-pontos:after {
+.g-dois-pontos:after {
   content: ":";
 }
 
-.ponto:after {
+.g-ponto:after {
   content: ".";
 }
 
