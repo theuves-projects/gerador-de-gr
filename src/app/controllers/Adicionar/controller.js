@@ -16,10 +16,10 @@
     , Processos
     , Tela
   ) {
-    var adic = this;
-    ////////////////
+    var ad = this;
+    //////////////
 
-    adic.guia = (function () {
+    ad.guia = (function () {
       var guiaAntiga = Guia.obter();
       var guiaNova = {};
 
@@ -42,19 +42,19 @@
       return guiaNova;
     })();
 
-    adic.listaDeDestinatarios = Destinatarios.obter();
+    ad.listaDeDestinatarios = Destinatarios.obter();
 
-    adic.informarErro = function (evento) {
+    ad.informarErro = function (evento) {
       if (evento.code === "Enter") {
         Tela.alertar("Atenção", "Não é possível adicionar dados por aqui...");
       }
     };
 
-    adic.gerarGuia = function () {
-      var tahFaltandoNumero = !adic.guia.numero;
-      var tahFaltandoMalote = !adic.guia.malote && adic.guia.vaiMalote;
-      var tahFaltandoDestinatario = !adic.guia.destinatario;
-      var tahFaltandoProcessos = !adic.guia.processos;
+    ad.gerarGuia = function () {
+      var tahFaltandoNumero = !ad.guia.numero;
+      var tahFaltandoMalote = !ad.guia.malote && ad.guia.vaiMalote;
+      var tahFaltandoDestinatario = !ad.guia.destinatario;
+      var tahFaltandoProcessos = !ad.guia.processos;
 
       if (
            tahFaltandoNumero
@@ -84,45 +84,45 @@
       }
 
       Guia.definir(
-          adic.guia.numero
-        , adic.guia.destinatario
-        , adic.guia.malote
-        , adic.guia.processos
-        , adic.guia.vaiMalote
+          ad.guia.numero
+        , ad.guia.destinatario
+        , ad.guia.malote
+        , ad.guia.processos
+        , ad.guia.vaiMalote
       );
 
       $location.url("/imprimir");
     };
 
-    adic.adicionarDados = function (evento) {
+    ad.adicionarDados = function (evento) {
 
       // se NÃO FOI a tecla "enter" que foi pressionada
       if (evento.code !== "Enter") {
         return;
       }
 
-      var codigoDeBarras = adic.codigoDeBarras;
+      var codigoDeBarras = ad.codigoDeBarras;
 
       if (codigoDeBarras) {
         var adicionarGuia = function (numeroDoProcesso) {
-          var temGuia = adic.guia.numero;
+          var temGuia = ad.guia.numero;
 
           if (!temGuia || (temGuia && Tela.confirmar("Atenção", "Trocar o número da guia?"))) {
-            adic.guia.numero = parseInt(numeroDoProcesso) + 1;
+            ad.guia.numero = parseInt(numeroDoProcesso) + 1;
           }
         }
 
         var adicionarMalote = function (numeroDoProcesso) {
-          var temMalote = adic.guia.malote;
+          var temMalote = ad.guia.malote;
 
           if (!temMalote || (temMalote && Tela.confirmar("Atenção", "Trocar o número do malote?"))) {
-            adic.guia.malote = Malote.numero(numeroDoProcesso);
+            ad.guia.malote = Malote.numero(numeroDoProcesso);
           }
 
           var destinatario = Malote.destinatario(Malote.percurso(numeroDoProcesso));
 
           if (destinatario) {
-            adic.guia.destinatario = destinatario;
+            ad.guia.destinatario = destinatario;
           } else {
             Tela.alertar("Erro", [
                 "Não foi possível obter o DESTINATÁRIO, desse cartão"
@@ -136,11 +136,11 @@
           numeroDoProcesso = Processo.formatar(numeroDoProcesso);
           Processos.adicionar(numeroDoProcesso);
 
-          adic.guia.atualizarProcessos();
+          ad.guia.atualizarProcessos();
         }
 
         var limparInput = function () {
-          adic.codigoDeBarras = angular.noop();
+          ad.codigoDeBarras = angular.noop();
         }
 
         var ehPraGerarGuia = codigoDeBarras === "GERAR";
@@ -148,7 +148,7 @@
         var ehPraAdicionarMalote = codigoDeBarras.length === 35;
 
         if (ehPraGerarGuia) {
-          adic.gerarGuia();
+          ad.gerarGuia();
           limparInput();
         } else if (ehPraAdicionarGuia) {
           adicionarGuia(codigoDeBarras);
@@ -165,19 +165,19 @@
       }
     };
 
-    adic.removerProcesso = function (numeroDoProcesso) {
+    ad.removerProcesso = function (numeroDoProcesso) {
       if (Tela.confirmar("Atenção", "Tem certeza?")) {
         Processos.remover(numeroDoProcesso);
 
-        adic.guia.atualizarProcessos();
+        ad.guia.atualizarProcessos();
       }
     };
 
-    adic.volume = {
+    ad.volume = {
       aumentar: function (numeroDoProcesso) {
         Processos.aumentarVolume(numeroDoProcesso);
 
-        adic.guia.atualizarProcessos();
+        ad.guia.atualizarProcessos();
       },
       diminuir: function (numeroDoProcesso) {
         if (Processos.obter(numeroDoProcesso).volume === 1) {
@@ -185,7 +185,7 @@
         } else {
           Processos.diminuirVolume(numeroDoProcesso);
 
-          adic.guia.atualizarProcessos();
+          ad.guia.atualizarProcessos();
         }
       }
     };
