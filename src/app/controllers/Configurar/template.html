@@ -1,20 +1,25 @@
 <div id="configurar">
-  <h1>Configurações</h1>
 
-  <button
-    data-ng-click="conf.voltarPraPaginaInicial()"
-    class="voltar-pra-pagina-inicial">
-    <i class="fa fa-home"></i>
-    PÁGINA INICIAL
-  </button>
+  <header>
+    <h1 class="g-margin-baixo-10">CONFIGURAÇÕES</h1>
+
+    <button
+      data-ng-click="conf.voltar()"
+      class="g-botao g-botao-azul voltar">
+
+      <i class="fa fa-home"></i>
+      PÁGINA INICIAL
+    </button>
+  </header>
+
 
   <!-- Usuário -->
   <div class="secao">
-    <p class="tipo dois-pontos">Usuário</p>
+    <p class="g-dois-pontos tipo">Usuário</p>
 
     <form class="conteudo">
       <label>
-        <p class="descricao dois-pontos">Seu nome</p>
+        <p class="g-dois-pontos descricao">Seu nome</p>
         <input
           data-ng-model="conf.usuario.nome"
           type="text"
@@ -29,11 +34,11 @@
 
   <!-- Destinatários -->
   <div class="secao">
-    <p class="tipo dois-pontos">Destinatários</p>
+    <p class="g-dois-pontos tipo">Destinatários</p>
 
     <div class="conteudo">
       <form>
-        <p class="descricao dois-pontos">Gerenciar destinatários</p>
+        <p class="g-dois-pontos descricao">Gerenciar destinatários</p>
         <table>
           <tr data-ng-repeat="destinatario in conf.destinatarios.lista">
             <td>{{destinatario}}</td>

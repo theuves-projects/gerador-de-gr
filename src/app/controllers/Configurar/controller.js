@@ -5,14 +5,6 @@
     .module("app")
     .controller("Configurar", Configurar);
 
-  /**
-   * vai fazer as configurações da aplicação
-   *
-   * vai configurar:
-   * - nome do usuário
-   * - novos destinatários
-   * - malote do destinatário
-   */
   function Configurar(
       $window
     , $location
@@ -67,7 +59,7 @@
       }
     };
 
-    conf.voltarPraPaginaInicial = function() {
+    conf.voltar = function() {
       $location.path("/");
     };
   }
