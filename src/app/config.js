@@ -15,7 +15,7 @@
       .when("/imprimir", {
         templateUrl: "app/controllers/Imprimir/template.html",
         controller: "Imprimir",
-        controllerAs: "vm"
+        controllerAs: "impr"
       })
       .when("/configurar", {
         templateUrl: "app/controllers/Configurar/template.html",

@@ -11,43 +11,30 @@
     , Guia
     , Tela
   ) {
-    var vm = this;
-    //////////////
+    var impr = this;
+    ////////////////
 
-    // procurar erros:
-    // ===============
+    impr.guia = (function () {
+      var guia = Guia.obter();
 
-    var dadosDaGuia = Guia.obter();
-    var temDadosNaGuia = angular.toJson(dadosDaGuia) !== "{}";
+      if (angular.equals(guia, "{}")) {
+        Tela.alertar("Erro", "Não foi possível obter alguns dados.");
 
-    if (!temDadosNaGuia) {
-      Tela.alertar("Erro", "Não foi possível obter alguns dados.");
+        $location.path("/");
+      }
 
-      $location.path("/");
-    }
+      guia.numero = parseInt(guia.numero);
 
-    // se não encontrar erros:
-    // =======================
+      return guia;
+    })();
 
-    // dados da guia
-    vm.guia = parseInt(dadosDaGuia.numero);
-    vm.destinatario = dadosDaGuia.destinatario;
-    vm.malote = dadosDaGuia.malote;
-    vm.processos = dadosDaGuia.processos;
-    vm.naoVaiMalote = !dadosDaGuia.vaiMalote;
+    impr.data = (new Date()).getTime();
 
-    // data
-    vm.data = (new Date()).valueOf();
-
-    // funções
-    vm.imprimirGuia = imprimirGuia;
-    vm.voltarPraPaginaInicial = voltarPraPaginaInicial;
-
-    function imprimirGuia() {
+    impr.imprimirGuia = function () {
       $window.print();
     }
 
-    function voltarPraPaginaInicial() {
+    impr.voltarPraPaginaInicial = function () {
       $location.url("/");
     }
   }
