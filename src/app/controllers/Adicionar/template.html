@@ -6,34 +6,34 @@
       data-check-box
       data-ligado="ad.guia.vaiMalote"
       data-mensagem="VAI MALOTE?"
-      class="ad-checkbox"></div>
+      class="checkbox"></div>
   </header>
 
-  <div class="linha">
-    <div class="coluna">
+  <div class="g-linha">
+    <div class="g-coluna">
       <input
-          data-ng-model="ad.guia.numero"
-          data-ng-keypress="ad.informarErro($event)"
-          class="campo largura-total"
-          type="text"
-          placeholder="NÚMERO DA GUIA">
+        data-ng-model="ad.guia.numero"
+        data-ng-keypress="ad.informarErro($event)"
+        class="g-campo g-largura-total"
+        type="text"
+        placeholder="NÚMERO DA GUIA">
     </div>
-    <div class="coluna">
+    <div class="g-coluna">
       <input
-          data-ng-model="ad.guia.malote"
-          data-ng-keypress="ad.informarErro($event)"
-          data-ng-disabled="!ad.guia.vaiMalote"
-          class="campo largura-total"
-          type="text"
-          placeholder="NÚMERO DO MALOTE">
+        data-ng-model="ad.guia.malote"
+        data-ng-keypress="ad.informarErro($event)"
+        data-ng-disabled="!ad.guia.vaiMalote"
+        class="g-campo g-largura-total"
+        type="text"
+        placeholder="NÚMERO DO MALOTE">
     </div>
   </div>
 
-  <div class="linha">
-    <div class="coluna">
+  <div class="g-linha">
+    <div class="g-coluna">
       <select
         data-ng-model="ad.guia.destinatario"
-        class="campo largura-total">
+        class="g-campo g-largura-total">
 
         <option
           value
@@ -43,52 +43,52 @@
           ESCOLHA O DESTINATÁRIO AQUI...
         </option>
 
-        <!-- por favor, não quebre esta linha -->
+        <!-- por favor, não quebre esta g-linha -->
         <option data-ng-repeat="destinatario in ad.listaDeDestinatarios">{{destinatario}}</option>
       </select>
     </div>
   </div>
 
-  <div data-ng-class="{'linha': true, 'margin-baixo-10': ad.guia.temProcessos()}">
-    <div class="coluna">
+  <div data-ng-class="{'g-linha': true, 'g-margin-baixo-10': ad.guia.temProcessos()}">
+    <div class="g-coluna">
       <input
         data-ng-model="ad.codigoDeBarras"
         data-ng-keypress="ad.adicionarDados($event)"
         data-focar
-        class="campo largura-total centralizar"
+        class="g-campo g-largura-total g-centralizar"
         type="text"
         placeholder="ESCANEIE OU DÍGITE AQUI...">
     </div>
   </div>
 
   <div data-ng-if="ad.guia.temProcessos()">
-    <p class="negrito dois-pontos">LISTA DE PROCESSOS JÁ ADICIONADOS</p>
+    <p class="g-negrito dois-pontos">LISTA DE PROCESSOS JÁ ADICIONADOS</p>
 
-    <table class="largura-total">
+    <table class="g-largura-total">
       <tr data-ng-repeat="processo in ad.guia.processos | orderBy:'-item'">
         <td class="italico texto-cinza ponto">{{processo.item}}</td>
         <td data-selecionar>{{processo.numero}}</td>
         <td>{{processo.volume}}</td>
         <td>
-          <div class="linha">
-            <div class="coluna">
+          <div class="g-linha">
+            <div class="g-coluna">
               <button
                 data-ng-click="ad.volume.aumentar(processo.numero)"
-                class="botao botao-azul largura-total">
+                class="g-botao g-botao-azul g-largura-total">
                 <i class="fa fa-arrow-up"></i>
               </button>
             </div>
-            <div class="coluna">
+            <div class="g-coluna">
               <button
                 data-ng-click="ad.volume.diminuir(processo.numero)"
-                class="botao botao-azul largura-total">
+                class="g-botao g-botao-azul g-largura-total">
                 <i class="fa fa-arrow-down"></i>
               </button>
             </div>
-            <div class="coluna">
+            <div class="g-coluna">
               <button
                 data-ng-click="ad.removerProcesso(processo.numero)"
-                class="botao botao-vermelho largura-total">
+                class="g-botao g-botao-vermelho g-largura-total">
                 <i class="fa fa-times"></i>
               </button>
             </div>
@@ -98,11 +98,11 @@
     </table>
   </div>
 
-  <div class="linha">
-    <div class="coluna">
+  <div class="g-linha">
+    <div class="g-coluna">
       <button
         data-ng-click="ad.gerarGuia()"
-        class="botao botao-verde largura-total negrito">
+        class="g-botao g-botao-verde g-largura-total g-negrito">
 
         GERAR GUIA
       </button>
