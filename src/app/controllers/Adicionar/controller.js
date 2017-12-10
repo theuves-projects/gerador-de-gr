@@ -19,11 +19,13 @@
     var ad = this;
     //////////////
 
+    ad.listaDeDestinatarios = Destinatarios.obter();
+
     ad.guia = (function () {
       var guiaAntiga = Guia.obter();
       var guiaNova = {};
 
-      if (angular.equals(guiaAntiga, {})) {
+      if (Guia.tahVazia()) {
         angular.extend(guiaNova, {vaiMalote: true});
       } else {
         angular.extend(guiaNova, guiaAntiga);
@@ -42,7 +44,22 @@
       return guiaNova;
     })();
 
-    ad.listaDeDestinatarios = Destinatarios.obter();
+    ad.volume = {
+      aumentar: function (numeroDoProcesso) {
+        Processos.aumentarVolume(numeroDoProcesso);
+
+        ad.guia.atualizarProcessos();
+      },
+      diminuir: function (numeroDoProcesso) {
+        if (Processos.obter(numeroDoProcesso).volume === 1) {
+          Tela.alertar("Erro", "Não é possível diminuir mais que isso.");
+        } else {
+          Processos.diminuirVolume(numeroDoProcesso);
+
+          ad.guia.atualizarProcessos();
+        }
+      }
+    };
 
     ad.informarErro = function (evento) {
       if (evento.code === "Enter") {
@@ -83,13 +100,7 @@
         return;
       }
 
-      Guia.definir(
-          ad.guia.numero
-        , ad.guia.destinatario
-        , ad.guia.malote
-        , ad.guia.processos
-        , ad.guia.vaiMalote
-      );
+      Guia.definir(ad.guia);
 
       $location.url("/imprimir");
     };
@@ -170,23 +181,6 @@
         Processos.remover(numeroDoProcesso);
 
         ad.guia.atualizarProcessos();
-      }
-    };
-
-    ad.volume = {
-      aumentar: function (numeroDoProcesso) {
-        Processos.aumentarVolume(numeroDoProcesso);
-
-        ad.guia.atualizarProcessos();
-      },
-      diminuir: function (numeroDoProcesso) {
-        if (Processos.obter(numeroDoProcesso).volume === 1) {
-          Tela.alertar("Erro", "Não é possível diminuir mais que isso.");
-        } else {
-          Processos.diminuirVolume(numeroDoProcesso);
-
-          ad.guia.atualizarProcessos();
-        }
       }
     };
   }

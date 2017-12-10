@@ -17,7 +17,7 @@
     impr.guia = (function () {
       var guia = Guia.obter();
 
-      if (angular.equals(guia, {})) {
+      if (Guia.tahVazia()) {
         Tela.alertar("Erro", "Nenhum dado adicionado.");
 
         $location.path("/");

@@ -11,24 +11,16 @@
 
     guia.dados = {};
 
-    guia.definir = function (
-        numero
-      , destinatario
-      , malote
-      , processos
-      , vaiMalote
-    ) {
-      guia.dados = {
-          numero: numero
-        , destinatario: destinatario
-        , malote: malote
-        , processos: processos
-        , vaiMalote: vaiMalote
-      };
+    guia.definir = function (dados) {
+      angular.extend(guia.dados, dados);
     };
 
     guia.obter = function () {
       return guia.dados;
+    };
+
+    guia.tahVazia = function () {
+      return angular.equals(guia.dados, {});
     };
   }
 })();
