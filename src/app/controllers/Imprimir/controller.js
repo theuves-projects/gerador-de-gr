@@ -17,8 +17,8 @@
     impr.guia = (function () {
       var guia = Guia.obter();
 
-      if (angular.equals(guia, "{}")) {
-        Tela.alertar("Erro", "Não foi possível obter alguns dados.");
+      if (angular.equals(guia, {})) {
+        Tela.alertar("Erro", "Nenhum dado adicionado.");
 
         $location.path("/");
       }
