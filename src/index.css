@@ -62,7 +62,7 @@
 }
 
 .g-botao:hover {
-  opacity: 0.g-9;
+  opacity: 0.9;
 }
 
 .g-botao:active {
@@ -88,17 +88,27 @@
 }
 
 /**
- * Margin e padding
- * ----------------
+ * Margin
+ * ------
  */
 
-/* Margin: */
-.g-margin-baixo-5 {margin-bottom: 5px;}
-.g-margin-baixo-10 {margin-bottom: 10px;}
+/* Cima: */
+.g-margin-cima-5 {
+  margin-top: 5px;
+}
 
-/* Padding:; */
-.g-padding-baixo-5 {padding-bottom: 5px;}
-.g-padding-baixo-10 {padding-bottom: 10px;}
+.g-margin-cima-10 {
+  margin-top: 10px;
+}
+
+/* Baixo: */
+.g-margin-baixo-5 {
+  margin-bottom: 5px;
+}
+
+.g-margin-baixo-10 {
+  margin-bottom: 10px;
+}
 
 /**
  * Complementos
@@ -111,6 +121,18 @@
 
 .g-ponto:after {
   content: ".";
+}
+
+/**
+ * Posicionamento
+ */
+
+.g-esquerda {
+  float: left;
+}
+
+.g-direita {
+  float: right;
 }
 
 /**

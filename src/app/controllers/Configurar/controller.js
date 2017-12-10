@@ -23,13 +23,15 @@
         alert("Salvo!");
 
         $window.location.reload();
-      },
+      }
     };
 
     conf.destinatarios = {
       novo: "",
       lista: Destinatarios.obter(),
-      adicionar: function ()  {
+      adicionar: function (evento)  {
+        if (evento.key !== "Enter") return;
+
         if (angular.equals(this.novo.trim(), "")) {
           Tela.alertar("Erro", "Informe algo!");
           return;
@@ -40,15 +42,17 @@
           return;
         }
 
-        this.lista.push(this.novo);
+        this.lista.push(this.novo.toUpperCase());
         this.novo = "";
       },
       remover: function (indice) {
-        delete this.lista[indice];
+        if (Tela.confirmar("Atenção", "Tem certeza?")) {
+          delete this.lista[indice];
 
-        this.lista = this.lista.filter(function (item) {
-          return item;
-        });
+          this.lista = this.lista.filter(function (item) {
+            return item;
+          });
+        }
       },
       salvar: function () {
         Destinatarios.salvar(this.lista);

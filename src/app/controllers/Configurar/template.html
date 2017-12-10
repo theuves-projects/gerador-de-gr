@@ -19,16 +19,23 @@
 
     <form class="conteudo">
       <label>
-        <p class="g-dois-pontos descricao">Seu nome</p>
+        <p class="g-dois-pontos g-margin-baixo-10">Seu nome</p>
+
         <input
           data-ng-model="conf.usuario.nome"
+          class="g-campo g-largura-total"
           type="text"
           placeholder="Insira seu nome aqui...">
       </label>
 
       <button
         data-ng-click="conf.usuario.salvar()"
-        type="submit">Salvar as alterações</button>
+        class="g-botao g-botao-verde g-direita g-margin-cima-5"
+        type="submit">
+
+        <i class="fa fa-floppy-o"></i>
+        SALVAR AS ALTERAÇÕES
+      </button>
     </form>
   </div>
 
@@ -38,39 +45,42 @@
 
     <div class="conteudo">
       <form>
-        <p class="g-dois-pontos descricao">Gerenciar destinatários</p>
-        <table>
-          <tr data-ng-repeat="destinatario in conf.destinatarios.lista">
-            <td>{{destinatario}}</td>
-            <td>
-              <button
-                data-ng-click="conf.destinatarios.remover($index)"
-                class="remover">
-                <i class="fa fa-trash"></i>
-              </button>
-            </td>
-          </tr>
+        <p class="g-dois-pontos g-margin-baixo-10">Gerenciar destinatários</p>
 
-          <tr>
-            <td>
-              <input
-                data-ng-model="conf.destinatarios.novo"
-                type="text"
-                placeholder="Adicionar novo destinatário...">
-            </td>
-            <td>
-              <button
-                class="adicionar"
-                data-ng-click="conf.destinatarios.novo()">
-                <i class="fa fa-plus"></i>
-              </button>
-            </td>
-          </tr>
-        </table>
+        <div
+          data-ng-repeat="destinatario in conf.destinatarios.lista"
+          class="g-linha g-largura-total destinatario">
+
+          <div class="g-coluna item">
+            {{destinatario}}
+          </div>
+          <div class="g-coluna item">
+            <button
+              data-ng-click="conf.destinatarios.remover($index)"
+              class="g-botao g-botao-vermelho g-direita">
+
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="g-largura-total">
+          <input
+            data-ng-model="conf.destinatarios.novo"
+            data-ng-keypress="conf.destinatarios.adicionar($event)"
+            class="g-campo g-largura-total g-margin-cima-5"
+            type="text"
+            placeholder="ADICIONAR DESTINATÁRIO... (PRESS. <ENTER>)">
+        </div>
 
         <button
           data-ng-click="conf.destinatarios.salvar()"
-          type="submit">Salvar as alterações</button>
+          class="g-botao g-botao-verde g-direita g-margin-cima-5"
+          type="submit">
+
+          <i class="fa fa-floppy-o"></i>
+          SALVAR AS ALTERAÇÕES
+        </button>
       </form>
     </div>
   </div>
