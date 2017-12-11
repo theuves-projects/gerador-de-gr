@@ -187,12 +187,6 @@
       Configuracoes.adicionar("listaDeDestinatarios", listaDeDestinatarios);
     }
 
-    dest.tem = function (destinatario) {
-      var lista = dest.obter();
-
-      return lista.includes(destinatario.toUpperCase());
-    }
-
     dest.obter = function () {
       var listaEmJson = localStorage.getItem("listaDeDestinatarios");
       var lista = angular.fromJson(listaEmJson);

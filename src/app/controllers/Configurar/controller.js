@@ -37,12 +37,12 @@
           return;
         }
 
-        if (Destinatarios.tem(this.novo)) {
+        if (this.tem(this.novo)) {
           Tela.alertar("Erro", "O destinatário informado já existe!");
           return;
         }
 
-        this.lista.push(this.novo.toUpperCase());
+        this.lista.push(angular.uppercase(this.novo));
         this.novo = "";
       },
       remover: function (indice) {
@@ -60,6 +60,9 @@
         alert("Salvo!");
 
         $window.location.reload();
+      },
+      tem: function (destinatario) {
+        return this.lista.includes(angular.uppercase(destinatario));
       }
     };
 
