@@ -3,6 +3,8 @@ gerador de guia de remessa
 
 > um utilitário pessoal.
 
+acessá-lo em &lt;https://gerador-de-guia-de-remessa.surge.sh&gt;.
+
 gulp
 ----
 
@@ -14,6 +16,11 @@ comandos:
 - `gulp injetar` — [injetar](https://goo.gl/R3ju2V) todos os *scripts* e estilos
 - `gulp injetar:css` — injetar somente os estilos
 - `gulp injetar:js` — injetar somente os *scripts*
+
+npm
+---
+
+usar `npm run deploy` pra subir a página.
 
 favicon
 -------

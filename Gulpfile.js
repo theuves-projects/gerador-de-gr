@@ -57,7 +57,8 @@ gulp.task("injetar:js", function () {
 gulp.task("construir", function () {
   runSequence(
     "construir:html-css-e-js",
-    "construir:templates"
+    "construir:templates",
+    "construir:favicon.ico"
   );
 });
 
@@ -94,5 +95,14 @@ gulp.task("construir:html-css-e-js", function () {
     .pipe($.useref())
     .pipe($.if("*.js", $.ngAnnotate()))
     .pipe($.if("*.css", $.csso()))
+    .pipe(gulp.dest("build"));
+});
+
+/**
+ * construir:favicon.ico
+ * ---------------------
+ */
+gulp.task("construir:favicon.ico", function () {
+  return gulp.src("src/favicon.ico")
     .pipe(gulp.dest("build"));
 });
