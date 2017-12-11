@@ -68,7 +68,7 @@ gulp.task("construir", function () {
 gulp.task("construir:templates", function () {
   var templates = gulp.src("src/app/**/*.html")
     .pipe($.inlineSource({
-      attribute: "gulp-inline-source",
+      attribute: false,
       rootpath: "src"
     }))
     .pipe($.htmlmin({collapseWhitespace: true}))
