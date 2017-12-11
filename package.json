@@ -9,7 +9,7 @@
   "repository": "theuves/devolucao",
   "author": "Matheus Alves",
   "license": "MIT",
-  "homepage": "https://theuves.github.io/devolucao/#!/",
+  "homepage": "https://gerador-de-guia-de-remessa.surge.sh",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-angular-filesort": "^1.1.1",
