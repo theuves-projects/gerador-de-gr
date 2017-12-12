@@ -18,7 +18,7 @@
     conf.usuario = {
       nome: Configuracoes.obter("nomeDoUsuario"),
       salvar: function () {
-        Configuracoes.adicionar("nomeDoUsuario", this.nome);
+        Configuracoes.adicionar("nomeDoUsuario", angular.uppercase(this.nome));
 
         alert("Salvo!");
 
@@ -34,11 +34,13 @@
 
         if (angular.equals(this.novo.trim(), "")) {
           Tela.alertar("Erro", "Informe algo!");
+
           return;
         }
 
         if (this.tem(this.novo)) {
           Tela.alertar("Erro", "O destinatário informado já existe!");
+
           return;
         }
 
