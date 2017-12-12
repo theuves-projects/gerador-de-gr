@@ -4,6 +4,7 @@
   "description": "Gerado de Guia de Remessa",
   "main": "index.js",
   "scripts": {
+    "abrir": "start build/index.html",
     "deploy": "surge -p build -d gerador-de-guia-de-remessa.surge.sh"
   },
   "repository": "theuves/devolucao",
