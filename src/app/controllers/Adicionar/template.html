@@ -62,11 +62,11 @@
   </div>
 
   <div data-ng-if="ad.guia.temProcessos()">
-    <p class="g-negrito dois-pontos">LISTA DE PROCESSOS JÁ ADICIONADOS</p>
+    <p class="g-negrito">LISTA DE PROCESSOS JÁ ADICIONADOS:</p>
 
     <table class="g-largura-total">
       <tr data-ng-repeat="processo in ad.guia.processos | orderBy:'-item'">
-        <td class="g-italico g-texto-cinza g-ponto">{{processo.item}}</td>
+        <td class="g-italico g-texto-cinza">{{processo.item}}.</td>
         <td data-selecionar>{{processo.numero}}</td>
         <td>{{processo.volume}}</td>
         <td>

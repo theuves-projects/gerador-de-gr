@@ -37,6 +37,8 @@
     <tr class="g-centralizar g-negrito">
       <td colspan="4">
         GUIA DE REMESSA DE CARGA Nº {{impr.guia.numero}}/{{impr.data | date:'yyyy'}}
+
+        <!-- número do malote -->
         <span data-ng-if="impr.guia.vaiMalote">
           (MALOTE {{impr.guia.malote}})
         </span>
@@ -48,12 +50,12 @@
     </tr>
     <tr>
       <td colspan="4">
-        <span class="g-negrito g-dois-pontos">REMETENTE</span> AGU/PGF/ER/DOURADOS-MS
+        <span class="g-negrito">REMETENTE:</span> AGU/PGF/ER/DOURADOS-MS
       </td>
     </tr>
     <tr>
       <td colspan="4">
-        <span class="g-negrito g-dois-pontos">DESTINATÁRIO</span> {{impr.guia.destinatario}}
+        <span class="g-negrito">DESTINATÁRIO:</span> {{impr.guia.destinatario}}
       </td>
     </tr>
     <tr class="g-centralizar g-negrito">
@@ -64,7 +66,7 @@
     </tr>
     <tr
       data-ng-repeat="processo in impr.guia.processos"
-      class="processos">
+      class="processos monoespacado">
       <td>{{processo.item}}</td>
       <td>PROCESSO</td>
       <td data-selecionar>{{processo.numero}}</td>
@@ -87,20 +89,20 @@
         class="assinaturas"
         colspan="2">
         <p class="g-margin-baixo-10">
-          <span class="g-negrito g-dois-pontos">REMETIDO EM</span> {{impr.data | date:'dd/MM/yyyy HH:mm'}}
+          <span class="g-negrito">REMETIDO EM:</span> {{impr.data | date:'dd/MM/yyyy HH:mm'}}
         </p>
         <p>
-          <span class="g-negrito g-dois-pontos">RESPONSÁVEL</span> {{impr.nomeDoUsuario}}
+          <span class="g-negrito">RESPONSÁVEL:</span> <span class="monoespacado">{{impr.nomeDoUsuario}}</span>
         </p>
       </td>
       <td
         class="assinaturas"
         colspan="2">
         <p class="g-margin-baixo-10">
-          <span class="g-negrito g-dois-pontos">RECEBIDO EM</span> _____/_____/{{impr.data | date:'yyyy'}}
+          <span class="g-negrito">RECEBIDO EM:</span> _____/_____/{{impr.data | date:'yyyy'}}
         </p>
         <p>
-          <span class="g-negrito g-dois-pontos">RESPONSÁVEL</span> _____________________________
+          <span class="g-negrito">RESPONSÁVEL:</span> _____________________________
         </p>
       </td>
     </tr>

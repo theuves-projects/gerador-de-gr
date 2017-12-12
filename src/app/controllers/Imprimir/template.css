@@ -27,10 +27,13 @@
   text-align: left;
 }
 
-#imprimir .processos td {
+#imprimir .processos {
   padding: 2px 5px;
-  font-family: Courier, monospace;
+}
+
+#imprimir .monoespacado {
   font-size: 14px;
+  font-family: Courier, monospace;
 }
 
 #imprimir .assinaturas {

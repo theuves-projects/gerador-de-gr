@@ -111,19 +111,6 @@
 }
 
 /**
- * Complementos
- * ------------
- */
-
-.g-dois-pontos:after {
-  content: ":";
-}
-
-.g-ponto:after {
-  content: ".";
-}
-
-/**
  * Posicionamento
  */
 
