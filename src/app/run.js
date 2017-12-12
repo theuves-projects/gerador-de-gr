@@ -18,9 +18,10 @@
       if (Configuracoes.naoTem("nomeDoUsuario")) {
         var nome = Tela.perguntar("Atenção", "Informe seu nome:");
 
-        // Caso o usuário tenha cancelado,
-        // pois isso retornaria 'null'.
-        nome = nome || "";
+        // (Caso o usuário tenha cancelado,
+        // pois isso retornaria `null`)
+        // +-----------------------------vv
+        nome = angular.uppercase(nome || "");
 
         Configuracoes.adicionar("nomeDoUsuario", nome);
       }

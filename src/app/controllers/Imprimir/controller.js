@@ -8,6 +8,7 @@
   function Imprimir(
       $location
     , $window
+    , Configuracoes
     , Guia
     , Tela
   ) {
@@ -21,6 +22,8 @@
         Tela.alertar("Erro", "Nenhum dado adicionado.");
 
         $location.path("/");
+
+        return;
       }
 
       guia.numero = parseInt(guia.numero);
@@ -28,7 +31,9 @@
       return guia;
     })();
 
-    impr.data = (new Date()).getTime();
+    impr.nomeDoUsuario = Configuracoes.obter("nomeDoUsuario");
+
+    impr.data = Date.now();
 
     impr.imprimir = function () {
       $window.print();
