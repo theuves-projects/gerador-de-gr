@@ -20,7 +20,8 @@ comandos:
 npm
 ---
 
-usar `npm run deploy` pra subir a página.
+- `npm run abrir` — abrir `build/index.html`
+- `npm run deploy` — publicar
 
 favicon
 -------
