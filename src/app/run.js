@@ -7,10 +7,21 @@
 
   function run(
       $window
+    , $anchorScroll
+    , $location
     , Configuracoes
     , Destinatarios
     , Tela
     ) {
+
+      // O scroll funcionará somente na
+      // página de configurações.
+      if ($location.path() === "/configurar") {
+        $anchorScroll.yOffset = 5;
+
+        $anchorScroll();
+      }
+
       if (Configuracoes.naoTem("listaDeDestinatarios")) {
         Destinatarios.iniciar();
       }

@@ -20,11 +20,12 @@
   padding: 10px 30px;
 }
 
-#configurar .secao .tipo {
+#configurar .secao .tipo a {
   margin-top: 8px;
+  text-decoration: none;
   font-weight: bold;
-  color: gray;
   font-style: italic;
+  color: gray;
 }
 
 #configurar .secao .conteudo {

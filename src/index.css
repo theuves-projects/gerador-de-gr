@@ -123,6 +123,13 @@
 }
 
 /**
+ * Cursor
+ */
+.g-cursor-padrao {
+  cursor: default;
+}
+
+/**
  * Seleção
  * -------
  */

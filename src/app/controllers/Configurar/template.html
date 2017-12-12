@@ -14,8 +14,12 @@
 
 
   <!-- Usuário -->
-  <div class="secao">
-    <p class="tipo">Usuário:</p>
+  <div id="usuario" class="secao">
+    <p class="tipo">
+      <a href="#!/configurar#usuario">
+        Usuário:
+      </a>
+    </p>
 
     <form class="conteudo">
       <label>
@@ -40,8 +44,12 @@
   </div>
 
   <!-- Destinatários -->
-  <div class="secao">
-    <p class="tipo">Destinatários:</p>
+  <div id="destinatarios" class="secao">
+    <p class="tipo">
+      <a href="/#!/configurar#destinatarios">
+        Destinatários:
+      </a>
+    </p>
 
     <div class="conteudo">
       <p class="g-margin-baixo-10">Gerenciar destinatários:</p>
@@ -50,7 +58,7 @@
         data-ng-repeat="destinatario in conf.destinatarios.lista"
         class="g-linha g-largura-total destinatario">
 
-        <div class="g-coluna item">
+        <div class="g-coluna g-cursor-padrao item" selecionar>
           {{destinatario}}
         </div>
         <div class="g-coluna item">

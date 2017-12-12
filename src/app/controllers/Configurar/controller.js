@@ -69,7 +69,9 @@
     };
 
     conf.voltar = function() {
-      $location.path("/");
+      $location.hash("");
+
+      return $location.path("/");
     };
   }
 })();
