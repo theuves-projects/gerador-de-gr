@@ -1,8 +1,7 @@
 {
   "name": "devolucao",
   "version": "0.0.0",
-  "description": "Gerado de Guia de Remessa",
-  "main": "index.js",
+  "description": "Gerador de Guia de Remessa",
   "scripts": {
     "abrir": "start build/index.html",
     "deploy": "surge -p build -d gerador-de-guia-de-remessa.surge.sh"
