@@ -7,180 +7,136 @@
 
   function Adicionar(
       $location
-    , $timeout
+    , $window
     , Configuracoes
     , Destinatarios
     , Guia
     , Malote
     , Processo
-    , Processos
     , Tela
   ) {
     var ad = this;
     //////////////
 
-    ad.listaDeDestinatarios = Destinatarios.obter();
+    ad.destinatarios = Destinatarios.obter();
 
-    ad.guia = (function () {
-      var guiaAntiga = Guia.obter();
-      var guiaNova = {};
-
-      if (Guia.tahVazia()) {
-        angular.extend(guiaNova, {vaiMalote: true});
-      } else {
-        angular.extend(guiaNova, guiaAntiga);
-      }
-
-      angular.extend(guiaNova, {
-        atualizarProcessos: function () {
-          this.processos = Processos.obter();
-        },
-        temProcessos: function () {
-          return angular.isDefined(this.processos)
-            && !angular.equals(this.processos, []);
-        }
-      });
-
-      return guiaNova;
-    })();
-
-    ad.volume = {
-      aumentar: function (numeroDoProcesso) {
-        Processos.aumentarVolume(numeroDoProcesso);
-
-        ad.guia.atualizarProcessos();
-      },
-      diminuir: function (numeroDoProcesso) {
-        if (Processos.obter(numeroDoProcesso).volume === 1) {
-          Tela.alertar("Erro", "Não é possível diminuir mais que isso.");
-        } else {
-          Processos.diminuirVolume(numeroDoProcesso);
-
-          ad.guia.atualizarProcessos();
-        }
-      }
-    };
+    ad.guia = Guia;
 
     ad.informarErro = function (evento) {
       if (evento.code === "Enter") {
-        Tela.alertar("Atenção", "Não é possível adicionar dados por aqui...");
+        $window.alert("Por aqui, os dados não são formatados.")
       }
     };
 
     ad.gerarGuia = function () {
-      var tahFaltandoNumero = !ad.guia.numero;
-      var tahFaltandoMalote = !ad.guia.malote && ad.guia.vaiMalote;
-      var tahFaltandoDestinatario = !ad.guia.destinatario;
-      var tahFaltandoProcessos = !ad.guia.processos;
+      var faltaNumero = !ad.guia.numero;
+      var faltaMalote = !ad.guia.malote.numero && ad.guia.vai;
+      var faltaDestinatario = !ad.guia.destinatario;
+      var faltaProcessos = !ad.guia.processos.lista;
 
       if (
-           tahFaltandoNumero
-        || tahFaltandoMalote
-        || tahFaltandoDestinatario
-        || tahFaltandoProcessos
+           faltaNumero
+        || faltaMalote
+        || faltaDestinatario
+        || faltaProcessos
       ) {
-        var oQueFalta;
-
-        if (tahFaltandoNumero) {
-          oQueFalta = "o número da guia";
-        } else if (tahFaltandoMalote) {
-          oQueFalta = "o número do malote";
-        } else if (tahFaltandoDestinatario) {
-          oQueFalta = "o destinatário";
-        } else if (tahFaltandoProcessos) {
-          oQueFalta = "os processos";
-        } else {
-          Tela.alertar("Erro", "Erro desconhecido!");
-
-          return;
+        if (faltaNumero) {
+         $window.alert("Informe o número da guia!");
+        } else if (faltaMalote) {
+          $window.alert("Informe o número do malote!");
+        } else if (faltaDestinatario) {
+          $window.alert("Informe o destinatário!");
+        } else if (faltaProcessos) {
+          $window.alert("Informe os processos!");
         }
 
-        Tela.alertar("Atenção", "Informe " + oQueFalta + "!");
-
+        Tela.alertar("Erro", "Erro desconhecido!");
         return;
       }
-
-      Guia.definir(ad.guia);
 
       $location.url("/imprimir");
     };
 
     ad.adicionarDados = function (evento) {
-
-      // se NÃO FOI a tecla "enter" que foi pressionada
-      if (evento.code !== "Enter") {
-        return;
-      }
+      if (evento.code !== "Enter") return;
 
       var codigoDeBarras = ad.codigoDeBarras;
 
       if (codigoDeBarras) {
-        var adicionarGuia = function (numeroDoProcesso) {
-          var temGuia = ad.guia.numero;
-
-          if (!temGuia || (temGuia && Tela.confirmar("Atenção", "Trocar o número da guia?"))) {
-            ad.guia.numero = parseInt(numeroDoProcesso) + 1;
-          }
-        }
 
         var adicionarMalote = function (numeroDoProcesso) {
-          var temMalote = ad.guia.malote;
 
-          if (!temMalote || (temMalote && Tela.confirmar("Atenção", "Trocar o número do malote?"))) {
-            ad.guia.malote = Malote.numero(numeroDoProcesso);
-          }
-
-          var destinatario = Malote.destinatario(Malote.percurso(numeroDoProcesso));
-
-          if (destinatario) {
-            ad.guia.destinatario = destinatario;
-          } else {
-            Tela.alertar("Erro", [
-                "Não foi possível obter o DESTINATÁRIO, desse cartão"
-              , " operacional, portanto você vai precisar inseri-lo"
-              , " manualmente."
-            ]);
-          }
         }
 
-        var adicionarProcesso = function (numeroDoProcesso) {
-          numeroDoProcesso = Processo.formatar(numeroDoProcesso);
-          Processos.adicionar(numeroDoProcesso);
+        var adicionar = (function () {
+          return {
+            guia: function (numero) {
+              var tahDefinido = ad.guia.numero;
 
-          ad.guia.atualizarProcessos();
-        }
+              if (!tahDefinido || (tahDefinido && $window.confirm("Trocar?"))) {
+                ad.guia.numero = parseInt(numero);
+              }
+            },
+            malote: function (numero) {
+              var tahDefinido = ad.guia.malote.numero;
+
+              if (!tahDefinido || (tahDefinido && $window.confirm("Trocar?"))) {
+                ad.guia.malote.numero = Malote.numero(numero);
+              }
+
+              var percurso = Malote.percurso(numero);
+              var destinatario = Malote.destinatario(percurso);
+
+              if (destinatario) {
+                ad.guia.destinatario = destinatario;
+              } else {
+                $window.alert("Destinatário não localizado!")
+              }
+            },
+            processo: function (numero) {
+              var formatado = Processo.formatar(numero);
+
+              ad.guia.processos.adicionar(formatado);
+            }
+          };
+        })();
 
         var limparInput = function () {
-          ad.codigoDeBarras = angular.noop();
-        }
+          ad.codigoDeBarras = undefined;
+        };
 
         var ehPraGerarGuia = codigoDeBarras === "GERAR";
         var ehPraAdicionarGuia = codigoDeBarras < 1000;
         var ehPraAdicionarMalote = codigoDeBarras.length === 35;
+        var ehPraAdicionarProcesso = Processo.eh(codigoDeBarras);
 
         if (ehPraGerarGuia) {
           ad.gerarGuia();
           limparInput();
         } else if (ehPraAdicionarGuia) {
-          adicionarGuia(codigoDeBarras);
+          adicionar.guia(codigoDeBarras);
           limparInput();
         } else if (ehPraAdicionarMalote) {
-          adicionarMalote(codigoDeBarras);
+          adicionar.malote(codigoDeBarras);
           limparInput();
-        } else if (Processo.eh(codigoDeBarras)) {
-          adicionarProcesso(codigoDeBarras);
+        } else if (ehPraAdicionarProcesso) {
+          adicionar.processo(codigoDeBarras);
           limparInput();
         } else {
-          alert("O número '" + codigoDeBarras +  "' é inválido!");
+          $window.alert("Dado inválido!");
         }
       }
     };
 
-    ad.removerProcesso = function (numeroDoProcesso) {
-      if (Tela.confirmar("Atenção", "Tem certeza?")) {
-        Processos.remover(numeroDoProcesso);
-
-        ad.guia.atualizarProcessos();
+    ad.removerProcesso = function (numero) {
+      if (ad.guia.processos.tem(numero)) {
+        if ($window.confirm("Certeza?")) {
+          ad.guia.processos.remover(numero);
+        } else {
+          $window.alert("Tudo bem!");
+        }
+      } else {
+        $window.alert("Erro!");
       }
     };
   }

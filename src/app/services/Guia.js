@@ -9,18 +9,61 @@
     var guia = this;
     ////////////////
 
-    guia.dados = {};
+    guia.numero = undefined;
 
-    guia.definir = function (dados) {
-      angular.extend(guia.dados, dados);
+    guia.malote = {
+      numero: undefined,
+      vai: true
     };
 
-    guia.obter = function () {
-      return guia.dados;
-    };
+    guia.destinatario = undefined;
 
-    guia.tahVazia = function () {
-      return angular.equals(guia.dados, {});
+    guia.processos = {
+      lista: [],
+      adicionar: function (numero) {
+        if (this.tem(numero)) {
+          this.aumentarVolume(numero);
+        } else {
+          this.lista.push({
+            item: this.lista.length + 1,
+            numero: numero,
+            volume: 1
+          });
+        }
+      },
+      aumentarVolume: function (numero) {
+        this.lista.forEach(function (processo, indice) {
+          if (processo.numero === numero) {
+            ++this.lista[indice].volume;
+          }
+        }.bind(this));
+      },
+      diminuirVolume: function (numero) {
+        this.lista.forEach(function (processo, indice) {
+          if (processo.numero === numero && this.lista[indice].volume > 1) {
+            --this.lista[indice].volume;
+          }
+        }.bind(this));
+      },
+      remover: function (numero) {
+        this.lista = this.lista.filter(function (processo) {
+          return processo.numero !== numero;
+        });
+
+        this.lista = this.lista.map(function (processo, indice) {
+          processo.item = ++indice;
+
+          return processo;
+        });
+      },
+      tahVazio: function (numero) {
+        return angular.equals(this.lista, []);
+      },
+      tem: function (numero) {
+        return this.lista.some(function (processo) {
+          return processo.numero === numero;
+        });
+      }
     };
   }
 })();
