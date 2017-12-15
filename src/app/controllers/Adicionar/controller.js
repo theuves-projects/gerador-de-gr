@@ -8,7 +8,6 @@
   function Adicionar(
       $location
     , $window
-    , Configuracoes
     , Destinatarios
     , Guia
     , Malote
@@ -48,10 +47,11 @@
           $window.alert("Informe o destinatário!");
         } else if (faltaProcessos) {
           $window.alert("Informe os processos!");
-        }
+        } else {
+          alert("Erro!");
 
-        Tela.alertar("Erro", "Erro desconhecido!");
-        return;
+          return;
+        }
       }
 
       $location.url("/imprimir");
