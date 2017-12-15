@@ -77,15 +77,15 @@
 
               if (!tahDefinido || (tahDefinido && $window.confirm("Trocar?"))) {
                 ad.guia.malote.numero = Malote.numero(numero);
-              }
 
-              var percurso = Malote.percurso(numero);
-              var destinatario = Malote.destinatario(percurso);
+                var percurso = Malote.percurso(numero);
+                var destinatario = Malote.destinatario(percurso);
 
-              if (destinatario) {
-                ad.guia.destinatario = destinatario;
-              } else {
-                $window.alert("Destinatário não localizado!")
+                if (destinatario) {
+                  ad.guia.destinatario = destinatario;
+                } else {
+                  $window.alert("Destinatário não localizado!")
+                }
               }
             },
             processo: function (numero) {
