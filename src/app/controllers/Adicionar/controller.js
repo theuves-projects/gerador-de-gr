@@ -63,11 +63,6 @@
       var codigoDeBarras = ad.codigoDeBarras;
 
       if (codigoDeBarras) {
-
-        var adicionarMalote = function (numeroDoProcesso) {
-
-        }
-
         var adicionar = (function () {
           return {
             guia: function (numero) {
