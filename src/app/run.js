@@ -9,16 +9,21 @@
       $window
     , Configuracoes
     , Destinatarios
-    , Guia
     ) {
+
+      /**
+       * Configurar destinatários.
+       */
       if (!Configuracoes.tem("destinatarios")) {
         Destinatarios.iniciar();
       }
 
+      /**
+       * Configurar nome do usuário.
+       */
       if (!Configuracoes.tem("usuario")) {
-        var nome = $window.prompt("Informe seu nome:");
-
-        nome = angular.uppercase(nome || "");
+        var respota = $window.prompt("Informe seu nome:");
+        var nome = angular.uppercase(respota || "");
 
         Configuracoes.adicionar("usuario", nome);
       }
