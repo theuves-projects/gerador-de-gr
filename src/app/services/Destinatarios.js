@@ -10,7 +10,7 @@
     ////////////////
 
     dest.iniciar = function () {
-      var listaDeDestinatarios = [
+      var destinatarios = [
 
         /**
          * amambai
@@ -184,20 +184,17 @@
         "VARA DO TRABALHO DE SETE QUEDAS/MS"
       ];
 
-      Configuracoes.adicionar("listaDeDestinatarios", listaDeDestinatarios);
+      Configuracoes.adicionar("destinatarios", destinatarios);
     }
 
     dest.obter = function () {
-      var listaEmJson = localStorage.getItem("listaDeDestinatarios");
-      var lista = angular.fromJson(listaEmJson);
+      var destinatarios = Configuracoes.obter("destinatarios");
 
-      return lista;
+      return destinatarios;
     }
 
-    dest.salvar = function (destinatarios) {
-      var listaEmJson = angular.toJson(destinatarios);
-
-      localStorage.setItem("listaDeDestinatarios", listaEmJson);
+    dest.adicionar = function (destinatarios) {
+      Configuracoes.adicionar("destinatarios", destinatarios);
     }
   }
 })();
