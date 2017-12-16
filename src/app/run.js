@@ -11,16 +11,16 @@
     , Destinatarios
     , Guia
     ) {
-      if (Configuracoes.naoTem("listaDeDestinatarios")) {
+      if (!Configuracoes.tem("destinatarios")) {
         Destinatarios.iniciar();
       }
 
-      if (Configuracoes.naoTem("nomeDoUsuario")) {
+      if (!Configuracoes.tem("usuario")) {
         var nome = $window.prompt("Informe seu nome:");
 
         nome = angular.uppercase(nome || "");
 
-        Configuracoes.adicionar("nomeDoUsuario", nome);
+        Configuracoes.adicionar("usuario", nome);
       }
     }
 })();
