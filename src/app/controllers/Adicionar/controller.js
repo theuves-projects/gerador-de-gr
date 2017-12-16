@@ -12,7 +12,6 @@
     , Guia
     , Malote
     , Processo
-    , Tela
   ) {
     var ad = this;
     //////////////
@@ -21,9 +20,78 @@
 
     ad.guia = Guia;
 
-    ad.informarErro = function (evento) {
+    ad.adicionarDados = function (evento) {
       if (evento.code === "Enter") {
-        $window.alert("Por aqui, os dados não são formatados.")
+        var ehComando = ad.codigoDeBarras.charAt(0) === ":";
+
+        if (ehComando) {
+          var comando = ad.codigoDeBarras
+            .substr(1)
+            .toUpperCase();
+
+          switch (comando) {
+            case "GERAR":
+              ad.gerarGuia();
+              ad.codigoDeBarras = undefined;
+              break;
+
+            default:
+              $window.alert("Comando inválido!");
+          }
+
+          return;
+        }
+
+        var ehGuia = ad.codigoDeBarras < 1000;
+        var ehMalote = ad.codigoDeBarras.length === 35;
+        var ehProcesso = Processo.eh(ad.codigoDeBarras);
+
+        // Guia:
+        // =====
+        if (ehGuia) {
+          var tahDefinido = ad.guia.numero;
+
+          if (tahDefinido) {
+            var trocar = $window.confirm("Trocar?");
+
+            if (trocar) {
+              ad.guia.numero = parseInt(ad.codigoDeBarras);
+            }
+          }
+
+          ad.codigoDeBarras = undefined;
+          return;
+        }
+
+        // Malote:
+        // =======
+        if (ehMalote) {
+          var tahDefinido = ad.guia.malote.numero;
+
+          if (tahDefinido) {
+            var trocar = $window.confirm("Trocar?");
+
+            if (trocar) {
+              ad.guia.malote.numero = Malote.numero(ad.codigoDeBarras);
+            }
+          }
+
+          ad.codigoDeBarras = undefined;
+          return;
+        }
+
+        // Processo:
+        // =========
+        if (ehProcesso) {
+          var numeroFormatado = Processo.formatar(ad.codigoDeBarras);
+
+          ad.guia.processos.adicionar(numeroFormatado);
+
+          ad.codigoDeBarras = undefined;
+          return;
+        }
+
+        $window.alert("Inválido!");
       }
     };
 
@@ -49,77 +117,17 @@
           $window.alert("Informe os processos!");
         } else {
           alert("Erro!");
-
-          return;
         }
+
+        return;
       }
 
       $location.url("/imprimir");
     };
 
-    ad.adicionarDados = function (evento) {
-      if (evento.code !== "Enter") return;
-
-      var codigoDeBarras = ad.codigoDeBarras;
-
-      if (codigoDeBarras) {
-        var adicionar = (function () {
-          return {
-            guia: function (numero) {
-              var tahDefinido = ad.guia.numero;
-
-              if (!tahDefinido || (tahDefinido && $window.confirm("Trocar?"))) {
-                ad.guia.numero = parseInt(numero);
-              }
-            },
-            malote: function (numero) {
-              var tahDefinido = ad.guia.malote.numero;
-
-              if (!tahDefinido || (tahDefinido && $window.confirm("Trocar?"))) {
-                ad.guia.malote.numero = Malote.numero(numero);
-
-                var percurso = Malote.percurso(numero);
-                var destinatario = Malote.destinatario(percurso);
-
-                if (destinatario) {
-                  ad.guia.destinatario = destinatario;
-                } else {
-                  $window.alert("Destinatário não localizado!")
-                }
-              }
-            },
-            processo: function (numero) {
-              var formatado = Processo.formatar(numero);
-
-              ad.guia.processos.adicionar(formatado);
-            }
-          };
-        })();
-
-        var limparInput = function () {
-          ad.codigoDeBarras = undefined;
-        };
-
-        var ehPraGerarGuia = codigoDeBarras === "GERAR";
-        var ehPraAdicionarGuia = codigoDeBarras < 1000;
-        var ehPraAdicionarMalote = codigoDeBarras.length === 35;
-        var ehPraAdicionarProcesso = Processo.eh(codigoDeBarras);
-
-        if (ehPraGerarGuia) {
-          ad.gerarGuia();
-          limparInput();
-        } else if (ehPraAdicionarGuia) {
-          adicionar.guia(codigoDeBarras);
-          limparInput();
-        } else if (ehPraAdicionarMalote) {
-          adicionar.malote(codigoDeBarras);
-          limparInput();
-        } else if (ehPraAdicionarProcesso) {
-          adicionar.processo(codigoDeBarras);
-          limparInput();
-        } else {
-          $window.alert("Dado inválido!");
-        }
+    ad.informarErro = function (evento) {
+      if (evento.code === "Enter") {
+        $window.alert("Por aqui, os dados não são formatados.")
       }
     };
 
@@ -127,8 +135,6 @@
       if (ad.guia.processos.tem(numero)) {
         if ($window.confirm("Certeza?")) {
           ad.guia.processos.remover(numero);
-        } else {
-          $window.alert("Tudo bem!");
         }
       } else {
         $window.alert("Erro!");
