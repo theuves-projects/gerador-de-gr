@@ -8,20 +8,19 @@
   function Configurar(
       $window
     , $location
+    , $anchorScroll
     , Configuracoes
     , Destinatarios
-    , Tela
   ) {
     var conf = this;
     ////////////////
 
     conf.usuario = {
-      nome: Configuracoes.obter("nomeDoUsuario"),
+      nome: Configuracoes.obter("usuario"),
       salvar: function () {
-        Configuracoes.adicionar("nomeDoUsuario", angular.uppercase(this.nome));
+        Configuracoes.adicionar("usuario", angular.uppercase(this.nome));
 
-        alert("Salvo!");
-
+        $window.alert("Salvo!");
         $window.location.reload();
       }
     };
@@ -33,13 +32,13 @@
         if (evento.key !== "Enter") return;
 
         if (angular.equals(this.novo.trim(), "")) {
-          Tela.alertar("Erro", "Informe algo!");
+          $window.alert("Informe algo!");
 
           return;
         }
 
         if (this.tem(this.novo)) {
-          Tela.alertar("Erro", "O destinatário informado já existe!");
+          $window.alert("O destinatário informado já existe!");
 
           return;
         }
@@ -48,7 +47,7 @@
         this.novo = "";
       },
       remover: function (indice) {
-        if (Tela.confirmar("Atenção", "Tem certeza?")) {
+        if ($window.confirm("Tem certeza?")) {
           delete this.lista[indice];
 
           this.lista = this.lista.filter(function (item) {
@@ -57,10 +56,9 @@
         }
       },
       salvar: function () {
-        Destinatarios.salvar(this.lista);
+        Destinatarios.adicionar(this.lista);
 
-        alert("Salvo!");
-
+        $window.alert("Salvo!");
         $window.location.reload();
       },
       tem: function (destinatario) {
@@ -68,10 +66,14 @@
       }
     };
 
+    conf.iniciar = function () {
+      $anchorScroll.yOffset = 10;
+      $anchorScroll();
+    };
+
     conf.voltar = function() {
       $location.hash("");
-
-      return $location.path("/");
+      $location.path("/");
     };
   }
 })();
