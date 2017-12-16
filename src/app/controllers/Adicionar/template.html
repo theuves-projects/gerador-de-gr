@@ -49,16 +49,14 @@
     </div>
   </div>
 
-  <div data-ng-class="{'g-linha': true, 'g-margin-baixo-5': !ad.guia.processos.tahVazio()}">
-    <div class="g-coluna">
-      <input
-        data-ng-model="ad.codigoDeBarras"
-        data-ng-keypress="ad.adicionarDados($event)"
-        data-focar
-        class="g-campo g-largura-total g-centralizar"
-        type="text"
-        placeholder="ESCANEIE OU DÍGITE AQUI...">
-    </div>
+  <div class="g-pad-2">
+    <input
+      data-ng-model="ad.codigoDeBarras"
+      data-ng-keypress="ad.adicionarDados($event)"
+      data-focar
+      class="g-campo g-largura-total g-centralizar"
+      type="text"
+      placeholder="ESCANEIE OU DÍGITE AQUI...">
   </div>
 
   <div data-ng-if="!ad.guia.processos.tahVazio()">

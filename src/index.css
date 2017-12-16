@@ -115,6 +115,14 @@
 }
 
 /**
+ * Padding
+ * -------
+ */
+.g-pad-2 {
+  padding: 2px;
+}
+
+/**
  * Posicionamento
  */
 
