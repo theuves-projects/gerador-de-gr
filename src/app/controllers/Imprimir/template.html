@@ -1,4 +1,7 @@
-<div id="imprimir">
+<div
+  data-ng-init="impr.iniciar()"
+  id="imprimir">
+
   <div class="g-linha configuracoes">
     <div class="g-coluna">
       <button
@@ -39,8 +42,8 @@
         GUIA DE REMESSA DE CARGA Nº {{impr.guia.numero}}/{{impr.data | date:'yyyy'}}
 
         <!-- número do malote -->
-        <span data-ng-if="impr.guia.vaiMalote">
-          (MALOTE {{impr.guia.malote}})
+        <span data-ng-if="impr.guia.malote.vai">
+          (MALOTE {{impr.guia.malote.numero}})
         </span>
 
         <div
@@ -65,7 +68,7 @@
       <td>VOLUME</td>
     </tr>
     <tr
-      data-ng-repeat="processo in impr.guia.processos"
+      data-ng-repeat="processo in impr.guia.processos.lista"
       class="processos monoespacado">
       <td>{{processo.item}}</td>
       <td>PROCESSO</td>
@@ -92,7 +95,7 @@
           <span class="g-negrito">REMETIDO EM:</span> {{impr.data | date:'dd/MM/yyyy HH:mm'}}
         </p>
         <p>
-          <span class="g-negrito">RESPONSÁVEL:</span> <span class="monoespacado">{{impr.nomeDoUsuario}}</span>
+          <span class="g-negrito">RESPONSÁVEL:</span> <span class="monoespacado">{{impr.usuario}}</span>
         </p>
       </td>
       <td
@@ -109,7 +112,7 @@
   </table>
 
   <!-- mensagem no canto inferior direito -->
-  <!-- vai aparecer somente quando for imprimir -->
+  <!-- (vai aparecer somente quando for imprimir) -->
   <span class="devolver">
     FAVOR DEVOLVER UMA VIA RECIBADA
   </span>
