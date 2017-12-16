@@ -61,12 +61,16 @@
   text-transform: uppercase;
 }
 
-.g-botao:hover {
+.g-botao:not(:disabled):hover {
   opacity: 0.9;
 }
 
 .g-botao:active {
   opacity: 1;
+}
+
+.g-botao:disabled {
+  filter: grayscale(100%);
 }
 
 .g-botao-verde {
@@ -125,6 +129,11 @@
 /**
  * Cursor
  */
+
+*:disabled {
+  cursor: not-allowed;
+}
+
 .g-cursor-padrao {
   cursor: default;
 }
