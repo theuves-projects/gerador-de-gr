@@ -20,7 +20,7 @@
     </div>
     <div class="g-coluna">
       <input
-        data-ng-model="ad.guia.malote.malote"
+        data-ng-model="ad.guia.malote.numero"
         data-ng-keypress="ad.informarErro($event)"
         data-ng-disabled="!ad.guia.malote.vai"
         class="g-campo g-largura-total"
@@ -82,6 +82,7 @@
             <div class="g-coluna">
               <button
                 data-ng-click="ad.guia.processos.diminuirVolume(processo.numero)"
+                data-ng-disabled="ad.guia.processos.obter(processo.numero).volume === 1"
                 class="g-botao g-botao-azul g-largura-total">
 
                 <i class="fa fa-arrow-down"></i>
