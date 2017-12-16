@@ -22,7 +22,7 @@
 
     ad.adicionarDados = function (evento) {
       if (evento.code === "Enter") {
-        var ehComando = ad.codigoDeBarras.charAt(0) === ":";
+        var ehComando = ad.codigoDeBarras.startsWith(":");
 
         if (ehComando) {
           var comando = ad.codigoDeBarras
@@ -34,7 +34,6 @@
               ad.gerarGuia();
               ad.codigoDeBarras = undefined;
               break;
-
             default:
               $window.alert("Comando inválido!");
           }
@@ -46,47 +45,30 @@
         var ehMalote = ad.codigoDeBarras.length === 35;
         var ehProcesso = Processo.eh(ad.codigoDeBarras);
 
-        // Guia:
-        // =====
         if (ehGuia) {
           var tahDefinido = ad.guia.numero;
+          var tipoNumber = parseInt(ad.codigoDeBarras);
+          var alterar = tahDefinido ? $window.confirm("Trocar?") : true;
 
-          if (tahDefinido) {
-            var trocar = $window.confirm("Trocar?");
-
-            if (trocar) {
-              ad.guia.numero = parseInt(ad.codigoDeBarras);
-            }
-          }
-
+          if (alterar) ad.guia.numero = tipoNumber;
           ad.codigoDeBarras = undefined;
           return;
         }
 
-        // Malote:
-        // =======
         if (ehMalote) {
           var tahDefinido = ad.guia.malote.numero;
+          var malote = Malote.numero(ad.codigoDeBarras);
+          var alterar = tahDefinido ? $window.confirm("Trocar?") : true;
 
-          if (tahDefinido) {
-            var trocar = $window.confirm("Trocar?");
-
-            if (trocar) {
-              ad.guia.malote.numero = Malote.numero(ad.codigoDeBarras);
-            }
-          }
-
+          if (alterar) ad.guia.malote.numero = malote;
           ad.codigoDeBarras = undefined;
           return;
         }
 
-        // Processo:
-        // =========
         if (ehProcesso) {
           var numeroFormatado = Processo.formatar(ad.codigoDeBarras);
 
           ad.guia.processos.adicionar(numeroFormatado);
-
           ad.codigoDeBarras = undefined;
           return;
         }
@@ -107,18 +89,27 @@
         || faltaDestinatario
         || faltaProcessos
       ) {
-        if (faltaNumero) {
-         $window.alert("Informe o número da guia!");
-        } else if (faltaMalote) {
-          $window.alert("Informe o número do malote!");
-        } else if (faltaDestinatario) {
-          $window.alert("Informe o destinatário!");
-        } else if (faltaProcessos) {
-          $window.alert("Informe os processos!");
-        } else {
-          $window.alert("Erro!");
-        }
+        var mensagem =
+            faltaNumero? "Informe o número da guia!"
+          : faltaMalote? "Informe o número do malote!"
+          : faltaDestinatario? "Informe o destinatário!"
+          : faltaProcessos? "Informe os processos!"
+          : "Erro!";
 
+        $window.alert(mensagem);
+        return;
+      }
+
+      var numeroEhInValido = !/^\d+$/.test(ad.guia.numero);
+      var maloteEhInValido = ad.guia.malote.vai && !/^\d{5}$/.test(ad.guia.malote.numero);
+
+      if (numeroEhInValido || maloteEhInValido) {
+        var mensagem =
+            numeroEhInValido? "O número da guia é inválido!"
+          : maloteEhInValido? "O número do malote é inválido!"
+          : "Erro!";
+
+        $window.alert(mensagem);
         return;
       }
 
@@ -133,12 +124,12 @@
 
     ad.removerProcesso = function (numero) {
       if (ad.guia.processos.tem(numero)) {
-        if ($window.confirm("Certeza?")) {
-          ad.guia.processos.remover(numero);
-        }
-      } else {
-        $window.alert("Erro!");
+        var remover = $window.confirm("Certeza?");
+        if (remover) ad.guia.processos.remover(numero);
+        return;
       }
+
+      $window.alert("Erro!");
     };
   }
 })();
