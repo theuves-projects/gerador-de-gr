@@ -45,6 +45,11 @@
           }
         }.bind(this));
       },
+      obter: function (numero) {
+        return this.lista.find(function (processo) {
+          if (processo.numero === numero) return processo;
+        });
+      },
       remover: function (numero) {
         this.lista = this.lista.filter(function (processo) {
           return processo.numero !== numero;
@@ -64,6 +69,12 @@
           return processo.numero === numero;
         });
       }
+    };
+
+    guia.tahVazia = function () {
+
+      // sem processos, sem guia.
+      return guia.processos.lista.length === 0;
     };
   }
 })();
