@@ -97,9 +97,9 @@
 
     ad.gerarGuia = function () {
       var faltaNumero = !ad.guia.numero;
-      var faltaMalote = !ad.guia.malote.numero && ad.guia.vai;
+      var faltaMalote = ad.guia.malote.vai && !ad.guia.malote.numero;
       var faltaDestinatario = !ad.guia.destinatario;
-      var faltaProcessos = !ad.guia.processos.lista;
+      var faltaProcessos = ad.guia.processos.tahVazio();
 
       if (
            faltaNumero
@@ -116,7 +116,7 @@
         } else if (faltaProcessos) {
           $window.alert("Informe os processos!");
         } else {
-          alert("Erro!");
+          $window.alert("Erro!");
         }
 
         return;
