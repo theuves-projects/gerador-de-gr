@@ -70,10 +70,10 @@
     <tr
       data-ng-repeat="processo in impr.guia.processos.lista"
       class="processos monoespacado">
-      <td>{{processo.item}}</td>
+      <td>{{processo.item | preencher:2 }}</td>
       <td>PROCESSO</td>
       <td data-selecionar>{{processo.numero}}</td>
-      <td>{{processo.volume}}</td>
+      <td>{{processo.volume | preencher:2 }}</td>
     </tr>
     <tr class="g-centralizar g-negrito">
       <td

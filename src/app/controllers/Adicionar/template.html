@@ -66,9 +66,9 @@
 
     <table class="g-largura-total">
       <tr data-ng-repeat="processo in ad.guia.processos.lista | orderBy:'-item'">
-        <td class="g-italico g-texto-cinza">{{processo.item}}.</td>
+        <td class="g-italico g-texto-cinza">{{processo.item | preencher:2 }}.</td>
         <td data-selecionar>{{processo.numero}}</td>
-        <td>{{processo.volume}}</td>
+        <td>{{processo.volume | preencher:2 }}</td>
         <td>
           <div class="g-linha">
             <div class="g-coluna">
