@@ -9,31 +9,37 @@
     var conf = this;
     ////////////////
 
-    conf.adicionar = function (item, valor) {
-      var valorEmJson = angular.toJson(valor);
+    conf.$PREFIXO = "g-";
 
-      return localStorage.setItem(item, valorEmJson);
+    conf.$prefixar = function (item) {
+      return conf.$PREFIXO + item;
     };
 
-    conf.naoTem = function (item) {
-      return !conf.tem(item);
-    }
+    conf.adicionar = function (item, valor) {
+      var itemComPrefixo = conf.$prefixar(item);
+      var valorEmJson = angular.toJson(valor);
+
+      localStorage.setItem(itemComPrefixo, valorEmJson);
+    };
 
     conf.obter = function (item) {
-      var valorEmJson = localStorage.getItem(item);
-      var valor = angular.fromJson(valorEmJson);
+      var itemComPrefixo = conf.$prefixar(item);
+      var valorEmJson = localStorage.getItem(itemComPrefixo);
+      var valorCru = angular.fromJson(valorEmJson);
 
-      return valor;
+      return valorCru;
     };
 
     conf.remover = function (item) {
-      return localStorage.removeItem(item);
+      var itemComPrefixo = conf.$prefixar(item);
+
+      localStorage.removeItem(itemComPrefixo);
     };
 
     conf.tem = function (item) {
-      var valorEmJson = localStorage.getItem(item);
+      var itemComPrefixo = conf.$prefixar(item);
 
-      return valorEmJson !== null;
+      return itemComPrefixo in localStorage;
     }
   }
 })();
