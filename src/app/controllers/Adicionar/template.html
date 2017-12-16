@@ -10,7 +10,7 @@
   </header>
 
   <div class="g-linha">
-    <div class="g-coluna">
+    <div class="g-coluna g-pad-2">
       <input
         data-ng-model="ad.guia.numero"
         data-ng-keypress="ad.informarErro($event)"
@@ -18,7 +18,7 @@
         type="text"
         placeholder="NÚMERO DA GUIA">
     </div>
-    <div class="g-coluna">
+    <div class="g-coluna g-pad-2">
       <input
         data-ng-model="ad.guia.malote.numero"
         data-ng-keypress="ad.informarErro($event)"
@@ -30,7 +30,7 @@
   </div>
 
   <div class="g-linha">
-    <div class="g-coluna">
+    <div class="g-coluna g-pad-2">
       <select
         data-ng-model="ad.guia.destinatario"
         class="g-campo g-largura-total">
@@ -50,7 +50,7 @@
   </div>
 
   <div data-ng-class="{'g-linha': true, 'g-margin-baixo-10': !ad.guia.processos.tahVazio()}">
-    <div class="g-coluna">
+    <div class="g-coluna g-pad-2">
       <input
         data-ng-model="ad.codigoDeBarras"
         data-ng-keypress="ad.adicionarDados($event)"
@@ -62,7 +62,7 @@
   </div>
 
   <div data-ng-if="!ad.guia.processos.tahVazio()">
-    <p class="g-negrito">LISTA DE PROCESSOS JÁ ADICIONADOS:</p>
+    <p class="g-pad-2 g-negrito">LISTA DE PROCESSOS JÁ ADICIONADOS:</p>
 
     <table class="g-largura-total">
       <tr data-ng-repeat="processo in ad.guia.processos.lista | orderBy:'-item'">
@@ -71,7 +71,7 @@
         <td>{{processo.volume | preencher:2 }}</td>
         <td>
           <div class="g-linha">
-            <div class="g-coluna">
+            <div class="g-coluna g-pad-2">
               <button
                 data-ng-click="ad.guia.processos.aumentarVolume(processo.numero)"
                 class="g-botao g-botao-azul g-largura-total">
@@ -79,7 +79,7 @@
                 <i class="fa fa-arrow-up"></i>
               </button>
             </div>
-            <div class="g-coluna">
+            <div class="g-coluna g-pad-2">
               <button
                 data-ng-click="ad.guia.processos.diminuirVolume(processo.numero)"
                 data-ng-disabled="ad.guia.processos.obter(processo.numero).volume === 1"
@@ -88,7 +88,7 @@
                 <i class="fa fa-arrow-down"></i>
               </button>
             </div>
-            <div class="g-coluna">
+            <div class="g-coluna g-pad-2">
               <button
                 data-ng-click="ad.removerProcesso(processo.numero)"
                 class="g-botao g-botao-vermelho g-largura-total">
@@ -103,7 +103,7 @@
   </div>
 
   <div class="g-linha">
-    <div class="g-coluna">
+    <div class="g-coluna g-pad-2">
       <button
         data-ng-click="ad.gerarGuia()"
         class="g-botao g-botao-verde g-largura-total g-negrito">

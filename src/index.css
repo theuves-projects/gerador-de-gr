@@ -45,6 +45,14 @@
 
 .g-coluna {
   flex-grow: 1;
+}
+
+/**
+ * Padding
+ * -------
+ */
+
+.g-pad-2 {
   padding: 2px;
 }
 
