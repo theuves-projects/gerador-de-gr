@@ -1,18 +1,24 @@
-<input
-  data-ng-model="ligado"
-  id="cb-checkbox"
-  type="checkbox"
-  hidden>
+<div id="cb">
+  <input
+    ng-model="cbLigado"
+    id="cb-input"
+    type="checkbox"
+    hidden>
 
-<label
-  class="cb-label"
-  for="cb-checkbox">
+  <label
+    class="cb-label"
+    for="cb-input">
 
-  <div data-ng-class="{'cb-interruptor': true, 'cb-desligado': !ligado}">
-    <div class="cb-botao">
-      <div class="cb-botao-sombra"></div>
+    <div
+      ng-class="cbClass"
+      ng-style="cbStyle"
+      class="cb-interruptor">
+
+      <div class="cb-botao">
+        <div class="cb-botao-sombra"></div>
+      </div>
     </div>
-  </div>
 
-  <p>{{mensagem}}</p>
-</label>
+    <p>{{cbMensagem}}</p>
+  </label>
+</div>

@@ -20,61 +20,79 @@
 
     ad.guia = Guia;
 
+    ad.abrirConfiguracoes = function () {
+      $location.url("/configurar");
+    };
+
     ad.adicionarDados = function (evento) {
-      if (evento.code === "Enter") {
-        var ehComando = ad.codigoDeBarras.startsWith(":");
-
-        if (ehComando) {
-          var comando = ad.codigoDeBarras
-            .substr(1)
-            .toUpperCase();
-
-          switch (comando) {
-            case "GERAR":
-              ad.gerarGuia();
-              ad.codigoDeBarras = undefined;
-              break;
-            default:
-              $window.alert("Comando inválido!");
-          }
-
-          return;
-        }
-
-        var ehGuia = ad.codigoDeBarras < 1000;
-        var ehMalote = ad.codigoDeBarras.length === 35;
-        var ehProcesso = Processo.eh(ad.codigoDeBarras);
-
-        if (ehGuia) {
-          var tahDefinido = ad.guia.numero;
-          var tipoNumber = parseInt(ad.codigoDeBarras);
-          var alterar = tahDefinido ? $window.confirm("Trocar?") : true;
-
-          if (alterar) ad.guia.numero = tipoNumber;
-          ad.codigoDeBarras = undefined;
-          return;
-        }
-
-        if (ehMalote) {
-          var tahDefinido = ad.guia.malote.numero;
-          var malote = Malote.numero(ad.codigoDeBarras);
-          var alterar = tahDefinido ? $window.confirm("Trocar?") : true;
-
-          if (alterar) ad.guia.malote.numero = malote;
-          ad.codigoDeBarras = undefined;
-          return;
-        }
-
-        if (ehProcesso) {
-          var numeroFormatado = Processo.formatar(ad.codigoDeBarras);
-
-          ad.guia.processos.adicionar(numeroFormatado);
-          ad.codigoDeBarras = undefined;
-          return;
-        }
-
-        $window.alert("Inválido!");
+      if (angular.isUndefined(ad.codigoDeBarras)) {
+        $window.alert("Informe algo!");
+        return;
       }
+
+      var ehComando = ad.codigoDeBarras.startsWith(":");
+
+      if (ehComando) {
+        var comando = ad.codigoDeBarras
+          .substr(1)
+          .toUpperCase();
+
+        switch (comando) {
+          case "CONFIGURAR":
+            ad.abrirConfiguracoes();
+            ad.codigoDeBarras = undefined;
+            break;
+          case "GERAR":
+            ad.gerarGuia();
+            ad.codigoDeBarras = undefined;
+            break;
+          case "NOVO":
+            ad.criarNovo();
+            ad.codigoDeBarras = undefined;
+            break;
+          default:
+            $window.alert("Comando inválido!");
+        }
+
+        return;
+      }
+
+      var ehGuia = ad.codigoDeBarras < 1000;
+      var ehMalote = ad.codigoDeBarras.length === 35;
+      var ehProcesso = Processo.eh(ad.codigoDeBarras);
+
+      if (
+           !ehGuia
+        && !ehMalote
+        && !ehProcesso
+      ) {
+        $window.alert("Inválido!");
+        return;
+      }
+
+      if (ehGuia) {
+        var tahDefinido = ad.guia.numero;
+        var tipoNumber = parseInt(ad.codigoDeBarras);
+        var fazer = tahDefinido ? $window.confirm("Trocar?") : true;
+
+        if (fazer) ad.guia.numero = tipoNumber;
+      }
+
+      if (ehMalote) {
+        var tahDefinido = ad.guia.malote.numero;
+        var malote = Malote.numero(ad.codigoDeBarras);
+        var fazer = tahDefinido ? $window.confirm("Trocar?") : true;
+
+        if (fazer) ad.guia.malote.numero = malote;
+      }
+
+      if (ehProcesso) {
+        var numeroFormatado = Processo.formatar(ad.codigoDeBarras);
+
+        ad.guia.processos.adicionar(numeroFormatado);
+      }
+
+      ad.codigoDeBarras = undefined;
     };
 
     ad.gerarGuia = function () {
@@ -117,15 +135,21 @@
     };
 
     ad.informarErro = function (evento) {
-      if (evento.code === "Enter") {
-        $window.alert("Por aqui, os dados não são formatados.")
-      }
+      if (evento.code !== "Enter") return;
+      $window.alert("Por aqui, os dados não são formatados.")
+    };
+
+    ad.criarNovo = function () {
+      var fazer = $window.confirm("Certeza?");
+
+      if (fazer) $window.location.reload();
     };
 
     ad.removerProcesso = function (numero) {
       if (ad.guia.processos.tem(numero)) {
-        var remover = $window.confirm("Certeza?");
-        if (remover) ad.guia.processos.remover(numero);
+        var fazer = $window.confirm("Certeza?");
+
+        if (fazer) ad.guia.processos.remover(numero);
         return;
       }
 
