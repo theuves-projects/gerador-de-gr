@@ -26,7 +26,7 @@ npm
 favicon
 -------
 
-o [ícone](./favicon.ico) foi obtido [aqui](https://goo.gl/gLfGDu).
+o [ícone](./src/favicon.ico) foi obtido [aqui](https://goo.gl/gLfGDu).
 
 licença
 -------
