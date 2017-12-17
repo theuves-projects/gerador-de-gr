@@ -9,7 +9,7 @@
     var mal = this;
     ///////////////
 
-    mal.numero = function (codigoDeBarras) {
+    mal.numero = function numero(codigoDeBarras) {
       return codigoDeBarras.replace(/^.*(\d{5})$/, "$1");
     };
   }

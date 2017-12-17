@@ -11,18 +11,18 @@
 
     conf.$PREFIXO = "g-";
 
-    conf.$prefixar = function (item) {
+    conf.$prefixar = function $prefixar(item) {
       return conf.$PREFIXO + item;
     };
 
-    conf.adicionar = function (item, valor) {
+    conf.adicionar = function adicionar(item, valor) {
       var itemComPrefixo = conf.$prefixar(item);
       var valorEmJson = angular.toJson(valor);
 
       $window.localStorage.setItem(itemComPrefixo, valorEmJson);
     };
 
-    conf.obter = function (item) {
+    conf.obter = function obter(item) {
       var itemComPrefixo = conf.$prefixar(item);
       var valorEmJson = $window.localStorage.getItem(itemComPrefixo);
       var valorCru = angular.fromJson(valorEmJson);
@@ -30,13 +30,13 @@
       return valorCru;
     };
 
-    conf.remover = function (item) {
+    conf.remover = function remover(item) {
       var itemComPrefixo = conf.$prefixar(item);
 
       $window.localStorage.removeItem(itemComPrefixo);
     };
 
-    conf.tem = function (item) {
+    conf.tem = function tem(item) {
       var itemComPrefixo = conf.$prefixar(item);
 
       return itemComPrefixo in $window.localStorage;

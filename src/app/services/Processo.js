@@ -9,46 +9,42 @@
     var proc = this;
     ////////////////
 
-    proc.limpar = function (numero) {
-      numero = numero
+    proc.limpar = function limpar(numero) {
+      var limpo = numero
         .toString()
         .trim()
         .replace(/[+-.\s]/g, "");
 
-      if (numero.length > 20) {
-        numero = numero.replace(/\d{5}$/g, "");
-      }
-
-      return numero;
+      return limpo.length > 20
+        ? numero.replace(/\d{5}$/g, "")
+        : limpo;
     };
 
-    proc.eh = function (numero) {
+    proc.eh = function eh(numero) {
       return /^(\d{12,13}|\d{20})$/.test(proc.limpar(numero));
     };
 
-    proc.formatar = function (numero) {
-      numero = proc.limpar(numero);
+    proc.formatarAntigo = function formatarAntigo(numero) {
+      var regex = /^(\d{3,4})(\d{2})(\d{6})(\d{1})$/;
+      var mascara = "$1.$2.$3-$4";
 
-      var FormatarNumero = {
-        antigo: function () {
-          return numero.replace(/^(\d{3,4})(\d{2})(\d{6})(\d{1})$/, "$1.$2.$3-$4");
-        },
-        novo: function () {
-          return numero.replace(/^(\d{7})(\d{2})(\d{4})(\d{1})(\d{2})(\d{4})$/, "$1-$2.$3.$4.$5.$6");
-        }
-      };
+      return numero.replace(regex, mascara);
+    };
 
-      var ehNumero = {
-        antigo: numero.length === 12 || numero.length === 13,
-        novo: numero.length === 20
-      };
+    proc.formatarNovo = function formatarNovo(numero) {
+      var regex = /^(\d{7})(\d{2})(\d{4})(\d{1})(\d{2})(\d{4})$/;
+      var mascara = "$1-$2.$3.$4.$5.$6";
 
-      if (ehNumero.antigo) {
-        return FormatarNumero.antigo(numero);
-      } else if (ehNumero.novo) {
-        return FormatarNumero.novo(numero);
-      } else {
-        throw new Error("Número de processo inválido");
+      return numero.replace(regex, mascara);
+    };
+
+    proc.formatar = function formatar(numero) {
+      if (proc.eh(numero)) {
+        var desformatado = proc.limpar(numero);
+        var ehAntigo = desformatado.length === 12 || desformatado.length === 13;
+
+        if (ehAntigo) return proc.formatarAntigo(desformatado);
+        return proc.formatarNovo(desformatado);
       }
     };
   }

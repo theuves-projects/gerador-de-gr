@@ -20,7 +20,7 @@
 
     guia.processos = {
       lista: [],
-      adicionar: function (numero) {
+      adicionar: function adicionar(numero) {
         if (this.tem(numero)) {
           this.aumentarVolume(numero);
         } else {
@@ -31,26 +31,26 @@
           });
         }
       },
-      aumentarVolume: function (numero) {
+      aumentarVolume: function aumentarVolume(numero) {
         this.lista.forEach(function (processo, indice) {
           if (processo.numero === numero) {
             ++this.lista[indice].volume;
           }
         }.bind(this));
       },
-      diminuirVolume: function (numero) {
+      diminuirVolume: function diminuirVolume(numero) {
         this.lista.forEach(function (processo, indice) {
           if (processo.numero === numero && this.lista[indice].volume > 1) {
             --this.lista[indice].volume;
           }
         }.bind(this));
       },
-      obter: function (numero) {
+      obter: function obter(numero) {
         return this.lista.find(function (processo) {
           if (processo.numero === numero) return processo;
         });
       },
-      remover: function (numero) {
+      remover: function remover(numero) {
         this.lista = this.lista.filter(function (processo) {
           return processo.numero !== numero;
         });
@@ -61,19 +61,17 @@
           return processo;
         });
       },
-      tahVazio: function () {
+      tahVazio: function tahVazio() {
         return angular.equals(this.lista, []);
       },
-      tem: function (numero) {
+      tem: function tem(numero) {
         return this.lista.some(function (processo) {
           return processo.numero === numero;
         });
       }
     };
 
-    guia.tahVazia = function () {
-
-      // sem processos, sem guia.
+    guia.tahVazia = function tahVazia() {
       return guia.processos.lista.length === 0;
     };
   }
