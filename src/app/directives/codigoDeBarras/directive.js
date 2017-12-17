@@ -5,7 +5,7 @@
     .module("app")
     .directive("codigoDeBarras", codigoDeBarras);
 
-  function codigoDeBarras() {
+  function codigoDeBarras($window) {
     return {
       link: link,
       scope: {
@@ -28,7 +28,7 @@
         displayValue: false
       };
 
-      JsBarcode(img, val, opts);
+      $window.JsBarcode(img, val, opts);
     }
   }
 })();

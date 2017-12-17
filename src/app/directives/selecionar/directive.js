@@ -5,7 +5,7 @@
     .module("app")
     .directive("selecionar", selecionar);
 
-  function selecionar($timeout) {
+  function selecionar($window) {
     return {
       link: link,
       restrict: "A"
@@ -13,7 +13,7 @@
 
     function link(scope, element) {
       element.on("click", function (event) {
-        select(event.srcElement);
+        $window.select(event.srcElement);
       });
     }
   }
