@@ -34,6 +34,7 @@
 
       if (ehComando) {
         var comando = ad.codigoDeBarras
+          .trim()
           .substr(1)
           .toUpperCase();
 
@@ -46,11 +47,11 @@
             ad.gerarGuia();
             ad.codigoDeBarras = undefined;
             break;
-          case "NOVO":
+          case "CRIAR-NOVA":
             ad.criarNovo();
             ad.codigoDeBarras = undefined;
             break;
-          case "MALOTE":
+          case "MUDAR-MALOTE":
             ad.guia.malote.vai = !ad.guia.malote.vai;
             ad.codigoDeBarras = undefined;
             break;
