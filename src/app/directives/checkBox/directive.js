@@ -17,7 +17,7 @@
       templateUrl: "app/directives/checkBox/template.html"
     };
 
-    function link(scope, element, attrs) {
+    function link(scope, element) {
       element.css({
         display: "block"
       });

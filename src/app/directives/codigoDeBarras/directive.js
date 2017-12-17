@@ -9,20 +9,26 @@
     return {
       link: link,
       scope: {
-        guia: "="
+        cdbGuia: "=",
+        cdbTamanho: "="
       },
       templateUrl: "app/directives/codigoDeBarras/template.html"
     };
 
     function link(scope, element, attrs) {
-      var elemento = element.find("img")[0];
-      var guia = scope.guia;
-
-      JsBarcode(elemento, guia, {
-          height: 5
-        , margin: 0
-        , displayValue: false
+      element.css({
+        display: "block"
       });
+
+      var img = element.find("img")[0];
+      var val = scope.cdbGuia;
+      var opts = {
+        height: scope.cdbTamanho,
+        margin: 0,
+        displayValue: false
+      };
+
+      JsBarcode(img, val, opts);
     }
   }
 })();
