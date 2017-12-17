@@ -11,16 +11,12 @@
     , Destinatarios
     ) {
 
-      /**
-       * Configurar destinatários.
-       */
+      // Configurar destinatários.
       if (!Configuracoes.tem("destinatarios")) {
         Destinatarios.iniciar();
       }
 
-      /**
-       * Configurar nome do usuário.
-       */
+      // Configurar nome do usuário.
       if (!Configuracoes.tem("usuario")) {
         var respota = $window.prompt("Informe seu nome:");
         var nome = angular.uppercase(respota || "");
