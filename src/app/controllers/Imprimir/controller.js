@@ -20,18 +20,18 @@
 
     impr.usuario = Configuracoes.obter("usuario");
 
-    impr.iniciar = function () {
+    impr.iniciar = function iniciar() {
       if (impr.guia.tahVazia()) {
         $window.alert("Nenhum dado!");
         $location.url("/");
       }
     };
 
-    impr.imprimir = function () {
+    impr.imprimir = function imprimir() {
       $window.print();
     };
 
-    impr.voltar = function () {
+    impr.voltar = function voltar() {
       $location.url("/");
     };
   }

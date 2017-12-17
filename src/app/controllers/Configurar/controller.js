@@ -17,7 +17,7 @@
 
     conf.usuario = {
       nome: Configuracoes.obter("usuario"),
-      salvar: function () {
+      salvar: function salvar() {
         var nomeEmMaiusculo = this.nome.toUpperCase();
 
         Configuracoes.adicionar("usuario", nomeEmMaiusculo);
@@ -30,7 +30,7 @@
     conf.destinatarios = {
       novo: "",
       lista: Destinatarios.obter(),
-      adicionar: function (evento)  {
+      adicionar: function adicionar(evento)  {
         if (evento.code === "Enter") {
           if (angular.equals(this.novo.trim(), "")) {
             $window.alert("Informe algo!");
@@ -49,10 +49,10 @@
           return;
         }
       },
-      limpar: function () {
+      limpar: function limpar() {
         this.novo = "";
       },
-      remover: function (indice) {
+      remover: function remover(indice) {
         if ($window.confirm("Tem certeza?")) {
           delete this.lista[indice];
 
@@ -61,13 +61,13 @@
           });
         }
       },
-      salvar: function () {
+      salvar: function salvar() {
         Destinatarios.adicionar(this.lista);
 
         $window.alert("Salvo!");
         $window.location.reload();
       },
-      tem: function (destinatario) {
+      tem: function tem(destinatario) {
         return this.lista.includes(destinatario);
       }
     };
