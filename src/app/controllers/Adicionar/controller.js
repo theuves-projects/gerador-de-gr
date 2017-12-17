@@ -76,11 +76,10 @@
       }
 
       if (ehGuia) {
-        var tahDefinido = ad.guia.numero;
-        var tipoNumber = parseInt(ad.codigoDeBarras);
+        var tahDefinido = angular.isDefined(ad.guia.numero);
         var fazer = tahDefinido ? $window.confirm("Trocar?") : true;
 
-        if (fazer) ad.guia.numero = tipoNumber;
+        if (fazer) ad.guia.numero = ad.codigoDeBarras;
       }
 
       if (ehMalote) {
