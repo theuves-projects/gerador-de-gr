@@ -7,29 +7,20 @@
 
   function checkBox() {
     return {
+      link: link,
       scope: {
-        cbLigado: "=",
-        cbMensagem: "@",
         cbCorDaBorda: "@",
-        cbCorDoFundo: "@"
+        cbCorDoFundo: "@",
+        cbLigado: "=",
+        cbMensagem: "@"
       },
-      templateUrl: "app/directives/checkBox/template.html",
-      link: link
+      templateUrl: "app/directives/checkBox/template.html"
     };
 
     function link(scope, element, attrs) {
       element.css({
         display: "block"
       });
-
-      scope.cbClass = {
-        "cb-desligado": !scope.cbLigado
-      };
-
-      scope.cbStyle = {
-        "border-color": scope.cbCorDaBorda,
-        "background-color": scope.cbCorDoFundo
-      };
     }
   }
 })();

@@ -20,11 +20,11 @@
 
     ad.guia = Guia;
 
-    ad.abrirConfiguracoes = function () {
+    ad.abrirConfiguracoes = function abrirConfiguracoes() {
       $location.url("/configurar");
     };
 
-    ad.adicionarDados = function (evento) {
+    ad.adicionarDados = function adicionarDados(evento) {
       if (angular.isUndefined(ad.codigoDeBarras)) {
         $window.alert("Informe algo!");
         return;
@@ -48,6 +48,10 @@
             break;
           case "NOVO":
             ad.criarNovo();
+            ad.codigoDeBarras = undefined;
+            break;
+          case "MALOTE":
+            ad.guia.malote.vai = !ad.guia.malote.vai;
             ad.codigoDeBarras = undefined;
             break;
           default:
@@ -95,7 +99,7 @@
       ad.codigoDeBarras = undefined;
     };
 
-    ad.gerarGuia = function () {
+    ad.gerarGuia = function gerarGuia() {
       var faltaNumero = !ad.guia.numero;
       var faltaMalote = ad.guia.malote.vai && !ad.guia.malote.numero;
       var faltaDestinatario = !ad.guia.destinatario;
@@ -134,18 +138,18 @@
       $location.url("/imprimir");
     };
 
-    ad.informarErro = function (evento) {
+    ad.informarErro = function informarErro(evento) {
       if (evento.code !== "Enter") return;
       $window.alert("Por aqui, os dados não são formatados.")
     };
 
-    ad.criarNovo = function () {
+    ad.criarNovo = function criarNovo() {
       var fazer = $window.confirm("Certeza?");
 
       if (fazer) $window.location.reload();
     };
 
-    ad.removerProcesso = function (numero) {
+    ad.removerProcesso = function removerProcesso(numero) {
       if (ad.guia.processos.tem(numero)) {
         var fazer = $window.confirm("Certeza?");
 

@@ -3,10 +3,10 @@
     <h1>GERADOR DE<br>GUIA DE REMESSA</h1>
 
     <check-box
-      cb-ligado="ad.guia.malote.vai"
-      cb-mensagem="VAI MALOTE?"
       cb-cor-da-borda="#5d8b56"
       cb-cor-do-fundo="#689b60"
+      cb-ligado="ad.guia.malote.vai"
+      cb-mensagem="VAI MALOTE?"
       class="checkbox">
     </check-box>
   </header>
@@ -18,7 +18,8 @@
         ng-keypress="ad.informarErro($event)"
         class="g-campo g-largura-total"
         type="text"
-        placeholder="NÚMERO DA GUIA">
+        placeholder="NÚMERO DA GUIA"
+        title="Número da guia">
     </div>
     <div class="g-coluna">
       <input
@@ -27,7 +28,8 @@
         ng-disabled="!ad.guia.malote.vai"
         class="g-campo g-largura-total"
         type="text"
-        placeholder="NÚMERO DO MALOTE">
+        placeholder="NÚMERO DO MALOTE"
+        title="Número do malote">
     </div>
   </div>
 
@@ -35,7 +37,8 @@
     <div class="g-coluna">
       <select
         ng-model="ad.guia.destinatario"
-        class="g-campo g-largura-total">
+        class="g-campo g-largura-total"
+        title="Destinatarios">
 
         <option
           value
@@ -74,7 +77,8 @@
             <div class="g-coluna">
               <button
                 ng-click="ad.guia.processos.aumentarVolume(processo.numero)"
-                class="g-botao g-botao-azul g-largura-total">
+                class="g-botao g-botao-azul g-largura-total"
+                title="Aumentar volume">
 
                 <i class="fa fa-arrow-up"></i>
               </button>
@@ -83,7 +87,8 @@
               <button
                 ng-click="ad.guia.processos.diminuirVolume(processo.numero)"
                 ng-disabled="ad.guia.processos.obter(processo.numero).volume === 1"
-                class="g-botao g-botao-azul g-largura-total">
+                class="g-botao g-botao-azul g-largura-total"
+                title="Diminuir volume">
 
                 <i class="fa fa-arrow-down"></i>
               </button>
@@ -91,7 +96,8 @@
             <div class="g-coluna">
               <button
                 ng-click="ad.removerProcesso(processo.numero)"
-                class="g-botao g-botao-vermelho g-largura-total">
+                class="g-botao g-botao-vermelho g-largura-total"
+                tittle="Remover processo">
 
                 <i class="fa fa-times"></i>
               </button>
@@ -106,7 +112,8 @@
     <div class="g-coluna">
       <button
         ng-click="ad.gerarGuia()"
-        class="g-botao g-botao-verde g-largura-total g-negrito">
+        class="g-botao g-botao-verde g-largura-total g-negrito"
+        title="Gerar guia">
 
         GERAR GUIA
       </button>

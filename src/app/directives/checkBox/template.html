@@ -10,8 +10,8 @@
     for="cb-input">
 
     <div
-      ng-class="cbClass"
-      ng-style="cbStyle"
+      ng-class="{'cb-desligado': !cbLigado}"
+      ng-style="{'border-color': cbCorDaBorda, 'background-color': cbCorDoFundo}"
       class="cb-interruptor">
 
       <div class="cb-botao">

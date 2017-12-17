@@ -7,8 +7,8 @@
 
   function selecionar($timeout) {
     return {
-      restrict: "A",
-      link: link
+      link: link,
+      restrict: "A"
     };
 
     function link(scope, element) {

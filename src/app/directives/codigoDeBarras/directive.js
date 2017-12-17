@@ -7,11 +7,11 @@
 
   function codigoDeBarras() {
     return {
+      link: link,
       scope: {
         guia: "="
       },
-      templateUrl: "app/directives/codigoDeBarras/template.html",
-      link: link
+      templateUrl: "app/directives/codigoDeBarras/template.html"
     };
 
     function link(scope, element, attrs) {
