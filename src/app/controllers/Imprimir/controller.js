@@ -1,4 +1,4 @@
-;(function () {
+;(function (angular) {
   "use strict";
 
   angular
@@ -35,4 +35,4 @@
       $location.url("/");
     };
   }
-})();
+})(this.angular);

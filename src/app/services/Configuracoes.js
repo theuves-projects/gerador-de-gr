@@ -1,11 +1,11 @@
-;(function () {
+;(function (angular) {
   "use strict";
 
   angular
     .module("app")
     .service("Configuracoes", Configuracoes);
 
-  function Configuracoes() {
+  function Configuracoes($window) {
     var conf = this;
     ////////////////
 
@@ -19,12 +19,12 @@
       var itemComPrefixo = conf.$prefixar(item);
       var valorEmJson = angular.toJson(valor);
 
-      localStorage.setItem(itemComPrefixo, valorEmJson);
+      $window.localStorage.setItem(itemComPrefixo, valorEmJson);
     };
 
     conf.obter = function (item) {
       var itemComPrefixo = conf.$prefixar(item);
-      var valorEmJson = localStorage.getItem(itemComPrefixo);
+      var valorEmJson = $window.localStorage.getItem(itemComPrefixo);
       var valorCru = angular.fromJson(valorEmJson);
 
       return valorCru;
@@ -33,13 +33,13 @@
     conf.remover = function (item) {
       var itemComPrefixo = conf.$prefixar(item);
 
-      localStorage.removeItem(itemComPrefixo);
+      $window.localStorage.removeItem(itemComPrefixo);
     };
 
     conf.tem = function (item) {
       var itemComPrefixo = conf.$prefixar(item);
 
-      return itemComPrefixo in localStorage;
-    }
+      return itemComPrefixo in $window.localStorage;
+    };
   }
-})();
+})(this.angular);

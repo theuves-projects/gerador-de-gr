@@ -1,4 +1,4 @@
-;(function () {
+;(function (angular) {
   "use strict";
 
   angular
@@ -61,7 +61,7 @@
           return processo;
         });
       },
-      tahVazio: function (numero) {
+      tahVazio: function () {
         return angular.equals(this.lista, []);
       },
       tem: function (numero) {
@@ -77,4 +77,4 @@
       return guia.processos.lista.length === 0;
     };
   }
-})();
+})(this.angular);

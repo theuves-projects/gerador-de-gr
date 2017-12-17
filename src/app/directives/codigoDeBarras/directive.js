@@ -1,4 +1,4 @@
-;(function () {
+;(function (angular) {
   "use strict";
 
   angular
@@ -15,7 +15,7 @@
       templateUrl: "app/directives/codigoDeBarras/template.html"
     };
 
-    function link(scope, element, attrs) {
+    function link(scope, element) {
       element.css({
         display: "block"
       });
@@ -31,4 +31,4 @@
       $window.JsBarcode(img, val, opts);
     }
   }
-})();
+})(this.angular);

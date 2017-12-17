@@ -1,4 +1,4 @@
-;(function () {
+;(function (angular) {
   "use strict";
 
   angular
@@ -24,7 +24,7 @@
       $location.url("/configurar");
     };
 
-    ad.adicionarDados = function adicionarDados(evento) {
+    ad.adicionarDados = function adicionarDados() {
       if (angular.isUndefined(ad.codigoDeBarras)) {
         $window.alert("Informe algo!");
         return;
@@ -141,7 +141,7 @@
 
     ad.informarErro = function informarErro(evento) {
       if (evento.code !== "Enter") return;
-      $window.alert("Por aqui, os dados não são formatados.")
+      $window.alert("Por aqui, os dados não são formatados.");
     };
 
     ad.criarNovo = function criarNovo() {
@@ -161,4 +161,4 @@
       $window.alert("Erro!");
     };
   }
-})();
+})(this.angular);

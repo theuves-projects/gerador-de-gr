@@ -1,4 +1,4 @@
-;(function () {
+;(function (angular) {
   "use strict";
 
   angular
@@ -12,4 +12,4 @@
         .padStart(pad, "0");
     };
   }
-})();
+})(this.angular);

@@ -1,4 +1,4 @@
-;(function () {
+;(function (angular) {
   "use strict";
 
   angular
@@ -185,16 +185,16 @@
       ];
 
       Configuracoes.adicionar("destinatarios", destinatarios);
-    }
+    };
 
     dest.obter = function () {
       var destinatarios = Configuracoes.obter("destinatarios");
 
       return destinatarios;
-    }
+    };
 
     dest.adicionar = function (destinatarios) {
       Configuracoes.adicionar("destinatarios", destinatarios);
-    }
+    };
   }
-})();
+})(this.angular);

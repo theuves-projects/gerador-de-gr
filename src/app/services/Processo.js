@@ -1,4 +1,4 @@
-;(function () {
+;(function (angular) {
   "use strict";
 
   angular
@@ -30,13 +30,13 @@
       numero = proc.limpar(numero);
 
       var FormatarNumero = {
-        antigo: function (num) {
+        antigo: function () {
           return numero.replace(/^(\d{3,4})(\d{2})(\d{6})(\d{1})$/, "$1.$2.$3-$4");
         },
-        novo: function (num) {
+        novo: function () {
           return numero.replace(/^(\d{7})(\d{2})(\d{4})(\d{1})(\d{2})(\d{4})$/, "$1-$2.$3.$4.$5.$6");
         }
-      }
+      };
 
       var ehNumero = {
         antigo: numero.length === 12 || numero.length === 13,
@@ -52,4 +52,4 @@
       }
     };
   }
-})();
+})(this.angular);

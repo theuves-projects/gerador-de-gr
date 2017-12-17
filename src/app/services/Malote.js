@@ -1,4 +1,4 @@
-;(function () {
+;(function (angular) {
   "use strict";
 
   angular
@@ -13,4 +13,4 @@
       return codigoDeBarras.replace(/^.*(\d{5})$/, "$1");
     };
   }
-})();
+})(this.angular);
