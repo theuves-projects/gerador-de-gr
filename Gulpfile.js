@@ -26,8 +26,7 @@ gulp.task("injetar", function () {
  */
 gulp.task("injetar:css", function () {
   var diretorios = [
-    "src/index.css",
-    "src/app/**/*.css"
+    "src/**/*.css"
   ];
 
   var arquivos = gulp.src(diretorios);

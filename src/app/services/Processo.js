@@ -16,7 +16,7 @@
         .replace(/[+-.\s]/g, "");
 
       return limpo.length > 20
-        ? numero.replace(/\d{5}$/g, "")
+        ? limpo.replace(/\d{5}$/g, "")
         : limpo;
     };
 

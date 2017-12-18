@@ -1,0 +1,24 @@
+/**
+ * Linha:
+ * ======
+ */
+
+.gr-flex-lin {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+}
+
+/**
+ * Coluna:
+ * =======
+ */
+
+.gr-flex-col {
+  flex: 1;
+  padding: 2px;
+}
+
+.gr-flex-col-75 {flex: 0 0 75%;}
+.gr-flex-col-50 {flex: 0 0 50%;}
+.gr-flex-col-25 {flex: 0 0 25%;}

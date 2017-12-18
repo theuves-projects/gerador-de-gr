@@ -3,9 +3,9 @@
 
   angular
     .module("app")
-    .controller("Configurar", Configurar);
+    .controller("Configuracoes", Configuracoes);
 
-  function Configurar(
+  function Configuracoes(
       $window
     , $location
     , $anchorScroll

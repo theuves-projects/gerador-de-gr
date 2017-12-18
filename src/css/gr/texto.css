@@ -1,0 +1,34 @@
+/**
+ * Posição:
+ * ========
+ */
+
+.gr-texto-c,
+.gr-texto-c * {
+  text-align: center !important;
+}
+
+.gr-texto-d,
+.gr-texto-d * {
+  text-align: left !important;
+}
+
+.gr-texto-e,
+.gr-texto-e * {
+  text-align: right !important;
+}
+
+/**
+ * Estilo:
+ * =======
+ */
+
+.gr-texto-n,
+.gr-texto-n * {
+  font-weight: bold !important;
+}
+
+.gr-texto-i,
+.gr-texto-i * {
+  font-style: italic !important;
+}

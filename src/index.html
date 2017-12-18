@@ -6,11 +6,19 @@
 
     <!-- build:css style.css -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="app/controllers/Configurar/template.css">
-    <link rel="stylesheet" href="app/controllers/Adicionar/template.css">
-    <link rel="stylesheet" href="app/controllers/Imprimir/template.css">
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/gr/texto.css">
+    <link rel="stylesheet" href="css/gr/largura.css">
+    <link rel="stylesheet" href="css/gr/flex.css">
+    <link rel="stylesheet" href="css/gr/campo.css">
+    <link rel="stylesheet" href="css/gr/margin.css">
+    <link rel="stylesheet" href="css/gr/pad.css">
+    <link rel="stylesheet" href="css/gr/float.css">
+    <link rel="stylesheet" href="css/gr/cursor.css">
+    <link rel="stylesheet" href="app/controllers/Configuracoes/template.css">
+    <link rel="stylesheet" href="app/controllers/Indice/template.css">
     <link rel="stylesheet" href="app/directives/checkBox/template.css">
+    <link rel="stylesheet" href="app/controllers/Impressao/template.css">
     <!-- endinject -->
     <!-- endbuild -->
 
@@ -27,19 +35,17 @@
     <!-- build:js script.js -->
     <!-- inject:js -->
     <script src="app/module.js"></script>
-    <script src="app/directives/codigoDeBarras/directive.js"></script>
-    <script src="app/directives/focar/directive.js"></script>
-    <script src="app/controllers/Imprimir/controller.js"></script>
-    <script src="app/directives/checkBox/directive.js"></script>
+    <script src="app/controllers/Impressao/controller.js"></script>
+    <script src="app/controllers/Configuracoes/controller.js"></script>
+    <script src="app/controllers/Indice/controller.js"></script>
     <script src="app/directives/selecionar/directive.js"></script>
-    <script src="app/controllers/Adicionar/controller.js"></script>
-    <script src="app/controllers/Configurar/controller.js"></script>
+    <script src="app/directives/focar/directive.js"></script>
+    <script src="app/directives/checkBox/directive.js"></script>
+    <script src="app/filters/preencher.js"></script>
     <script src="app/services/Guia.js"></script>
     <script src="app/services/Configuracoes.js"></script>
     <script src="app/services/Processo.js"></script>
-    <script src="app/services/Malote.js"></script>
     <script src="app/services/Destinatarios.js"></script>
-    <script src="app/filters/preencher.js"></script>
     <script src="app/run.js"></script>
     <script src="app/config.js"></script>
     <!-- endinject -->

@@ -1,10 +1,10 @@
-#configurar {
+#configuracoes {
   width: 600px;
   margin: 90px auto;
   font-family: "Segoe UI", sans-serif;
 }
 
-#configurar header {
+#configuracoes header {
   margin-bottom: 15px;
   text-align: center;
 }
@@ -14,14 +14,14 @@
  * -----
  */
 
-#configurar .secao {
+#configuracoes .secao {
   background-color: #f1f1f1;
   border: solid 2px #ddd;
   margin-bottom: 12px;
   padding: 10px 30px;
 }
 
-#configurar .secao .tipo a {
+#configuracoes .secao .tipo a {
   margin-top: 8px;
   text-decoration: none;
   font-weight: bold;
@@ -29,7 +29,7 @@
   color: gray;
 }
 
-#configurar .secao .conteudo {
+#configuracoes .secao .conteudo {
   display: inline-block;
   width: 100%;
   padding: 10px 20px;
@@ -40,7 +40,7 @@
  * ------------
  */
 
-#configurar .destinatario {
+#configuracoes .destinatario {
   align-items: center;
   /******************/
 
@@ -49,10 +49,10 @@
   background-color: #e9e9e9;
 }
 
-#configurar .destinatario:hover {
+#configuracoes .destinatario:hover {
   background-color: #e4e4e4;
 }
 
-#configurar .item {
+#configuracoes .item {
   padding: 0px;
 }

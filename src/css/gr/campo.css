@@ -1,0 +1,46 @@
+.gr-campo {
+  padding: 5px 10px;
+  border: solid 2px #aaa;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/**
+ * Efeitos:
+ * ========
+ */
+
+.gr-campo:not(:disabled):hover {
+  opacity: 0.9;
+}
+
+.gr-campo:active {
+  opacity: 1 !important;
+}
+
+.gr-campo:disabled {
+  filter: grayscale(100%);
+}
+
+/**
+ * Cores:
+ * ======
+ */
+
+.gr-campo-verde {
+  color: white;
+  background-color: #689b60;
+  border-color: #5d8b56;
+}
+
+.gr-campo-vermelho {
+  color: white;
+  background-color: #db5353;
+  border-color: #c54a4a;
+}
+
+.gr-campo-azul {
+  color: white;
+  background-color: #688f8a;
+  border-color: #5d807c;
+}

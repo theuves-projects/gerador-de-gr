@@ -1,0 +1,23 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+*:disabled {
+  cursor: not-allowed;
+}
+
+/**
+ * Seleção:
+ * ========
+ */
+
+::selection {
+  background-color: #f7d78d;
+}
+
+::-moz-selection {
+  background-color: #f7d78d;
+}
+

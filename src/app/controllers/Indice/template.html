@@ -1,0 +1,119 @@
+<div id="cabecalho">
+  <div class="gr-flex-lin">
+    <div class="gr-flex-col">
+      <check-box
+        cb-cor-da-borda="#5d8b56"
+        cb-cor-do-fundo="#689b60"
+        cb-ligado="ind.guia.malote.vai"
+        cb-mensagem="VAI MALOTE?"
+        class="checkbox">
+      </check-box>
+
+      <div class="gr-flex-lin">
+        <div class="gr-flex-col">
+          <input
+            ng-model="ind.guia.numero"
+            ng-keypress="ind.informarErro($event)"
+            class="gr-campo gr-largura-100"
+            type="text"
+            placeholder="NÚMERO DA GUIA"
+            title="Número da guia">
+        </div>
+        <div class="gr-flex-col">
+          <input
+            ng-model="ind.guia.malote.numero"
+            ng-keypress="ind.informarErro($event)"
+            ng-disabled="!ind.guia.malote.vai"
+            class="gr-campo gr-largura-100"
+            type="text"
+            maxlength="5"
+            placeholder="NÚMERO DO MALOTE"
+            title="Número do malote">
+        </div>
+      </div>
+
+      <div class="gr-pad-2">
+        <select
+          ng-model="ind.guia.destinatario"
+          ng-options="destinatario for destinatario in ind.destinatarios"
+          class="gr-campo gr-largura-100"
+          title="Destinatarios">
+
+          <option
+            value
+            disabled
+            hidden>
+
+            ESCOLHA O DESTINATÁRIO AQUI...
+          </option>
+        </select>
+      </div>
+
+      <form
+        ng-submit="ind.adicionarDados()"
+        class="gr-pad-2 gr-margin-bx-5">
+
+        <input
+          ng-model="ind.codigoDeBarras"
+          focar
+          class="gr-campo gr-largura-100 gr-texto-c cmp-scanner"
+          type="text"
+          placeholder="ESCANEIE OU DÍGITE AQUI...">
+      </form>
+
+      <div class="gr-pad-2 lista-processos">
+        <div
+          ng-show="ind.guia.processos.tahVazio()"
+          class="lista-processos-item">
+          <p class="gr-texto-c">
+            NÃO FOI ADICIONADO NENHUM PROCESSO AINDA!
+          </p>
+        </div>
+
+        <div
+          ng-repeat="processo in ind.guia.processos.lista | orderBy:'-item'"
+          class="gr-flex-lin lista-processos-item">
+
+          <div class="gr-flex-col-75">
+            <span class="gr-texto-i">{{processo.item | preencher:2}}.</span>
+            <span class="gr-texto-n" selecionar>{{processo.numero}}</span>
+            <span>(VOLUME {{processo.volume | preencher:2}})</span>
+          </div>
+
+          <div class="gr-flex-col-25">
+            <div class="gr-flex-lin">
+              <div class="gr-flex-col gr-pad-1">
+                <button
+                  ng-click="ind.guia.processos.aumentarVolume(processo.numero)"
+                  class="gr-campo gr-campo-azul gr-largura-100">
+                  <i class="fa fa-arrow-up"></i>
+                </button>
+              </div>
+              <div class="gr-flex-col gr-pad-1">
+                <button
+                  ng-click="ind.guia.processos.diminuirVolume(processo.numero)"
+                  ng-disabled="ind.guia.processos.obter(processo.numero).volume === 1"
+                  class="gr-campo gr-campo-azul gr-largura-100">
+
+                  <i class="fa fa-arrow-down"></i>
+                </button>
+              </div>
+              <div class="gr-flex-col gr-pad-1">
+                <button
+                  ng-click="ind.removerProcesso(processo.numero)"
+                  class="gr-campo gr-campo-vermelho gr-largura-100">
+
+                  <i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gr-flex-col">
+
+    </div>
+  </div>
+</div>

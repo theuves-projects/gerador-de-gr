@@ -1,13 +1,13 @@
-#imprimir {
+#impressao {
   margin: 2% 5%;
 }
 
-#imprimir .configuracoes {
+#impressao .configuracoes {
   width: 256px;
   margin: 0px auto 10px auto;
 }
 
-#imprimir .cabecalho {
+#impressao .cabecalho {
   margin-bottom: 15px;
   text-align: center;
   font-family: Arial, sans-serif;
@@ -15,32 +15,32 @@
   font-weight: bold;
 }
 
-#imprimir table,
-#imprimir td {
+#impressao table,
+#impressao td {
   border: 1px solid black;
   border-collapse: collapse;
   font-size: 12px;
 }
 
-#imprimir td {
+#impressao td {
   padding: 5px;
   text-align: left;
 }
 
-#imprimir .processos {
+#impressao .processos {
   padding: 2px 5px;
 }
 
-#imprimir .monoespacado {
-  font-size: 14px;
+#impressao .monoespacado {
+  font-size: 14px !important;
   font-family: Courier, monospace;
 }
 
-#imprimir .assinaturas {
+#impressao .assinaturas {
   padding: 10px;
 }
 
-#imprimir .devolver {
+#impressao .devolver {
   position: fixed;
   bottom: 0px;
   right: 0px;
@@ -53,11 +53,11 @@
  * esconder botões pra imprimir
  */
 @media print {
-  #imprimir .configuracoes {
+  #impressao .configuracoes {
     display: none;
   }
 
-  #imprimir .devolver {
+  #impressao .devolver {
     visibility: visible;
   }
 }

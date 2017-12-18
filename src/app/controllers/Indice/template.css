@@ -1,0 +1,33 @@
+#cabecalho {
+  width: 1100px;
+  margin: 50px auto;
+  font-family: "Segoe UI", sans-serif;
+}
+
+#cabecalho .campo-scanner {
+  border-color: gray;
+}
+
+#cabecalho .lista-processos {
+  background-color: #eee;
+  padding: 5px 10px !important;
+}
+
+#cabecalho .lista-processos-item {
+  margin: 2px 0px;
+  padding: 4px 8px !important;
+  background-color: #ddd;
+}
+
+/**
+ * checkBox:
+ * ---------
+ */
+
+#cabecalho .checkbox {
+  text-align: center;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+

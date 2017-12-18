@@ -3,9 +3,9 @@
 
   angular
     .module("app")
-    .controller("Imprimir", Imprimir);
+    .controller("Impressao", Impressao);
 
-  function Imprimir(
+  function Impressao(
       $location
     , $window
     , Configuracoes
