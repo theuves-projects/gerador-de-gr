@@ -23,22 +23,20 @@
       $location.url("/configuracoes");
     };
 
-    ind.adicionarDados = function adicionarDados() {
-      if (angular.isUndefined(ind.codigoDeBarras)) {
+    ind.adicionarProcesso = function adicionarProcesso() {
+      var tahLimpo = !ind.codigoDeBarras || !ind.codigoDeBarras.trim();
+
+      if (tahLimpo) {
         $window.alert("Informe algo!");
         return;
       }
 
-      var ehProcesso = Processo.eh(ind.codigoDeBarras);
+      var ehValido = Processo.ehValido(ind.codigoDeBarras);
+      var numero = ehValido
+        ? Processo.formatar(ind.codigoDeBarras)
+        : ind.codigoDeBarras;
 
-      if (!ehProcesso) {
-        $window.alert("Inválido!");
-        return;
-      }
-
-      var numeroFormatado = Processo.formatar(ind.codigoDeBarras);
-
-      ind.guia.processos.adicionar(numeroFormatado);
+      ind.guia.processos.adicionar(numero, ehValido);
       ind.codigoDeBarras = undefined;
     };
 
@@ -48,33 +46,28 @@
       var faltaDestinatario = !ind.guia.destinatario;
       var faltaProcessos = ind.guia.processos.tahVazio();
 
-      if (
-           faltaNumero
-        || faltaMalote
-        || faltaDestinatario
-        || faltaProcessos
-      ) {
-        var mensagem =
-            faltaNumero? "Informe o número da guia!"
-          : faltaMalote? "Informe o número do malote!"
-          : faltaDestinatario? "Informe o destinatário!"
-          : faltaProcessos? "Informe os processos!"
-          : "Erro!";
+      var msgDeFalta =
+          faltaNumero? "Informe o número da guia!"
+        : faltaMalote? "Informe o número do malote!"
+        : faltaDestinatario? "Informe o destinatário!"
+        : faltaProcessos? "Informe os processos!"
+        : undefined;
 
-        $window.alert(mensagem);
+      if (angular.isDefined(msgDeFalta)) {
+        $window.alert(msgDeFalta);
         return;
       }
 
-      var numeroEhInValido = !/^\d+$/.test(ind.guia.numero);
-      var maloteEhInValido = ind.guia.malote.vai && !/^\d{5}$/.test(ind.guia.malote.numero);
+      var numeroEhInvalido = !/^\d+$/.test(ind.guia.numero);
+      var maloteEhInvalido = !/^\d{5}$/.test(ind.guia.malote.numero);
 
-      if (numeroEhInValido || maloteEhInValido) {
-        var mensagem =
-            numeroEhInValido? "O número da guia é inválido!"
-          : maloteEhInValido? "O número do malote é inválido!"
-          : "Erro!";
+      var msgDeInvalido =
+          numeroEhInvalido? "O número da guia é inválido!"
+        : maloteEhInvalido? "O número do malote é inválido!"
+        : undefined;
 
-        $window.alert(mensagem);
+      if (angular.isDefined(msgDeInvalido)) {
+        $window.alert(msgDeInvalido);
         return;
       }
 

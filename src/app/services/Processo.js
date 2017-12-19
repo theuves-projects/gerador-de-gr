@@ -20,7 +20,7 @@
         : limpo;
     };
 
-    proc.eh = function eh(numero) {
+    proc.ehValido = function ehValido(numero) {
       return /^(\d{12,13}|\d{20})$/.test(proc.limpar(numero));
     };
 
@@ -39,7 +39,7 @@
     };
 
     proc.formatar = function formatar(numero) {
-      if (proc.eh(numero)) {
+      if (proc.ehValido(numero)) {
         var desformatado = proc.limpar(numero);
         var ehAntigo = desformatado.length === 12 || desformatado.length === 13;
 

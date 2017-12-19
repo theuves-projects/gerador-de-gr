@@ -20,11 +20,12 @@
 
     guia.processos = {
       lista: [],
-      adicionar: function adicionar(numero) {
+      adicionar: function adicionar(numero, ehValido) {
         if (this.tem(numero)) {
           this.aumentarVolume(numero);
         } else {
           this.lista.push({
+            ehValido: ehValido,
             item: this.lista.length + 1,
             numero: numero,
             volume: 1
@@ -32,18 +33,12 @@
         }
       },
       aumentarVolume: function aumentarVolume(numero) {
-        this.lista.forEach(function (processo, indice) {
-          if (processo.numero === numero) {
-            ++this.lista[indice].volume;
-          }
-        }.bind(this));
+        var processo = this.obter(numero);
+        ++processo.volume;
       },
       diminuirVolume: function diminuirVolume(numero) {
-        this.lista.forEach(function (processo, indice) {
-          if (processo.numero === numero && this.lista[indice].volume > 1) {
-            --this.lista[indice].volume;
-          }
-        }.bind(this));
+        var processo = this.obter(numero);
+      	if (processo.volume > 1) --processo.volume;
       },
       obter: function obter(numero) {
         return this.lista.find(function (processo) {

@@ -1,4 +1,4 @@
-;(function () {
+;(function (angular) {
   "use strict";
 
   angular
@@ -24,4 +24,4 @@
         Configuracoes.adicionar("usuario", nome);
       }
     }
-})();
+})(this.angular);

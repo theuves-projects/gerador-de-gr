@@ -48,7 +48,7 @@
     <div class="hr"></div>
 
     <form
-      ng-submit="ind.adicionarDados()"
+      ng-submit="ind.adicionarProcesso()"
       class="gr-pad-2 gr-margin-bx-5">
 
       <input
@@ -82,7 +82,11 @@
 
         <tr ng-repeat="processo in ind.guia.processos.lista | orderBy:'-item'">
           <td>{{processo.item | preencher:2}}</td>
-          <td gr-selecionar>{{processo.numero}}</td>
+          <td
+            ng-class="{'ind-errado': !processo.ehValido}"
+            gr-selecionar>
+            {{processo.numero}}
+          </td>
           <td>{{processo.volume | preencher:2}}</td>
 
           <td class="gr-flex-lin">

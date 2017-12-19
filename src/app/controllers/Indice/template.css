@@ -1,3 +1,8 @@
+.ind-errado {
+  color: #ff4c4c;
+  font-style: italic;
+}
+
 /**
  * Tabela
  * ======
@@ -33,6 +38,6 @@
 
 #indice .ind-aviso {
   padding: 8px 0px;
-  background-color: #ffe5e5;
   color: #ff4c4c;
+  background-color: #ffe5e5;
 }
