@@ -1,11 +1,14 @@
 /**
- * Linha:
- * ======
+ * Horizontal:
+ * ===========
  */
 
 .gr-flex-lin {
   display: flex;
   width: 100%;
+}
+
+.gr-flex-lin-bl {
   align-items: baseline;
 }
 

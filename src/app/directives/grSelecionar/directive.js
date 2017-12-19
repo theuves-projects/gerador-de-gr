@@ -3,9 +3,9 @@
 
   angular
     .module("app")
-    .directive("selecionar", selecionar);
+    .directive("grSelecionar", grSelecionar);
 
-  function selecionar($window) {
+  function grSelecionar($window) {
     return {
       link: link,
       restrict: "A"

@@ -1,33 +1,38 @@
-#cabecalho {
-  width: 1100px;
-  margin: 50px auto;
-  font-family: "Segoe UI", sans-serif;
+/**
+ * Tabela
+ * ======
+ */
+
+#indice table {
+  border-collapse: collapse;
 }
 
-#cabecalho .campo-scanner {
-  border-color: gray;
+#indice th {
+  /*text-align: left;*/
+  font-size: 14px;
 }
 
-#cabecalho .lista-processos {
-  background-color: #eee;
-  padding: 5px 10px !important;
+#indice th,
+#indice td {
+  border: solid 1px #ddd;
 }
 
-#cabecalho .lista-processos-item {
-  margin: 2px 0px;
-  padding: 4px 8px !important;
-  background-color: #ddd;
+#indice th,
+#indice td {
+  padding: 4px 8px;
+}
+
+#indice tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
 /**
- * checkBox:
- * ---------
+ * Aviso
+ * =====
  */
 
-#cabecalho .checkbox {
-  text-align: center;
-  color: gray;
-  margin-bottom: 10px;
+#indice .ind-aviso {
+  padding: 8px 0px;
+  background-color: #ffe5e5;
+  color: #ff4c4c;
 }
-
-

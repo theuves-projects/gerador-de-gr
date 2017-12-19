@@ -3,14 +3,14 @@
 
   angular
     .module("app")
-    .directive("focar", focar);
+    .directive("grFocar", grFocar);
 
   /**
    * no firefox, por um motivo que eu
    * desconheço, não tava focando o <input>
    * automaticamente ao iniciar a página
    */
-  function focar() {
+  function grFocar() {
     return {
       link: link,
       restrict: "A"

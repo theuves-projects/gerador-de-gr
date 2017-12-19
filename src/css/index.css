@@ -1,0 +1,17 @@
+html,
+body {
+  height: 100%;
+  background-color: #eee;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+
+.gr-principal {
+  margin: 0px auto;
+  padding: 0px 25px 25px 25px;
+  width: 665px;
+  height: 100%;
+  background-color: white;
+}

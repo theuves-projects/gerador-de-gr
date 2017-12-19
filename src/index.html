@@ -6,18 +6,19 @@
 
     <!-- build:css style.css -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="css/root.css">
-    <link rel="stylesheet" href="css/gr/texto.css">
-    <link rel="stylesheet" href="css/gr/largura.css">
-    <link rel="stylesheet" href="css/gr/flex.css">
-    <link rel="stylesheet" href="css/gr/campo.css">
-    <link rel="stylesheet" href="css/gr/margin.css">
-    <link rel="stylesheet" href="css/gr/pad.css">
-    <link rel="stylesheet" href="css/gr/float.css">
-    <link rel="stylesheet" href="css/gr/cursor.css">
-    <link rel="stylesheet" href="app/controllers/Configuracoes/template.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/funcional/texto.css">
+    <link rel="stylesheet" href="css/funcional/largura.css">
+    <link rel="stylesheet" href="css/funcional/campo.css">
+    <link rel="stylesheet" href="css/funcional/margin.css">
+    <link rel="stylesheet" href="css/funcional/pad.css">
+    <link rel="stylesheet" href="css/funcional/float.css">
+    <link rel="stylesheet" href="css/funcional/cursor.css">
+    <link rel="stylesheet" href="css/funcional/flex.css">
+    <link rel="stylesheet" href="css/funcional/hr.css">
     <link rel="stylesheet" href="app/controllers/Indice/template.css">
-    <link rel="stylesheet" href="app/directives/checkBox/template.css">
+    <link rel="stylesheet" href="app/controllers/Configuracoes/template.css">
     <link rel="stylesheet" href="app/controllers/Impressao/template.css">
     <!-- endinject -->
     <!-- endbuild -->
@@ -25,7 +26,9 @@
     <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css">
   </head>
   <body data-ng-app="app">
-    <div data-ng-view></div>
+    <main class="gr-principal">
+      <ng-view></ng-view>
+    </main>
 
     <script src="https://unpkg.com/angular@1.6.7/angular.min.js"></script>
     <script src="https://unpkg.com/angular-route@1.6.7/angular-route.min.js"></script>
@@ -35,12 +38,12 @@
     <!-- build:js script.js -->
     <!-- inject:js -->
     <script src="app/module.js"></script>
+    <script src="app/directives/grFocar/directive.js"></script>
     <script src="app/controllers/Impressao/controller.js"></script>
+    <script src="app/controllers/Controles/controller.js"></script>
     <script src="app/controllers/Configuracoes/controller.js"></script>
+    <script src="app/directives/grSelecionar/directive.js"></script>
     <script src="app/controllers/Indice/controller.js"></script>
-    <script src="app/directives/selecionar/directive.js"></script>
-    <script src="app/directives/focar/directive.js"></script>
-    <script src="app/directives/checkBox/directive.js"></script>
     <script src="app/filters/preencher.js"></script>
     <script src="app/services/Guia.js"></script>
     <script src="app/services/Configuracoes.js"></script>
