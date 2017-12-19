@@ -102,6 +102,6 @@ gulp.task("construir:html-css-e-js", function () {
  * ---------------------
  */
 gulp.task("construir:favicon.ico", function () {
-  return gulp.src("src/favicon.ico")
+  return gulp.src("favicon.ico")
     .pipe(gulp.dest("build"));
 });

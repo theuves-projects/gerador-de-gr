@@ -1,5 +1,6 @@
 html,
-body {
+body,
+[ng-app] {
   height: 100%;
   background-color: #eee;
 }
@@ -10,8 +11,11 @@ body {
 
 .gr-principal {
   margin: 0px auto;
-  padding: 0px 25px 25px 25px;
   width: 665px;
   height: 100%;
   background-color: white;
+}
+
+.gr-secao {
+  padding: 0px 25px 25px 25px;
 }
