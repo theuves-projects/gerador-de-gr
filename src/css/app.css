@@ -9,7 +9,7 @@ body {
   font-family: "Segoe UI", sans-serif;
 }
 
-.gr-principal {
+.gr-princ {
   margin: 0px auto;
   width: 665px;
   height: 100%;
@@ -17,6 +17,6 @@ body {
   background-color: white;
 }
 
-.gr-secao {
+.gr-sec {
   padding: 0px 25px 25px 25px;
 }

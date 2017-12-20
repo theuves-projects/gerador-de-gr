@@ -1,0 +1,170 @@
+/**
+ * largura e altura
+ */
+
+.gr-w-100 {
+  width: 100%;
+  max-width: 100%;
+}
+
+.gr-h-100 {
+  height: 100%;
+  max-height: 100%;
+}
+
+/**
+ * texto - posição
+ */
+
+.gr-txt-c,
+.gr-txt-c * {
+  text-align: center !important;
+}
+
+.gr-txt-e,
+.gr-txt-e * {
+  text-align: left !important;
+}
+
+.gr-txt-d,
+.gr-txt-d * {
+  text-align: right !important;
+}
+
+/**
+ * texto - estilo
+ */
+
+.gr-txt-n,
+.gr-txt-n * {
+  font-weight: bold !important;
+}
+
+.gr-txt-i,
+.gr-txt-i * {
+  font-style: italic !important;
+}
+
+/**
+ * flex - linha
+ */
+
+.gr-flex-lin {
+  display: flex;
+  width: 100%;
+}
+
+.gr-flex-lin-bl {
+  align-items: baseline;
+}
+
+/**
+ * coluna
+ */
+
+.gr-flex-col {
+  flex: 1;
+  padding: 2px;
+}
+
+.gr-flex-col-75 {flex: 0 0 75%;}
+.gr-flex-col-50 {flex: 0 0 50%;}
+.gr-flex-col-25 {flex: 0 0 25%;}
+
+/**
+ * inputs e botões
+ */
+
+.gr-input,
+.gr-btn {
+  border: solid 2px #aaa;
+  padding: 5px 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/**
+ * botões - efeitos
+ */
+
+.gr-btn:not(:disabled):hover {
+  opacity: 0.9;
+}
+
+.gr-btn:active {
+  opacity: 1 !important;
+}
+
+.gr-btn:disabled {
+  filter: grayscale(100%);
+}
+
+/**
+ * botões - cores
+ */
+
+.gr-btn-verde {
+  color: white;
+  background-color: #689b60;
+  border-color: #5d8b56;
+}
+
+.gr-btn-vermelho {
+  color: white;
+  background-color: #db5353;
+  border-color: #c54a4a;
+}
+
+.gr-btn-azul {
+  color: white;
+  background-color: #688f8a;
+  border-color: #5d807c;
+}
+
+/**
+ * margin - cima
+ */
+
+.gr-mrg-cm-5 {margin-top: 5px;}
+.gr-mrg-cm-10 {margin-top: 10px;}
+
+/**
+ * margin - baixo
+ */
+
+.gr-mrg-bx-5 {margin-bottom: 5px;}
+.gr-mrg-bx-10 {margin-bottom: 10px;}
+
+/**
+ * padding
+ */
+
+.gr-pad-0 {padding: 0px !important;}
+.gr-pad-1 {padding: 1px !important;}
+.gr-pad-2 {padding: 2px !important;}
+
+/**
+ * float
+ */
+
+.gr-float-e {float: left;}
+.gr-float-d {float: right;}
+
+/**
+ * cursor
+ */
+
+.gr-cursor-default {
+  cursor: default;
+}
+
+/**
+ * barra horizontal
+ */
+
+.gr-hr {
+  margin: 6px 0px;
+  width: 100%;
+  height: 1px;
+  background-color: #eee;
+}

@@ -11,16 +11,16 @@
         <i class="fa fa-cog"></i> CONFIGURAÇÕES
       </button>
     </div>
-    <div class="gr-flex-col-25 gr-texto-d gr-texto-i">
+    <div class="gr-flex-col-25 gr-txt-d gr-txt-i">
       {{cab.data | date:'dd/MM/yyyy HH:mm'}}
     </div>
   </div>
 
-  <div class="gr-texto-c cab-secao">
+  <div class="gr-txt-c cab-secao">
     <h1>{{cab.titulo}}</h1>
     <button
       ng-click="cab.btPrincClick()"
-      ng-class="['gr-campo', 'gr-campo-' + cab.btPrincCor]">
+      ng-class="['gr-btn', 'gr-btn-' + cab.btPrincCor]">
 
       <i ng-class="['fa', 'fa-' + cab.btPrincFa]"></i> {{cab.btPrinc}}
     </button>
