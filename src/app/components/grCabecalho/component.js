@@ -23,6 +23,8 @@
     var cab = this;
     ///////////////
 
+    cab.data = Date.now();
+
     cab.criarNovo = function criarNovo() {
       var fazer = $window.confirm("Certeza?");
       if (fazer) $window.location.reload();

@@ -11,13 +11,19 @@
         <i class="fa fa-cog"></i> CONFIGURAÇÕES
       </button>
     </div>
-    <div class="gr-flex-col-25 gr-texto-d">
-      <button ng-click="cab.botaoPrincipalClick()">
-        <i class="fa fa-arrow-right"></i> {{cab.botaoPrincipal}}
-      </button>
+    <div class="gr-flex-col-25 gr-texto-d gr-texto-i">
+      {{cab.data | date:'dd/MM/yyyy HH:mm'}}
     </div>
   </div>
 
-  <h1>{{cab.titulo}}</h1>
+  <div class="gr-texto-c cab-secao">
+    <h1>{{cab.titulo}}</h1>
+    <button
+      ng-click="cab.botaoPrincipalClick()"
+      class="gr-campo gr-campo-verde">
+
+      <i class="fa fa-arrow-right"></i> {{cab.botaoPrincipal}}
+    </button>
+  </div>
 </div>
 
