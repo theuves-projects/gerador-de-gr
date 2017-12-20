@@ -1,6 +1,7 @@
 .ind-errado {
-  color: #ff4c4c;
+  cursor: help;
   font-style: italic;
+  color: #ff4c4c;
 }
 
 /**

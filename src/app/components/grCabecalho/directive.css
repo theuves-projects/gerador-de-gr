@@ -1,22 +1,26 @@
 #gr-cabecalho .cab-ctrls {
   margin-bottom: 15px;
-  padding: 0px 8px;
-  background-color: #ddd;
+  padding: 0px 10px;
+  background-color: #e2e2e2;
 }
 
 #gr-cabecalho .cab-ctrls button {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #gr-cabecalho .cab-ctrls button {
   border: none;
   margin: 6px 1px;
-  padding: 4px 12px;
+  padding: 6px 12px;
   background-color: #ccc;
 }
 
 #gr-cabecalho .cab-ctrls button:hover {
   background-color: #c5c5c5;
+}
+
+#gr-cabecalho .cab-ctrls button:active {
+  background-color: #ccc;
 }
 
 #gr-cabecalho h1 {

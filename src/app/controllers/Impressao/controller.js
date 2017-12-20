@@ -35,4 +35,4 @@
       $location.url("/");
     };
   }
-})(this.angular);
+})(window.angular);

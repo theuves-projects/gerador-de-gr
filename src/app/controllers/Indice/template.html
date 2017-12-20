@@ -1,6 +1,10 @@
 <div id="indice">
   <gr-cabecalho
-    cab-titulo="ADICIONAR DADOS"></gr-cabecalho>
+    titulo="ADICIONAR DADOS"
+    botao-principal="GERAR"
+    botao-principal-fa="arrow-right"
+    botao-principal-click="ind.gerarGuia()">
+  </gr-cabecalho>
 
   <div class="gr-secao">
     <form>
@@ -84,7 +88,8 @@
           <td>{{processo.item | preencher:2}}</td>
           <td
             ng-class="{'ind-errado': !processo.ehValido}"
-            gr-selecionar>
+            gr-selecionar
+            title="{{processo.ehValido ? processo.numero : 'Inválido!'}}">
             {{processo.numero}}
           </td>
           <td>{{processo.volume | preencher:2}}</td>

@@ -42,4 +42,4 @@
       return itemComPrefixo in $window.localStorage;
     };
   }
-})(this.angular);
+})(window.angular);

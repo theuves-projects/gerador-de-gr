@@ -22,4 +22,4 @@
       });
     }
   }
-})(this.angular);
+})(window.angular);

@@ -197,4 +197,4 @@
       Configuracoes.adicionar("destinatarios", destinatarios);
     };
   }
-})(this.angular);
+})(window.angular);

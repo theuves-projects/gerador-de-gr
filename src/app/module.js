@@ -4,4 +4,4 @@
   angular.module("app", [
     "ngRoute"
   ]);
-})(this.angular);
+})(window.angular);

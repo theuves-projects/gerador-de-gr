@@ -82,4 +82,4 @@
       $location.path("/");
     };
   }
-})(this.angular);
+})(window.angular);

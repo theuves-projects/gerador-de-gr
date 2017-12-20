@@ -1,0 +1,23 @@
+<div id="gr-cabecalho">
+  <div class="gr-flex-lin gr-flex-lin-bl cab-ctrls">
+    <div class="gr-flex-col-75">
+      <button ng-click="cab.criarNovo()">
+        <i class="fa fa-plus"></i> NOVO
+      </button>
+      <button ng-click="cab.verHistorico()">
+        <i class="fa fa-history"></i> HSTÓRICO
+      </button>
+      <button ng-click="cab.verConfiguracoes()">
+        <i class="fa fa-cog"></i> CONFIGURAÇÕES
+      </button>
+    </div>
+    <div class="gr-flex-col-25 gr-texto-d">
+      <button ng-click="cab.botaoPrincipalClick()">
+        <i class="fa fa-arrow-right"></i> {{cab.botaoPrincipal}}
+      </button>
+    </div>
+  </div>
+
+  <h1>{{cab.titulo}}</h1>
+</div>
+

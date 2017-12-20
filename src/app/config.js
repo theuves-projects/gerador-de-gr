@@ -26,4 +26,4 @@
         redirectTo: "/"
       });
   }
-})(this.angular);
+})(window.angular);

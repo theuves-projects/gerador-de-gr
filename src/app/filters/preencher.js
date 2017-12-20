@@ -12,4 +12,4 @@
         .padStart(pad, "0");
     };
   }
-})(this.angular);
+})(window.angular);

@@ -70,4 +70,4 @@
       return guia.processos.lista.length === 0;
     };
   }
-})(this.angular);
+})(window.angular);

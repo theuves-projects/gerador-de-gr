@@ -13,7 +13,7 @@
     , Processo
   ) {
     var ind = this;
-    //////////////
+    ///////////////
 
     ind.destinatarios = Destinatarios.obter();
 
@@ -81,7 +81,6 @@
 
     ind.criarNovo = function criarNovo() {
       var fazer = $window.confirm("Certeza?");
-
       if (fazer) $window.location.reload();
     };
 
@@ -96,4 +95,4 @@
       $window.alert("Erro!");
     };
   }
-})(this.angular);
+})(window.angular);

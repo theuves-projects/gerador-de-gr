@@ -24,4 +24,4 @@
         Configuracoes.adicionar("usuario", nome);
       }
     }
-})(this.angular);
+})(window.angular);
