@@ -9,9 +9,10 @@
     return {
       bindings: {
         "titulo": "@",
-        "botaoPrincipal": "@",
-        "botaoPrincipalFa": "@",
-        "botaoPrincipalClick": "&"
+        "btPrinc": "@",
+        "btPrincFa": "@",
+        "btPrincCor": "@",
+        "btPrincClick": "&"
       },
       controller: Cabecalho,
       controllerAs: "cab",

@@ -19,10 +19,10 @@
   <div class="gr-texto-c cab-secao">
     <h1>{{cab.titulo}}</h1>
     <button
-      ng-click="cab.botaoPrincipalClick()"
-      class="gr-campo gr-campo-verde">
+      ng-click="cab.btPrincClick()"
+      ng-class="['gr-campo', 'gr-campo-' + cab.btPrincCor]">
 
-      <i class="fa fa-arrow-right"></i> {{cab.botaoPrincipal}}
+      <i ng-class="['fa', 'fa-' + cab.btPrincFa]"></i> {{cab.btPrinc}}
     </button>
   </div>
 </div>
