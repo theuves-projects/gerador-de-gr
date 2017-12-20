@@ -2,96 +2,74 @@
   ng-init="conf.iniciar()"
   id="configuracoes">
 
-  <header>
-    <h1 class="g-margin-baixo-10">CONFIGURAÇÕES</h1>
+  <gr-cabecalho
+    titulo="CONFIGURAÇÕES"
+    bt-princ="SALVAR"
+    bt-princ-fa="floppy-o"
+    bt-princ-cor="azul"
+    bt-princ-click="conf.salvar()">
+  </gr-cabecalho>
 
-    <button
-      ng-click="conf.voltar()"
-      class="g-botao g-botao-azul voltar">
+  <div class="gr-sec">
+    <div id="usuario" class="secao">
+      <p class="tipo">
+        <a href="#!/configuracoes#usuario">
+          Usuário:
+        </a>
+      </p>
 
-      <i class="fa fa-home"></i>
-      PÁGINA INICIAL
-    </button>
-  </header>
+      <form class="conteudo">
+        <label>
+          <p class="g-margin-baixo-10">Seu nome:</p>
 
-  <!-- Usuário -->
-  <div id="usuario" class="secao">
-    <p class="tipo">
-      <a href="#!/configurar#usuario">
-        Usuário:
-      </a>
-    </p>
+          <input
+            ng-model="conf.usuario.nome"
+            class="g-campo g-largura-total"
+            type="text"
+            placeholder="Insira seu nome aqui...">
+        </label>
+      </form>
+    </div>
 
-    <form class="conteudo">
-      <label>
-        <p class="g-margin-baixo-10">Seu nome:</p>
+    <div id="destinatarios" class="secao">
+      <p class="tipo">
+        <a href="/#!/configuracoes#destinatarios">
+          Destinatários:
+        </a>
+      </p>
 
-        <input
-          ng-model="conf.usuario.nome"
-          class="g-campo g-largura-total"
-          type="text"
-          placeholder="Insira seu nome aqui...">
-      </label>
-
-      <button
-        ng-click="conf.usuario.salvar()"
-        class="g-botao g-botao-verde g-direita g-margin-cima-5"
-        type="submit">
-
-        <i class="fa fa-floppy-o"></i>
-        SALVAR AS ALTERAÇÕES
-      </button>
-    </form>
-  </div>
-
-  <!-- Destinatários -->
-  <div id="destinatarios" class="secao">
-    <p class="tipo">
-      <a href="/#!/configurar#destinatarios">
-        Destinatários:
-      </a>
-    </p>
-
-    <div class="conteudo">
-      <p class="g-margin-baixo-10">Gerenciar destinatários:</p>
-
-      <div
-        ng-repeat="destinatario in conf.destinatarios.lista"
-        class="g-linha g-largura-total destinatario">
+      <div class="conteudo">
+        <p class="g-margin-baixo-10">Gerenciar destinatários:</p>
 
         <div
-          selecionar
-          class="g-coluna g-cursor-padrao item">
+          ng-repeat="destinatario in conf.destinatarios.lista"
+          class="g-linha g-largura-total destinatario">
 
-          {{destinatario}}
+          <div
+            selecionar
+            class="g-coluna g-cursor-padrao item">
+
+            {{destinatario}}
+          </div>
+          <div class="g-coluna item">
+            <button
+              ng-click="conf.destinatarios.remover($index)"
+              class="g-botao g-botao-vermelho g-direita">
+
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
         </div>
-        <div class="g-coluna item">
-          <button
-            ng-click="conf.destinatarios.remover($index)"
-            class="g-botao g-botao-vermelho g-direita">
 
-            <i class="fa fa-trash"></i>
-          </button>
+        <div class="g-largura-total">
+          <input
+            ng-model="conf.destinatarios.novo"
+            ng-keypress="conf.destinatarios.adicionar($event)"
+            class="g-campo g-largura-total g-margin-cima-5"
+            type="text"
+            placeholder="ADICIONE UM NOVO DESTINATÁRIO...">
         </div>
       </div>
-
-      <div class="g-largura-total">
-        <input
-          ng-model="conf.destinatarios.novo"
-          ng-keypress="conf.destinatarios.adicionar($event)"
-          class="g-campo g-largura-total g-margin-cima-5"
-          type="text"
-          placeholder="ADICIONAR DESTINATÁRIO... (PRESS. <ENTER>)">
-      </div>
-
-      <button
-        ng-click="conf.destinatarios.salvar()"
-        class="g-botao g-botao-verde g-direita g-margin-cima-5"
-        type="submit">
-
-        <i class="fa fa-floppy-o"></i>
-        SALVAR AS ALTERAÇÕES
-      </button>
     </div>
   </div>
 </div>

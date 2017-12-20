@@ -28,7 +28,10 @@
 
     cab.criarNovo = function criarNovo() {
       var fazer = $window.confirm("Certeza?");
-      if (fazer) $window.location.reload();
+      if (fazer) {
+        $location.url("/")
+        $window.location.reload();
+      }
     };
 
     cab.verHistorico = function verHistorico() {
