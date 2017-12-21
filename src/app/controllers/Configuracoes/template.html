@@ -13,8 +13,6 @@
 
   <div class="gr-sec">
     <div id="usuario" class="secao">
-      div
-
       <p class="tipo">
         <a href="#!/configuracoes#usuario">
           Usuário:
@@ -23,7 +21,14 @@
 
       <form class="conteudo">
         <label>
-          <p class="gr-mrg-bx-10">Seu nome:</p>
+          <p class="gr-mrg-bx-10">
+          Seu nome:
+
+          <i
+            class="fa fa-info-circle gr-cor-azul gr-float-d gr-cursor-help"
+            title="Nome que aparecerá na guia.">
+          </i>
+        </p>
 
           <input
             ng-model="conf.usuario.nome"
@@ -42,7 +47,14 @@
       </p>
 
       <div class="conteudo">
-        <p class="gr-mrg-bx-10">Gerenciar destinatários:</p>
+        <p class="gr-mrg-bx-10">
+          Gerenciar destinatários:
+
+          <i
+            class="fa fa-info-circle gr-cor-azul gr-float-d gr-cursor-help"
+            title="Destinatários para escolher.">
+          </i>
+        </p>
 
         <div
           ng-repeat="destinatario in conf.destinatarios.lista"
@@ -57,7 +69,7 @@
 
             <span
               ng-if="!conf.destinatarios.tahSalvo(destinatario)"
-              class="gr-cursor-help conf-cor-amarelo"
+              class="gr-cursor-help gr-cor-amarelo"
               title="Ainda não foi salvado!">
               <i class="fa fa-exclamation-triangle"></i>
             </span>

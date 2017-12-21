@@ -1,7 +1,3 @@
-#configuracoes .conf-cor-amarelo {
-  color: #d19019;
-}
-
 /**
  * Seção
  */
@@ -21,11 +17,21 @@
   color: gray;
 }
 
+#configuracoes .secao .tipo a:hover {
+  opacity: 0.9;
+}
+
+#configuracoes .secao .tipo a:active {
+  opacity: 1;
+}
+
 #configuracoes .secao .conteudo {
   display: inline-block;
   width: 100%;
   padding: 10px 20px;
 }
+
+
 
 /**
  * Destinatário
