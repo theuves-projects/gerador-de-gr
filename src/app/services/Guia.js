@@ -67,7 +67,15 @@
     };
 
     guia.tahVazia = function tahVazia() {
-      return guia.processos.lista.length === 0;
+      var semNumero = !guia.numero;
+      var semMalote = !guia.malote.numero;
+      var semDestinatario = !guia.destinatario;
+      var semProcessos = !guia.processos.lista.length;
+
+      return semNumero
+        && semMalote
+        && semDestinatario
+        && semProcessos;
     };
   }
 })(window.angular);

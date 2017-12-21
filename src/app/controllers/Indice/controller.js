@@ -19,10 +19,6 @@
 
     ind.guia = Guia;
 
-    ind.abrirConfiguracoes = function abrirConfiguracoes() {
-      $location.url("/configuracoes");
-    };
-
     ind.adicionarProcesso = function adicionarProcesso() {
       var tahLimpo = !ind.codigoDeBarras || !ind.codigoDeBarras.trim();
 
@@ -77,11 +73,6 @@
     ind.informarErro = function informarErro(evento) {
       if (evento.code !== "Enter") return;
       $window.alert("Por aqui, os dados não são formatados.");
-    };
-
-    ind.criarNovo = function criarNovo() {
-      var fazer = $window.confirm("Certeza?");
-      if (fazer) $window.location.reload();
     };
 
     ind.removerProcesso = function removerProcesso(numero) {

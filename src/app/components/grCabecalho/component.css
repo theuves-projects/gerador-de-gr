@@ -1,6 +1,5 @@
 /**
  * Controles
- * =========
  */
 
 #gr-cabecalho .cab-ctrls {
@@ -20,17 +19,20 @@
   background-color: #ccc;
 }
 
-#gr-cabecalho .cab-ctrls button:hover {
+#gr-cabecalho .cab-ctrls button:not(:disabled):hover {
   background-color: #c5c5c5;
 }
 
-#gr-cabecalho .cab-ctrls button:active {
+#gr-cabecalho .cab-ctrls button:not(:disabled):active {
   background-color: #ccc;
+}
+
+#gr-cabecalho .cab-ctrls button:disabled {
+  font-style: italic;
 }
 
 /**
  * Seção
- * =====
  */
 
 #gr-cabecalho .cab-secao {

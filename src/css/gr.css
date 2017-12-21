@@ -54,6 +54,10 @@
   width: 100%;
 }
 
+.gr-flex-lin-c {
+  align-items: center;
+}
+
 .gr-flex-lin-bl {
   align-items: baseline;
 }
@@ -63,7 +67,7 @@
  */
 
 .gr-flex-col {
-  flex: 1;
+  flex-grow: 1;
   padding: 2px;
 }
 
@@ -156,6 +160,10 @@
 
 .gr-cursor-default {
   cursor: default;
+}
+
+.gr-cursor-help {
+  cursor: help;
 }
 
 /**

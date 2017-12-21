@@ -12,7 +12,8 @@
         "btPrinc": "@",
         "btPrincFa": "@",
         "btPrincCor": "@",
-        "btPrincClick": "&"
+        "btPrincClick": "&",
+        "podeSair": "&"
       },
       controller: Cabecalho,
       controllerAs: "cab",
@@ -20,28 +21,42 @@
     };
   }
 
-  function Cabecalho($location, $window) {
+  /* @ngInject */
+  function Cabecalho(
+      $scope
+    , $location
+    , $window
+  ) {
     var cab = this;
     ///////////////
 
     cab.data = Date.now();
 
+    cab.path = $location.path();
+
+    cab.tahTdOk = function tahTdOk() {
+      var MENSAGEM = "Dados serão perdidos.\n\nContinuar?";
+
+      var fazer = !$scope.cab.podeSair()
+        ? $window.confirm(MENSAGEM)
+        : true;
+
+      return fazer;
+    };
+
     cab.criarNovo = function criarNovo() {
-      var fazer = $window.confirm("Certeza?");
-      if (fazer) {
-        $location.url("/")
+      if (cab.tahTdOk()) {
+        $location.url("/");
         $window.location.reload();
       }
     };
 
     cab.verHistorico = function verHistorico() {
-      var fazer = $window.confirm("Dados serão perdidos.\n\nTem certeza?");
-      if (fazer) $location.url("/historico");
+      if (cab.tahTdOk()) $location.url("/historico");
     };
 
     cab.verConfiguracoes = function verConfiguracoes() {
-      var fazer = $window.confirm("Dados serão perdidos.\n\nTem certeza?");
-      if (fazer) $location.url("/configuracoes");
+      if (cab.tahTdOk()) $location.url("/configuracoes");
     };
   }
 })(window.angular);

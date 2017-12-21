@@ -4,10 +4,16 @@
       <button ng-click="cab.criarNovo()">
         <i class="fa fa-plus"></i> NOVO
       </button>
-      <button ng-click="cab.verHistorico()">
+      <button
+        ng-click="cab.verHistorico()"
+        ng-disabled="cab.path === '/hstorico'">
+
         <i class="fa fa-history"></i> HSTÓRICO
       </button>
-      <button ng-click="cab.verConfiguracoes()">
+      <button
+        ng-click="cab.verConfiguracoes()"
+        ng-disabled="cab.path === '/configuracoes'">
+
         <i class="fa fa-cog"></i> CONFIGURAÇÕES
       </button>
     </div>
@@ -20,9 +26,15 @@
     <h1>{{cab.titulo}}</h1>
     <button
       ng-click="cab.btPrincClick()"
-      ng-class="['gr-btn', 'gr-btn-' + cab.btPrincCor]">
+      ng-class="'gr-btn-' + cab.btPrincCor"
+      class="gr-btn">
 
-      <i ng-class="['fa', 'fa-' + cab.btPrincFa]"></i> {{cab.btPrinc}}
+      <i
+        ng-class="'fa-' + cab.btPrincFa"
+        class="fa">
+      </i>
+
+      {{cab.btPrinc}}
     </button>
   </div>
 </div>

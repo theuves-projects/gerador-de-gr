@@ -1,7 +1,4 @@
-html,
-body,
-[ng-app] {
-  height: 100%;
+body {
   background-color: #eee;
 }
 
@@ -10,10 +7,9 @@ body {
 }
 
 .gr-princ {
-  margin: 0px auto;
+  margin: 20px auto 40px;
   width: 665px;
-  height: 100%;
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
   background-color: white;
 }
 

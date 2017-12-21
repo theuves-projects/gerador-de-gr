@@ -21,33 +21,28 @@
         var nomeEmMaiusculo = this.nome.toUpperCase();
 
         Configuracoes.adicionar("usuario", nomeEmMaiusculo);
-
-        $window.alert("Salvo!");
-        $window.location.reload();
       }
     };
 
     conf.destinatarios = {
       novo: "",
       lista: Destinatarios.obter(),
-      adicionar: function adicionar(evento)  {
-        if (evento.code === "Enter") {
-          if (angular.equals(this.novo.trim(), "")) {
-            $window.alert("Informe algo!");
-            return;
-          }
-
-          var destEmMaiusculo = this.novo.toUpperCase();
-
-          if (this.tem(destEmMaiusculo)) {
-            $window.alert("O destinatário informado já existe!");
-            return;
-          }
-
-          this.lista.push(destEmMaiusculo);
-          this.limpar();
+      adicionar: function adicionar()  {
+        if (angular.equals(this.novo.trim(), "")) {
+          $window.alert("Informe algo!");
           return;
         }
+
+        var destEmMaiusculo = this.novo.toUpperCase();
+
+        if (this.tem(destEmMaiusculo)) {
+          $window.alert("O destinatário informado já existe!");
+          return;
+        }
+
+        this.lista.push(destEmMaiusculo);
+        this.limpar();
+        return;
       },
       limpar: function limpar() {
         this.novo = "";
@@ -63,9 +58,9 @@
       },
       salvar: function salvar() {
         Destinatarios.adicionar(this.lista);
-
-        $window.alert("Salvo!");
-        $window.location.reload();
+      },
+      tahSalvo: function tahSalvo(destinatario) {
+        return Destinatarios.obter().includes(destinatario);
       },
       tem: function tem(destinatario) {
         return this.lista.includes(destinatario);
@@ -77,9 +72,26 @@
       $anchorScroll();
     };
 
-    conf.voltar = function() {
-      $location.hash("");
-      $location.path("/");
+    conf.podeSair = function podeSair() {
+      var ndMudouEmUsuario = angular.equals(
+        Configuracoes.obter("usuario"),
+        conf.usuario.nome
+      );
+
+      var ndMudouEmDestinatarios = angular.equals(
+        Destinatarios.obter(),
+        conf.destinatarios.lista
+      );
+
+      return ndMudouEmUsuario && ndMudouEmDestinatarios;
+    };
+
+    conf.salvar = function () {
+      conf.usuario.salvar();
+      conf.destinatarios.salvar();
+
+      $window.alert("Salvo!");
+      $window.location.reload();
     };
   }
 })(window.angular);

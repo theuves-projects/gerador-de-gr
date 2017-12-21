@@ -1,6 +1,9 @@
+#configuracoes .conf-cor-vermelho {
+  color: red;
+}
+
 /**
  * Seção
- * -----
  */
 
 #configuracoes .secao {
@@ -26,13 +29,9 @@
 
 /**
  * Destinatário
- * ------------
  */
 
 #configuracoes .destinatario {
-  align-items: center;
-  /******************/
-
   padding-left: 10px;
   margin-bottom: 1px;
   background-color: #e9e9e9;

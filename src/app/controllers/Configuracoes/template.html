@@ -7,7 +7,8 @@
     bt-princ="SALVAR"
     bt-princ-fa="floppy-o"
     bt-princ-cor="azul"
-    bt-princ-click="conf.salvar()">
+    bt-princ-click="conf.salvar()"
+    pode-sair="conf.podeSair()">
   </gr-cabecalho>
 
   <div class="gr-sec">
@@ -20,11 +21,11 @@
 
       <form class="conteudo">
         <label>
-          <p class="g-margin-baixo-10">Seu nome:</p>
+          <p class="gr-mrg-bx-10">Seu nome:</p>
 
           <input
             ng-model="conf.usuario.nome"
-            class="g-campo g-largura-total"
+            class="gr-input gr-w-100"
             type="text"
             placeholder="Insira seu nome aqui...">
         </label>
@@ -39,36 +40,47 @@
       </p>
 
       <div class="conteudo">
-        <p class="g-margin-baixo-10">Gerenciar destinatários:</p>
+        <p class="gr-mrg-bx-10">Gerenciar destinatários:</p>
 
         <div
           ng-repeat="destinatario in conf.destinatarios.lista"
-          class="g-linha g-largura-total destinatario">
+          class="gr-flex-lin gr-flex-lin-c gr-w-100 destinatario">
 
           <div
-            selecionar
-            class="g-coluna g-cursor-padrao item">
+            gr-selecionar
+            class="gr-flex-col gr-cursor-default item"
+            title="{{destinatario}}">
 
             {{destinatario}}
+
+            <span
+              ng-if="!conf.destinatarios.tahSalvo(destinatario)"
+              class="gr-txt-i gr-cursor-help"
+              title="Ainda não foi salvo!">
+              (<span class="conf-cor-vermelho">*</span>)
+            </span>
           </div>
-          <div class="g-coluna item">
+          <div class="gr-flex-col item">
             <button
               ng-click="conf.destinatarios.remover($index)"
-              class="g-botao g-botao-vermelho g-direita">
+              class="gr-btn gr-btn-vermelho gr-float-d"
+              title="Remover">
 
               <i class="fa fa-trash"></i>
             </button>
           </div>
         </div>
 
-        <div class="g-largura-total">
+        <form
+          ng-submit="conf.destinatarios.adicionar()"
+          class="gr-w-100 gr-mrg-cm-5">
+
           <input
             ng-model="conf.destinatarios.novo"
-            ng-keypress="conf.destinatarios.adicionar($event)"
-            class="g-campo g-largura-total g-margin-cima-5"
+            class="gr-input gr-w-100 gr-mrg-bx-5"
             type="text"
             placeholder="ADICIONE UM NOVO DESTINATÁRIO...">
-        </div>
+        </form>
       </div>
     </div>
   </div>
