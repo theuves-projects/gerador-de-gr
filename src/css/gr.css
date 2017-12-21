@@ -81,10 +81,13 @@
 
 .gr-input,
 .gr-btn {
-  border: solid 2px #aaa;
   padding: 5px 10px;
   font-size: 14px;
   text-transform: uppercase;
+}
+
+.gr-input {
+  border: solid 1px #aaa;
 }
 
 /**
@@ -110,19 +113,19 @@
 .gr-btn-verde {
   color: white;
   background-color: #689b60;
-  border-color: #5d8b56;
+  /*border-color: #5d8b56;*/
 }
 
 .gr-btn-vermelho {
   color: white;
   background-color: #db5353;
-  border-color: #c54a4a;
+  /*border-color: #c54a4a;*/
 }
 
 .gr-btn-azul {
   color: white;
   background-color: #688f8a;
-  border-color: #5d807c;
+  /*border-color: #5d807c;*/
 }
 
 /**
