@@ -13,7 +13,7 @@ var $ = require('gulp-load-plugins')();
 gulp.task("construir", function () {
   runSequence(
     "construir:html-css-e-js",
-    "construir:templates"
+    "construir:templates",
     "mover"
   );
 });
