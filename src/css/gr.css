@@ -46,6 +46,26 @@
 }
 
 /**
+ * cor
+ */
+
+.gr-cor-amarelo {
+  color: #d19019;
+}
+
+.gr-cor-azul {
+  color: #5a83c2;
+}
+
+.gr-cor-vermelho {
+  color: #db5353;
+}
+
+.gr-cor-verde {
+  color: #689b60;
+}
+
+/**
  * flex - linha
  */
 
@@ -88,6 +108,11 @@
 
 .gr-input {
   border: solid 1px #aaa;
+}
+
+.gr-btn {
+  border: none;
+  padding: 6px 12px;
 }
 
 /**
