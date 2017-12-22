@@ -45,7 +45,6 @@
 
       var msgDeFalta =
           faltaNumero? "Informe o número da guia!"
-        : faltaMalote? "Informe o número do malote!"
         : faltaDestinatario? "Informe o destinatário!"
         : faltaProcessos? "Informe os processos!"
         : undefined;
@@ -54,6 +53,10 @@
         $window.alert(msgDeFalta);
         return;
       }
+
+      ind.guia.malote = ind.guia.malote
+        ? ind.guia.malote
+        : false;
 
       var data = Date.now();
 
