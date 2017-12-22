@@ -59,9 +59,9 @@
 
     guia.tahVazia = function () {
       var semNumero = !guia.numero;
-      var semMalote = !guia.malote.numero;
+      var semMalote = !guia.numero;
       var semDestinatario = !guia.destinatario;
-      var semProcessos = !guia.processos.lista.length;
+      var semProcessos = guia.processos.tahVazio();
 
       return semNumero
         && semMalote
