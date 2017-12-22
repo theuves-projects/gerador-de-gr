@@ -28,6 +28,25 @@
 }
 
 #gr-guia .assinaturas {
-  padding: 10px;
+  padding: 10px 12px;
 }
 
+@media print {
+  body {
+    background-color: white;
+  }
+
+  .gr-principal,
+  .gr-principal-conteudo {
+    all: unset;
+  }
+
+  gr-cabecalho {
+    display: none;
+  }
+
+  gr-guia {
+    display: block;
+    margin: 2% 5%;
+  }
+}

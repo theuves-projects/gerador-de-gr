@@ -19,7 +19,7 @@
 
         <!-- número do malote -->
         <span ng-if="guia.malote">
-          (MALOTE {{guia.malote.numero}})
+          (MALOTE {{guia.numero}})
         </span>
       </td>
     </tr>
@@ -48,14 +48,10 @@
       <td>{{processo.volume | preencher:2 }}</td>
     </tr>
     <tr class="gr-txt-c gr-txt-n">
-      <td
-        class="assinaturas"
-        colspan="2">
+      <td colspan="2">
         PARA USO DA EXPEDIÇÃO
       </td>
-      <td
-        class="assinaturas"
-        colspan="2">
+      <td colspan="2">
         PARA USO DO DESTINATÁRIO
       </td>
     </tr>
@@ -67,7 +63,7 @@
           <span class="gr-txt-n">REMETIDO EM:</span> {{guia.data | date:'dd/MM/yyyy HH:mm'}}
         </p>
         <p>
-          <span class="gr-txt-n">RESPONSÁVEL:</span> <span class="gr-font-mono">{{guia.usuario}}</span>
+          <span class="gr-txt-n">RESPONSÁVEL:</span> {{guia.usuario}}
         </p>
       </td>
       <td

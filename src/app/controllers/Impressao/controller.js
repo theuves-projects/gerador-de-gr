@@ -30,5 +30,9 @@
 
       angular.extend(impr, dados);
     };
+
+    impr.imprimir = function () {
+      $window.print();
+    };
   }
 })(window.angular);

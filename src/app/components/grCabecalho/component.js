@@ -13,6 +13,7 @@
         "btPrincFa": "@",
         "btPrincCor": "@",
         "btPrincClick": "&",
+        "btPrincDesc": "@",
         "podeSair": "&"
       },
       controller: Cabecalho,
