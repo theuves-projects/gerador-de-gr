@@ -19,6 +19,8 @@
 
     ind.guia = Guia;
 
+    ind.adicionarMalote = function () {};
+
     ind.adicionarProcesso = function adicionarProcesso() {
       var tahLimpo = !ind.codigoDeBarras || !ind.codigoDeBarras.trim();
 
@@ -38,7 +40,7 @@
 
     ind.gerarGuia = function gerarGuia() {
       var faltaNumero = !ind.guia.numero;
-      var faltaMalote = ind.guia.malote.vai && !ind.guia.malote.numero;
+      var faltaMalote = !ind.guia.malote.numero;
       var faltaDestinatario = !ind.guia.destinatario;
       var faltaProcessos = ind.guia.processos.tahVazio();
 

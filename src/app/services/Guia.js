@@ -9,15 +9,6 @@
     var guia = this;
     ////////////////
 
-    guia.numero = undefined;
-
-    guia.malote = {
-      numero: undefined,
-      vai: true
-    };
-
-    guia.destinatario = undefined;
-
     guia.processos = {
       lista: [],
       adicionar: function adicionar(numero, ehValido) {
@@ -64,18 +55,6 @@
           return processo.numero === numero;
         });
       }
-    };
-
-    guia.tahVazia = function tahVazia() {
-      var semNumero = !guia.numero;
-      var semMalote = !guia.malote.numero;
-      var semDestinatario = !guia.destinatario;
-      var semProcessos = !guia.processos.lista.length;
-
-      return semNumero
-        && semMalote
-        && semDestinatario
-        && semProcessos;
     };
   }
 })(window.angular);
