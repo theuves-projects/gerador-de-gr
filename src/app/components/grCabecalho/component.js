@@ -35,7 +35,7 @@
 
     cab.path = $location.path();
 
-    cab.tahTdOk = function tahTdOk() {
+    cab.tahTdOk = function () {
       var MENSAGEM = "Dados serão perdidos.\n\nContinuar?";
 
       var fazer = !$scope.cab.podeSair()
@@ -45,18 +45,15 @@
       return fazer;
     };
 
-    cab.criarNovo = function criarNovo() {
-      if (cab.tahTdOk()) {
-        $location.url("/");
-        $window.location.reload();
-      }
+    cab.criarNovo = function () {
+      if (cab.tahTdOk()) $location.url("/");
     };
 
-    cab.verHistorico = function verHistorico() {
+    cab.verHistorico = function () {
       if (cab.tahTdOk()) $location.url("/historico");
     };
 
-    cab.verConfiguracoes = function verConfiguracoes() {
+    cab.verConfiguracoes = function () {
       if (cab.tahTdOk()) $location.url("/configuracoes");
     };
   }
