@@ -10,6 +10,7 @@
     , $window
     , Destinatarios
     , Guia
+    , Historico
     , Processo
   ) {
     var ind = this;
@@ -17,7 +18,7 @@
 
     ind.destinatarios = Destinatarios.obter();
 
-    ind.guia = new Guia.constructor;
+    ind.guia = new Guia.constructor(Historico);
 
     ind.adicionarProcesso = function adicionarProcesso() {
       var tahLimpo = !ind.codigoDeBarras || !ind.codigoDeBarras.trim();
@@ -55,7 +56,7 @@
       }
 
       var numeroEhInvalido = !/^\d+$/.test(ind.guia.numero);
-      var maloteEhInvalido = !/^\d{5}$/.test(ind.guia.malote.numero);
+      var maloteEhInvalido = !/^\d+$/.test(ind.guia.malote.numero);
 
       var msgDeInvalido =
           numeroEhInvalido? "O número da guia é inválido!"
@@ -67,7 +68,10 @@
         return;
       }
 
-      $location.url("/impressao");
+      var data = Date.now();
+
+      ind.guia.guardar(data);
+      $location.url("/impressao/" + data);
     };
 
     ind.informarErro = function informarErro(evento) {

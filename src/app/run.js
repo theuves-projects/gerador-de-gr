@@ -9,12 +9,8 @@
       $window
     , Configuracoes
     , Destinatarios
+    , Historico
     ) {
-
-      // Configurar destinatários.
-      if (!Configuracoes.tem("destinatarios")) {
-        Destinatarios.iniciar();
-      }
 
       // Configurar nome do usuário.
       if (!Configuracoes.tem("usuario")) {
@@ -22,6 +18,16 @@
         var nome = angular.uppercase(respota || "");
 
         Configuracoes.adicionar("usuario", nome);
+      }
+
+      // Configurar destinatários.
+      if (!Configuracoes.tem("destinatarios")) {
+        Destinatarios.iniciar();
+      }
+
+      // Configurar histórico.
+      if (!Configuracoes.tem("histórico")) {
+        Historico.iniciar();
       }
     }
 })(window.angular);

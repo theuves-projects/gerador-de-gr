@@ -5,7 +5,7 @@
     .module("app")
     .service("Guia", Guia);
 
-  function Guia() {
+  function Guia(Historico) {
     var guia = this;
     ////////////////
 
@@ -55,6 +55,16 @@
           return processo.numero === numero;
         });
       }
+    };
+
+    guia.guardar = function (data) {
+      Historico.adicionar(
+          data
+        , guia.numero
+        , guia.malote
+        , guia.destinatario
+        , guia.processos.lista
+      );
     };
 
     guia.tahVazia = function () {
