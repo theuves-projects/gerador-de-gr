@@ -87,9 +87,8 @@
 
         <tr ng-repeat="processo in ind.guia.processos.lista | orderBy:'-item'">
           <td>{{processo.item | preencher:2}}</td>
-          <td
-            gr-selecionar>
-            {{processo.numero}}
+          <td>
+            <span gr-selecionar>{{processo.numero}}</span>
 
             <i
               ng-if="!processo.ehValido"
