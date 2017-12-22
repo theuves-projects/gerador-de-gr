@@ -2,120 +2,17 @@
   ng-init="impr.iniciar()"
   id="impressao">
 
-  <div class="g-linha configuracoes">
-    <div class="g-coluna">
-      <button
-        ng-click="impr.voltar()"
-        class="g-botao g-botao-azul g-largura-total">
+  <gr-cabecalho
+    titulo="IMPRESSÃO DA GUIA"
+    bt-princ="IMPRIMIR"
+    bt-princ-fa="print"
+    bt-princ-cor="azul"
+    bt-princ-click="impr.imprimir()"
+    pode-sair="true">
+  </gr-cabecalho>
 
-        <i class="fa fa-arrow-left"></i>
-        VOLTAR
-      </button>
-    </div>
-    <div class="g-coluna">
-      <button
-        ng-click="impr.imprimir()"
-        class="g-botao g-botao-azul g-largura-total">
-
-        <i class="fa fa-print"></i>
-        IMPRIMIR
-      </button>
-    </div>
+  <div class="gr-principal-conteudo">
+    <gr-guia></gr-guia>
   </div>
-
-  <div class="cabecalho">
-    <img
-      class="g-margin-baixo-5"
-      src="img/brasao_da_republica.png">
-
-    <p>ADVOCACIA-GERAL DA UNIÃO</p>
-    <p>PROCURADORIA-GERAL FEDERAL</p>
-    <p>PROCURADORIA FEDERAL NO ESTADO DE MATO GROSSO DO SUL</p>
-    <p>ESCRITÓRIO DE REPRESENTAÇÂO EM DOURADOS – MS</p>
-    <p>Av. Weimar G. Torres, 3215-C – 1º Andar – Centro – CEP 79800-023</p>
-    <p>Fone: (67) 3423-2591</p>
-  </div>
-
-  <table class="g-largura-total">
-    <tr class="g-centralizar g-negrito">
-      <td colspan="4">
-        GUIA DE REMESSA DE CARGA Nº {{impr.guia.numero}}/{{impr.data | date:'yyyy'}}
-
-        <!-- número do malote -->
-        <span ng-if="impr.guia.malote.vai">
-          (MALOTE {{impr.guia.malote.numero}})
-        </span>
-
-        <codigo-de-barras
-          cdb-guia="impr.guia.numero"
-          cdb-tamanho="5">
-        </codigo-de-barras>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-        <span class="g-negrito">REMETENTE:</span> AGU/PGF/ER/DOURADOS-MS
-      </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-        <span class="g-negrito">DESTINATÁRIO:</span> {{impr.guia.destinatario}}
-      </td>
-    </tr>
-    <tr class="g-centralizar g-negrito">
-      <td>ITEM</td>
-      <td>ESPÉCIE</td>
-      <td>Nº DO DOCUMENTO</td>
-      <td>VOLUME</td>
-    </tr>
-    <tr
-      ng-repeat="processo in impr.guia.processos.lista"
-      class="processos monoespacado">
-      <td>{{processo.item | preencher:2 }}</td>
-      <td>PROCESSO</td>
-      <td selecionar>{{processo.numero}}</td>
-      <td>{{processo.volume | preencher:2 }}</td>
-    </tr>
-    <tr class="g-centralizar g-negrito">
-      <td
-        class="assinaturas"
-        colspan="2">
-        PARA USO DA EXPEDIÇÃO
-      </td>
-      <td
-        class="assinaturas"
-        colspan="2">
-        PARA USO DO DESTINATÁRIO
-      </td>
-    </tr>
-    <tr>
-      <td
-        class="assinaturas"
-        colspan="2">
-        <p class="g-margin-baixo-10">
-          <span class="g-negrito">REMETIDO EM:</span> {{impr.data | date:'dd/MM/yyyy HH:mm'}}
-        </p>
-        <p>
-          <span class="g-negrito">RESPONSÁVEL:</span> <span class="monoespacado">{{impr.usuario}}</span>
-        </p>
-      </td>
-      <td
-        class="assinaturas"
-        colspan="2">
-        <p class="g-margin-baixo-10">
-          <span class="g-negrito">RECEBIDO EM:</span> _____/_____/{{impr.data | date:'yyyy'}}
-        </p>
-        <p>
-          <span class="g-negrito">RESPONSÁVEL:</span> _____________________________
-        </p>
-      </td>
-    </tr>
-  </table>
-
-  <!-- mensagem no canto inferior direito -->
-  <!-- (vai aparecer somente quando for imprimir) -->
-  <span class="devolver">
-    FAVOR DEVOLVER UMA VIA RECIBADA
-  </span>
 </div>
 

@@ -1,0 +1,85 @@
+<div id="gr-guia">
+  <div class="cabecalho">
+    <img
+      class="gr-mrg-bx-5"
+      src="img/brasao_da_republica.png">
+
+    <p>ADVOCACIA-GERAL DA UNIÃO</p>
+    <p>PROCURADORIA-GERAL FEDERAL</p>
+    <p>PROCURADORIA FEDERAL NO ESTADO DE MATO GROSSO DO SUL</p>
+    <p>ESCRITÓRIO DE REPRESENTAÇÃO EM DOURADOS – MS</p>
+    <p>Av. Weimar G. Torres, 3215 C – 1º Andar – CEP 79800-023</p>
+    <p>Fone: (67) 3423-2591</p>
+  </div>
+
+  <table class="gr-w-100 gr-font-serif">
+    <tr class="gr-txt-c gr-txt-n">
+      <td colspan="4">
+        GUIA DE REMESSA DE CARGA Nº {{impr.guia.numero}}/{{impr.data | date:'yyyy'}}
+
+        <!-- número do malote -->
+        <span ng-if="impr.guia.malote.vai">
+          (MALOTE {{impr.guia.malote.numero}})
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <span class="gr-txt-n">REMETENTE:</span> AGU/PGF/ER/DOURADOS-MS
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <span class="gr-txt-n">DESTINATÁRIO:</span> {{impr.guia.destinatario}}
+      </td>
+    </tr>
+    <tr class="gr-txt-c gr-txt-n">
+      <td>ITEM</td>
+      <td>ESPÉCIE</td>
+      <td>Nº DO DOCUMENTO</td>
+      <td>VOLUME</td>
+    </tr>
+    <tr
+      ng-repeat="processo in impr.guia.processos.lista"
+      class="gr-font-mono processos">
+      <td>{{processo.item | preencher:2 }}</td>
+      <td>PROCESSO</td>
+      <td selecionar>{{processo.numero}}</td>
+      <td>{{processo.volume | preencher:2 }}</td>
+    </tr>
+    <tr class="gr-txt-c gr-txt-n">
+      <td
+        class="assinaturas"
+        colspan="2">
+        PARA USO DA EXPEDIÇÃO
+      </td>
+      <td
+        class="assinaturas"
+        colspan="2">
+        PARA USO DO DESTINATÁRIO
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="assinaturas"
+        colspan="2">
+        <p class="gr-mrg-bx-10">
+          <span class="gr-txt-n">REMETIDO EM:</span> {{impr.data | date:'dd/MM/yyyy HH:mm'}}
+        </p>
+        <p>
+          <span class="gr-txt-n">RESPONSÁVEL:</span> <span class="gr-font-mono">{{impr.usuario}}</span>
+        </p>
+      </td>
+      <td
+        class="assinaturas"
+        colspan="2">
+        <p class="gr-mrg-bx-10">
+          <span class="gr-txt-n">RECEBIDO EM:</span> _____/_____/{{impr.data | date:'yyyy'}}
+        </p>
+        <p>
+          <span class="gr-txt-n">RESPONSÁVEL:</span> _____________________________
+        </p>
+      </td>
+    </tr>
+  </table>
+</div>
