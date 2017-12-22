@@ -83,16 +83,20 @@
           <th>ITEM</th>
           <th>PROCESSO</th>
           <th>VOLUME</th>
-          <th>*</th>
+          <th><i class="fa fa-pencil"></i></th>
         </tr>
 
         <tr ng-repeat="processo in ind.guia.processos.lista | orderBy:'-item'">
           <td>{{processo.item | preencher:2}}</td>
           <td
-            ng-class="{'ind-errado': !processo.ehValido}"
-            gr-selecionar
-            title="{{processo.ehValido ? processo.numero : 'Não identificado!'}}">
+            gr-selecionar>
             {{processo.numero}}
+
+            <i
+              ng-if="!processo.ehValido"
+              class="fa fa-exclamation-circle gr-cor-vermelho gr-cursor-help"
+              title="Formato não reconhecido!">
+            </i>
           </td>
           <td>{{processo.volume | preencher:2}}</td>
 
