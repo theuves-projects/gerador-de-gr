@@ -68,18 +68,15 @@
           class="gr-flex-lin gr-flex-lin-c gr-w-100 conf-destinatario">
 
           <div
-            gr-selecionar
             class="gr-flex-col gr-cursor-default conf-destinatario-item"
             title="{{destinatario}}">
+            <span gr-selecionar>{{destinatario}}</span>
 
-            {{destinatario}}
-
-            <span
+            <i
               ng-if="!conf.destinatarios.tahSalvo(destinatario)"
-              class="gr-cursor-help gr-cor-amarelo"
+              class="fa fa-exclamation-triangle gr-cursor-help gr-cor-amarelo"
               title="Ainda não foi salvado!">
-              <i class="fa fa-exclamation-triangle"></i>
-            </span>
+            </i>
           </div>
           <div class="gr-flex-col conf-destinaario-item">
             <button
