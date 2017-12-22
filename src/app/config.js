@@ -12,7 +12,7 @@
         controller: "Indice",
         controllerAs: "ind"
       })
-      .when("/impressao", {
+      .when("/impressao/:data", {
         templateUrl: "app/controllers/Impressao/template.html",
         controller: "Impressao",
         controllerAs: "impr"

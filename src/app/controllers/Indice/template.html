@@ -14,19 +14,18 @@
         <div class="gr-flex-col">
           <input
             ng-model="ind.guia.numero"
-            ng-keypress="ind.informarErro($event)"
             class="gr-input gr-w-100"
-            type="text"
+            type="number"
+            min="1"
             placeholder="NÚMERO DA GUIA"
             title="Número da guia">
         </div>
         <div class="gr-flex-col">
           <input
-            ng-model="ind.guia.malote.numero"
-            ng-keypress="ind.informarErro($event)"
+            ng-model="ind.guia.malote"
             class="gr-input gr-w-100"
-            type="text"
-            maxlength="5"
+            type="number"
+            min="1"
             placeholder="NÚMERO DO MALOTE"
             title="Número do malote">
         </div>

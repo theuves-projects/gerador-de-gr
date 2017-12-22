@@ -26,7 +26,7 @@
       }
 
       // Configurar histórico.
-      if (!Configuracoes.tem("histórico")) {
+      if (!Configuracoes.tem("historico")) {
         Historico.iniciar();
       }
     }

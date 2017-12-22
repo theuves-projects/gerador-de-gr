@@ -17,7 +17,7 @@
 
     conf.usuario = {
       nome: Configuracoes.obter("usuario"),
-      salvar: function salvar() {
+      salvar: function () {
         var nomeEmMaiusculo = this.nome.toUpperCase();
 
         Configuracoes.adicionar("usuario", nomeEmMaiusculo);
@@ -27,7 +27,7 @@
     conf.destinatarios = {
       novo: "",
       lista: Destinatarios.obter(),
-      adicionar: function adicionar()  {
+      adicionar: function ()  {
         if (angular.equals(this.novo.trim(), "")) {
           $window.alert("Informe algo!");
           return;
@@ -44,10 +44,10 @@
         this.limpar();
         return;
       },
-      limpar: function limpar() {
+      limpar: function () {
         this.novo = "";
       },
-      remover: function remover(indice) {
+      remover: function (indice) {
         if ($window.confirm("Tem certeza?")) {
           delete this.lista[indice];
 
@@ -56,13 +56,13 @@
           });
         }
       },
-      salvar: function salvar() {
+      salvar: function () {
         Destinatarios.adicionar(this.lista);
       },
-      tahSalvo: function tahSalvo(destinatario) {
+      tahSalvo: function (destinatario) {
         return Destinatarios.obter().includes(destinatario);
       },
-      tem: function tem(destinatario) {
+      tem: function (destinatario) {
         return this.lista.includes(destinatario);
       }
     };
@@ -72,18 +72,16 @@
       $anchorScroll();
     };
 
-    conf.podeSair = function podeSair() {
-      var ndMudouEmUsuario = angular.equals(
-        Configuracoes.obter("usuario"),
-        conf.usuario.nome
-      );
+    conf.podeSair = function () {
+      var originalUsuario = Configuracoes.obter("usuario");
+      var originalDestinatarios = Destinatarios.obter();
+      var confUsuario = conf.usuario.nome;
+      var confDestinatarios = conf.destinatarios.lista;
 
-      var ndMudouEmDestinatarios = angular.equals(
-        Destinatarios.obter(),
-        conf.destinatarios.lista
-      );
+      var nMudouUsuario = angular.equals(originalUsuario, confUsuario);
+      var nMudoDestinatarios = angular.equals(originalDestinatarios, confDestinatarios);
 
-      return ndMudouEmUsuario && ndMudouEmDestinatarios;
+      return nMudouUsuario && nMudoDestinatarios;
     };
 
     conf.salvar = function () {

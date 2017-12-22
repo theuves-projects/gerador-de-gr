@@ -20,7 +20,7 @@
 
     ind.guia = new Guia.constructor(Historico);
 
-    ind.adicionarProcesso = function adicionarProcesso() {
+    ind.adicionarProcesso = function () {
       var tahLimpo = !ind.codigoDeBarras || !ind.codigoDeBarras.trim();
 
       if (tahLimpo) {
@@ -37,9 +37,9 @@
       ind.codigoDeBarras = undefined;
     };
 
-    ind.gerarGuia = function gerarGuia() {
+    ind.gerarGuia = function () {
       var faltaNumero = !ind.guia.numero;
-      var faltaMalote = !ind.guia.malote.numero;
+      var faltaMalote = !ind.guia.malote;
       var faltaDestinatario = !ind.guia.destinatario;
       var faltaProcessos = ind.guia.processos.tahVazio();
 
@@ -55,31 +55,13 @@
         return;
       }
 
-      var numeroEhInvalido = !/^\d+$/.test(ind.guia.numero);
-      var maloteEhInvalido = !/^\d+$/.test(ind.guia.malote.numero);
-
-      var msgDeInvalido =
-          numeroEhInvalido? "O número da guia é inválido!"
-        : maloteEhInvalido? "O número do malote é inválido!"
-        : undefined;
-
-      if (angular.isDefined(msgDeInvalido)) {
-        $window.alert(msgDeInvalido);
-        return;
-      }
-
       var data = Date.now();
 
       ind.guia.guardar(data);
       $location.url("/impressao/" + data);
     };
 
-    ind.informarErro = function informarErro(evento) {
-      if (evento.code !== "Enter") return;
-      $window.alert("Por aqui, os dados não são formatados.");
-    };
-
-    ind.removerProcesso = function removerProcesso(numero) {
+    ind.removerProcesso = function (numero) {
       if (ind.guia.processos.tem(numero)) {
         var fazer = $window.confirm("Certeza?");
 

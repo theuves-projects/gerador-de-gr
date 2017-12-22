@@ -15,11 +15,11 @@
   <table class="gr-w-100 gr-font-serif">
     <tr class="gr-txt-c gr-txt-n">
       <td colspan="4">
-        GUIA DE REMESSA DE CARGA Nº {{impr.guia.numero}}/{{impr.data | date:'yyyy'}}
+        GUIA DE REMESSA DE CARGA Nº {{guia.numero}}/{{guia.data | date:'yyyy'}}
 
         <!-- número do malote -->
-        <span ng-if="impr.guia.malote">
-          (MALOTE {{impr.guia.malote.numero}})
+        <span ng-if="guia.malote">
+          (MALOTE {{guia.malote.numero}})
         </span>
       </td>
     </tr>
@@ -30,7 +30,7 @@
     </tr>
     <tr>
       <td colspan="4">
-        <span class="gr-txt-n">DESTINATÁRIO:</span> {{impr.guia.destinatario}}
+        <span class="gr-txt-n">DESTINATÁRIO:</span> {{guia.destinatario}}
       </td>
     </tr>
     <tr class="gr-txt-c gr-txt-n">
@@ -40,7 +40,7 @@
       <td>VOLUME</td>
     </tr>
     <tr
-      ng-repeat="processo in impr.guia.processos.lista"
+      ng-repeat="processo in guia.processos"
       class="gr-font-mono processos">
       <td>{{processo.item | preencher:2 }}</td>
       <td>PROCESSO</td>
@@ -64,17 +64,17 @@
         class="assinaturas"
         colspan="2">
         <p class="gr-mrg-bx-10">
-          <span class="gr-txt-n">REMETIDO EM:</span> {{impr.data | date:'dd/MM/yyyy HH:mm'}}
+          <span class="gr-txt-n">REMETIDO EM:</span> {{guia.data | date:'dd/MM/yyyy HH:mm'}}
         </p>
         <p>
-          <span class="gr-txt-n">RESPONSÁVEL:</span> <span class="gr-font-mono">{{impr.usuario}}</span>
+          <span class="gr-txt-n">RESPONSÁVEL:</span> <span class="gr-font-mono">{{guia.usuario}}</span>
         </p>
       </td>
       <td
         class="assinaturas"
         colspan="2">
         <p class="gr-mrg-bx-10">
-          <span class="gr-txt-n">RECEBIDO EM:</span> _____/_____/{{impr.data | date:'yyyy'}}
+          <span class="gr-txt-n">RECEBIDO EM:</span> _____/_____/{{guia.data | date:'yyyy'}}
         </p>
         <p>
           <span class="gr-txt-n">RESPONSÁVEL:</span> _____________________________

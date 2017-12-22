@@ -6,33 +6,29 @@
     .controller("Impressao", Impressao);
 
   function Impressao(
-      $location
+      $location,
+      $routeParams
     , $window
     , Configuracoes
     , Guia
+    , Historico
   ) {
     var impr = this;
     ////////////////
 
-    impr.data = Date.now();
-
-    impr.guia = Guia;
+    impr.data = $routeParams.data;
 
     impr.usuario = Configuracoes.obter("usuario");
 
-    // impr.iniciar = function iniciar() {
-    //   if (impr.guia.tahVazia()) {
-    //     $window.alert("Nenhum dado!");
-    //     $location.url("/");
-    //   }
-    // };
+    impr.iniciar = function () {
+      var dados = Historico.obter(impr.data);
 
-    impr.imprimir = function imprimir() {
-      $window.print();
-    };
+      if (!dados) {
+        $window.alert("Guia inexistente!");
+        $location.url("/");
+      }
 
-    impr.voltar = function voltar() {
-      $location.url("/");
+      angular.extend(impr, dados);
     };
   }
 })(window.angular);
