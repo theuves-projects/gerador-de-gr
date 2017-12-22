@@ -1,15 +1,15 @@
 /**
- * Seção
+ * seção
  */
 
-#configuracoes .secao {
+#configuracoes .conf-secao {
   background-color: #f1f1f1;
   border: solid 2px #ddd;
   margin-bottom: 12px;
   padding: 10px 30px;
 }
 
-#configuracoes .secao .tipo a {
+#configuracoes .conf-secao-tipo a {
   margin-top: 8px;
   text-decoration: none;
   font-weight: bold;
@@ -17,15 +17,15 @@
   color: gray;
 }
 
-#configuracoes .secao .tipo a:hover {
+#configuracoes .conf-secao-tipo a:hover {
   opacity: 0.9;
 }
 
-#configuracoes .secao .tipo a:active {
+#configuracoes .conf-secao-tipo  a:active {
   opacity: 1;
 }
 
-#configuracoes .secao .conteudo {
+#configuracoes .conf-secao-conteudo {
   display: inline-block;
   width: 100%;
   padding: 10px 20px;
@@ -34,19 +34,19 @@
 
 
 /**
- * Destinatário
+ * destinatário
  */
 
-#configuracoes .destinatario {
+#configuracoes .conf-destinatario {
   padding-left: 10px;
   margin-bottom: 1px;
   background-color: #e9e9e9;
 }
 
-#configuracoes .destinatario:hover {
+#configuracoes .conf-destinatario:hover {
   background-color: #e4e4e4;
 }
 
-#configuracoes .item {
+#configuracoes .conf-destinatario-item {
   padding: 0px;
 }

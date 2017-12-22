@@ -11,15 +11,15 @@
     pode-sair="conf.podeSair()">
   </gr-cabecalho>
 
-  <div class="gr-sec">
-    <div id="usuario" class="secao">
-      <p class="tipo">
+  <div class="gr-principal-conteudo">
+    <div id="usuario" class="conf-secao">
+      <p class="conf-secao-tipo">
         <a href="#!/configuracoes#usuario">
           Usuário:
         </a>
       </p>
 
-      <form class="conteudo">
+      <form class="conf-secao-conteudo">
         <label>
           <p class="gr-mrg-bx-10">
           Seu nome:
@@ -39,14 +39,14 @@
       </form>
     </div>
 
-    <div id="destinatarios" class="secao">
-      <p class="tipo">
+    <div id="destinatarios" class="conf-secao">
+      <p class="conf-secao-tipo">
         <a href="/#!/configuracoes#destinatarios">
           Destinatários:
         </a>
       </p>
 
-      <div class="conteudo">
+      <div class="conf-secao-conteudo">
         <p class="gr-mrg-bx-10">
           Gerenciar destinatários:
 
@@ -58,11 +58,11 @@
 
         <div
           ng-repeat="destinatario in conf.destinatarios.lista"
-          class="gr-flex-lin gr-flex-lin-c gr-w-100 destinatario">
+          class="gr-flex-lin gr-flex-lin-c gr-w-100 conf-destinatario">
 
           <div
             gr-selecionar
-            class="gr-flex-col gr-cursor-default item"
+            class="gr-flex-col gr-cursor-default conf-destinatario-item"
             title="{{destinatario}}">
 
             {{destinatario}}
@@ -74,7 +74,7 @@
               <i class="fa fa-exclamation-triangle"></i>
             </span>
           </div>
-          <div class="gr-flex-col item">
+          <div class="gr-flex-col conf-destinaario-item">
             <button
               ng-click="conf.destinatarios.remover($index)"
               class="gr-btn gr-btn-vermelho gr-float-d"
