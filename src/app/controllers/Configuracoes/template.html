@@ -35,7 +35,12 @@
             ng-model="conf.usuario.nome"
             class="gr-input gr-w-100"
             type="text"
+            maxlength="25"
             placeholder="Insira seu nome aqui...">
+
+          <span class="gr-float-d gr-font-12 gr-mrg-cm-5">
+            {{conf.usuario.nome.length}}-25
+          </span>
         </label>
       </form>
     </div>
@@ -92,9 +97,14 @@
 
           <input
             ng-model="conf.destinatarios.novo"
-            class="gr-input gr-w-100 gr-mrg-bx-5"
+            class="gr-input gr-w-100"
             type="text"
+            maxlength="45"
             placeholder="ADICIONE UM NOVO DESTINATÁRIO...">
+
+          <span class="gr-float-d gr-font-12 gr-mrg-cm-5">
+            {{conf.destinatarios.novo.length}}-45
+          </span>
         </form>
       </div>
     </div>
