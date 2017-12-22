@@ -17,9 +17,7 @@
 
     ind.destinatarios = Destinatarios.obter();
 
-    ind.guia = Guia;
-
-    ind.adicionarMalote = function () {};
+    ind.guia = new Guia.constructor;
 
     ind.adicionarProcesso = function adicionarProcesso() {
       var tahLimpo = !ind.codigoDeBarras || !ind.codigoDeBarras.trim();

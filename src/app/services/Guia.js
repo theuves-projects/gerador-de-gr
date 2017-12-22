@@ -11,7 +11,7 @@
 
     guia.processos = {
       lista: [],
-      adicionar: function adicionar(numero, ehValido) {
+      adicionar: function (numero, ehValido) {
         if (this.tem(numero)) {
           this.aumentarVolume(numero);
         } else {
@@ -23,20 +23,20 @@
           });
         }
       },
-      aumentarVolume: function aumentarVolume(numero) {
+      aumentarVolume: function (numero) {
         var processo = this.obter(numero);
         ++processo.volume;
       },
-      diminuirVolume: function diminuirVolume(numero) {
+      diminuirVolume: function (numero) {
         var processo = this.obter(numero);
       	if (processo.volume > 1) --processo.volume;
       },
-      obter: function obter(numero) {
+      obter: function (numero) {
         return this.lista.find(function (processo) {
           if (processo.numero === numero) return processo;
         });
       },
-      remover: function remover(numero) {
+      remover: function (numero) {
         this.lista = this.lista.filter(function (processo) {
           return processo.numero !== numero;
         });
@@ -47,14 +47,26 @@
           return processo;
         });
       },
-      tahVazio: function tahVazio() {
+      tahVazio: function () {
         return angular.equals(this.lista, []);
       },
-      tem: function tem(numero) {
+      tem: function (numero) {
         return this.lista.some(function (processo) {
           return processo.numero === numero;
         });
       }
+    };
+
+    guia.tahVazia = function () {
+      var semNumero = !guia.numero;
+      var semMalote = !guia.malote.numero;
+      var semDestinatario = !guia.destinatario;
+      var semProcessos = !guia.processos.lista.length;
+
+      return semNumero
+        && semMalote
+        && semDestinatario
+        && semProcessos;
     };
   }
 })(window.angular);
