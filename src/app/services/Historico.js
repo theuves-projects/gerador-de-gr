@@ -43,7 +43,7 @@
     hist.remover = function (data) {
       var dados = Configuracoes.obter(hist.$nome);
 
-      delete dados[dados];
+      delete dados[data];
 
       Configuracoes.adicionar(hist.$nome, dados);
     };
