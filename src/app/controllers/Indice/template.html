@@ -65,9 +65,12 @@
         title="Escanei os processos aqui...">
     </form>
 
-    <div class="gr-pad-2">
+    <div
+      ng-switch="ind.guia.processos.tahVazio()"
+      class="gr-pad-2">
+
       <div
-        ng-show="ind.guia.processos.tahVazio()"
+        ng-switch-when="true"
         class="ind-aviso">
         <p class="gr-txt-c">
           AINDA NÃO FOI ADICIONADO NENHUM PROCESSO!
@@ -75,7 +78,7 @@
       </div>
 
       <table
-        ng-hide="ind.guia.processos.tahVazio()"
+        ng-switch-when="false"
         class="gr-w-100">
 
         <tr>
