@@ -16,6 +16,8 @@ comandos:
 - `gulp injetar` — [injetar](https://goo.gl/R3ju2V) todos os *scripts* e estilos
 - `gulp injetar:css` — injetar somente os estilos
 - `gulp injetar:js` — injetar somente os *scripts*
+- `gulp mover` — mover arquivos para `./build`
+- `gulp mover:favicon.ico` — mover `./favicon.ico` para `./build`
 
 npm
 ---
