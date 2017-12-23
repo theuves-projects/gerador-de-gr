@@ -57,6 +57,10 @@
   font-family: serif;
 }
 
+.gr-font-ss {
+  font-family: sans-serif;
+}
+
 /**
  * fontes - size
  */
@@ -71,6 +75,10 @@
 
 .gr-font-14 {
   font-size: 14px !important;
+}
+
+.gr-font-16 {
+  font-size: 16px !important;
 }
 
 /**
@@ -188,6 +196,7 @@
 
 .gr-mrg-cm-5 {margin-top: 5px;}
 .gr-mrg-cm-10 {margin-top: 10px;}
+.gr-mrg-cm-15 {margin-top: 15px;}
 
 /**
  * margin - baixo
@@ -195,6 +204,7 @@
 
 .gr-mrg-bx-5 {margin-bottom: 5px;}
 .gr-mrg-bx-10 {margin-bottom: 10px;}
+.gr-mrg-bx-15 {margin-bottom: 15px;}
 
 /**
  * padding
