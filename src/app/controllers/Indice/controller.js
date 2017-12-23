@@ -8,6 +8,7 @@
   function Indice(
       $location
     , $window
+    , Configuracoes
     , Destinatarios
     , Guia
     , Historico
@@ -19,6 +20,8 @@
     ind.destinatarios = Destinatarios.obter();
 
     ind.guia = new Guia.constructor(Historico);
+
+    ind.ultimoNumDeGuia = Configuracoes.obter("ultima") || 0;
 
     ind.adicionarProcesso = function () {
       var tahLimpo = !ind.codigoDeBarras || !ind.codigoDeBarras.trim();
@@ -38,9 +41,8 @@
     };
 
     ind.gerarGuia = function () {
-      var faltaNumero = !ind.guia.numero;
-      var faltaMalote = !ind.guia.malote;
-      var faltaDestinatario = !ind.guia.destinatario;
+      var faltaNumero = angular.isUndefined(ind.guia.numero);
+      var faltaDestinatario = angular.isUndefined(ind.guia.destinatario);
       var faltaProcessos = ind.guia.processos.tahVazio();
 
       var msgDeFalta =
@@ -54,9 +56,12 @@
         return;
       }
 
-      ind.guia.malote = ind.guia.malote
-        ? ind.guia.malote
-        : false;
+      if (ind.guia.numero <= ind.ultimoNumDeGuia) {
+        var fazer = $window.confirm("Certeza que essa guia é valida?");
+        if (!fazer) return;
+      }
+
+      Configuracoes.adicionar("ultima", ind.guia.numero);
 
       var data = Date.now();
 
