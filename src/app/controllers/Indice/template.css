@@ -33,3 +33,12 @@
   color: #ff4c4c;
   background-color: #ffe5e5;
 }
+
+/**
+ * validação
+ */
+
+input.ng-invalid,
+input.ng-invalid-number {
+  background-color: #ffe5e5;
+}
