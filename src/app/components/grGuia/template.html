@@ -1,15 +1,17 @@
 <div id="gr-guia">
-  <div class="cabecalho">
+  <div class="gr-mrg-bx-10 gr-txt-c gr-txt-n gr-font-10 gr-font-ss">
     <img
       class="gr-mrg-bx-5"
       src="img/brasao_da_republica.png">
 
-    <p>ADVOCACIA-GERAL DA UNIÃO</p>
-    <p>PROCURADORIA-GERAL FEDERAL</p>
-    <p>PROCURADORIA FEDERAL NO ESTADO DE MATO GROSSO DO SUL</p>
-    <p>ESCRITÓRIO DE REPRESENTAÇÃO EM DOURADOS – MS</p>
-    <p>Av. Weimar G. Torres, 3215 C – 1º Andar – CEP 79800-023</p>
-    <p>Fone: (67) 3423-2591</p>
+    <div>
+      ADVOCACIA-GERAL DA UNIÃO<br>
+      PROCURADORIA-GERAL FEDERAL<br>
+      PROCURADORIA FEDERAL NO ESTADO DE MATO GROSSO DO SUL<br>
+      ESCRITÓRIO DE REPRESENTAÇÃO EM DOURADOS – MS<br>
+      Av. Weimar G. Torres, 3215 C – 1º Andar – CEP 79800-023<br>
+      Fone: (67) 3423-2591
+    </div>
   </div>
 
   <table class="gr-w-100 gr-font-serif">
@@ -41,10 +43,14 @@
     </tr>
     <tr
       ng-repeat="processo in guia.processos"
-      class="gr-font-mono processos">
+      class="processos">
       <td>{{processo.item | preencher:2 }}</td>
       <td>PROCESSO</td>
-      <td selecionar>{{processo.numero}}</td>
+      <td
+        selecionar
+        class="gr-font-mono">
+        {{processo.numero}}
+      </td>
       <td>{{processo.volume | preencher:2 }}</td>
     </tr>
     <tr class="gr-txt-c gr-txt-n">
