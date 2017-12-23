@@ -1,8 +1,8 @@
 #gr-guia table,
 #gr-guia td {
+  font-size: 12px;
   border: 1px solid black;
   border-collapse: collapse;
-  font-size: 12px;
 }
 
 #gr-guia td {
@@ -10,16 +10,11 @@
   text-align: left;
 }
 
-#gr-guia .processos {
+#gr-guia .guia-processos {
   padding: 2px 5px;
 }
 
-#gr-guia .monoespacado {
-  font-size: 14px !important;
-  font-family: Courier, monospace;
-}
-
-#gr-guia .assinaturas {
+#gr-guia .guia-assinaturas {
   padding: 10px 12px;
 }
 

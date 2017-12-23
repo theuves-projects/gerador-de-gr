@@ -3,7 +3,6 @@
     <img
       class="gr-mrg-bx-5"
       src="img/brasao_da_republica.png">
-
     <div>
       ADVOCACIA-GERAL DA UNIÃO<br>
       PROCURADORIA-GERAL FEDERAL<br>
@@ -17,22 +16,23 @@
   <table class="gr-w-100 gr-font-serif">
     <tr class="gr-txt-c gr-txt-n">
       <td colspan="4">
-        GUIA DE REMESSA DE CARGA Nº {{guia.numero}}/{{guia.data | date:'yyyy'}}
-
-        <!-- número do malote -->
+        GUIA DE REMESSA DE CARGA Nº
+        <span gr-selecionar>{{guia.numero}}/{{guia.data | date:'yyyy'}}</span>
         <span ng-if="guia.malote">
-          (MALOTE {{guia.numero}})
+          (MALOTE <span gr-selecionar>{{guia.numero}}</span>)
         </span>
       </td>
     </tr>
     <tr>
       <td colspan="4">
-        <span class="gr-txt-n">REMETENTE:</span> AGU/PGF/ER/DOURADOS-MS
+        <span class="gr-txt-n">REMETENTE:</span>
+        AGU/PGF/ER/DOURADOS-MS
       </td>
     </tr>
     <tr>
       <td colspan="4">
-        <span class="gr-txt-n">DESTINATÁRIO:</span> {{guia.destinatario}}
+        <span class="gr-txt-n">DESTINATÁRIO:</span>
+        <span gr-selecionar>{{guia.destinatario}}</span>
       </td>
     </tr>
     <tr class="gr-txt-c gr-txt-n">
@@ -43,43 +43,39 @@
     </tr>
     <tr
       ng-repeat="processo in guia.processos"
-      class="processos">
+      class="guia-processos">
       <td>{{processo.item | preencher:2 }}</td>
       <td>PROCESSO</td>
-      <td
-        selecionar
-        class="gr-font-mono">
-        {{processo.numero}}
+      <td class="gr-font-mono">
+        <span gr-selecionar>{{processo.numero}}</span>
       </td>
       <td>{{processo.volume | preencher:2 }}</td>
     </tr>
     <tr class="gr-txt-c gr-txt-n">
-      <td colspan="2">
-        PARA USO DA EXPEDIÇÃO
-      </td>
-      <td colspan="2">
-        PARA USO DO DESTINATÁRIO
-      </td>
+      <td colspan="2">PARA USO DA EXPEDIÇÃO</td>
+      <td colspan="2">PARA USO DO DESTINATÁRIO</td>
     </tr>
     <tr>
       <td
-        class="assinaturas"
+        class="guia-assinaturas"
         colspan="2">
         <p class="gr-mrg-bx-10">
-          <span class="gr-txt-n">REMETIDO EM:</span> {{guia.data | date:'dd/MM/yyyy HH:mm'}}
+          <span class="gr-txt-n">REMETIDO EM:</span>
+          <span gr-selecionar>{{guia.data | date:'dd/MM/yyyy HH:mm'}}</span>
         </p>
         <p>
-          <span class="gr-txt-n">RESPONSÁVEL:</span> {{guia.usuario}}
+          <span class="gr-txt-n">RESPONSÁVEL:</span>
+          <span gr-selecionar>{{guia.usuario}}</span>
         </p>
       </td>
       <td
-        class="assinaturas"
+        class="guia-assinaturas"
         colspan="2">
         <p class="gr-mrg-bx-10">
           <span class="gr-txt-n">RECEBIDO EM:</span> _____/_____/{{guia.data | date:'yyyy'}}
         </p>
         <p>
-          <span class="gr-txt-n">RESPONSÁVEL:</span> _____________________________
+          <span class="gr-txt-n">RESPONSÁVEL:</span> ______________________________
         </p>
       </td>
     </tr>
