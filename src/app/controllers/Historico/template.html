@@ -1,6 +1,6 @@
 <div id="historico">
     <gr-cabecalho
-      titulo="HISTORICO"
+      titulo="HISTÓRICO"
       bt-princ="VOLTAR"
       bt-princ-fa="arrow-left"
       bt-princ-cor="azul"
@@ -26,7 +26,7 @@
           <th><i class="fa fa-envelope-o"></i></th>
         </tr>
         <tr ng-repeat="(data, dados) in hist.dados">
-          <td>{{data | date:'dd/MM/yyyy HH:mm'}}</td>
+          <td>{{data | date:'dd/MM/yyyy HH:mm:ss'}}</td>
           <td>{{dados.numero}}</td>
           <td ng-switch="dados.malote !== null">
             <span ng-switch-when="true">
