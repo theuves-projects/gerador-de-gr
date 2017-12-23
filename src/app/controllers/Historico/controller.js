@@ -16,12 +16,28 @@
 
     hist.dados = Configuracoes.obter("historico");
 
+    hist.atualizarDados = function () {
+      hist.dados = Configuracoes.obter("historico");
+    }
+
     hist.editar = function (data) {};
+
+    hist.limpar = function () {
+      var fazer = $window.confirm("Você perderá tudo!\n\nCerteza?");
+
+      if (fazer) {
+        Configuracoes.adicionar("historico", {});
+        hist.atualizarDados();
+      }
+    };
 
     hist.remover = function (data) {
       var fazer = $window.confirm("Certeza?");
-      if (fazer) Historico.remover(data);
-      hist.dados = Configuracoes.obter("historico");
+
+      if (fazer) {
+        Historico.remover(data);
+        hist.atualizarDados();
+      }
     };
 
     hist.tahVazio = function () {
@@ -30,10 +46,6 @@
 
     hist.ver = function (data) {
       $location.url("/impressao/" + data);
-    };
-
-    hist.voltar = function () {
-      $location.url("/");
     };
   }
 })(window.angular);
