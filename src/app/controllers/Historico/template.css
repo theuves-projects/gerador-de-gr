@@ -1,0 +1,22 @@
+#historico table {
+  width: 100%;
+}
+
+#historico table,
+#historico tr {
+  border-collapse: collapse;
+}
+
+#historico th {
+  font-size: 14px;
+}
+
+#historico td,
+#historico th {
+  border: solid 1px #ddd;
+  padding: 4px 8px;
+}
+
+#historico tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

@@ -1,0 +1,70 @@
+<div id="historico">
+    <gr-cabecalho
+      titulo="HISTORICO"
+      bt-princ="VOLTAR"
+      bt-princ-fa="arrow-left"
+      bt-princ-cor="azul"
+      bt-princ-click="hist.voltar()"
+      bt-princ-desc="Voltar à página inicial"
+      pode-sair="true">
+    </gr-cabecalho>
+
+  <div
+    ng-switch="hist.tahVazio()"
+    class="gr-principal-conteudo">
+    <div
+      ng-switch-when="true"
+      class="gr-aviso gr-aviso-vermelho">
+      <p>AINDA NÃO HÁ NADA ARMAZENADO NO HISTÓRICO!</p>
+    </div>
+    <div ng-switch-when="false">
+      <table>
+        <tr>
+          <th>DATA</th>
+          <th>NUMERO</th>
+          <th>MALOTE</th>
+          <th><i class="fa fa-envelope-o"></i></th>
+        </tr>
+        <tr ng-repeat="(data, dados) in hist.dados">
+          <td>{{data | date:'dd/MM/yyyy HH:mm'}}</td>
+          <td>{{dados.numero}}</td>
+          <td ng-switch="dados.malote !== null">
+            <span ng-switch-when="true">
+              {{dados.malote}}
+            </span>
+            <span
+              ng-switch-when="false"
+              class="gr-txt-i gr-cor-vermelho">
+              Sem malote
+            </span>
+          </td>
+          <td>
+            <div class="gr-flex-lin">
+              <div class="gr-flex-col">
+                <button
+                  ng-click="hist.ver(data)"
+                  class="gr-btn gr-btn-verde gr-w-100">
+                  <i class="fa fa-eye"></i>
+                </button>
+              </div>
+              <div class="gr-flex-col">
+                <button
+                  ng-click="hist.editar(data)"
+                  class="gr-btn gr-btn-azul gr-w-100">
+                  <i class="fa fa-pencil"></i>
+                </button>
+              </div>
+              <div class="gr-flex-col">
+                <button
+                  ng-click="hist.remover(data)"
+                  class="gr-btn gr-btn-vermelho gr-w-100">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

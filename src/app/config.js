@@ -7,35 +7,27 @@
 
   function config($routeProvider) {
     $routeProvider
-      .when("/", {
-        templateUrl: url("Indice"),
-        controller: "Indice",
-        controllerAs: "ind"
-      })
-      .when("/configuracoes", {
-        templateUrl: url("Configuracoes"),
-        controller: "Configuracoes",
-        controllerAs: "conf"
-      })
-      .when("/historico", {
-        templateUrl: url("Historico"),
-        controller: "Historico",
-        controllerAs: "hist"
-      })
-      .when("/impressao/:data", {
-        templateUrl: url("Impressao"),
-        controller: "Impressao",
-        controllerAs: "impr"
-      })
+      .when("/", use("Indice", "ind"))
+      .when("/configuracoes", use("Configuracoes", "conf"))
+      .when("/historico", use("Historico", "hist"))
+      .when("/impressao/:data", use("Impressao", "impr"))
       .otherwise({
         redirectTo: "/"
       });
 
     function url(controller) {
-      var dir = "app/controllers";
-      var file = "template.html";
+      var DIR = "app/controllers";
+      var FILE = "template.html";
 
-      return  dir + "/" + controller + "/" + file;
+      return  DIR+"/"+controller+"/"+FILE;
+    }
+
+    function use(controller, as) {
+      return {
+        controller: controller,
+        controllerAs: as,
+        templateUrl: url(controller)
+      };
     }
   }
 })(window.angular);
