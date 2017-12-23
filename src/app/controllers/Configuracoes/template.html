@@ -21,9 +21,10 @@
       </p>
 
       <form class="conf-secao-conteudo">
-        <label>
-          <p class="gr-mrg-bx-10">
-          Seu nome:
+        <p class="gr-mrg-bx-10">
+          <label for="usuario-nome">
+            Seu nome:
+          </label>
 
           <i
             class="fa fa-info-circle gr-cor-azul gr-float-d gr-cursor-help"
@@ -31,18 +32,18 @@
           </i>
         </p>
 
-          <input
-            ng-model="conf.usuario.nome"
-            ng-trim="false"
-            class="gr-input gr-w-100"
-            type="text"
-            maxlength="25"
-            placeholder="Insira seu nome aqui...">
+        <input
+          ng-model="conf.usuario.nome"
+          ng-trim="false"
+          id="usuario-nome"
+          class="gr-input gr-w-100"
+          type="text"
+          maxlength="25"
+          placeholder="Insira seu nome aqui...">
 
-          <span class="gr-float-d gr-font-12 gr-mrg-cm-5">
-            {{conf.usuario.nome.length}}-25
-          </span>
-        </label>
+        <span class="gr-float-d gr-font-12 gr-mrg-cm-5">
+          {{conf.usuario.nome.length}}-25
+        </span>
       </form>
     </div>
 
@@ -55,7 +56,9 @@
 
       <div class="conf-secao-conteudo">
         <p class="gr-mrg-bx-10">
-          Gerenciar destinatários:
+          <label for="destinatarios-novo">
+            Gerenciar destinatários:
+          </label>
 
           <i
             class="fa fa-info-circle gr-cor-azul gr-float-d gr-cursor-help"
@@ -96,6 +99,7 @@
           <input
             ng-model="conf.destinatarios.novo"
             ng-trim="false"
+            id="destinatarios-novo"
             class="gr-input gr-w-100"
             type="text"
             maxlength="45"
