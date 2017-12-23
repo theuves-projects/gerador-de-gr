@@ -20,7 +20,7 @@
       .when("/historico", {
         templateUrl: url("Historico"),
         controller: "Historico",
-        controllers: "hist"
+        controllerAs: "hist"
       })
       .when("/impressao/:data", {
         templateUrl: url("Impressao"),
