@@ -1,23 +1,27 @@
 <div id="gr-cabecalho">
   <div class="gr-flex-lin gr-flex-lin-bl cab-ctrls">
     <div class="gr-flex-col-75">
-      <button ng-click="cab.criarNovo()">
+      <button
+        ng-click="cab.criarNovo()"
+        title="Criar nova guia">
         <i class="fa fa-plus"></i> NOVO
       </button>
       <button
         ng-click="cab.verHistorico()"
-        ng-disabled="cab.path === '/hstorico'">
-
+        ng-disabled="cab.path === '/hstorico'"
+        title="Ver histórico de guias">
         <i class="fa fa-history"></i> HSTÓRICO
       </button>
       <button
         ng-click="cab.verConfiguracoes()"
-        ng-disabled="cab.path === '/configuracoes'">
-
+        ng-disabled="cab.path === '/configuracoes'"
+        title="Abrir as configurações">
         <i class="fa fa-cog"></i> CONFIGURAÇÕES
       </button>
     </div>
-    <div class="gr-flex-col-25 gr-txt-d gr-txt-i">
+    <div
+      class="gr-flex-col-25 gr-txt-d gr-txt-i"
+      title="Data de acesso">
       {{cab.data | date:'dd/MM/yyyy HH:mm'}}
     </div>
   </div>

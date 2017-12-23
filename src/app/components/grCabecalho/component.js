@@ -27,6 +27,7 @@
       $scope
     , $location
     , $window
+    , $interval
   ) {
     var cab = this;
     ///////////////
