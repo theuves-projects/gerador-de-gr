@@ -14,7 +14,7 @@
         "btPrincCor": "@",
         "btPrincClick": "&",
         "btPrincDesc": "@",
-        "podeSair": "&"
+        "podeSair": "<?"
       },
       controller: Cabecalho,
       controllerAs: "cab",
@@ -38,11 +38,9 @@
     cab.tahTdOk = function () {
       var MENSAGEM = "Dados serão perdidos.\n\nContinuar?";
 
-      var fazer = !cab.podeSair()
-        ? $window.confirm(MENSAGEM)
-        : true;
-
-      return fazer;
+      return cab.podeSair === true
+        || typeof cab.podeSair === "function" && cab.podeSair()
+        || $window.confirm(MENSAGEM);
     };
 
     cab.criarNovo = function () {
