@@ -109,6 +109,6 @@ gulp.task("mover", function () {
  * -----------------
  */
 gulp.task("mover:favicon.ico", function () {
-  return gulp.src("favicon.ico")
+  return gulp.src("src/favicon.ico")
     .pipe(gulp.dest("build"));
 });
