@@ -38,7 +38,7 @@
     cab.tahTdOk = function () {
       var MENSAGEM = "Dados serão perdidos.\n\nContinuar?";
 
-      return !cab.hasOwnProperty("podeSair")
+      return !("podeSair" in cab)
         || cab.podeSair()
         || $window.confirm(MENSAGEM);
     };
