@@ -24,8 +24,7 @@
 
   /* @ngInject */
   function Cabecalho(
-      $scope
-    , $location
+      $location
     , $window
     , $interval
   ) {
@@ -39,7 +38,7 @@
     cab.tahTdOk = function () {
       var MENSAGEM = "Dados serão perdidos.\n\nContinuar?";
 
-      var fazer = !$scope.cab.podeSair()
+      var fazer = !cab.podeSair()
         ? $window.confirm(MENSAGEM)
         : true;
 
