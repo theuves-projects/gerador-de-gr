@@ -23,7 +23,7 @@
       var classesNormal = classesArray.join(" ");
       var temClasses = !!classesNormal.trim();
 
-      var regex = /([^0]+\d-\d{2})/;
+      var regex = /([^0]\d+-\d{2})/;
       var destacar = function (trecho) {
         if (!temClasses) return "<span>"+trecho+"</span>";
         return "<span class=\""+classesNormal+"\">"+trecho+"</span>";
