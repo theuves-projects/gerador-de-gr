@@ -25,14 +25,12 @@
     </tr>
     <tr>
       <td colspan="4">
-        <span class="gr-txt-n">REMETENTE:</span>
-        AGU/PGF/ER/DOURADOS-MS
+        <span class="gr-txt-n">REMETENTE:</span> AGU/PGF/ER/DOURADOS-MS
       </td>
     </tr>
     <tr>
       <td colspan="4">
-        <span class="gr-txt-n">DESTINATÁRIO:</span>
-        <span gr-selecionar>{{guia.destinatario}}</span>
+        <span class="gr-txt-n">DESTINATÁRIO:</span> {{guia.destinatario}}
       </td>
     </tr>
     <tr class="gr-txt-c gr-txt-n">
@@ -46,8 +44,8 @@
       class="guia-processos">
       <td>{{processo.item | preencher:2 }}</td>
       <td>PROCESSO</td>
-      <td class="gr-font-mono">
-        <span gr-selecionar>{{processo.numero}}</span>
+      <td class="gr-font-mono" gr-selecionar>
+        {{processo.numero}}
       </td>
       <td>{{processo.volume | preencher:2 }}</td>
     </tr>
@@ -60,12 +58,10 @@
         class="guia-assinaturas"
         colspan="2">
         <p class="gr-mrg-bx-10">
-          <span class="gr-txt-n">REMETIDO EM:</span>
-          <span gr-selecionar>{{guia.data | date:'dd/MM/yyyy HH:mm'}}</span>
+          <span class="gr-txt-n">REMETIDO EM:</span> {{guia.data | date:'dd/MM/yyyy HH:mm'}}
         </p>
         <p>
-          <span class="gr-txt-n">RESPONSÁVEL:</span>
-          <span gr-selecionar>{{guia.usuario}}</span>
+          <span class="gr-txt-n">RESPONSÁVEL:</span> {{guia.usuario}}
         </p>
       </td>
       <td
