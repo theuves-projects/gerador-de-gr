@@ -22,7 +22,7 @@
 
     impr.iniciar = function () {
       verificarExistencia();
-      mesclarDados();
+      mesclarGuia();
 
       // configurações
       // -------------
@@ -36,7 +36,7 @@
         }
       }
 
-      function mesclarDados() {
+      function mesclarGuia() {
         var dados = Historico.obter(impr.data);
         angular.extend(impr, dados);
       }
