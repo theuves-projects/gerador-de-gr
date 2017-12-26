@@ -21,14 +21,25 @@
     impr.usuario = Configuracoes.obter("usuario");
 
     impr.iniciar = function () {
-      var dados = Historico.obter(impr.data);
+      verificarExistencia();
+      mesclarDados();
 
-      if (!dados) {
-        $window.alert("Guia inexistente!");
-        $location.url("/");
+      // configurações
+      // -------------
+
+      function verificarExistencia() {
+        var dados = Historico.obter(impr.data);
+
+        if (!dados) {
+          $window.alert("Guia inexistente!");
+          $location.url("/");
+        }
       }
 
-      angular.extend(impr, dados);
+      function mesclarDados() {
+        var dados = Historico.obter(impr.data);
+        angular.extend(impr, dados);
+      }
     };
 
     impr.imprimir = function () {

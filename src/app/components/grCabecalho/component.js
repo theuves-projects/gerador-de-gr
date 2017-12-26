@@ -33,16 +33,20 @@
 
     cab.path = $location.path();
 
-    cab.iniciarRelogio = function () {
-      cab.data = Date.now();
-
-      $interval(function () {
-        cab.data = Date.now();
-      }, 1000);
-    }
-
     cab.iniciar = function () {
-      cab.iniciarRelogio();
+      configurarRelogio();
+
+      // configurações
+      // -------------
+
+      function configurarRelogio() {
+        var atualizarData = function () {
+          cab.data = Date.now();
+        };
+
+        atualizarData();
+        $interval(atualizarData, 1000);
+      }
     };
 
     cab.tahTdOk = function () {

@@ -68,8 +68,15 @@
     };
 
     conf.iniciar = function () {
-      $anchorScroll.yOffset = 10;
-      $anchorScroll();
+      configurarScroll();
+
+      // configuracoes
+      // -------------
+
+      function configurarScroll() {
+        $anchorScroll.yOffset = 10;
+        $anchorScroll();
+      }
     };
 
     conf.podeSair = function () {
