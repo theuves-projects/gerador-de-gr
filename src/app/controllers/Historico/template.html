@@ -19,6 +19,12 @@
       <p>AINDA NÃO HÁ NADA ARMAZENADO NO HISTÓRICO!</p>
     </div>
     <div ng-switch-when="false">
+      <input
+        ng-model="hist.pesquisa"
+        class="gr-w-100 gr-mrg-bx-10 gr-input"
+        type="search"
+        placeholder="Pesquise aqui número de guias, malotes, processos...">
+
       <table>
         <tr>
           <th>DATA</th>
@@ -26,7 +32,7 @@
           <th>MALOTE</th>
           <th><i class="fa fa-envelope-o"></i></th>
         </tr>
-        <tr ng-repeat="dados in hist.dados | orderBy:'-data'">
+        <tr ng-repeat="dados in hist.dados | orderBy:'-data' | filter:hist.pesquisa">
           <td>
             {{dados.data | date:'dd/MM/yyyy HH:mm:ss'}}
 
