@@ -20,7 +20,9 @@
       hist.dados = Configuracoes.obter("historico");
     }
 
-    hist.editar = function (data) {};
+    hist.editar = function (data) {
+      $location.url("/editar/" + data);
+    };
 
     hist.limpar = function () {
       var fazer = $window.confirm("Você perderá tudo!\n\nCerteza?");
