@@ -44,8 +44,11 @@
       class="guia-processos">
       <td>{{processo.item | preencher:2 }}</td>
       <td>PROCESSO</td>
-      <td class="gr-font-mono" gr-selecionar>
-        {{processo.numero}}
+      <td class="gr-font-mono">
+        <gr-processo
+          numero="processo.numero"
+          formatar="true">
+        </gr-processo>
       </td>
       <td>{{processo.volume | preencher:2 }}</td>
     </tr>

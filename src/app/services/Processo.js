@@ -9,19 +9,26 @@
     var proc = this;
     ////////////////
 
-    proc.limpar = function limpar(numero) {
-      var limpo = numero
-        .toString()
-        .trim()
-        .replace(/[+-.\s]/g, "");
-
-      return limpo.length > 20
-        ? limpo.replace(/\d{5}$/g, "")
-        : limpo;
-    };
-
     proc.ehValido = function ehValido(numero) {
       return /^(\d{12,13}|\d{20})$/.test(proc.limpar(numero));
+    };
+
+    proc.destacar = function (processo) {
+      return processo.replace(/([^0]+\d-\d{2})/, function (numero) {
+        return numero.bold();
+      });
+    };
+
+    proc.formatar = function formatar(numero) {
+      if (proc.ehValido(numero)) {
+        var desformatado = proc.limpar(numero);
+        var ehAntigo = desformatado.length === 12 || desformatado.length === 13;
+
+        if (ehAntigo) return proc.formatarAntigo(desformatado);
+        return proc.formatarNovo(desformatado);
+      }
+
+      return numero
     };
 
     proc.formatarAntigo = function formatarAntigo(numero) {
@@ -38,14 +45,15 @@
       return numero.replace(regex, mascara);
     };
 
-    proc.formatar = function formatar(numero) {
-      if (proc.ehValido(numero)) {
-        var desformatado = proc.limpar(numero);
-        var ehAntigo = desformatado.length === 12 || desformatado.length === 13;
+    proc.limpar = function limpar(numero) {
+      var limpo = numero
+        .toString()
+        .trim()
+        .replace(/[+-.\s]/g, "");
 
-        if (ehAntigo) return proc.formatarAntigo(desformatado);
-        return proc.formatarNovo(desformatado);
-      }
+      return limpo.length > 20
+        ? limpo.replace(/\d{5}$/g, "")
+        : limpo;
     };
   }
 })(window.angular);

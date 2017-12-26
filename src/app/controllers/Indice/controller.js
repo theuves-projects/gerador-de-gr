@@ -32,11 +32,8 @@
       }
 
       var ehValido = Processo.ehValido(ind.codigoDeBarras);
-      var numero = ehValido
-        ? Processo.formatar(ind.codigoDeBarras)
-        : ind.codigoDeBarras;
 
-      ind.guia.processos.adicionar(numero, ehValido);
+      ind.guia.processos.adicionar(ind.codigoDeBarras, ehValido);
       ind.codigoDeBarras = undefined;
     };
 
