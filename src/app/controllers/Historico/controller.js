@@ -31,8 +31,7 @@
         .map(emObjeto);
 
       hist.dados = dadosEmArray;
-      console.log(hist.dados);
-    }
+    };
 
     hist.editar = function (data) {
       $location.url("/editar/" + data);
