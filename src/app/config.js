@@ -9,6 +9,7 @@
     $routeProvider
       .when("/", use("Indice", "ind"))
       .when("/configuracoes", use("Configuracoes", "conf"))
+      .when("/editar/:data", use("Indice", "ind"))
       .when("/historico", use("Historico", "hist"))
       .when("/impressao/:data", use("Impressao", "impr"))
       .otherwise({

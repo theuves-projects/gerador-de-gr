@@ -8,6 +8,7 @@
   function Indice(
       $location
     , $window
+    , $routeParams
     , Configuracoes
     , Destinatarios
     , Guia
@@ -64,6 +65,27 @@
 
       ind.guia.guardar(data);
       $location.url("/impressao/" + data);
+    };
+
+    ind.iniciar = function () {
+      mesclarGuia();
+
+      // configurações
+      // -------------
+
+      function mesclarGuia() {
+        var parametros = $routeParams;
+
+        if ("data" in parametros) {
+          var data = parametros.data;
+          var dados = Historico.obter(data);
+
+          ind.guia.numero = dados.numero;
+          ind.guia.malote = dados.malote;
+          ind.guia.destinatario = dados.destinatario;
+          ind.guia.processos.lista = dados.processos;
+        }
+      }
     };
 
     ind.removerProcesso = function (numero) {
