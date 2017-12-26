@@ -1,4 +1,6 @@
-<div id="historico">
+<div
+  ng-init="hist.iniciar()"
+  id="historico">
     <gr-cabecalho
       titulo="HISTÓRICO"
       bt-princ="LIMPAR"
@@ -24,10 +26,10 @@
           <th>MALOTE</th>
           <th><i class="fa fa-envelope-o"></i></th>
         </tr>
-        <tr ng-repeat="(data, dados) in hist.dados">
-          <td>{{data | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+        <tr ng-repeat="dados in hist.dados | orderBy:'-data'">
+          <td>{{dados.data | date:'dd/MM/yyyy HH:mm:ss'}}</td>
           <td>{{dados.numero}}</td>
-          <td ng-switch="dados.malote !== null">
+          <td ng-switch="!!dados.malote">
             <span ng-switch-when="true">
               {{dados.malote}}
             </span>
@@ -41,7 +43,7 @@
             <div class="gr-flex-lin">
               <div class="gr-flex-col">
                 <button
-                  ng-click="hist.ver(data)"
+                  ng-click="hist.ver(dados.data)"
                   class="gr-btn gr-btn-verde gr-w-100"
                   title="Ver">
                   <i class="fa fa-eye"></i>
@@ -49,7 +51,7 @@
               </div>
               <div class="gr-flex-col">
                 <button
-                  ng-click="hist.editar(data)"
+                  ng-click="hist.editar(dados.data)"
                   class="gr-btn gr-btn-azul gr-w-100"
                   title="Editar">
                   <i class="fa fa-pencil"></i>
@@ -57,7 +59,7 @@
               </div>
               <div class="gr-flex-col">
                 <button
-                  ng-click="hist.remover(data)"
+                  ng-click="hist.remover(dados.data)"
                   class="gr-btn gr-btn-vermelho gr-w-100"
                   title="Remover">
                   <i class="fa fa-trash"></i>

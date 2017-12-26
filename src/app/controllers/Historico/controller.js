@@ -14,14 +14,32 @@
     var hist = this;
     ////////////////
 
-    hist.dados = Configuracoes.obter("historico");
-
     hist.atualizarDados = function () {
-      hist.dados = Configuracoes.obter("historico");
+      var emObjeto = function (item) {
+        var data = item[0];
+        var dados = item[1];
+
+        var base = {data: data};
+        var objeto = Object.assign(base, dados);
+
+        return objeto;
+      };
+
+      var dadosEmObj = Configuracoes.obter("historico");
+      var dadosEmArray = Object
+        .entries(dadosEmObj)
+        .map(emObjeto);
+
+      hist.dados = dadosEmArray;
+      console.log(hist.dados);
     }
 
     hist.editar = function (data) {
       $location.url("/editar/" + data);
+    };
+
+    hist.iniciar = function () {
+      hist.atualizarDados();
     };
 
     hist.limpar = function () {
@@ -43,7 +61,7 @@
     };
 
     hist.tahVazio = function () {
-      return angular.equals(hist.dados, {});
+      return angular.equals(hist.dados, []);
     };
 
     hist.ver = function (data) {
