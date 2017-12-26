@@ -31,9 +31,19 @@
     var cab = this;
     ///////////////
 
-    cab.data = Date.now();
-
     cab.path = $location.path();
+
+    cab.iniciarRelogio = function () {
+      cab.data = Date.now();
+
+      $interval(function () {
+        cab.data = Date.now();
+      }, 1000);
+    }
+
+    cab.iniciar = function () {
+      cab.iniciarRelogio();
+    };
 
     cab.tahTdOk = function () {
       var MENSAGEM = "Dados serão perdidos.\n\nContinuar?";

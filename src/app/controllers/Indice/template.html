@@ -91,12 +91,13 @@
         <tr ng-repeat="processo in ind.guia.processos.lista | orderBy:'-item'">
           <td>{{processo.item | preencher:2}}</td>
           <td>
-            <span gr-selecionar>
-              <gr-processo
-                numero="processo.numero"
-                formatar="true"
-                destacar="true">
-              </gr-processo>
+            <span
+              gr-selecionar
+              class="gr-espaco-e">
+              <gr-destacar-processo
+                numero="processo.numero | formatar"
+                classes="['gr-txt-n', 'gr-txt-marcado']">
+              </gr-destacar-processo>
             </span>
 
             <i

@@ -13,12 +13,6 @@
       return /^(\d{12,13}|\d{20})$/.test(proc.limpar(numero));
     };
 
-    proc.destacar = function (processo) {
-      return processo.replace(/([^0]+\d-\d{2})/, function (numero) {
-        return numero.bold();
-      });
-    };
-
     proc.formatar = function formatar(numero) {
       if (proc.ehValido(numero)) {
         var desformatado = proc.limpar(numero);
