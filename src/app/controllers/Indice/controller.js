@@ -22,8 +22,6 @@
 
     ind.guia = new Guia.constructor(Historico);
 
-    ind.tahEditando = false;
-
     ind.ultimoNumDeGuia = Configuracoes.obter("ultima") || 0;
 
     ind.adicionarProcesso = function () {
@@ -56,12 +54,12 @@
         return;
       }
 
-      if (!ind.tahEditando && ind.guia.numero <= ind.ultimoNumDeGuia) {
+      if (!ind.guia.tahEditando && ind.guia.numero <= ind.ultimoNumDeGuia) {
         var fazer = $window.confirm("Certeza que essa guia é valida?");
         if (!fazer) return;
       }
 
-      Configuracoes.adicionar("ultima", ind.guia.numero);
+      if (!ind.guia.tahEditando) Configuracoes.adicionar("ultima", ind.guia.numero);
 
       var data = Date.now();
 
@@ -87,7 +85,7 @@
           ind.guia.destinatario = dados.destinatario;
           ind.guia.processos.lista = dados.processos;
 
-          ind.tahEditando = true;
+          ind.guia.tahEditando = true;
         }
       }
     };

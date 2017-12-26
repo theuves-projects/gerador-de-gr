@@ -64,6 +64,7 @@
         , guia.malote
         , guia.destinatario
         , guia.processos.lista
+        , !!guia.tahEditando
       );
     };
 

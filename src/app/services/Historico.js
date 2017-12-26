@@ -21,6 +21,7 @@
       , malote
       , destinatario
       , processos
+      , tahEditando
     ) {
       var dados = Configuracoes.obter(hist.$nome);
 
@@ -28,7 +29,8 @@
         numero: numero,
         malote: malote,
         destinatario: destinatario,
-        processos: processos
+        processos: processos,
+        tahEditando: tahEditando
       };
 
       Configuracoes.adicionar(hist.$nome, dados);

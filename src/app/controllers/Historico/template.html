@@ -27,7 +27,15 @@
           <th><i class="fa fa-envelope-o"></i></th>
         </tr>
         <tr ng-repeat="dados in hist.dados | orderBy:'-data'">
-          <td>{{dados.data | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+          <td>
+            {{dados.data | date:'dd/MM/yyyy HH:mm:ss'}}
+
+            <i
+              ng-if="dados.tahEditando"
+              class="fa fa-pencil gr-cor-azul gr-cursor-help"
+              title="Editado">
+            </i>
+          </td>
           <td>{{dados.numero}}</td>
           <td ng-switch="!!dados.malote">
             <span ng-switch-when="true">
