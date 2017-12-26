@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "description": "Gerador de Guia de Remessa",
   "scripts": {
-    "abrir": "start build/index.html",
-    "deploy": "surge -p build -d https://gerador-de-guia-de-remessa.surge.sh"
+    "deploy": "surge -p build -d https://gerador-de-guia-de-remessa.surge.sh",
+    "open": "start build/index.html",
+    "serve": "serve"
   },
   "repository": "theuves/devolucao",
   "author": "Matheus Alves",
@@ -26,6 +27,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-useref": "^3.1.3",
     "run-sequence": "^2.2.0",
+    "serve": "^6.4.3",
     "surge": "^0.19.0"
   }
 }
