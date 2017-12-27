@@ -21,7 +21,7 @@
  */
 
 .gr-anima-switch.ng-animate {
-  transition: 1s linear all;
+  transition: 0.15s linear all;
 }
 
 .gr-anima-switch.ng-enter {
