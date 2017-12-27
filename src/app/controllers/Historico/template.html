@@ -32,7 +32,9 @@
           <th>MALOTE</th>
           <th><i class="fa fa-envelope-o"></i></th>
         </tr>
-        <tr ng-repeat="dados in hist.dados | orderBy:'-data' | filter:hist.pesquisa">
+        <tr
+          ng-repeat="dados in hist.dados | orderBy:'-data' | filter:hist.pesquisa"
+          class="hist-pesquisar-guias">
           <td>
             {{dados.data | date:'dd/MM/yyyy HH:mm:ss'}}
 

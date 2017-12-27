@@ -2,6 +2,7 @@
   "use strict";
 
   angular.module("app", [
-    "ngRoute"
+    "ngRoute",
+    "ngAnimate"
   ]);
 })(window.angular);
