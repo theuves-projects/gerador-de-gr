@@ -1,0 +1,19 @@
+.gr-anima.ng-animate {
+  transition: 0.15s linear all;
+}
+
+.gr-anima.ng-enter {
+  opacity: 0;
+}
+
+.gr-anima.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.gr-anima.ng-leave {
+  opacity: 1;
+}
+
+.gr-anima.ng-leave.ng-leave-active {
+  opacity: 0;
+}

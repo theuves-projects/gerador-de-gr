@@ -90,7 +90,10 @@
           <th><i class="fa fa-pencil"></i></th>
         </tr>
 
-        <tr ng-repeat="processo in ind.guia.processos.lista | orderBy:'-item'">
+        <tr
+          ng-repeat="processo in ind.guia.processos.lista | orderBy:'-item'"
+          class="gr-anima">
+
           <td>{{processo.item | preencher:2}}</td>
           <td>
             <span
