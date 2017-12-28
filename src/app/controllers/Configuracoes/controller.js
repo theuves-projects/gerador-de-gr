@@ -86,9 +86,9 @@
       var confDestinatarios = conf.destinatarios.lista;
 
       var nMudouUsuario = angular.equals(originalUsuario, confUsuario);
-      var nMudoDestinatarios = angular.equals(originalDestinatarios, confDestinatarios);
+      var nMudouDestinatarios = angular.equals(originalDestinatarios, confDestinatarios);
 
-      return nMudouUsuario && nMudoDestinatarios;
+      return nMudouUsuario && nMudouDestinatarios;
     };
 
     conf.salvar = function () {
