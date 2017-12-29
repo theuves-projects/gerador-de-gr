@@ -52,8 +52,8 @@
       var numeroJahFoiUtilizado = ind.guia.numero <= ind.ultimoNumDeGuia;
 
       if (nTahEditando && numeroJahFoiUtilizado) {
-        var parar = !$window.confirm("Certeza que esse número é valido?");
-        if (parar) return;
+        var nTemCerteza = !$window.confirm("Certeza que esse número é valido?");
+        if (nTemCerteza) return;
       }
 
       if (nTahEditando) Configuracoes.adicionar("ultima", ind.guia.numero);
@@ -88,8 +88,8 @@
 
     ind.removerProcesso = function (numero) {
       if (ind.guia.processos.tem(numero)) {
-        var continuar = $window.confirm("Certeza?");
-        if (continuar) return ind.guia.processos.remover(numero);
+        var temCerteza = $window.confirm("Certeza?");
+        if (temCerteza) return ind.guia.processos.remover(numero);
       }
 
       $window.alert("Erro!");

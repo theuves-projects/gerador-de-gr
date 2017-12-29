@@ -14,6 +14,25 @@
     var hist = this;
     ////////////////
 
+    hist.acao = function (data) {
+      return {
+        ver: function () {
+          $location.url("/impressao/" + data);
+        },
+        editar: function () {
+          $location.url("/editar/" + data);
+        },
+        remover: function () {
+          var temCerteza = $window.confirm("Certeza?");
+
+          if (temCerteza) {
+            Historico.remover(data);
+            hist.atualizarDados();
+          }
+        }
+      };
+    };
+
     hist.atualizarDados = function () {
       var emObjeto = function (item) {
         var data = item[0];
@@ -33,38 +52,21 @@
       hist.dados = dadosEmArray;
     };
 
-    hist.editar = function (data) {
-      $location.url("/editar/" + data);
-    };
-
     hist.iniciar = function () {
       hist.atualizarDados();
     };
 
     hist.limpar = function () {
-      var fazer = $window.confirm("Você perderá tudo!\n\nCerteza?");
+      var temCerteza = $window.confirm("Você perderá tudo!\n\nCerteza?");
 
-      if (fazer) {
+      if (temCerteza) {
         Configuracoes.adicionar("historico", {});
-        hist.atualizarDados();
-      }
-    };
-
-    hist.remover = function (data) {
-      var fazer = $window.confirm("Certeza?");
-
-      if (fazer) {
-        Historico.remover(data);
         hist.atualizarDados();
       }
     };
 
     hist.tahVazio = function () {
       return angular.equals(hist.dados, []);
-    };
-
-    hist.ver = function (data) {
-      $location.url("/impressao/" + data);
     };
   }
 })(window.angular);

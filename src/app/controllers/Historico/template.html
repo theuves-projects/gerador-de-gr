@@ -59,7 +59,7 @@
             <div class="gr-flex-lin">
               <div class="gr-flex-col">
                 <button
-                  ng-click="hist.ver(dados.data)"
+                  ng-click="hist.acao(dados.data).ver()"
                   class="gr-btn gr-btn-verde gr-w-100"
                   title="Ver">
                   <i class="fa fa-eye"></i>
@@ -67,7 +67,7 @@
               </div>
               <div class="gr-flex-col">
                 <button
-                  ng-click="hist.editar(dados.data)"
+                  ng-click="hist.acao(dados.data).editar()"
                   class="gr-btn gr-btn-azul gr-w-100"
                   title="Editar">
                   <i class="fa fa-pencil"></i>
@@ -75,7 +75,7 @@
               </div>
               <div class="gr-flex-col">
                 <button
-                  ng-click="hist.remover(dados.data)"
+                  ng-click="hist.acao(dados.data).remover()"
                   class="gr-btn gr-btn-vermelho gr-w-100"
                   title="Remover">
                   <i class="fa fa-trash"></i>

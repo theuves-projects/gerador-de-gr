@@ -28,17 +28,13 @@
       novo: "",
       lista: Destinatarios.obter(),
       adicionar: function ()  {
-        if (angular.equals(this.novo.trim(), "")) {
-          $window.alert("Informe algo!");
-          return;
-        }
+        var destAparado = this.novo.trim();
+        var destEmMaiusculo = destAparado.toUpperCase();
+        var destJahTem = this.tem(destEmMaiusculo);
+        var nadaMudou = !destEmMaiusculo.length;
 
-        var destEmMaiusculo = this.novo.toUpperCase();
-
-        if (this.tem(destEmMaiusculo)) {
-          $window.alert("O destinatário informado já existe!");
-          return;
-        }
+        if (nadaMudou) return $window.alert("Informe algo!");
+        if (destJahTem) return $window.alert("O destinatário informado já existe!");
 
         this.lista.push(destEmMaiusculo);
         this.limpar();
@@ -48,12 +44,11 @@
         this.novo = "";
       },
       remover: function (indice) {
-        if ($window.confirm("Tem certeza?")) {
-          delete this.lista[indice];
+        var temCerteza = $window.confirm("Tem certeza?");
 
-          this.lista = this.lista.filter(function (item) {
-            return item;
-          });
+        if (temCerteza) {
+          delete this.lista[indice];
+          this.lista = this.lista.filter(Boolean);
         }
       },
       salvar: function () {
