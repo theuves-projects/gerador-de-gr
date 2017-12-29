@@ -3,7 +3,7 @@
  */
 
 .gr-anima.ng-animate {
-  transition: 0.15s linear all;
+  transition: all 0.15s ease;
 }
 
 .gr-anima.ng-leave,
@@ -21,7 +21,7 @@
  */
 
 .gr-anima-switch.ng-animate {
-  transition: 0.15s linear all;
+  transition: all 0.15s ease;
 }
 
 .gr-anima-switch.ng-enter {
