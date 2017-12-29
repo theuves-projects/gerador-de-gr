@@ -15,15 +15,7 @@
         destinatario: "=",
         processos: "="
       },
-      controller: Guia,
-      controllerAs: "guia",
       templateUrl: "app/components/grGuia/template.html"
     };
-  }
-
-  function Guia() {
-    var guia = this;
-    ////////////////
-
   }
 })(window.angular);

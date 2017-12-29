@@ -25,8 +25,8 @@
 
       var regex = /([^0]\d+-\d{2})/;
       var destacar = function (trecho) {
-        if (!temClasses) return "<span>"+trecho+"</span>";
-        return "<span class=\""+classesNormal+"\">"+trecho+"</span>";
+        if (!temClasses) return "<span>" + trecho + "</span>";
+        return "<span class=\"" + classesNormal + "\">" + trecho + "</span>";
       };
 
       var destacado = numero.replace(regex, destacar);

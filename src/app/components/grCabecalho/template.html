@@ -4,18 +4,18 @@
   <div class="gr-flex-lin gr-flex-lin-bl cab-ctrls">
     <div class="gr-flex-col-75">
       <button
-        ng-click="cab.criarNovo()"
+        ng-click="cab.irPara('/')"
         title="Criar nova guia">
         <i class="fa fa-plus"></i> NOVO
       </button>
       <button
-        ng-click="cab.verHistorico()"
+        ng-click="cab.irPara('/historico')"
         ng-disabled="cab.path === '/historico'"
         title="Ver histórico de guias">
         <i class="fa fa-history"></i> HSTÓRICO
       </button>
       <button
-        ng-click="cab.verConfiguracoes()"
+        ng-click="cab.irPara('/configuracoes')"
         ng-disabled="cab.path === '/configuracoes'"
         title="Abrir as configurações">
         <i class="fa fa-cog"></i> CONFIGURAÇÕES

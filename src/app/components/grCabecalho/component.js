@@ -33,6 +33,10 @@
 
     cab.path = $location.path();
 
+    cab.irPara = function (url) {
+      if (cab.tahTdOk()) $location.url(url);
+    };
+
     cab.iniciar = function () {
       configurarRelogio();
 
@@ -49,23 +53,14 @@
     };
 
     cab.tahTdOk = function () {
-      var MENSAGEM = "Dados serão perdidos.\n\nContinuar?";
+      var podeSair = cab.podeSair;
+      var nFoiDefinido = angular.isUndefined(podeSair);
 
-      return !("podeSair" in cab)
-        || cab.podeSair()
-        || $window.confirm(MENSAGEM);
-    };
+      if (nFoiDefinido) return true;
+      if (podeSair) return true;
 
-    cab.criarNovo = function () {
-      if (cab.tahTdOk()) $location.url("/");
-    };
-
-    cab.verHistorico = function () {
-      if (cab.tahTdOk()) $location.url("/historico");
-    };
-
-    cab.verConfiguracoes = function () {
-      if (cab.tahTdOk()) $location.url("/configuracoes");
+      var continuar = $window.confirm("Dados serão perdidos.\n\nContinuar?");
+      return continuar;
     };
   }
 })(window.angular);
