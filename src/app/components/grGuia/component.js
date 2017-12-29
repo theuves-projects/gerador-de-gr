@@ -15,6 +15,7 @@
         destinatario: "=",
         processos: "="
       },
+      controllerAs: "guia",
       templateUrl: "app/components/grGuia/template.html"
     };
   }
