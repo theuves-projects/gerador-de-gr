@@ -37,7 +37,6 @@
       configurarRelogio();
 
       // configurações
-      // -------------
 
       function configurarRelogio() {
         var atualizarData = function () {

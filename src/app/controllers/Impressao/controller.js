@@ -25,7 +25,6 @@
       mesclarGuia();
 
       // configurações
-      // -------------
 
       function verificarExistencia() {
         var dados = Historico.obter(impr.data);

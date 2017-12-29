@@ -5,7 +5,7 @@
   "scripts": {
     "deploy": "surge -p build -d https://gerador-de-guia-de-remessa.surge.sh",
     "open": "start build/index.html",
-    "serve": "serve"
+    "serve": "serve src"
   },
   "repository": "theuves/devolucao",
   "author": "Matheus Alves",

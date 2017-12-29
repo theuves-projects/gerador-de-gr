@@ -71,7 +71,6 @@
       configurarScroll();
 
       // configuracoes
-      // -------------
 
       function configurarScroll() {
         $anchorScroll.yOffset = 10;
