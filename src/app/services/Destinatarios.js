@@ -9,7 +9,7 @@
     var dest = this;
     ////////////////
 
-    dest.iniciar = function iniciar() {
+    dest._iniciar = function iniciar() {
       var destinatarios = [
 
         /**

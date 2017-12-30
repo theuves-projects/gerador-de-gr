@@ -22,12 +22,12 @@
 
       // Configurar destinatários.
       if (!Configuracoes.tem("destinatarios")) {
-        Destinatarios.iniciar();
+        Destinatarios._iniciar();
       }
 
       // Configurar histórico.
       if (!Configuracoes.tem("historico")) {
-        Historico.iniciar();
+        Historico._iniciar();
       }
     }
 })(window.angular);
