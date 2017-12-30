@@ -1,14 +1,18 @@
 <div
   ng-init="hist.iniciar()"
   id="historico">
-    <gr-cabecalho
-      titulo="HISTÓRICO"
-      bt-princ="LIMPAR"
-      bt-princ-fa="trash-o"
-      bt-princ-cor="vermelho"
-      bt-princ-click="hist.limpar()"
-      bt-princ-desc="Apagar todo o histórico">
-    </gr-cabecalho>
+
+  <gr-cabecalho>
+    <h1>HISTÓRICO</h1>
+    <button
+      ng-click="hist.limpar()"
+      class="gr-btn gr-btn-vermelho"
+      title="Apagar todo o histórico">
+
+      <i class="fa fa-trash-o"></i>
+      LIMPAR
+    </button>
+  </gr-cabecalho>
 
   <div
     ng-switch="hist.tahVazio()"

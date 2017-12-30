@@ -2,14 +2,16 @@
   ng-init="conf.iniciar()"
   id="configuracoes">
 
-  <gr-cabecalho
-    titulo="CONFIGURAÇÕES"
-    bt-princ="SALVAR"
-    bt-princ-fa="floppy-o"
-    bt-princ-cor="azul"
-    bt-princ-click="conf.salvar()"
-    bt-princ-desc="Salvar as alterações"
-    pode-sair="conf.podeSair()">
+  <gr-cabecalho pode-sair="conf.podeSair()">
+    <h1>CONFIGURAÇÕES</h1>
+    <button
+      ng-click="conf.salvar()"
+      class="gr-btn gr-btn-azul"
+      title="Salvar as alterações">
+
+      <i class="fa fa-floppy-o"></i>
+      SALVAR
+    </button>
   </gr-cabecalho>
 
   <div class="gr-principal-conteudo">

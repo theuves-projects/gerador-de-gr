@@ -17,6 +17,7 @@
   margin: 6px 1px;
   padding: 6px 12px;
   background-color: #ccc;
+  transition: background-color 0.15s ease-out;
 }
 
 #gr-cabecalho .cab-ctrls button:not(:disabled):hover {

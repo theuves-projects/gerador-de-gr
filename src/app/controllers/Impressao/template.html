@@ -2,14 +2,16 @@
   ng-init="impr.iniciar()"
   id="impressao">
 
-  <gr-cabecalho
-    titulo="IMPRESSÃO DA GUIA"
-    bt-princ="IMPRIMIR"
-    bt-princ-fa="print"
-    bt-princ-cor="azul"
-    bt-princ-click="impr.imprimir()",
-    bt-princ-desc="Imprimir a guia"
-    pode-sair="true">
+  <gr-cabecalho>
+    <h1>IMPRESSÃO DA GUIA</h1>
+    <button
+      ng-click="impr.imprimir()"
+      class="gr-btn gr-btn-azul"
+      title="Imprimir a guia">
+
+      <i class="fa fa-print"></i>
+      IMPRIMIR
+    </button>
   </gr-cabecalho>
 
   <div class="gr-principal-conteudo">

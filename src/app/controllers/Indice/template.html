@@ -1,14 +1,17 @@
 <div
   ng-init="ind.iniciar()"
   id="indice">
-  <gr-cabecalho
-    titulo="GERADOR DE GUIA"
-    bt-princ="GERAR"
-    bt-princ-fa="arrow-right"
-    bt-princ-cor="verde"
-    bt-princ-click="ind.gerarGuia()"
-    bt-princ-desc="Gerar a guia"
-    pode-sair="ind.guia.tahVazia()">
+
+  <gr-cabecalho pode-sair="ind.guia.tahVazia()">
+    <h1>GERADOR DE GUIAS</h1>
+    <button
+      ng-click="ind.gerarGuia()"
+      class="gr-btn gr-btn-verde"
+      title="Gerar a guia">
+
+      <i class="fa fa-arrow-right"></i>
+      GERAR
+    </button>
   </gr-cabecalho>
 
   <div class="gr-principal-conteudo">

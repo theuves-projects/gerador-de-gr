@@ -8,17 +8,12 @@
   function config() {
     return {
       bindings: {
-        "titulo": "@",
-        "btPrinc": "@",
-        "btPrincFa": "@",
-        "btPrincCor": "@",
-        "btPrincClick": "&",
-        "btPrincDesc": "@",
         "podeSair": "&?"
       },
       controller: Cabecalho,
       controllerAs: "cab",
-      templateUrl: "app/components/grCabecalho/template.html"
+      templateUrl: "app/components/grCabecalho/template.html",
+      transclude: true
     };
   }
 
