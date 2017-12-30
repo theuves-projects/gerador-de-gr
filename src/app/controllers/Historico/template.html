@@ -1,11 +1,11 @@
 <div
-  ng-init="hist.iniciar()"
+  ng-init="hist._iniciar()"
   id="historico">
 
   <gr-cabecalho>
     <h1>HISTÓRICO</h1>
     <button
-      ng-click="hist.limpar()"
+      ng-click="hist.apagarTudo()"
       class="gr-btn gr-btn-vermelho"
       title="Apagar todo o histórico">
 
@@ -63,7 +63,7 @@
             <div class="gr-flex-lin">
               <div class="gr-flex-col">
                 <button
-                  ng-click="hist.acao(dados.data).ver()"
+                  ng-click="hist.ver(dados.data)"
                   class="gr-btn gr-btn-verde gr-w-100"
                   title="Ver">
                   <i class="fa fa-eye"></i>
@@ -71,7 +71,7 @@
               </div>
               <div class="gr-flex-col">
                 <button
-                  ng-click="hist.acao(dados.data).editar()"
+                  ng-click="hist.editar(dados.data)"
                   class="gr-btn gr-btn-azul gr-w-100"
                   title="Editar">
                   <i class="fa fa-pencil"></i>
@@ -79,7 +79,7 @@
               </div>
               <div class="gr-flex-col">
                 <button
-                  ng-click="hist.acao(dados.data).remover()"
+                  ng-click="hist.remover(dados.data)"
                   class="gr-btn gr-btn-vermelho gr-w-100"
                   title="Remover">
                   <i class="fa fa-trash"></i>

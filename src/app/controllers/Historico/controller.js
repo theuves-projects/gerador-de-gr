@@ -14,49 +14,11 @@
     var hist = this;
     ////////////////
 
-    hist.acao = function (data) {
-      return {
-        ver: function () {
-          $location.url("/impressao/" + data);
-        },
-        editar: function () {
-          $location.url("/editar/" + data);
-        },
-        remover: function () {
-          var temCerteza = $window.confirm("Certeza?");
-
-          if (temCerteza) {
-            Historico.remover(data);
-            hist.atualizarDados();
-          }
-        }
-      };
-    };
-
-    hist.atualizarDados = function () {
-      var emObjeto = function (item) {
-        var data = item[0];
-        var dados = item[1];
-
-        var base = {data: data};
-        var objeto = Object.assign(base, dados);
-
-        return objeto;
-      };
-
-      var dadosEmObj = Configuracoes.obter("historico");
-      var dadosEmArray = Object
-        .entries(dadosEmObj)
-        .map(emObjeto);
-
-      hist.dados = dadosEmArray;
-    };
-
-    hist.iniciar = function () {
+    hist._iniciar = function () {
       hist.atualizarDados();
     };
 
-    hist.limpar = function () {
+    hist.apagarTudo = function () {
       var temCerteza = $window.confirm("Você perderá tudo!\n\nCerteza?");
 
       if (temCerteza) {
@@ -65,8 +27,49 @@
       }
     };
 
+    hist.atualizarDados = function () {
+      var objDeObjEmArr = function (objeto, nomeDaChave) {
+        var emArray = Object.entries(objeto);
+        var arrayComObjetos = emArray.map(function (array) {
+          var chave = array[0];
+          var valor = array[1];
+
+          var novoObjeto = {};
+          novoObjeto[nomeDaChave] = chave;
+
+          angular.extend(novoObjeto, valor);
+
+          return novoObjeto;
+        });
+
+        return arrayComObjetos;
+      }
+
+      var dadosEmObj = Configuracoes.obter("historico");
+      var dadosEmArray = objDeObjEmArr(dadosEmObj, "data");
+
+      hist.dados = dadosEmArray;
+    };
+
+    hist.editar = function (data) {
+      $location.url("/editar/" + data);
+    };
+
+    hist.remover = function (data) {
+      var temCerteza = $window.confirm("Certeza?");
+
+      if (temCerteza) {
+        Historico.remover(data);
+        hist.atualizarDados();
+      }
+    };
+
     hist.tahVazio = function () {
       return angular.equals(hist.dados, []);
+    };
+
+    hist.ver = function (data) {
+      $location.url("/impressao/" + data);
     };
   }
 })(window.angular);
