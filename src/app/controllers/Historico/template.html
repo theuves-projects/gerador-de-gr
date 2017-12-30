@@ -37,21 +37,21 @@
           <th><i class="fa fa-envelope-o"></i></th>
         </tr>
         <tr
-          ng-repeat="dados in hist.dados | orderBy:'-data' | filter:hist.pesquisa"
+          ng-repeat="dados in hist.dados | orderBy:null:true | filter:hist.pesquisa"
           class="gr-anima">
           <td>
-            {{dados.data | date:'dd/MM/yyyy HH:mm:ss'}}
+            {{dados[0] | date:'dd/MM/yyyy HH:mm:ss'}}
 
             <i
-              ng-if="dados.tahEditando"
+              ng-if="dados[1].tahEditando"
               class="fa fa-pencil gr-cor-azul gr-cursor-help"
               title="Editado">
             </i>
           </td>
-          <td>{{dados.numero}}</td>
-          <td ng-switch="!!dados.malote">
+          <td>{{dados[1].numero}}</td>
+          <td ng-switch="!!dados[1].malote">
             <span ng-switch-when="true">
-              {{dados.malote}}
+              {{dados[1].malote}}
             </span>
             <span
               ng-switch-when="false"
@@ -63,7 +63,7 @@
             <div class="gr-flex-lin">
               <div class="gr-flex-col">
                 <button
-                  ng-click="hist.ver(dados.data)"
+                  ng-click="hist.ver(dados[0])"
                   class="gr-btn gr-btn-verde gr-w-100"
                   title="Ver">
                   <i class="fa fa-eye"></i>
@@ -71,7 +71,7 @@
               </div>
               <div class="gr-flex-col">
                 <button
-                  ng-click="hist.editar(dados.data)"
+                  ng-click="hist.editar(dados[0])"
                   class="gr-btn gr-btn-azul gr-w-100"
                   title="Editar">
                   <i class="fa fa-pencil"></i>
@@ -79,7 +79,7 @@
               </div>
               <div class="gr-flex-col">
                 <button
-                  ng-click="hist.remover(dados.data)"
+                  ng-click="hist.remover(dados[0])"
                   class="gr-btn gr-btn-vermelho gr-w-100"
                   title="Remover">
                   <i class="fa fa-trash"></i>

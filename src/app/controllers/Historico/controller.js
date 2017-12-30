@@ -28,25 +28,8 @@
     };
 
     hist.atualizarDados = function () {
-      var objDeObjEmArr = function (objeto, nomeDaChave) {
-        var emArray = Object.entries(objeto);
-        var arrayComObjetos = emArray.map(function (array) {
-          var chave = array[0];
-          var valor = array[1];
-
-          var novoObjeto = {};
-          novoObjeto[nomeDaChave] = chave;
-
-          angular.extend(novoObjeto, valor);
-
-          return novoObjeto;
-        });
-
-        return arrayComObjetos;
-      }
-
       var dadosEmObj = Configuracoes.obter("historico");
-      var dadosEmArray = objDeObjEmArr(dadosEmObj, "data");
+      var dadosEmArray = Object.entries(dadosEmObj);
 
       hist.dados = dadosEmArray;
     };

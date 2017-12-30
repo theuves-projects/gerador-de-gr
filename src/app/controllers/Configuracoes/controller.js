@@ -15,6 +15,17 @@
     var conf = this;
     ////////////////
 
+    conf._iniciar = function () {
+      configurarScroll();
+
+      // configuracoes
+
+      function configurarScroll() {
+        $anchorScroll.yOffset = 10;
+        $anchorScroll();
+      }
+    };
+
     conf.usuario = {
       nome: Configuracoes.obter("usuario"),
       salvar: function () {
@@ -59,17 +70,6 @@
       },
       tem: function (destinatario) {
         return this.lista.includes(destinatario);
-      }
-    };
-
-    conf.iniciar = function () {
-      configurarScroll();
-
-      // configuracoes
-
-      function configurarScroll() {
-        $anchorScroll.yOffset = 10;
-        $anchorScroll();
       }
     };
 

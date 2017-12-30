@@ -16,11 +16,7 @@
     var impr = this;
     ////////////////
 
-    impr.data = $routeParams.data;
-
-    impr.usuario = Configuracoes.obter("usuario");
-
-    impr.iniciar = function () {
+    impr._iniciar = function () {
       verificarExistencia();
       mesclarGuia();
 
@@ -41,6 +37,10 @@
         angular.extend(impr, dados);
       }
     };
+
+    impr.data = $routeParams.data;
+
+    impr.usuario = Configuracoes.obter("usuario");
 
     impr.imprimir = function () {
       $window.print();

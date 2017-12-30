@@ -26,13 +26,7 @@
     var cab = this;
     ///////////////
 
-    cab.path = $location.path();
-
-    cab.irPara = function (url) {
-      if (cab.tahTdOk()) $location.url(url);
-    };
-
-    cab.iniciar = function () {
+    cab._iniciar = function () {
       configurarRelogio();
 
       // configurações
@@ -45,6 +39,12 @@
         atualizarData();
         $interval(atualizarData, 1000);
       }
+    };
+
+    cab.path = $location.path();
+
+    cab.irPara = function (url) {
+      if (cab.tahTdOk()) $location.url(url);
     };
 
     cab.tahTdOk = function () {

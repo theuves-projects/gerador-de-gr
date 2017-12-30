@@ -18,6 +18,28 @@
     var ind = this;
     ///////////////
 
+    ind._iniciar = function () {
+      mesclarGuia();
+
+      // configuracoes
+
+      function mesclarGuia() {
+        var parametros = $routeParams;
+        var data = parametros.data;
+        var aDataFoiInfomada = angular.isDefined(data);
+
+        if (aDataFoiInfomada) {
+          var dados = Historico.obter(data);
+
+          ind.guia.numero = dados.numero;
+          ind.guia.malote = dados.malote;
+          ind.guia.destinatario = dados.destinatario;
+          ind.guia.processos.lista = dados.processos;
+          ind.guia.tahEditando = true;
+        }
+      }
+    };
+
     ind.destinatarios = Destinatarios.obter();
 
     ind.guia = new Guia.constructor(Historico);
@@ -62,28 +84,6 @@
 
       ind.guia.guardar(data);
       $location.url("/impressao/" + data);
-    };
-
-    ind.iniciar = function () {
-      mesclarGuia();
-
-      // configuracoes
-
-      function mesclarGuia() {
-        var parametros = $routeParams;
-        var data = parametros.data;
-        var aDataFoiInfomada = angular.isDefined(data);
-
-        if (aDataFoiInfomada) {
-          var dados = Historico.obter(data);
-
-          ind.guia.numero = dados.numero;
-          ind.guia.malote = dados.malote;
-          ind.guia.destinatario = dados.destinatario;
-          ind.guia.processos.lista = dados.processos;
-          ind.guia.tahEditando = true;
-        }
-      }
     };
 
     ind.removerProcesso = function (numero) {
