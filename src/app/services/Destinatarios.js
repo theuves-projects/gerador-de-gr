@@ -9,7 +9,7 @@
     var dest = this;
     ////////////////
 
-    dest._iniciar = function iniciar() {
+    dest._iniciar = function () {
       var destinatarios = [
 
         /**
@@ -187,13 +187,13 @@
       Configuracoes.adicionar("destinatarios", destinatarios);
     };
 
-    dest.obter = function obter() {
+    dest.obter = function () {
       var destinatarios = Configuracoes.obter("destinatarios");
 
       return destinatarios;
     };
 
-    dest.adicionar = function adicionar(destinatarios) {
+    dest.adicionar = function (destinatarios) {
       Configuracoes.adicionar("destinatarios", destinatarios);
     };
   }
