@@ -20,7 +20,7 @@
       var DIR = "app/controllers";
       var FILE = "template.html";
 
-      return  DIR+"/"+controller+"/"+FILE;
+      return  DIR + "/" + controller + "/" + FILE;
     }
 
     function use(controller, as) {
