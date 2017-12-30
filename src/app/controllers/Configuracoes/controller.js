@@ -66,7 +66,9 @@
         Destinatarios.adicionar(this.lista);
       },
       tahSalvo: function (destinatario) {
-        return Destinatarios.obter().includes(destinatario);
+        var destinatarios = Destinatarios.obter();
+        if (destinatarios === null) return false;
+        return destinatarios.includes(destinatario);
       },
       tem: function (destinatario) {
         return this.lista.includes(destinatario);
