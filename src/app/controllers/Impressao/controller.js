@@ -23,9 +23,9 @@
       // configurações
 
       function verificarExistencia() {
-        var nTemDaddos = !Historico.obter(impr.data);
+        var nTemDados = !Historico.obter(impr.data);
 
-        if (nTemDaddos) {
+        if (nTemDados) {
           $window.alert("Guia inexistente!");
           $location.url("/");
           return;
