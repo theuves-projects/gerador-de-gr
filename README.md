@@ -17,7 +17,7 @@ acesse-o em &lt;https://gerador-de-guia-de-remessa.surge.sh&gt;.
 * `mover` - mover arquivos para `./build`
   * `favicon.ico` - mover `./favicon.ico` para `./build`
 
-*os subcomandos são separados por `:`*
+**obs.**: os subcomandos são separados por `:`.
 
 `npm run`
 ---------
