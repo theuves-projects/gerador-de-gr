@@ -9,6 +9,18 @@
     var proc = this;
     ////////////////
 
+    proc.desformatar = function (numero) {
+      var emString = numero.toString();
+      var aparado = emString.trim();
+      var desformatado = aparado.replace(/[+-.\s]/g, "");
+
+      // nenhum número de processo desformatado tem mais de 20 caracteres.
+      var temDadosDesnecessarios = desformatado.length > 20;
+
+      if (temDadosDesnecessarios) return limpo.replace(/\d{5}$/g, "");
+      return desformatado;
+    };
+
     proc.ehAntigo = function (numero) {
       var desformatado = proc.desformatar(numero);
       return desformatado.length === 12 || desformatado.length === 13;
@@ -60,18 +72,6 @@
       }
 
       return numero.replace(regex, mascara);
-    };
-
-    proc.desformatar = function (numero) {
-      var emString = numero.toString();
-      var aparado = emString.trim();
-      var desformatado = aparado.replace(/[+-.\s]/g, "");
-
-      // nenhum número de processo desformatado tem mais de 20 caracteres.
-      var temDadosDesnecessarios = desformatado.length > 20;
-
-      if (temDadosDesnecessarios) return limpo.replace(/\d{5}$/g, "");
-      return desformatado;
     };
   }
 })(window.angular);
