@@ -5,26 +5,26 @@ gerador de guia de remessa
 
 acesse-o em &lt;https://gerador-de-guia-de-remessa.surge.sh&gt;.
 
-gulp
-----
+`gulp`
+------
 
-comandos:
+* `construir` - construir tudo (em `./build`)
+  * `html-css-e-js` - construir o *html*, *css* e *javascript*
+  * `templates` - construir [*template cache*](https://goo.gl/31tQvv)
+* `injetar` - [injetar](https://goo.gl/R3ju2V) todos os *scripts* e estilos
+  * `css` - injetar somente os estilos
+  * `js` - injetar somente os *scripts*
+* `mover` - mover arquivos para `./build`
+  * `favicon.ico` - mover `./favicon.ico` para `./build`
 
-* `gulp construir` - construir tudo; em `./build`
-* `gulp construir:html-css-e-js` - construir o *html*, *css* e *javascript*
-* `gulp construir:templates` - construir [*template cache*](https://goo.gl/31tQvv)
-* `gulp injetar` - [injetar](https://goo.gl/R3ju2V) todos os *scripts* e estilos
-* `gulp injetar:css` - injetar somente os estilos
-* `gulp injetar:js` - injetar somente os *scripts*
-* `gulp mover` - mover arquivos para `./build`
-* `gulp mover:favicon.ico` - mover `./favicon.ico` para `./build`
+*os subcomandos são separados por `:`*
 
-npm
----
+`npm run`
+---------
 
-* `npm run deploy` - publicar
-* `npm run open` - abrir `build/index.html`
-* `npm run serve` - rodar `src/` (em *localhost:5000*)
+* `deploy` - publicar
+* `open` - abrir `build/index.html`
+* `serve` - rodar `src/` (em [localhost:5000](http://localhost:5000))
 
 favicon
 -------
