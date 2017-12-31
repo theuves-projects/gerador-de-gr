@@ -42,9 +42,9 @@
         var destAparado = this.novo.trim();
         var destEmMaiusculo = destAparado.toUpperCase();
         var destJahTem = this.tem(destEmMaiusculo);
-        var nadaMudou = !destEmMaiusculo.length;
+        var tahVazio = !destEmMaiusculo.length;
 
-        if (nadaMudou) return $window.alert("Informe algo!");
+        if (tahVazio) return $window.alert("Informe algo!");
         if (destJahTem) return $window.alert("O destinatário informado já existe!");
 
         this.lista.push(destEmMaiusculo);

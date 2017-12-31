@@ -49,10 +49,9 @@
 
     cab.tahTdOk = function () {
       var podeSair = cab.podeSair;
-      var nFoiDefinido = angular.isUndefined(podeSair);
+      var ehIndefinido = angular.isUndefined(podeSair);
 
-      if (nFoiDefinido) return true;
-      if (podeSair) return true;
+      if (ehIndefinido || podeSair) return true;
 
       var continuar = $window.confirm("Dados serão perdidos.\n\nContinuar?");
       return continuar;
