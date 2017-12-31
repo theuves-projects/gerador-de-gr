@@ -53,7 +53,7 @@
       var ehValido = Processo.ehValido(ind.codigoDeBarras);
 
       ind.guia.processos.adicionar(ind.codigoDeBarras, ehValido);
-      ind.codigoDeBarras = undefined;
+      ind.codigoDeBarras = "";
     };
 
     ind.gerarGuia = function () {
