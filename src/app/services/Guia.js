@@ -14,14 +14,15 @@
       adicionar: function (numero, ehValido) {
         if (this.tem(numero)) {
           this.aumentarVolume(numero);
-        } else {
-          this.lista.push({
-            ehValido: ehValido,
-            item: this.lista.length + 1,
-            numero: numero,
-            volume: 1
-          });
+          return;
         }
+
+        this.lista.push({
+          ehValido: ehValido,
+          item: this.lista.length + 1,
+          numero: numero,
+          volume: 1
+        });
       },
       aumentarVolume: function (numero) {
         var processo = this.obter(numero);
