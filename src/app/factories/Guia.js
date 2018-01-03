@@ -3,12 +3,10 @@
 
   angular
     .module("app")
-    .service("Guia", Config);
+    .service("Guia", Guia);
 
-  function Config(Historico) {
-    return Guia;
-
-    function Guia() {
+  function Guia(Historico) {
+    return function Guia() {
       var guia = this;
       ////////////////
 

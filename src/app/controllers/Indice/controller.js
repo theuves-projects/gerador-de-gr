@@ -7,8 +7,8 @@
 
   function Indice(
     $location,
-    $window,
     $routeParams,
+    $window,
     Configuracoes,
     Destinatarios,
     Guia,
