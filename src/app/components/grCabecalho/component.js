@@ -27,12 +27,11 @@
     ///////////////
 
     cab._iniciar = function () {
-      var atualizarRelogio = function () {
-        cab.data = Date.now();
-      };
+      cab.data = Date.now();
 
-      atualizarRelogio();
-      $interval(atualizarRelogio, 1000);
+      $interval(function () {
+        cab.data = Date.now();
+      }, 1000);
     };
 
     cab.path = $location.path();
