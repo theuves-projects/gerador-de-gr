@@ -83,6 +83,7 @@
       if (ind.guia.processos.tem(numero)) {
         var temCerteza = $window.confirm("Certeza?");
         if (temCerteza) ind.guia.processos.remover(numero);
+
         return;
       }
 
