@@ -35,7 +35,7 @@
 
     ind.destinatarios = Destinatarios.obter();
 
-    ind.guia = new Guia.constructor(Historico);
+    ind.guia = new Guia();
 
     ind.ultimoNumDeGuia = Configuracoes.obter("ultima") || 0;
 

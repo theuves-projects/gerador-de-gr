@@ -29,7 +29,7 @@
 
     hist.atualizarDados = function () {
       var dados = Configuracoes.obter("historico");
-      var dadosEmArr = Object.entries(dadosEmObj);
+      var dadosEmArr = Object.entries(dados);
 
       hist.dados = dadosEmArr;
     };

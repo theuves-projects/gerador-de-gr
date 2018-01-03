@@ -10,7 +10,6 @@
     $routeParams,
     $window,
     Configuracoes,
-    Guia,
     Historico
   ) {
     var impr = this;
