@@ -10,7 +10,7 @@
     ////////////////
 
     hist._iniciar = function () {
-      Configuracoes.adicionar(hist.nome, {});
+      hist.definir({});
     };
 
     hist.nome = "historico";
@@ -23,7 +23,7 @@
       processos,
       tahEditando
     ) {
-      var dados = Configuracoes.obter(hist.nome);
+      var dados = hist.obterTudo();
 
       dados[data] = {
         numero: numero,
@@ -33,21 +33,29 @@
         tahEditando: tahEditando
       };
 
-      Configuracoes.adicionar(hist.nome, dados);
+      hist.definir(dados);
     };
 
-    hist.obter = function (data) {
-      var dados = Configuracoes.obter(hist.nome);
+    hist.definir = function(valor) {
+      Configuracoes.adicionar(hist.nome, valor);
+    }
 
+    hist.obter = function (data) {
+      var dados = hist.obterTudo();
       return dados[data];
     };
 
-    hist.remover = function (data) {
+    hist.obterTudo = function () {
       var dados = Configuracoes.obter(hist.nome);
+      return dados;
+    }
+
+    hist.remover = function (data) {
+      var dados = hist.obterTudo();
 
       delete dados[data];
 
-      Configuracoes.adicionar(hist.nome, dados);
+      hist.definir(dados);
     };
   }
 })(window.angular);
