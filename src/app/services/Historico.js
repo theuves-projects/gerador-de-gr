@@ -10,20 +10,20 @@
     ////////////////
 
     hist._iniciar = function () {
-      Configuracoes.adicionar(hist._nome, {});
+      Configuracoes.adicionar(hist.nome, {});
     };
 
-    hist._nome = "historico";
+    hist.nome = "historico";
 
     hist.adicionar = function (
-        data
-      , numero
-      , malote
-      , destinatario
-      , processos
-      , tahEditando
+      data,
+      numero,
+      malote,
+      destinatario,
+      processos,
+      tahEditando
     ) {
-      var dados = Configuracoes.obter(hist._nome);
+      var dados = Configuracoes.obter(hist.nome);
 
       dados[data] = {
         numero: numero,
@@ -33,21 +33,21 @@
         tahEditando: tahEditando
       };
 
-      Configuracoes.adicionar(hist._nome, dados);
+      Configuracoes.adicionar(hist.nome, dados);
     };
 
     hist.obter = function (data) {
-      var dados = Configuracoes.obter(hist._nome);
+      var dados = Configuracoes.obter(hist.nome);
 
       return dados[data];
     };
 
     hist.remover = function (data) {
-      var dados = Configuracoes.obter(hist._nome);
+      var dados = Configuracoes.obter(hist.nome);
 
       delete dados[data];
 
-      Configuracoes.adicionar(hist._nome, dados);
+      Configuracoes.adicionar(hist.nome, dados);
     };
   }
 })(window.angular);

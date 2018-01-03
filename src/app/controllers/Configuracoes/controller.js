@@ -6,24 +6,18 @@
     .controller("Configuracoes", Configuracoes);
 
   function Configuracoes(
-      $window
-    , $location
-    , $anchorScroll
-    , Configuracoes
-    , Destinatarios
+    $window,
+    $location,
+    $anchorScroll,
+    Configuracoes,
+    Destinatarios
   ) {
     var conf = this;
     ////////////////
 
     conf._iniciar = function () {
-      configurarScroll();
-
-      // configuracoes
-
-      function configurarScroll() {
-        $anchorScroll.yOffset = 10;
-        $anchorScroll();
-      }
+      $anchorScroll.yOffset = 10;
+      $anchorScroll();
     };
 
     conf.usuario = {
@@ -41,14 +35,15 @@
       adicionar: function ()  {
         var destAparado = this.novo.trim();
         var destEmMaiusculo = destAparado.toUpperCase();
-        var destJahTem = this.tem(destEmMaiusculo);
-        var tahVazio = !destEmMaiusculo.length;
+        var temDest = this.tem(destEmMaiusculo);
+        var tahVazio = !destEmMaiusculo;
 
         if (tahVazio) return $window.alert("Informe algo!");
-        if (destJahTem) return $window.alert("O destinatário informado já existe!");
+        if (temDest) return $window.alert("O destinatário informado já existe!");
 
         this.lista.push(destEmMaiusculo);
         this.limpar();
+
         return;
       },
       limpar: function () {

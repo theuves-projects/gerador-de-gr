@@ -6,10 +6,10 @@
     .controller("Historico", Historico);
 
   function Historico(
-      $location
-    , $window
-    , Configuracoes
-    , Historico
+    $location,
+    $window,
+    Configuracoes,
+    Historico
   ) {
     var hist = this;
     ////////////////
@@ -28,10 +28,10 @@
     };
 
     hist.atualizarDados = function () {
-      var dadosEmObj = Configuracoes.obter("historico");
-      var dadosEmArray = Object.entries(dadosEmObj);
+      var dados = Configuracoes.obter("historico");
+      var dadosEmArr = Object.entries(dadosEmObj);
 
-      hist.dados = dadosEmArray;
+      hist.dados = dadosEmArr;
     };
 
     hist.editar = function (data) {

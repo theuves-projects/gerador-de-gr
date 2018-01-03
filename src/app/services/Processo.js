@@ -10,36 +10,41 @@
     ////////////////
 
     proc.desformatar = function (numero) {
-      var emString = numero.toString();
-      var aparado = emString.trim();
+      var emStr = numero.toString();
+      var aparado = emStr.trim();
       var desformatado = aparado.replace(/[+-.\s]/g, "");
 
       // nenhum número de processo desformatado tem mais de 20 caracteres.
       var temDadosDesnecessarios = desformatado.length > 20;
-
       if (temDadosDesnecessarios) return limpo.replace(/\d{5}$/g, "");
+
       return desformatado;
     };
 
     proc.ehAntigo = function (numero) {
       var desformatado = proc.desformatar(numero);
-      return desformatado.length === 12 || desformatado.length === 13;
+      var eh = /^\d{12,13}$/.test(desformatado);
+
+      return eh;
     };
 
     proc.ehSimplificado = function (numero) {
       var desformatado = proc.desformatar(numero);
-      return desformatado.length === 15;
+      var eh = desformatado.length === 15;
+
+      return eh;
     };
 
     proc.ehValido = function (numero) {
       var desformatado = proc.desformatar(numero);
-      return /^(\d{12,13}|\d{15}|\d{20})$/.test(desformatado);
+      var eh = /^(\d{12,13}|\d{15}|\d{20})$/.test(desformatado);
+
+      return eh;
     };
 
     proc.formatar = function (numero) {
-      var nEhValido = !proc.ehValido(numero);
-
-      if (nEhValido) return numero;
+      var ehValido = proc.ehValido(numero);
+      if (!ehValido) return numero;
 
       var ehAntigo = proc.ehAntigo(numero);
       var ehSimplificado = proc.ehSimplificado(numero);

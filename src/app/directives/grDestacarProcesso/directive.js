@@ -19,8 +19,8 @@
       var numero = scope.numero;
       var classes = scope.classes;
 
-      var classesArray = angular.isArray(classes) ? classes : [];
-      var classesNormal = classesArray.join(" ");
+      var classesEmArr = angular.isArray(classes) ? classes : [];
+      var classesNormal = classesEmArr.join(" ");
       var temClasses = !!classesNormal.trim();
 
       var regex = /([^0]\d+-\d{2})/;

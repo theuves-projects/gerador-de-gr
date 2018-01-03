@@ -19,39 +19,34 @@
 
   /* @ngInject */
   function Cabecalho(
-      $location
-    , $window
-    , $interval
+    $location,
+    $window,
+    $interval
   ) {
     var cab = this;
     ///////////////
 
     cab._iniciar = function () {
-      configurarRelogio();
+      var atualizarRelogio = function () {
+        cab.data = Date.now();
+      };
 
-      // configurações
-
-      function configurarRelogio() {
-        var atualizarData = function () {
-          cab.data = Date.now();
-        };
-
-        atualizarData();
-        $interval(atualizarData, 1000);
-      }
+      atualizarRelogio();
+      $interval(atualizarRelogio, 1000);
     };
 
     cab.path = $location.path();
 
     cab.irPara = function (url) {
-      if (cab.tahTdOk()) $location.url(url);
+      if (cab.tahPronto()) $location.url(url);
     };
 
-    cab.tahTdOk = function () {
+    cab.tahPronto = function () {
       var podeSair = cab.podeSair;
       var ehIndefinido = angular.isUndefined(podeSair);
+      var tahPronto = ehIndefinido || podeSair;
 
-      if (ehIndefinido || podeSair) return true;
+      if (tahPronto) return true;
 
       var continuar = $window.confirm("Dados serão perdidos.\n\nContinuar?");
       return continuar;

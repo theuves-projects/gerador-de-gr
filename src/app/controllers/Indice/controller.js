@@ -6,37 +6,30 @@
     .controller("Indice", Indice);
 
   function Indice(
-      $location
-    , $window
-    , $routeParams
-    , Configuracoes
-    , Destinatarios
-    , Guia
-    , Historico
-    , Processo
+    $location,
+    $window,
+    $routeParams,
+    Configuracoes,
+    Destinatarios,
+    Guia,
+    Historico,
+    Processo
   ) {
     var ind = this;
     ///////////////
 
     ind._iniciar = function () {
-      mesclarGuia();
+      var data = $routeParams.data;
+      var temData = angular.isDefined(data);
 
-      // configuracoes
+      if (temData) {
+        var dados = Historico.obter(data);
 
-      function mesclarGuia() {
-        var parametros = $routeParams;
-        var data = parametros.data;
-        var aDataFoiInfomada = angular.isDefined(data);
-
-        if (aDataFoiInfomada) {
-          var dados = Historico.obter(data);
-
-          ind.guia.numero = dados.numero;
-          ind.guia.malote = dados.malote;
-          ind.guia.destinatario = dados.destinatario;
-          ind.guia.processos.lista = dados.processos;
-          ind.guia.tahEditando = true;
-        }
+        ind.guia.numero = dados.numero;
+        ind.guia.malote = dados.malote;
+        ind.guia.destinatario = dados.destinatario;
+        ind.guia.processos.lista = dados.processos;
+        ind.guia.tahEditando = true;
       }
     };
 
@@ -70,15 +63,15 @@
       var faltaAlgo = angular.isDefined(msgDeFalta);
       if (faltaAlgo) return $window.alert(msgDeFalta);
 
-      var nTahEditando = !ind.guia.tahEditando;
-      var numeroJahFoiUtilizado = ind.guia.numero <= ind.ultimoNumDeGuia;
+      var tahEditando = ind.guia.tahEditando;
+      var numJahUtilizado = ind.guia.numero <= ind.ultimoNumDeGuia;
 
-      if (nTahEditando && numeroJahFoiUtilizado) {
-        var nTemCerteza = !$window.confirm("Certeza que esse número é valido?");
-        if (nTemCerteza) return;
+      if (!tahEditando && numJahUtilizado) {
+        var temCerteza = $window.confirm("Certeza que esse número é valido?");
+        if (!temCerteza) return;
       }
 
-      if (nTahEditando) Configuracoes.adicionar("ultima", ind.guia.numero);
+      if (!tahEditando) Configuracoes.adicionar("ultima", ind.guia.numero);
 
       var data = Date.now();
 

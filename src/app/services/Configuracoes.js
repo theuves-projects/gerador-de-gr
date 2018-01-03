@@ -9,21 +9,21 @@
     var conf = this;
     ////////////////
 
-    conf._PREFIXO = "g-";
+    conf.PREFIXO = "g-";
 
-    conf._prefixar = function (item) {
-      return conf._PREFIXO + item;
+    conf.prefixar = function (item) {
+      return conf.PREFIXO + item;
     };
 
     conf.adicionar = function (item, valor) {
-      var itemComPrefixo = conf._prefixar(item);
+      var itemComPrefixo = conf.prefixar(item);
       var valorEmJson = angular.toJson(valor);
 
       $window.localStorage.setItem(itemComPrefixo, valorEmJson);
     };
 
     conf.obter = function (item) {
-      var itemComPrefixo = conf._prefixar(item);
+      var itemComPrefixo = conf.prefixar(item);
       var valorEmJson = $window.localStorage.getItem(itemComPrefixo);
       var valorCru = angular.fromJson(valorEmJson);
 
@@ -31,15 +31,15 @@
     };
 
     conf.remover = function (item) {
-      var itemComPrefixo = conf._prefixar(item);
+      var itemComPrefixo = conf.prefixar(item);
 
       $window.localStorage.removeItem(itemComPrefixo);
     };
 
     conf.tem = function (item) {
-      var itemComPrefixo = conf._prefixar(item);
+      var itemComPrefixo = conf.prefixar(item);
 
-      return itemComPrefixo in $window.localStorage;
+      return $window.localStorage.hasOwnProperty(itemComPrefixo);
     };
   }
 })(window.angular);
