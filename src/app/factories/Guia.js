@@ -63,12 +63,12 @@
 
       guia.guardar = function (data) {
         Historico.adicionar(
-            data
-          , guia.numero
-          , guia.malote
-          , guia.destinatario
-          , guia.processos.lista
-          , !!guia.tahEditando
+          data,
+          guia.numero,
+          guia.malote,
+          guia.destinatario,
+          guia.processos.lista,
+          !!guia.tahEditando
         );
       };
 
