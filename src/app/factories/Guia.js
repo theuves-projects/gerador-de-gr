@@ -45,9 +45,9 @@
 
           this.lista = this.lista.splice(indice, 1);
           this.lista = this.lista.map(function (processo, item) {
-              processo.item = ++item;
-              return processo;
-            });
+            processo.item = ++item;
+            return processo;
+          });
         },
         tahVazio: function () {
           return angular.equals(this.lista, []);
