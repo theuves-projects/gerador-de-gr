@@ -23,13 +23,13 @@
       var classesNormal = classesEmArr.join(" ");
       var temClasses = !!classesNormal.trim();
 
-      var regex = /([^0]\d+-\d{2})/;
-      var destacar = function (trecho) {
+      var REGEX = /([^0]\d+-\d{2})/;
+
+      var destacado = numero.replace(regex, function (trecho) {
         if (!temClasses) return "<span>" + trecho + "</span>";
         return "<span class=\"" + classesNormal + "\">" + trecho + "</span>";
-      };
+      });
 
-      var destacado = numero.replace(regex, destacar);
       element.html(destacado);
     }
   }

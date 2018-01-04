@@ -35,19 +35,19 @@
         },
         obter: function (numero) {
           return this.lista.find(function (processo) {
-            if (processo.numero === numero) return processo;
+            return processo.numero === numero;
           });
         },
         remover: function (numero) {
-          this.lista = this.lista.filter(function (processo) {
-            return processo.numero !== numero;
+          var indice = this.lista.findIndex(function (processo) {
+            return processo.numero === numero;
           });
 
-          this.lista = this.lista.map(function (processo, indice) {
-            processo.item = ++indice;
-
-            return processo;
-          });
+          this.lista = this.lista.splice(indice, 1);
+          this.lista = this.lista.map(function (processo, item) {
+              processo.item = ++item;
+              return processo;
+            });
         },
         tahVazio: function () {
           return angular.equals(this.lista, []);
