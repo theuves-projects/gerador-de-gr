@@ -13,7 +13,7 @@
       hist.definir({});
     };
 
-    hist.nome = "historico";
+    hist.NOME = "historico";
 
     hist.adicionar = function (
       data,
@@ -37,23 +37,27 @@
     };
 
     hist.definir = function(valor) {
-      Configuracoes.adicionar(hist.nome, valor);
+      Configuracoes.adicionar(hist.NOME, valor);
     }
 
     hist.obter = function (data) {
       var dados = hist.obterTudo();
-      return dados[data];
+      var dadosDaData = dados[data];
+
+      return dadosDaData;
     };
 
     hist.obterTudo = function () {
-      var dados = Configuracoes.obter(hist.nome);
+      var dados = Configuracoes.obter(hist.NOME);
+
       return dados;
     }
 
     hist.remover = function (data) {
       var dados = hist.obterTudo();
+      var indice = dados.indexOf(data);
 
-      delete dados[data];
+      dados.splice(indice, 1);
 
       hist.definir(dados);
     };

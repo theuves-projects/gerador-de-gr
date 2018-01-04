@@ -25,7 +25,7 @@
 
       var REGEX = /([^0]\d+-\d{2})/;
 
-      var destacado = numero.replace(regex, function (trecho) {
+      var destacado = numero.replace(REGEX, function (trecho) {
         if (!temClasses) return "<span>" + trecho + "</span>";
         return "<span class=\"" + classesNormal + "\">" + trecho + "</span>";
       });

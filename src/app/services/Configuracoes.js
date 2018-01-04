@@ -12,7 +12,9 @@
     conf.PREFIXO = "g-";
 
     conf.prefixar = function (item) {
-      return conf.PREFIXO + item;
+      var prefixado = conf.PREFIXO + item;
+
+      return prefixado;
     };
 
     conf.adicionar = function (item, valor) {
@@ -38,8 +40,9 @@
 
     conf.tem = function (item) {
       var itemComPrefixo = conf.prefixar(item);
+      var temItem = $window.localStorage.hasOwnProperty(itemComPrefixo);
 
-      return $window.localStorage.hasOwnProperty(itemComPrefixo);
+      return temItem;
     };
   }
 })(window.angular);

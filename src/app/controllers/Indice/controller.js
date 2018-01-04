@@ -64,9 +64,9 @@
       if (faltaAlgo) return $window.alert(msgDeFalta);
 
       var tahEditando = ind.guia.tahEditando;
-      var numJahUtilizado = ind.guia.numero <= ind.ultimoNumDeGuia;
+      var ehNumUtilizado = ind.guia.numero <= ind.ultimoNumDeGuia;
 
-      if (!tahEditando && numJahUtilizado) {
+      if (!tahEditando && ehNumUtilizado) {
         var temCerteza = $window.confirm("Certeza que esse número é valido?");
         if (!temCerteza) return;
       }
