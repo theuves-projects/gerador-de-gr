@@ -39,14 +39,10 @@
           });
         },
         remover: function (numero) {
-          var indice = this.lista.findIndex(function (processo) {
-            return processo.numero === numero;
-          });
-
-          this.lista = this.lista.splice(indice, 1);
-          this.lista = this.lista.map(function (processo, item) {
-            processo.item = ++item;
-
+          this.lista = this.lista.filter(function (processo) {
+            return processo.numero !== numero;
+          }).map(function (processo, indice) {
+            processo.item = indice + 1;
             return processo;
           });
         },
