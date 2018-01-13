@@ -19,7 +19,7 @@
         GUIA DE REMESSA DE CARGA Nº
         <span gr-selecionar>{{guia.numero}}/{{guia.data | date:'yyyy'}}</span>
         <span ng-if="guia.malote">
-          (MALOTE <span gr-selecionar>{{guia.numero}}</span>)
+          (MALOTE <span gr-selecionar>{{guia.malote | preencher:5}}</span>)
         </span>
       </td>
     </tr>
