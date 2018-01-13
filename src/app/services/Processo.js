@@ -16,7 +16,7 @@
 
       // nenhum número de processo desformatado tem mais de 20 caracteres.
       var temDadosDesnecessarios = desformatado.length > 20;
-      if (temDadosDesnecessarios) return limpo.replace(/\d{5}$/g, "");
+      if (temDadosDesnecessarios) return desformatado.replace(/\d{5}$/g, "");
 
       return desformatado;
     };
