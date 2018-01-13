@@ -2,8 +2,11 @@ body {
   background-color: #eee;
 }
 
-body {
-  font-family: sans-serif;
+body,
+input,
+button
+select {
+  font-family: "Roboto", sans-serif;
 }
 
 .gr-principal {
