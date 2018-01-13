@@ -4,9 +4,9 @@
 
 #configuracoes .conf-secao {
   background-color: #f1f1f1;
-  border: solid 2px #ddd;
+  border: solid 1px #ddd;
   margin-bottom: 12px;
-  padding: 10px 30px;
+  padding: 20px 30px;
 }
 
 #configuracoes .conf-secao-tipo a {
