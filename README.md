@@ -1,37 +1,29 @@
-gerador de guia de remessa
+Gerador de Guia de Remessa
 ==========================
 
-> um utilitário pessoal.
+> Um utilitário pessoal.
 
-acesse-o em &lt;https://gerador-de-guia-de-remessa.surge.sh&gt;.
+Acesse-o em &lt;https://gerador-de-guia-de-remessa.surge.sh&gt;.
 
 `gulp`
 ------
 
-* `construir` - construir tudo (em `./build`)
-  * `html-css-e-js` - construir o *html*, *css* e *javascript*
-  * `templates` - construir [*template cache*](https://goo.gl/31tQvv)
-* `injetar` - [injetar](https://goo.gl/R3ju2V) todos os *scripts* e estilos
-  * `css` - injetar somente os estilos
-  * `js` - injetar somente os *scripts*
-* `mover` - mover arquivos para `./build`
-  * `favicon.ico` - mover `./favicon.ico` para `./build`
-
-**obs.**: os subcomandos são separados por `:`.
+- `build` - construir tudo
+- `watch` - aguardar alterações e contruir
 
 `npm run`
 ---------
 
-* `deploy` - publicar
-* `open` - abrir `build/index.html`
-* `serve` - rodar `src/` (em [localhost:5000](http://localhost:5000))
+- `build` - o mesmo que `gulp build`
+- `watch` - o mesmo que `gulp build && gulp watch`
+- `deploy` - publicar a página
 
-favicon
+Icon
+----
+
+O [ícone](./src/favicon.ico) foi obtido [aqui](https://goo.gl/gYrVSu).
+
+Licença
 -------
 
-o [ícone](./src/favicon.ico) foi obtido [aqui](https://goo.gl/gYrVSu).
-
-licença
--------
-
-mit
+MIT

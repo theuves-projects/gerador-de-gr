@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "Gerador de Guia de Remessa",
   "scripts": {
-    "serve": "serve src",
     "build": "gulp build",
     "watch": "npm run build && gulp watch",
     "deploy": "npm run build && surge -p build -d https://gerador-de-guia-de-remessa.surge.sh"
@@ -25,7 +24,6 @@
     "gulp-order": "^1.1.1",
     "gulp-uglify": "^3.0.0",
     "merge-stream": "^1.0.1",
-    "serve": "^6.4.3",
     "surge": "^0.19.0"
   }
 }
