@@ -14,7 +14,7 @@
 
       // Configurar nome do usuário.
       if (!Configuracoes.tem("usuario")) {
-        var respota = $window.prompt("Informe seu nome:");
+        var respota = $window.prompt("Informe seu nome:", "");
         var nome = angular.uppercase(respota || "");
 
         Configuracoes.adicionar("usuario", nome);
