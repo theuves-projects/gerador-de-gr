@@ -12,6 +12,7 @@
     };
   }
 
+  /* @ngInject */
   function Impressao(
     $location,
     $routeParams,

@@ -12,6 +12,7 @@
     };
   }
 
+  /* @ngInject */
   function Historico(
     $location,
     $window,

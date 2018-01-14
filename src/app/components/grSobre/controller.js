@@ -12,6 +12,7 @@
     };
   }
 
+  /* @ngInject */
   function Sobre($window) {
     var sobr = this;
     ////////////////

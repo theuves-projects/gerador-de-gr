@@ -12,6 +12,7 @@
     };
   }
 
+  /* @ngInject */
   function Indice(
     $location,
     $routeParams,

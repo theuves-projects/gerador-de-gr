@@ -12,6 +12,7 @@
     };
   }
 
+  /* @ngInject */
   function Configuracoes(
     $window,
     $location,
