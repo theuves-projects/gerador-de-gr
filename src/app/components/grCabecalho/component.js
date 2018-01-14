@@ -8,7 +8,7 @@
   function config() {
     return {
       bindings: {
-        "podeSair": "&?"
+        "podeSair": "&"
       },
       controller: Cabecalho,
       controllerAs: "cab",
@@ -36,16 +36,20 @@
 
     cab.path = $location.path();
 
+    cab.novo = function () {
+      if (cab.path === "/" && cab.tahPronto()) {
+        $window.location.reload();
+      } else {
+        cab.irPara("/");
+      }
+    };
+
     cab.irPara = function (url) {
       if (cab.tahPronto()) $location.url(url);
     };
 
     cab.tahPronto = function () {
-      var podeSair = cab.podeSair;
-      var ehIndefinido = angular.isUndefined(podeSair);
-      var tahPronto = ehIndefinido || podeSair;
-
-      if (tahPronto) return true;
+      if (cab.podeSair()) return true;
 
       var continuar = $window.confirm("Dados serão perdidos.\n\nContinuar?");
       return continuar;
