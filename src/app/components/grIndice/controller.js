@@ -3,7 +3,14 @@
 
   angular
     .module("app")
-    .controller("Indice", Indice);
+    .component("grIndice", config());
+
+  function config() {
+    return {
+      controller: Indice,
+      templateUrl: "app/components/grIndice/template.html"
+    };
+  }
 
   function Indice(
     $location,

@@ -1,11 +1,11 @@
 <div
-  ng-init="conf.iniciar()"
+  ng-init="$ctrl.iniciar()"
   id="configuracoes">
 
-  <gr-cabecalho pode-sair="conf.podeSair()">
+  <gr-cabecalho pode-sair="$ctrl.podeSair()">
     <h1>CONFIGURAÇÕES</h1>
     <button
-      ng-click="conf.salvar()"
+      ng-click="$ctrl.salvar()"
       class="gr-btn gr-btn-azul"
       title="Salvar as alterações">
 
@@ -38,7 +38,7 @@
         </p>
 
         <input
-          ng-model="conf.usuario.nome"
+          ng-model="$ctrl.usuario.nome"
           ng-trim="false"
           id="usuario-nome"
           class="gr-input gr-w-100"
@@ -47,7 +47,7 @@
           placeholder="Insira seu nome aqui...">
 
         <span class="gr-float-d gr-font-12 gr-mrg-cm-5">
-          {{conf.usuario.nome.length}}-25
+          {{$ctrl.usuario.nome.length}}-25
         </span>
       </form>
     </div>
@@ -75,7 +75,7 @@
         </p>
 
         <div
-          ng-repeat="destinatario in conf.destinatarios.lista"
+          ng-repeat="destinatario in $ctrl.destinatarios.lista"
           class="gr-flex-lin gr-flex-lin-c gr-w-100 gr-anima conf-destinatario">
 
           <div
@@ -84,14 +84,14 @@
             <span gr-selecionar>{{destinatario}}</span>
 
             <i
-              ng-if="!conf.destinatarios.tahSalvo(destinatario)"
+              ng-if="!$ctrl.destinatarios.tahSalvo(destinatario)"
               class="fa fa-exclamation-triangle gr-cursor-help gr-cor-amarelo"
               title="Ainda não foi salvado!">
             </i>
           </div>
           <div class="gr-flex-col conf-destinaario-item">
             <button
-              ng-click="conf.destinatarios.remover($index)"
+              ng-click="$ctrl.destinatarios.remover($index)"
               class="gr-btn gr-btn-vermelho gr-float-d"
               title="Remover">
 
@@ -101,11 +101,11 @@
         </div>
 
         <form
-          ng-submit="conf.destinatarios.adicionar()"
+          ng-submit="$ctrl.destinatarios.adicionar()"
           class="gr-w-100 gr-mrg-cm-5">
 
           <input
-            ng-model="conf.destinatarios.novo"
+            ng-model="$ctrl.destinatarios.novo"
             ng-trim="false"
             id="destinatarios-novo"
             class="gr-input gr-w-100"
@@ -114,7 +114,7 @@
             placeholder="ADICIONE UM NOVO DESTINATÁRIO...">
 
           <span class="gr-float-d gr-font-12 gr-mrg-cm-5">
-            {{conf.destinatarios.novo.length}}-45
+            {{$ctrl.destinatarios.novo.length}}-45
           </span>
         </form>
       </div>

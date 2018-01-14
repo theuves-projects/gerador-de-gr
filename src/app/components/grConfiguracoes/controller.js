@@ -3,7 +3,14 @@
 
   angular
     .module("app")
-    .controller("Configuracoes", Configuracoes);
+    .component("grConfiguracoes", config());
+
+  function config() {
+    return {
+      controller: Configuracoes,
+      templateUrl: "app/components/grConfiguracoes/template.html"
+    };
+  }
 
   function Configuracoes(
     $window,

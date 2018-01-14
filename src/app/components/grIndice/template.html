@@ -1,11 +1,11 @@
 <div
-  ng-init="ind._iniciar()"
+  ng-init="$ctrl._iniciar()"
   id="indice">
 
-  <gr-cabecalho pode-sair="ind.guia.tahVazia()">
+  <gr-cabecalho pode-sair="$ctrl.guia.tahVazia()">
     <h1>GERADOR DE GUIAS</h1>
     <button
-      ng-click="ind.gerarGuia()"
+      ng-click="$ctrl.gerarGuia()"
       class="gr-btn gr-btn-verde"
       title="Gerar a guia">
 
@@ -19,7 +19,7 @@
       <div class="gr-flex-lin">
         <div class="gr-flex-col">
           <input
-            ng-model="ind.guia.numero"
+            ng-model="$ctrl.guia.numero"
             class="gr-input gr-w-100"
             type="number"
             min="1"
@@ -29,7 +29,7 @@
         </div>
         <div class="gr-flex-col">
           <input
-            ng-model="ind.guia.malote"
+            ng-model="$ctrl.guia.malote"
             class="gr-input gr-w-100"
             type="number"
             min="1"
@@ -41,8 +41,8 @@
 
       <div class="gr-pad-2">
         <select
-          ng-model="ind.guia.destinatario"
-          ng-options="destinatario for destinatario in ind.destinatarios"
+          ng-model="$ctrl.guia.destinatario"
+          ng-options="destinatario for destinatario in $ctrl.destinatarios"
           class="gr-input gr-w-100"
           title="Destinatarios">
 
@@ -60,11 +60,11 @@
     <div class="gr-hr"></div>
 
     <form
-      ng-submit="ind.adicionarProcesso()"
+      ng-submit="$ctrl.adicionarProcesso()"
       class="gr-pad-2 gr-mrg-bx-5">
 
       <input
-        ng-model="ind.codigoDeBarras"
+        ng-model="$ctrl.codigoDeBarras"
         gr-focar
         class="gr-input gr-w-100 gr-txt-c"
         type="text"
@@ -73,7 +73,7 @@
     </form>
 
     <div
-      ng-switch="ind.guia.processos.tahVazio()"
+      ng-switch="$ctrl.guia.processos.tahVazio()"
       class="gr-pad-2">
 
       <div
@@ -94,7 +94,7 @@
         </tr>
 
         <tr
-          ng-repeat="processo in ind.guia.processos.lista | orderBy:'-item'"
+          ng-repeat="processo in $ctrl.guia.processos.lista | orderBy:'-item'"
           class="gr-anima">
 
           <td>{{processo.item | preencher:2}}</td>
@@ -119,15 +119,15 @@
           <td class="gr-flex-lin">
             <div class="gr-flex-col gr-pad-1">
               <button
-                ng-click="ind.guia.processos.aumentarVolume(processo.numero)"
+                ng-click="$ctrl.guia.processos.aumentarVolume(processo.numero)"
                 class="gr-btn gr-btn-azul gr-w-100">
                 <i class="fa fa-arrow-up"></i>
               </button>
             </div>
             <div class="gr-flex-col gr-pad-1">
               <button
-                ng-click="ind.guia.processos.diminuirVolume(processo.numero)"
-                ng-disabled="ind.guia.processos.obter(processo.numero).volume === 1"
+                ng-click="$ctrl.guia.processos.diminuirVolume(processo.numero)"
+                ng-disabled="$ctrl.guia.processos.obter(processo.numero).volume === 1"
                 class="gr-btn gr-btn-azul gr-w-100">
 
                 <i class="fa fa-arrow-down"></i>
@@ -135,7 +135,7 @@
             </div>
             <div class="gr-flex-col gr-pad-1">
               <button
-                ng-click="ind.removerProcesso(processo.numero)"
+                ng-click="$ctrl.removerProcesso(processo.numero)"
                 class="gr-btn gr-btn-vermelho gr-w-100">
 
                 <i class="fa fa-times"></i>

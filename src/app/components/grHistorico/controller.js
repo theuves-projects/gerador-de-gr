@@ -3,7 +3,14 @@
 
   angular
     .module("app")
-    .controller("Historico", Historico);
+    .component("grHistorico", config());
+
+  function config() {
+    return {
+      controller: Historico,
+      templateUrl: "app/components/grHistorico/template.html"
+    };
+  }
 
   function Historico(
     $location,

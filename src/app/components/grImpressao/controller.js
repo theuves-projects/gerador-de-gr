@@ -3,7 +3,14 @@
 
   angular
     .module("app")
-    .controller("Impressao", Impressao);
+    .component("grImpressao", config());
+
+  function config() {
+    return {
+      controller: Impressao,
+      templateUrl: "app/components/grImpressao/template.html"
+    };
+  }
 
   function Impressao(
     $location,

@@ -7,27 +7,24 @@
 
   function config($routeProvider) {
     $routeProvider
-      .when("/", use("Indice", "ind"))
-      .when("/configuracoes", use("Configuracoes", "conf"))
-      .when("/editar/:data", use("Indice", "ind"))
-      .when("/historico", use("Historico", "hist"))
-      .when("/impressao/:data", use("Impressao", "impr"))
+      .when("/", usar("indice"))
+      .when("/configuracoes", usar("configuracoes"))
+      .when("/editar/:data", usar("indice"))
+      .when("/historico", usar("historico"))
+      .when("/impressao/:data", usar("impressao"))
       .otherwise({
         redirectTo: "/"
       });
 
-    function url(controller) {
-      var DIR = "app/controllers";
-      var FILE = "template.html";
+    function usar(nome) {
+      var prefixo = "gr-"
+      var formatado = prefixo + nome;
+      var tagInicio = "<" + formatado + ">";
+      var tagFim = "</" + formatado + ">";
+      var tag = tagInicio + tagFim;
 
-      return  DIR + "/" + controller + "/" + FILE;
-    }
-
-    function use(controller, as) {
       return {
-        controller: controller,
-        controllerAs: as,
-        templateUrl: url(controller)
+        template: tag
       };
     }
   }

@@ -1,11 +1,11 @@
 <div
-  ng-init="impr._iniciar()"
+  ng-init="$ctrl._iniciar()"
   id="impressao">
 
   <gr-cabecalho>
     <h1>IMPRESSÃO DA GUIA</h1>
     <button
-      ng-click="impr.imprimir()"
+      ng-click="$ctrl.imprimir()"
       class="gr-btn gr-btn-azul"
       title="Imprimir a guia">
 
@@ -16,12 +16,12 @@
 
   <div class="gr-principal-conteudo">
     <gr-guia
-      data="impr.data",
-      usuario="impr.usuario"
-      numero="impr.numero"
-      malote="impr.malote"
-      destinatario="impr.destinatario"
-      processos="impr.processos">
+      data="$ctrl.data",
+      usuario="$ctrl.usuario"
+      numero="$ctrl.numero"
+      malote="$ctrl.malote"
+      destinatario="$ctrl.destinatario"
+      processos="$ctrl.processos">
     </gr-guia>
   </div>
 </div>
