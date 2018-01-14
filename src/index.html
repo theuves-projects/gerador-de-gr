@@ -25,9 +25,15 @@
   <body>
     <div
       ng-app="app"
-      class="ng-cloak gr-principal">
+      class="gr-principal">
 
-      <ng-view></ng-view>
+      <ng-view>
+        <p class="gr-txt-c gr-carregando">
+          <i class="gr-mrg-bx-10 fa fa-spinner fa-pulse fa-3x"></i>
+          <br>
+          <span>CARREGANDO...</span>
+        </p>
+      </ng-view>
     </div>
 
     <script src="https://unpkg.com/angular@1.6.7/angular.min.js"></script>
