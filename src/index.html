@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="css/anima.css">
     <link rel="stylesheet" href="app/components/grIndice/template.css">
     <link rel="stylesheet" href="app/components/grCabecalho/template.css">
-    <link rel="stylesheet" href="app/components/grHistorico/template.css">
     <link rel="stylesheet" href="app/components/grGuia/template.css">
+    <link rel="stylesheet" href="app/components/grHistorico/template.css">
     <link rel="stylesheet" href="app/components/grConfiguracoes/template.css">
     <!-- endinject -->
     <!-- endbuild -->
@@ -22,19 +22,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css">
   </head>
-  <body>
-    <div
-      ng-app="app"
-      class="gr-principal">
-
-      <ng-view>
-        <p class="gr-txt-c gr-carregando">
-          <i class="gr-mrg-bx-10 fa fa-spinner fa-pulse fa-3x"></i>
-          <br>
-          <span>CARREGANDO...</span>
-        </p>
-      </ng-view>
-    </div>
+  <body ng-app="app">
+    <gr-app></gr-app>
 
     <script src="https://unpkg.com/angular@1.6.7/angular.min.js"></script>
     <script src="https://unpkg.com/angular-route@1.6.7/angular-route.min.js"></script>
@@ -44,12 +33,13 @@
     <!-- build:js script.js -->
     <!-- inject:js -->
     <script src="app/module.js"></script>
-    <script src="app/components/grImpressao/controller.js"></script>
     <script src="app/components/grSobre/controller.js"></script>
-    <script src="app/components/grIndice/controller.js"></script>
-    <script src="app/components/grHistorico/controller.js"></script>
     <script src="app/components/grConfiguracoes/controller.js"></script>
+    <script src="app/components/grApp/controller.js"></script>
+    <script src="app/components/grHistorico/controller.js"></script>
+    <script src="app/components/grImpressao/controller.js"></script>
     <script src="app/components/grGuia/component.js"></script>
+    <script src="app/components/grIndice/controller.js"></script>
     <script src="app/components/grCabecalho/component.js"></script>
     <script src="app/directives/grDestacarProcesso/directive.js"></script>
     <script src="app/directives/grFocar/directive.js"></script>
