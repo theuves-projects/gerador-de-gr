@@ -9,7 +9,7 @@ Acesse-o em &lt;https://gerador-de-guia-de-remessa.surge.sh&gt;.
 ------
 
 - `build` - construir tudo
-- `watch` - aguardar alterações e contruir
+- `watch` - aguardar alterações e construir
 
 `npm run`
 ---------
