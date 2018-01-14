@@ -51,7 +51,7 @@
           <td>{{dados[1].numero}}</td>
           <td ng-switch="!!dados[1].malote">
             <span ng-switch-when="true">
-              {{dados[1].malote}}
+              {{dados[1].malote | preencher:5}}
             </span>
             <span
               ng-switch-when="false"
