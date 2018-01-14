@@ -18,7 +18,14 @@
         ng-click="cab.irPara('/configuracoes')"
         ng-disabled="cab.path === '/configuracoes'"
         title="Abrir as configurações">
-        <i class="fa fa-cog"></i> CONFIGURAÇÕES
+        <i class="fa fa-gears"></i> CONFIGURAÇÕES
+      </button>
+      <button
+        ng-click="cab.irPara('/sobre')"
+        ng-disabled="cab.path === '/sobre'"
+        title="Sobre isto">
+        <i class="fa fa-info"></i>
+        SOBRE
       </button>
     </div>
     <div
