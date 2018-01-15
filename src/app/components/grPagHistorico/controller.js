@@ -3,12 +3,12 @@
 
   angular
     .module("app")
-    .component("grHistorico", config());
+    .component("grPagHistorico", config());
 
   function config() {
     return {
       controller: Historico,
-      templateUrl: "app/components/grHistorico/template.html"
+      templateUrl: "app/components/grPagHistorico/template.html"
     };
   }
 

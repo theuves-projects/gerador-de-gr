@@ -17,7 +17,7 @@
       });
 
     function usar(nome) {
-      var prefixo = "gr-";
+      var prefixo = "gr-pag-";
       var formatado = prefixo + nome;
       var tagInicio = "<" + formatado + ">";
       var tagFim = "</" + formatado + ">";

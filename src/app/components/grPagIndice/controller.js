@@ -3,12 +3,12 @@
 
   angular
     .module("app")
-    .component("grIndice", config());
+    .component("grPagIndice", config());
 
   function config() {
     return {
       controller: Indice,
-      templateUrl: "app/components/grIndice/template.html"
+      templateUrl: "app/components/grPagIndice/template.html"
     };
   }
 

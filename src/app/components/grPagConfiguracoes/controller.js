@@ -3,12 +3,12 @@
 
   angular
     .module("app")
-    .component("grConfiguracoes", config());
+    .component("grPagConfiguracoes", config());
 
   function config() {
     return {
       controller: Configuracoes,
-      templateUrl: "app/components/grConfiguracoes/template.html"
+      templateUrl: "app/components/grPagConfiguracoes/template.html"
     };
   }
 
