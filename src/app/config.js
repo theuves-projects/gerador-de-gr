@@ -12,7 +12,6 @@
       .when("/editar/:data", usar("indice"))
       .when("/historico", usar("historico"))
       .when("/impressao/:data", usar("impressao"))
-      .when("/sobre", usar("sobre"))
       .otherwise({
         redirectTo: "/"
       });
