@@ -1,5 +1,6 @@
 {
   "name": "devolucao",
+  "private": true,
   "version": "0.0.0",
   "description": "Gerador de Guia de Remessa",
   "scripts": {
