@@ -1,9 +1,7 @@
 Gerador de Guia de Remessa
 ==========================
 
-> Um utilitário pessoal.
-
-Acesse-o em &lt;https://gerador-de-guia-de-remessa.surge.sh&gt;.
+Está em &lt;https://gerador-de-guia-de-remessa.surge.sh&gt;.
 
 `gulp`
 ------
